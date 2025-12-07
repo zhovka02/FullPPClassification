@@ -1,0 +1,48 @@
+Tapad | Consumer Privacy Your data, your choice! We and our partners use technology such as cookies, on our sites. We do this to improve and personalise your user experience, deliver content and ads across devices, provide social media features and analyse our traffic in order to improve the user experience on this site. By clicking 'I accept' below you consent to the use of this technology across the web. You can change your mind and change your consent choices at any time by returning to your cookie settings. California residents may exercise their rights under the California Consumer Privacy Act's Do Not Sell My Personal Information choice by clicking on the link. I Accept I Do Not Accept Cookies Other Options Identity The Tapad Graph Switchboard Hashed Email Mobile Connections CTV IP Onboarding Solutions Brands Agencies Platforms Resources Experian Marketing Blog Engineering Blog Company About us Leadership Privacy News Careers Find Us Tapad Life Get in touch Identity Solutions Resources Company Get in touch Tapad (en-US) The Tapad Graph Switchboard Hashed Email Mobile Connections CTV IP Onboarding Brands Agencies Platforms Experian Marketing Blog Engineering Blog About us Leadership Privacy News Careers Find Us Tapad Life Privacy-Safe Digital Identity Resolution Privacy-Safe Digital Identity Resolution OPT OUT | GLOBAL PRIVACY NOTICE MEXICO PRIVACY NOTICE BRAZIL PRIVACY NOTICE JAPAN PRIVACY NOTICE Where being privacy-first is paramount Protecting consumer privacy has been paramount to Tapad since the creation of our company. Our goal is to ensure that every consumer is empowered to make an informed decision about what information is collected and how it is used by Tapad. Over the years, Tapad has invested significant resources into being a privacy-first company. As a long-standing member of the Network Advertising Initiative ( NAI ) and Digital Advertising Alliance ( DAA ), Tapad has been a participant in self-regulatory programs and has adhered to privacy best practices since its inception. and continues to adapt many of these initiatives to all relevant aspects of data protection frameworks across all regions. What does this mean? Ongoing commitment to transparency, user control, and user privacy by providing full disclosure as to how data is collected, processed and stored Membership in self-regulatory organizations such as the Network Advertising Initiative ( NAI ), the Digital Advertising Alliance ( DAA ) Clear and easy opt-out choices through Tapad’s site, or centralized industry opt-outs through the NAI and DAA Implementing Privacy-by-Design and Data Minimization principles throughout the product development processes which include: Not collecting data when there is no present commercial need Limiting data retention to the minimum amount needed for the purposes of usage Utilizing automatic expiration of data sets Implementing technical safeguards to not ingest data that whose source is unknown or data that is unnecessary. Ongoing formal Privacy Impact Assessments for all key products Standardized diligence process for all partners and clients to ensure all data processing and collection are compliant with relevant regulations and best practices Formalized consumer request process such as the right to access and erasure To easily opt-out of The Tapad Graph, please visit the opt-out section in our privacy notice here , or visit our full notice to learn more about options for consumer choice. FULL PRIVACY POLICY © 2023 Tapad, Inc. All content on this site is property of Tapad, Inc. Opt Out Do Not Sell My Personal Information Identity The Tapad Graph Switchboard Hashed Email Onboarding CTV IP Onboarding Mobile Connections Solutions Brands Agencies Platforms Resources Tapad Blog Engineering Blog Information Security Overview Company About us Leadership Privacy News Careers Find Us Tapad Life Contact us © 2023 Tapad, Inc. A Telenor Group company. All content on this site is property of Tapad, Inc. Opt Out | Do Not Sell My Personal Information Expanded Cookie Information × Marketing cookies are used to track visitors across websites. The
+          intention is to display ads that are relevant and engaging for the
+          individual user and thereby more valuable for publishers and third
+          party advertisers. Any cookie placed by this site will stay active
+          until opted-out of, which you can do in the options panel. Processing
+          for marketing purposes will include the following activities: Access and storage of information This allows the
+            storage of information, or access to information that is already
+            stored, on your device such as advertising identifiers, device
+            identifiers, cookies, and similar technologies. Ad selection, delivery and reporting The collection
+            of information, and combination with previously collected
+            information, to select and deliver advertisements for you, and to
+            measure the delivery and effectiveness of such advertisements. This
+            includes using previously collected information about your interests
+            to select ads, processing data about what advertisements were shown,
+            how often they were shown, when and where they were shown, and
+            whether you took any action related to the advertisement, including
+            for example clicking an ad or making a purchase. This does not
+            include personalisation, which is the collection and processing of
+            information about your use of this service to subsequently
+            personalise advertising and/or content for you in other contexts,
+            such as websites or apps, over time. Content selection, delivery and reporting The
+            collection of information, and combination with previously collected
+            information, to select and deliver content for you, and to measure
+            the delivery and effectiveness of such content. This includes using
+            previously collected information about your interests to select
+            content, processing data about what content was shown, how often or
+            how long it was shown, when and where it was shown, and whether you
+            took any action related to the content, including for example
+            clicking on content. This does not include personalisation, which is
+            the collection and processing of information about your use of this
+            service to subsequently personalise content and/or advertising for
+            you in other contexts, such as websites or apps, over time. Personalization The collection and processing of
+            information about your use of this service to subsequently
+            personalise advertising and/or content for you in other contexts,
+            such as on other websites or apps, over time. Typically, the content
+            of the site or app is used to make inferences about your interests,
+            which inform future selection of advertising and/or content. Measurement The collection of information about
+            your use of the content, and combination with previously collected
+            information, used to measure, understand, and report on your usage
+            of the service. This does not include personalisation, the
+            collection of information about your use of this service to
+            subsequently personalise content and/or advertising for you in other
+            contexts, i.e. on other service, such as websites or apps, over
+            time. Our site uses cookies from the following partners: Craft (Necessary) Google Analytics (Measurement) Hubspot (Marketing) Facebook (Marketing) LinkedIn (Marketing) The cookies used on this site are gathering the following data: Browser settings Your device’s operating system Cookie information Other identifiers assigned to the device IP address Device activity, including webpages and mobile apps visited or
+                  used Geographic location of the device when it accesses a website
+                  or mobile application If you would like to know how Tapad processes data and how you can
+              opt-out of Tapad's processing activities, please visit out Privacy
+              Policy here . <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=182382935595691&amp;ev=PageView&amp;noscript=1">

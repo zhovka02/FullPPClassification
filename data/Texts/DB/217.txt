@@ -1,0 +1,170 @@
+Heartbeat AI - Search 11M+ Healthcare & Medical Professionals <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2JWTVR"
+					  height="0" width="0" style="display:none;visibility:hidden"></iframe> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9XKPBB"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe> Why Heartbeat Data? Heartbeat Prospector Chrome Extension File Upload Products Pricing See Interactive Demo Log In Why Heartbeat Data? Heartbeat Prospector Chrome Extension File Upload Pricing Knowledge Base Log In See Interactive Demo Get FREE Trial YOUR CALIFORNIA PRIVACY RIGHTS 
+							SUPPLEMENT TO HEARTBEAT.AI PRIVACY 
+							POLICY Last Updated:  January 17, 2022 THIS SUPPLEMENT IS INTENDED FOR RESIDENTS OF CALIFORNIA. WE
+					ENCOURAGE YOU TO READ THIS SUPPLEMENT CAREFULLY AND USE 
+					IT TO MAKE INFORMED DECISIONS. BY USING OUR SERVICES, YOU 
+					AGREE TO THE TERMS OF THE PRIVACY POLICY AND THIS 
+					SUPPLEMENT, AND YOUR CONTINUED USE OF THE SERVICES 
+					CONSTITUTES YOUR ONGOING AGREEMENT TO THE PRIVACY POLICY
+					AND THIS SUPPLEMENT. GENERAL This Privacy Policy Supplement entitled “Your California Privacy Rights” 
+					outlines the individual rights Heartbeat.AI Inc. (the “Heartbeat,” “we,” “us,” or 
+					“our”) provides to the residents of California with respect to collecting, using 
+					and disclosing personal information when providing our online services 
+					(collectively, the “Services”) and constitutes an integral part of Heartbeat’s 
+					Terms of Service (“Terms,” and collectively, the “Agreement”). This Supplement is an integral part of the Heartbeat Privacy Policy linked here . It is not a standalone privacy policy. Rather, this Supplement provides 
+					privacy disclosures to California residents as required by California law to 
+					supplement the Privacy Policy. In particular, it discusses categories of 
+					personal information Heartbeat has collected and individual rights of California
+					residents relative to that personal information. As stated in the Privacy Policy, we collect personal information from “Users,” 
+					who are Heartbeat individual customers or business customer representatives
+					who use the Heartbeat Services and website (“Site”). We also collect personal
+					information from “Contacts,” who are individual healthcare or medical 
+					professionals whose information is provided to Users based on Users’ 
+					searches using the Heartbeat Prospector Service. Using the Heartbeat 
+					Services via the Site, Users can lookup “Profiles” of Contacts by Users who 
+					submit queries to the Heartbeat Prospector by searching for healthcare or 
+					medical professionals by full name, specialization, credential, state of 
+					licensure, years or experience, whether the individual is a sole proprietor, city, 
+					state, zip code, gender, pharmaceuticals provides or relationships with 
+					pharmaceutical companies, school attended, graduation year, or license/NPI 
+					number. The Services return the available “Data” for a Contact.  In specific, 
+					Profiles of healthcare and medical professionals consist of available contact 
+					information (email addresses, direct telephone numbers, cell/mobile phone 
+					numbers, fax numbers, and postal addresses to the extent available to 
+					Heartbeat). The Data provided by Heartbeat may also include (to the extent 
+					available) other information about a healthcare or medical professional, such 
+					as specialties, credential obtained, years of experience, whether the 
+					professional is a sole proprietor, states in which the professional is licensed, 
+					gender, information about pharmaceuticals provided and supplier 
+					relationships, education, year graduated, and license/NPI number. CALIFORNIA CONSUMER PRIVACY ACT DISCLOSURES i. Categories of Personal Information and Recipients The table below summarizes the categories of personal information we collect
+					from California residents (and have collected in the last 12 months), the 
+					purposes for which the categories of personal information will be used, and 
+					the categories of recipients to whom Heartbeat has disclosed (including for a 
+					business purpose) and sold personal information (and has done so in the past
+					12 months). Categories of Personal Information Collected Purposes of Use Categories of Recipients to Whom The Personal Information
+						  Was Disclosed and Sold “Identifiers” such as a real 
+							name, alias, postal address, 
+							telephone number, email 
+							address, and account name. We collect all the above 
+							Identifiers from Users.  We collect name, phone number, 
+							email address, location (city 
+							and country), company name, 
+							and job title from Users and 
+							about Contacts. Users: Identifiers about Users are used for marketing, for 
+							opening new user accounts to use Heartbeat’s Services, and to maintain existing accounts. 
+							Contacts: Identifiers are used to provide 
+							Services to Users. Users query our Services and receive Identifiers of Contacts in response. Identifiers of Contacts are sold and disclosed to Users. Information (other than Identifiers 
+							already described above) that identifies, relates to, 
+							describes, or is capable of being associated with, a particular individual, including, but not 
+							limited to: Signature We may collect signatures on forms used for identity verification purposes for
+							California residents or their agents seeking to exercise individual rights. Not applicable. Employment information (job title and business contact
+						  information). We collect company name and job title for Contacts. This
+						  information is used to provide Services to Users in response
+						  to their queries. Company name and job title for of Contacts are sold and disclosed to Users. Bank account number, credit card number, debit card number,
+						  or any other financial information. We collect this
+						  information from Users. Payment information is used for paying for Services. Payment information is never sold. It is, however, disclosed
+						  to payment gateway service providers that process payments
+						  from Users on behalf of Heartbeat. Context-specific personal information not 
+							specifically covered within the other categories in this table: the 
+							Heartbeat website uses the Smartlook service operated by 
+							Smartlook.com, s.r.o. The Smartlook service records session information 
+							showing how visitors use and take action on websites and mobile apps. The recordings of uses of the Heartbeat website is collected for 
+							amongst other things troubleshooting errors and bugs as well as for 
+							research and analytics purposes about your use of the Services. Not applicable.  
+							Heartbeat uses the personal 
+							information collected in this category strictly for internal use. Commercial information, including records of products and
+						  services purchased, obtained, or considered, or other
+						  purchasing or consuming histories or tendencies. We collect
+						  this information about Users. For our accounting records, we maintain records of what
+						  purchases Users made, when and for how much. Our accountants and financial advisors may have access to
+						  commercial information of Users. Electronic information. The information in this table is
+						  almost all in electronic form. See the other cells in table. We may also collect information about your 
+							use of the Services (including by using the 
+							the Site), such as certain log files, User 
+							activity (e.g. pages viewed, the amount of 
+							time spent on particular pages, online browsing,
+							clicks, actions, installs, etc.), time stamps, alerts, etc See the other cells in table. Professional or employment-related information (job title
+						  and business contact information). The Profile personal information we collect about Contacts may 
+							include (to the extent available) information about a healthcare or 
+							medical professional’s profession or employment, such as 
+							specialties, credential obtained, years of experience, whether the
+							professional is a sole proprietor, states in which the professional
+							is licensed, gender, 
+							information about pharmaceuticals provided and supplier 
+							relationships, education, year graduated, and license/NPI number. Profile information is sold and disclosed to Users. ii. Individual Rights Under CCPA Right of Access and Data Portability Upon request, we will tell a California resident the categories and specific 
+					pieces of personal information we have collected about that resident in the 
+					previous 12 months.  In addition, upon request, we will disclose to a California
+					resident: The categories of personal information we have collected about that 
+							California resident. The categories of sources from which the personal information is 
+							collected. The business or commercial purpose for collecting that California 
+							resident’s personal information. The categories of third parties with whom we share personal 
+							information. The specific pieces of personal information we have collected about 
+							that California resident. The categories of personal information that we have sold about that 
+							California resident. The categories of personal information that we disclosed about a 
+							California resident for a business purpose. The identity of any person making such a request must be verified as a 
+					condition of providing the requested information. Right of Deletion You have the right to request that we delete any of your personal information 
+					that we collected from you and retained by us, subject to certain conditions 
+					and exceptions under the law.  For instance, we have the right to retain 
+					personal information needed to: Complete the transaction for which the personal information was 
+							collected, provide a good or service requested by the California 
+							resident, or reasonably anticipated within the context of our ongoing 
+							business relationship with the California resident, or otherwise 
+							perform a contract between our business and the California resident. Detect security incidents, protect against malicious, deceptive, 
+							fraudulent, or illegal activity; or prosecute those responsible for that 
+							activity. Conduct solely internal uses that are reasonably aligned with the 
+							expectations of the California resident based on the California 
+							resident’s relationship with us. Comply with a legal obligation. Use the personal information internally, in a lawful manner that is 
+							compatible with the context in which the California resident provided 
+							it. The identity of any person making such a request must be verified in 
+					accordance with the verification procedures below as a condition of deleting 
+					the personal information as requested. How to Exercise Individual Rights If you wish to contact us about any of your rights as set out in this section, 
+					please contact us by one of the methods listed below in the Contact Us 
+					section.  Please contact us using one of these methods if you wish to have an 
+					authorized agent make a request for individual rights on your behalf. Verification of Requests to Exercise Individual Rights For Users:  We will verify your identity in response to a request to exercise 
+					your individual rights by requiring you to log into your password-protected 
+					account, going to the Section in your profile called “Exercising Individual 
+					Privacy Rights,” checking the box next to the individual rights you wish to 
+					exercise, and saving your preferences. For Contacts that are not Users: We will verify your identity in response to a request to exercise your 
+							individual rights by requiring that you to provide two pieces of 
+							information that Heartbeat already has in the Contact’s Profile from the 
+							following categories:  for instance, email address or telephone number. In addition, in the case of a request for specific pieces of personal 
+							information, we will ask for an additional piece of information that 
+							Heartbeat already has in the Contact’s Profile in addition to the two 
+							pieces described above, together with a signed declaration under 
+							penalty of perjury that the requestor is the consumer whose personal 
+							information is the subject of the request or a representative acting on 
+							behalf of that consumer. We will not provide or delete information as requested if we are unable to 
+					verify the identity of the requestor as required above or have reason to believe
+					that the request is fraudulent. We may ask for additional verification if we 
+					suspect fraud, such as a copy of an identification credential from the 
+					requestor. We will use any such additional information strictly for identity 
+					verification purposes, and it will be deleted following the completion of the 
+					verification process. Policy Against Discrimination California residents have a right not to receive discriminatory treatment by any
+					business covered by the CCPA for the exercise of the privacy rights conferred
+					by the CCPA. Accordingly, Heartbeat will not discriminate against individual 
+					California residents for exercising any of their rights under the CCPA, 
+					including by: Denying goods or services to the California resident Charging different prices or rates for goods or services, including 
+							through the use of discounts or other benefits or imposing penalties. Providing a different level or quality of goods or services Suggesting that the California resident will receive a different price or
+							rate for goods or services or a different level or quality of goods or 
+							services Sale of Personal Information of Minors Heartbeat does not knowingly sell the personal information of minors under 16
+					years of age. NOTICE TO CALIFORNIA RESIDENTS REGARDING “DO 
+						NOT TRACK” SIGNALS Under California law, online service providers must disclose in their privacy 
+					policies how they respond to “do not track” settings. These are settings users 
+					can set in their browser software. Currently, there is no standard governing 
+					what, if anything, a website operator should do when receiving a “do not track”
+					signal. Accordingly, Heartbeat does not currently take action in response to a 
+					“do not track” browser setting. As industry standards regarding do not track 
+					settings emerge, Heartbeat will revisit and amend this policy to account for 
+					these standards. CONTACT US If you have any questions, comments or concerns about this Supplement or 
+					about our privacy practices, seek to exercise any of your privacy rights under 
+					applicable law, or wish to access, change, or update personal information we 
+					have about you, you should first contact us by email at contact@heartbeat.ai . 
+					You may also contact us at this email address if you are aware of abuse or 
+					misuse of our Services. If you are a Contact, you may also opt out of the sale 
+					of your personal information as stated in the next section. NOTICE OF RIGHT TO OPT OUT If you prefer that we not sell your personal information (by disclosing your 
+					Profile to our Users, vendors or business partners), you may opt-out by filling 
+					in your relevant details at here – www.heartbeat.ai/Optout . COMPLAINTS If you have a complaint about our privacy practices regarding California 
+					residents, please follow the procedures in our Privacy Policy in the section 
+					titled Contact Us; Exercising Individual Rights; Complaints. Products Heartbeat Chrome Extension File Upload Company Why Heartbeat Data? About Pricing Contact Blog Legal Terms Privacy CCPA Opt-Out Do Not Sell My Info Resources Help Center Support API Documentation Companies Directory Social Resources Products Heartbeat Chrome Extension File Upload Company Why Heartbeat Data? About Pricing Contact Blog Legal Terms Privacy CCPA Opt-Out Do Not Sell My Info Resources Help Center Support API Documentation Companies Directory Social Resources Ⓒ Copyright 2023 Heartbeat.AI Inc. All rights reserved. Get Free Trial <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3862721&fmt=gif" /> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3862721&amp;fmt=gif"> <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=320480943340042&amp;ev=PageView&amp;noscript=1">

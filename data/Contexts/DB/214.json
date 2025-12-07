@@ -1,0 +1,321 @@
+{
+  "policy_id": "214",
+  "text": "Privacy Policy | ACH, Address Clearing House top of page Skip to Main Content ACH, Address Clearing House Home About DNSMPI Privacy Policy More Use tab to navigate through the menu items. Get In Touch Privacy Policy Your privacy is particularly important to us. This privacy policy will outline the types of information we may collect, how that information may be used, and with whom the information may be shared. This privacy policy applies to all information gathered for and on behalf of ACH, whether in writing, verbally or electronically. ​ While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information. ​ Personal information : Personal information is collected, processed, used, shared, or sold as described below: ​ Information Collected: Self-reported Information (i.e. name, home address, previous address, email address, demographic info) ​ Source of Information Collected: Processing Centers Provided directly via direct communication Data Compiling Companies ​ Purpose of Information Collected: Data Marketing/ Marketing Services Analysis Online Targeting Notice at Collection: The information collected by ACH is done so in accordance with client’s privacy policy. ​ The data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address. ​ ACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ Use: Personal Information is not accessible to anyone outside the specific function for which it is collected. ACH does not use affiliates or unauthorized third party data. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ With Whom: Personal information will only be disclosed in accordance with client’s privacy policy. ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ Access to Personal Information: You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information. You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information. You have the right to opt out of the sale of your personal information. ​ You have the right to opt-out of sharing. ​ You have the right to opt-out of automated decision making and profiling. ACH does not use automated decision making or profiling when processing personal information. You have the right to not be discriminated against for exercising any of your CCPA/CPRA-provided rights. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ Virginia Residents: If you are a Virginia resident, Virginia's Consumer Data Protection Act (\"VCDPA\") provides you with specific rights regarding your personal information, including: ​ You have the right to request a copy of your personal information that ACH has about you, in a portable format. ​ You have the right to request correction of your personal information. ​ You have the right to request deletion of your personal information. ​ You have the right to opt0out of targeted advertising, profiling and the sale of your information. ​ You have the right to appeal, if your request is denied. ​ You have the right to not be discriminated against for exercising any of your VCDPA-provided rights. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ Data Retention: ACH will keep personal information as long as necessary for our business purposes, as described in this Privacy Policy. Once personal information is no longer needed, it will be removed from our system. ​ Security: ACH takes all necessary steps to ensure that the data we collect, license, and process is housed and transmitted securely.  ACH adheres to all federal and state privacy laws, as well as self-regulatory industry principles. ACH follows industry standards on information security management to safeguard personal information which includes physical and electronic security, including, but not limited to firewall protections and encryption. ​ Questions or Concerns: If you have questions or concerns about ACH’s privacy efforts or data products, please contact us: Privacy Department ACH, Address Clearing House 16192 Coastal Highway Lewes, DE 19958 privacy@achcoop.com (Last Updated January 24, 2023) Privacy Policy: Text ©2021 by achcoop.com. Proudly created with Wix.com bottom of page",
+  "annotations": [
+    {
+      "Text": "While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information. \\n\\n​\\n\\nPersonal information:\\n\\nPersonal information is collected, processed, used, shared, or sold as described below:\\n\\n​\\n\\nInformation Collected: \\n\\nSelf-reported Information (i.e. name, home address, previous address, email address, demographic info)   \\n\\n​\\n\\nSource of Information Collected:\\n\\nProcessing Centers\\n\\nProvided directly via direct communication\\n\\nData Compiling Companies\\n\\n​\\n\\nPurpose of Information Collected:\\n\\nData Marketing/ Marketing Services\\n\\nAnalysis\\n\\nOnline Targeting",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {This privacy policy will outline the types of information we may collect, how that information may be used, and with whom the information may be shared. This privacy policy applies to all information gathered for and on behalf of ACH, whether in writing, verbally or electronically.} "
+    },
+    {
+      "Text": "The data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.\\n\\n​\\n\\nACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {​ Personal information : Personal information is collected, processed, used, shared, or sold as described below: ​ Information Collected: Self-reported Information (i.e. name, home address, previous address, email address, demographic info) ​ Source of Information Collected: Processing Centers Provided directly via direct communication Data Compiling Companies ​ Purpose of Information Collected: Data Marketing/ Marketing Services Analysis Online Targeting Notice at Collection: The information collected by ACH is done so in accordance with client’s privacy policy.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION\\n\\nTo properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.\\n\\n​\\n\\nWith Whom:\\n\\nPersonal information will only be disclosed in accordance with client’s privacy policy.\\n\\n\\n\\nACH works on an “As-Is” basis without warranties of any kind.\\n\\n\\n\\nClick Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION\\n\\nTo properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.",
+      "Label": "Others",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION\\n\\nTo properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.\\n\\n​",
+      "Label": "Others",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Access to Personal Information:\\n\\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "Access to Personal Information:\\n\\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "You have the right to request access to your personal information.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {​ Access to Personal Information: You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "You have the right to request access to your personal information.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {​ Access to Personal Information: You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "You have the right to request deletion of all your personal information.",
+      "Label": "Description of Right to Delete",
+      "Context": "2 Sentences Before {Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information.} "
+    },
+    {
+      "Text": "You have the right to request correction of your personal information.\\n\\n",
+      "Label": "Description of Right to Correct Information",
+      "Context": "2 Sentences Before {​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information. You have the right to request deletion of all your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt out of the sale of your personal information.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt-out of sharing.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to not be discriminated against for exercising any of your CCPA/CPRA-provided rights.",
+      "Label": "Description of Right to Non-discrimination on exercising rights",
+      "Context": "2 Sentences Before {​ You have the right to opt-out of automated decision making and profiling. ACH does not use automated decision making or profiling when processing personal information.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION\\n\\nTo properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.",
+      "Label": "Others",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "(Last Updated January 24, 2023)",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {} "
+    },
+    {
+      "Text": "Information Collected: \\n\\nSelf-reported Information (i.e. name, home address, previous address, email address, demographic info)   \\n\\n​\\n\\nSource of Information Collected:\\n\\nProcessing Centers\\n\\nProvided directly via direct communication\\n\\nData Compiling Companies\\n\\n​\\n\\nPurpose of Information Collected:\\n\\nData Marketing/ Marketing Services\\n\\nAnalysis\\n\\nOnline Targeting\\n\\n",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {This privacy policy applies to all information gathered for and on behalf of ACH, whether in writing, verbally or electronically. ​ While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information.} "
+    },
+    {
+      "Text": "The data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {​ Personal information : Personal information is collected, processed, used, shared, or sold as described below: ​ Information Collected: Self-reported Information (i.e. name, home address, previous address, email address, demographic info) ​ Source of Information Collected: Processing Centers Provided directly via direct communication Data Compiling Companies ​ Purpose of Information Collected: Data Marketing/ Marketing Services Analysis Online Targeting Notice at Collection: The information collected by ACH is done so in accordance with client’s privacy policy.} "
+    },
+    {
+      "Text": "ACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {​ The data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.} "
+    },
+    {
+      "Text": "ACH does not knowingly collect personal information from anyone under the age of 18.",
+      "Label": "Others",
+      "Context": "2 Sentences Before {​ ACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Access to Personal Information:\\n\\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sol",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "Access to Personal Information:\\n\\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.\\n\\n",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "You have the right to request access to your personal information.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {​ Access to Personal Information: You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "You have the right to request deletion of all your personal information.\\n\\n​",
+      "Label": "Description of Right to Delete",
+      "Context": "2 Sentences Before {Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information.} "
+    },
+    {
+      "Text": "You have the right to request correction of your personal information.",
+      "Label": "Description of Right to Correct Information",
+      "Context": "2 Sentences Before {​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information. You have the right to request deletion of all your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt out of the sale of your personal information.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt-out of sharing.",
+      "Label": "Others",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt-out of automated decision making and profiling.",
+      "Label": "Others",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to not be discriminated against for exercising any of your CCPA/CPRA-provided rights.",
+      "Label": "Description of Right to Non-discrimination on exercising rights",
+      "Context": "2 Sentences Before {​ You have the right to opt-out of automated decision making and profiling. ACH does not use automated decision making or profiling when processing personal information.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "(Last Updated January 24, 2023)",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {} "
+    },
+    {
+      "Text": "While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information. ",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {This privacy policy will outline the types of information we may collect, how that information may be used, and with whom the information may be shared. This privacy policy applies to all information gathered for and on behalf of ACH, whether in writing, verbally or electronically.} "
+    },
+    {
+      "Text": "Personal information:\\n\\nPersonal information is collected, processed, used, shared, or sold as described below:\\n\\n​\\n\\nInformation Collected: \\n\\nSelf-reported Information (i.e. name, home address, previous address, email address, demographic info)   \\n\\n​\\n\\nSource of Information Collected:\\n\\nProcessing Centers\\n\\nProvided directly via direct communication\\n\\nData Compiling Companies\\n\\n​\\n\\nPurpose of Information Collected:\\n\\nData Marketing/ Marketing Services\\n\\nAnalysis\\n\\nOnline Targeting\\n\\n\\n\\nNotice at Collection:\\n\\nThe information collected by ACH is done so in accordance with client’s privacy policy.\\n\\n​\\n\\nThe data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.\\n\\n​\\n\\nACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {This privacy policy applies to all information gathered for and on behalf of ACH, whether in writing, verbally or electronically. ​ While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information.} "
+    },
+    {
+      "Text": "Purpose of Information Collected:\\n\\nData Marketing/ Marketing Services\\n\\nAnalysis\\n\\nOnline Targeting",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {​ While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information. ​ Personal information : Personal information is collected, processed, used, shared, or sold as described below: ​ Information Collected: Self-reported Information (i.e.} "
+    },
+    {
+      "Text": "Purpose of Information Collected:\\n\\nData Marketing/ Marketing Services\\n\\nAnalysis\\n\\nOnline Targeting",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {​ While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one's information. ​ Personal information : Personal information is collected, processed, used, shared, or sold as described below: ​ Information Collected: Self-reported Information (i.e.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Use:\\n\\nPersonal Information is not accessible to anyone outside the specific function for which it is collected.\\n\\n\\n\\nACH does not use affiliates or unauthorized third party data.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "With Whom:\\n\\nPersonal information will only be disclosed in accordance with client’s privacy policy.",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {ACH does not use affiliates or unauthorized third party data. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Full name, Address, City, State, Zip Code.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Access to Personal Information:\\n\\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "Access to Personal Information:\\n\\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {ACH works on an “As-Is” basis without warranties of any kind. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "Full name, Address, City, State, Zip Code.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "You have the right to request access to your personal information.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {​ Access to Personal Information: You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "You have the right to request deletion of all your personal information.",
+      "Label": "Description of Right to Delete",
+      "Context": "2 Sentences Before {Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. ​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information.} "
+    },
+    {
+      "Text": "You have the right to request correction of your personal information.",
+      "Label": "Description of Right to Correct Information",
+      "Context": "2 Sentences Before {​ California Residents: If you are a California resident, the California Consumer Privacy Act, (“CCPA”), and the California Privacy Rights Act (\"CPRA\") provides you with specific rights regarding your personal information, including: You have the right to request access to your personal information. You have the right to request deletion of all your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt out of the sale of your personal information.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt-out of sharing.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to opt-out of automated decision making and profiling.",
+      "Label": "Others",
+      "Context": "2 Sentences Before {You have the right to request deletion of all your personal information. ​ You have the right to request correction of your personal information.} "
+    },
+    {
+      "Text": "You have the right to not be discriminated against for exercising any of your CCPA/CPRA-provided rights.",
+      "Label": "Description of Right to Non-discrimination on exercising rights",
+      "Context": "2 Sentences Before {​ You have the right to opt-out of automated decision making and profiling. ACH does not use automated decision making or profiling when processing personal information.} "
+    },
+    {
+      "Text": "Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Full name, Address, City, State, Zip Code.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data. ​ ACH does not knowingly collect personal information from anyone under the age of 18.} "
+    },
+    {
+      "Text": "Data Retention:\\n\\nACH will keep personal information as long as necessary for our business purposes, as described in this Privacy Policy. Once personal information is no longer needed, it will be removed from our system.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {​ You have the right to not be discriminated against for exercising any of your VCDPA-provided rights. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.} "
+    },
+    {
+      "Text": "(Last Updated January 24, 2023)",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {} "
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "policy_id": "151",
+  "text": "What is Your Pricing Policy? | Bass Pro Shops Ask your question here Basspro.com Home Online Shopping What is Your Pricing Policy? What is your pricing policy? Category: Ordering ERRORS, INACCURACIES, AND OMISSIONS Please note that despite our best efforts, the prices and other information stated for the products appearing on our websites (or in our catalogs, circulars, or stores) may occasionally contain errors, inaccuracies, or omissions. We do not guarantee the accuracy or completeness of such information, including any price, description, image, or availability of a product. We reserve the right to correct any errors, inaccuracies, or omissions, and to cancel any order containing a price or availability error, with no further obligation to you, including after you have submitted your order. We apologize for any inconvenience. PRICING, AVAILABILITY, AND ORDER LIMITATIONS Please note that our prices and promotions are subject to change, and will sometimes vary among our websites, catalogs, and stores. We cannot confirm the price or availability of a product until after your order is placed. Our receipt of your order does not constitute our acceptance of the order or our confirmation of an offer to sell the product ordered. We reserve the right to limit the quantity of any order and to refuse any order above that limit. No rain checks. We do not accept COD orders. We reserve the right to refuse to sell to dealers or resellers. All prices shown are in U.S. dollars. Recommended articles What is your Return Policy? What is the Return Policy on Purchases From Canada? What Are My Options for Placing an Order? How Do I Return My Order? How Are Orders Shipped to Canada? Most popular articles How Do I Return My Order? What is your Return Policy? How Do I Check My Gift Card Balance? How Do I Check My Order Status or Track My Package? When Will Santa Be Visiting Your Retail Stores? Most popular categories Company Information (18) CLUB (10) Ordering (10) Gift Cards (9) Catalogs (5) ODR (5) Shipping (2) Loyalty (1) Product Information (1) Returns (1) Ask your question here reset Contact Us Descriptive, typographic, or photographic errors are subject to corrections. Prices shown are in U.S. funds. All pages copyright BPS Direct, L.L.C. All rights reserved. Powered by Shelf For full functionality of this site it is necessary to enable JavaScript. Here are the <a href=\"http://www.enable-javascript.com/\" target=\"_blank\" rel=\"noopener noreferrer\">instructions how to enable JavaScript in your web browser</a>.",
+  "annotations": [
+    {
+      "Text": "You have the right to request information about what personal information AARP has about you, including:\\nWhat personal information was collected,\\nWhat personal information was used,\\nWhat personal information was shared in the last 12 months\\nWhat personal information was sold in the last 12 months, and\\nthe purpose of the above activities.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": ""
+    },
+    {
+      "Text": "You have the right to request information about what personal information AARP has about you, including:\\nWhat personal information was collected,\\nWhat personal information was used,\\nWhat personal information was shared in the last 12 months\\nWhat personal information was sold in the last 12 months, and\\nthe purpose of the above activities.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": ""
+    },
+    {
+      "Text": "Correct Information that AARP has About You â€“ Right to Correct\\nYou have the right to request that AARP correct information you know or believe to be inaccurate. ",
+      "Label": "Description of Right to Correct Information",
+      "Context": ""
+    },
+    {
+      "Text": "o exercise your Right to Access, please click the â€œSubmit a Requestâ€ button below.",
+      "Label": "Methods to exercise rights",
+      "Context": ""
+    },
+    {
+      "Text": "To exercise your Right to Correct, please click the â€œSubmit a Requestâ€ button below.",
+      "Label": "Methods to exercise rights",
+      "Context": ""
+    },
+    {
+      "Text": "Opt-out of Sale or Sharing of Your Personal Information\\nYou have the right to request that AARP not sell or share your personal information to third parties.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {Recommended articles What is your Return Policy? What is the Return Policy on Purchases From Canada?} "
+    },
+    {
+      "Text": "To exercise your Right to Opt Out of Sale or Sharing, please click the â€œSubmit a Requestâ€ button below.",
+      "Label": "Methods to exercise rights",
+      "Context": ""
+    },
+    {
+      "Text": "To exercise your Right to Delete, please click the â€œSubmit a Requestâ€ button below.",
+      "Label": "Methods to exercise rights",
+      "Context": ""
+    },
+    {
+      "Text": "LIMIT PROCESSING OF SENSITIVE INFORMATION THAT AARP MAY HAVE ABOUT YOU â€“ RIGHT TO LIMIT\\nYou have the right to request that AARP limit the processing of sensitive personal information AARP may have about you.",
+      "Label": "Description of Right to Limit use of PI",
+      "Context": ""
+    },
+    {
+      "Text": "To exercise your Right to Limit, please click the â€œSubmit a Requestâ€ button below.",
+      "Label": "Methods to exercise rights",
+      "Context": ""
+    },
+    {
+      "Text": "Delete\\nYou have the right to request the deletion of your personal information.",
+      "Label": "Description of Right to Delete",
+      "Context": ""
+    }
+  ]
+}

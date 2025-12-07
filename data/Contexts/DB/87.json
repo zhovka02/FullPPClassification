@@ -1,0 +1,276 @@
+{
+  "policy_id": "87",
+  "text": "Your California privacy rights | Permutive <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-NL36V6W\"\n\t\theight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe> Request a demo Your California Privacy Rights This California Privacy Rights Notice (the “California Privacy Notice”) supplements the Permutive Website Privacy Policy (the “Website Privacy Notice”) by describing your privacy rights if you are a California resident. Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information. Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”). How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information. How We Use Personal Information Please refer to the “ How Do We Use Your Personal Information ” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used. How We Share Your Personal Information Please refer to the “ How We Share Your Personal Information ” section of our Website Privacy Notice to understand how we share personal information. Categories of Personal Information We Sell As we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information. Your Rights Under California Law Under California law, you have the right to make the following requests: Access. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months. Deletion. Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request. Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information. Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information. How to Make a Request If you wish to make a request please send us an e-mail at privacy@permutive.com. Once we receive your request, we will validate the information that you provide and respond accordingly. Please follow the instructions in that email to verify your email address. You can designate someone else to make a request on your behalf. We will contact you to verify your identity before we respond to your authorized agent’s request. Right to Non-Discrimination We do not discriminate against you for requesting any of the rights noted above. Requests from Authorized Agents If you would like an authorized agent to submit a request on your behalf, please send us an email at privacy@permutive.com for instructions and details on proof required for use of an authorized agent. Other California Privacy Rights California’s “Shine the Light” law (Civil Code Section § 1798.83) permits users of our website that are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. To make such a request, please send an email to privacy@permutive.com or write us at [511 W 25th Street, 7th floor, New York, NY 10001]. Contact for More Information If you have questions about our privacy policies or practices, please contact us using the contact information noted in the “ Contact Us ” section of our Website Privacy Notice. Updates to This California Notice We may make changes to this California Notice, and may apply any changes to information previously collected, as permitted by law. When we make material changes to this California Notice, we will notify you by posting the updated California Notice on our Website, and we will update the Effective Date at the end of this California Notice. Effective Date This California Notice is effective 3 October 2022. Audience Platform For Publishers For Advertisers Our Customers Resources Careers Opportunities Request a demo Get in touch → hello@permutive.com → NYC (646) 851-2049 → LDN 020 3966 3833 GitHub Twitter © Permutive 2022. All Rights Reserved. Products Audience Platform for Publishers Audience Platform for Advertisers Company Our Customers Careers Resources Privacy Terms API Do Not Sell My Personal Information © Permutive 2022. All Rights Reserved. Do Not Sell My Personal Information When you visit our website, we store cookies on your browser to collect information. The information collected might relate to you, your preferences or your device, and is mostly used to make the site work as you expect it to and to provide a more personalized web experience. However, you can choose not to allow certain types of cookies, which may impact your experience of the site and the services we are able to offer. Click on the different category headings to find out more and change our default settings according to your preference. You cannot opt-out of our First Party Strictly Necessary Cookies as they are deployed in order to ensure the proper functioning of our website (such as prompting the cookie banner and remembering your settings, to log into your account, to redirect you when you log out, etc.). For more information about the First and Third Party Cookies used please follow this link. Allow All Manage Consent Preferences Strictly Necessary Cookies Always Active These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.    You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information. Sale of Personal Data Sale of Personal Data Under the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads. You may exercise your right to opt out of the sale of personal information by using this toggle switch.\n                If you opt out we will not be able to offer you personalised ads and will not hand over your personal information to any third parties. Additionally, you may contact our legal department for further clarification about your rights as a California consumer by using this Exercise My Rights link. If you have enabled privacy controls on your browser (such as a plugin), we have to take that as a valid request to opt-out. Therefore we would not be able to track your activity through the web. This may affect our ability to personalize ads according to your preferences. Performance Cookies Switch Label label These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.    All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance. Targeting Cookies Switch Label label These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.    They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising. Back Button Performance Cookies Search Icon Filter Icon Clear checkbox label label Apply Cancel Consent Leg.Interest checkbox label label checkbox label label checkbox label label Confirm My Choices",
+  "annotations": [
+    {
+      "Text": "Categories of Personal Information We Collect\\nPlease refer to the “Information We Collect” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”).",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information.} "
+    },
+    {
+      "Text": "How We Collect Your Personal Information\\nPlease see the “How We Collect Your Personal Information” section in our Website Privacy Notice to understand the sources from which we get personal information.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {This California Notice also uses that definition when we refer to personal information. Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”).} "
+    },
+    {
+      "Text": "How We Use Personal Information\\nPlease refer to the “How Do We Use Your Personal Information” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”). How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information.} "
+    },
+    {
+      "Text": "How We Use Personal Information\\nPlease refer to the “How Do We Use Your Personal Information” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”). How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information.} "
+    },
+    {
+      "Text": "How We Use Personal Information\\nPlease refer to the “How Do We Use Your Personal Information” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”). How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information.} "
+    },
+    {
+      "Text": "How We Share Your Personal Information\\nPlease refer to the “How We Share Your Personal Information” section of our Website Privacy Notice to understand how we share personal information.",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information. How We Use Personal Information Please refer to the “ How Do We Use Your Personal Information ” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.} "
+    },
+    {
+      "Text": "How We Share Your Personal Information\\nPlease refer to the “How We Share Your Personal Information” section of our Website Privacy Notice to understand how we share personal information.",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information. How We Use Personal Information Please refer to the “ How Do We Use Your Personal Information ” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.} "
+    },
+    {
+      "Text": "Categories of Personal Information We Sell\\nAs we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information.} "
+    },
+    {
+      "Text": "Access. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {Categories of Personal Information We Sell As we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.} "
+    },
+    {
+      "Text": "Deletion. Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.",
+      "Label": "Description of Right to Delete",
+      "Context": "2 Sentences Before {Your Rights Under California Law Under California law, you have the right to make the following requests: Access. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.} "
+    },
+    {
+      "Text": "Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.} "
+    },
+    {
+      "Text": "Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.} "
+    },
+    {
+      "Text": "Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.} "
+    },
+    {
+      "Text": "How to Make a Request\\nIf you wish to make a request please send us an e-mail at privacy@permutive.com. Once we receive your request, we will validate the information that you provide and respond accordingly. Please follow the instructions in that email to verify your email address. You can designate someone else to make a request on your behalf. We will contact you to verify your identity before we respond to your authorized agent’s request.",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information.} "
+    },
+    {
+      "Text": "Right to Non-Discrimination\\nWe do not discriminate against you for requesting any of the rights noted above.",
+      "Label": "Description of Right to Non-discrimination on exercising rights",
+      "Context": "2 Sentences Before {You can designate someone else to make a request on your behalf. We will contact you to verify your identity before we respond to your authorized agent’s request.} "
+    },
+    {
+      "Text": "Updates to This California Notice\\nWe may make changes to this California Notice, and may apply any changes to information previously collected, as permitted by law. When we make material changes to this California Notice, we will notify you by posting the updated California Notice on our Website, and we will update the Effective Date at the end of this California Notice.\\n\\nEffective Date\\nThis California Notice is effective 3 October 2022.",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {To make such a request, please send an email to privacy@permutive.com or write us at [511 W 25th Street, 7th floor, New York, NY 10001]. Contact for More Information If you have questions about our privacy policies or practices, please contact us using the contact information noted in the “ Contact Us ” section of our Website Privacy Notice.} "
+    },
+    {
+      "Text": "When you visit our website, we store cookies on your browser to collect information. The information collected might relate to you, your preferences or your device, and is mostly used to make the site work as you expect it to and to provide a more personalized web experience. H",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Products Audience Platform for Publishers Audience Platform for Advertisers Company Our Customers Careers Resources Privacy Terms API Do Not Sell My Personal Information © Permutive 2022. All Rights Reserved.} "
+    },
+    {
+      "Text": "Sale of Personal Data\\nUnder the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads. You may exercise your right to opt out of the sale of personal information by using this toggle switch.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.} "
+    },
+    {
+      "Text": "Categories of Personal Information We Sell\\nAs we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information.} "
+    },
+    {
+      "Text": "Categories of Personal Information We Sell\\nAs we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information.} "
+    },
+    {
+      "Text": "Your Rights Under California Law\\nUnder California law, you have the right to make the following requests:\\n\\nAccess. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {Categories of Personal Information We Sell As we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.} "
+    },
+    {
+      "Text": "Your Rights Under California Law\\nUnder California law, you have the right to make the following requests:\\n\\nAccess. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {Categories of Personal Information We Sell As we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.} "
+    },
+    {
+      "Text": "Deletion. Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.",
+      "Label": "Description of Right to Delete",
+      "Context": "2 Sentences Before {Your Rights Under California Law Under California law, you have the right to make the following requests: Access. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.} "
+    },
+    {
+      "Text": "Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.} "
+    },
+    {
+      "Text": "Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.} "
+    },
+    {
+      "Text": "Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.} "
+    },
+    {
+      "Text": "How to Make a Request\\nIf you wish to make a request please send us an e-mail at privacy@permutive.com.",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information.} "
+    },
+    {
+      "Text": "Right to Non-Discrimination\\nWe do not discriminate against you for requesting any of the rights noted above.",
+      "Label": "Description of Right to Non-discrimination on exercising rights",
+      "Context": "2 Sentences Before {You can designate someone else to make a request on your behalf. We will contact you to verify your identity before we respond to your authorized agent’s request.} "
+    },
+    {
+      "Text": "Effective Date\\nThis California Notice is effective 3 October 2022.",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {Updates to This California Notice We may make changes to this California Notice, and may apply any changes to information previously collected, as permitted by law. When we make material changes to this California Notice, we will notify you by posting the updated California Notice on our Website, and we will update the Effective Date at the end of this California Notice.} "
+    },
+    {
+      "Text": "When you visit our website, we store cookies on your browser to collect information. The information collected might relate to you, your preferences or your device, and is mostly used to make the site work as you expect it to and to provide a more personalized web experience.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Products Audience Platform for Publishers Audience Platform for Advertisers Company Our Customers Careers Resources Privacy Terms API Do Not Sell My Personal Information © Permutive 2022. All Rights Reserved.} "
+    },
+    {
+      "Text": "Strictly Necessary Cookies\\nAlways Active\\nThese cookies are necessary for the website to function and cannot be switched off in our systems.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {You cannot opt-out of our First Party Strictly Necessary Cookies as they are deployed in order to ensure the proper functioning of our website (such as prompting the cookie banner and remembering your settings, to log into your account, to redirect you when you log out, etc.). For more information about the First and Third Party Cookies used please follow this link.} "
+    },
+    {
+      "Text": "Sale of Personal Data\\nUnder the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. ",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.} "
+    },
+    {
+      "Text": "These cookies collect information for analytics and to personalize your experience with targeted ads.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {These cookies do not store any personally identifiable information. Sale of Personal Data Sale of Personal Data Under the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties.} "
+    },
+    {
+      "Text": "You may exercise your right to opt out of the sale of personal information by using this toggle switch",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {Sale of Personal Data Sale of Personal Data Under the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads.} "
+    },
+    {
+      "Text": "Switch Label label\\nThese cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.  ",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Therefore we would not be able to track your activity through the web. This may affect our ability to personalize ads according to your preferences.} "
+    },
+    {
+      "Text": "Switch Label label\\nThese cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. ",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.} "
+    },
+    {
+      "Text": "Categories of Personal Information We Collect\\nPlease refer to the “Information We Collect” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”).",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information.} "
+    },
+    {
+      "Text": "How We Collect Your Personal Information\\nPlease see the “How We Collect Your Personal Information” section in our Website Privacy Notice to understand the sources from which we get personal information.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {This California Notice also uses that definition when we refer to personal information. Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”).} "
+    },
+    {
+      "Text": "How We Use Personal Information\\nPlease refer to the “How Do We Use Your Personal Information” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Categories of Personal Information We Collect Please refer to the “ Information We Collect ” section in our Website Privacy Notice to understand the categories of personal information we may have collected about you during the 12-month period prior to the effective date of this California Notice identified below (the “Effective Date”). How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information.} "
+    },
+    {
+      "Text": "How We Share Your Personal Information\\nPlease refer to the “How We Share Your Personal Information” section of our Website Privacy Notice to understand how we share personal information.",
+      "Label": "Categories of Personal Information Shared / Disclosed",
+      "Context": "2 Sentences Before {How We Collect Your Personal Information Please see the “ How We Collect Your Personal Information ” section in our Website Privacy Notice to understand the sources from which we get personal information. How We Use Personal Information Please refer to the “ How Do We Use Your Personal Information ” section in our Website Privacy Notice to understand the business and commercial purposes for which personal information is used.} "
+    },
+    {
+      "Text": "Categories of Personal Information We Sell",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {Please note: California law defines “personal information” broadly as information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This California Notice also uses that definition when we refer to personal information.} "
+    },
+    {
+      "Text": "We do not sell any of that personal information.",
+      "Label": "Categories of Personal Information Sold",
+      "Context": "2 Sentences Before {How We Share Your Personal Information Please refer to the “ How We Share Your Personal Information ” section of our Website Privacy Notice to understand how we share personal information. Categories of Personal Information We Sell As we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities.} "
+    },
+    {
+      "Text": "Access. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {Categories of Personal Information We Sell As we note in our Website Privacy Notice, we share personal information with companies that we work with in order to help to provide content on our websites that is of interest to you, to provide you with our Services and to interact with you in connection with our Marketing Activities. We do not sell any of that personal information.} "
+    },
+    {
+      "Text": "Deletion. Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.",
+      "Label": "Description of Right to Delete",
+      "Context": "2 Sentences Before {Your Rights Under California Law Under California law, you have the right to make the following requests: Access. Request access to the specific pieces of personal information about you that we have collected in the preceding 12 months.} "
+    },
+    {
+      "Text": "Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.",
+      "Label": "Description of Right to Know PI Collected",
+      "Context": "2 Sentences Before {Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.} "
+    },
+    {
+      "Text": "Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.",
+      "Label": "Description of Right to Know PI sold / shared",
+      "Context": "2 Sentences Before {Request deletion of the personal information that we have collected about you. We may retain personal information as required or permitted by law, and will maintain a copy of your deletion request.} "
+    },
+    {
+      "Text": "Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {Disclosure. Request disclosure of the categories of personal information we collect, the purposes for which we collect, sell or disclose that information, and the categories of third parties to whom we disclose personal information.} "
+    },
+    {
+      "Text": "How to Make a Request\\nIf you wish to make a request please send us an e-mail at privacy@permutive.com.",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {Opt Out of Sale. Request to Opt Out (“Do Not Sell My Information”) of “selling” your personal information.} "
+    },
+    {
+      "Text": "Right to Non-Discrimination\\nWe do not discriminate against you for requesting any of the rights noted above.",
+      "Label": "Description of Right to Non-discrimination on exercising rights",
+      "Context": "2 Sentences Before {You can designate someone else to make a request on your behalf. We will contact you to verify your identity before we respond to your authorized agent’s request.} "
+    },
+    {
+      "Text": "Updates to This California Notice\\nWe may make changes to this California Notice, and may apply any changes to information previously collected, as permitted by law. When we make material changes to this California Notice, we will notify you by posting the updated California Notice on our Website, and we will update the Effective Date at the end of this California Notice.",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {To make such a request, please send an email to privacy@permutive.com or write us at [511 W 25th Street, 7th floor, New York, NY 10001]. Contact for More Information If you have questions about our privacy policies or practices, please contact us using the contact information noted in the “ Contact Us ” section of our Website Privacy Notice.} "
+    },
+    {
+      "Text": "Effective Date\\nThis California Notice is effective 3 October 2022.",
+      "Label": "Updated Privacy Policy",
+      "Context": "2 Sentences Before {Updates to This California Notice We may make changes to this California Notice, and may apply any changes to information previously collected, as permitted by law. When we make material changes to this California Notice, we will notify you by posting the updated California Notice on our Website, and we will update the Effective Date at the end of this California Notice.} "
+    },
+    {
+      "Text": "When you visit our website, we store cookies on your browser to collect information. The information collected might relate to you, your preferences or your device, and is mostly used to make the site work as you expect it to and to provide a more personalized web experience.",
+      "Label": "Categories of Personal Information Collected",
+      "Context": "2 Sentences Before {Products Audience Platform for Publishers Audience Platform for Advertisers Company Our Customers Careers Resources Privacy Terms API Do Not Sell My Personal Information © Permutive 2022. All Rights Reserved.} "
+    },
+    {
+      "Text": "Sale of Personal Data\\nSale of Personal Data\\nUnder the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads. You may exercise your right to opt out of the sale of personal information by using this toggle switch.",
+      "Label": "Description of Right to Opt-out of sale of PI",
+      "Context": "2 Sentences Before {You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.} "
+    },
+    {
+      "Text": "You may exercise your right to opt out of the sale of personal information by using this toggle switch.",
+      "Label": "Methods to exercise rights",
+      "Context": "2 Sentences Before {Sale of Personal Data Sale of Personal Data Under the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads.} "
+    }
+  ]
+}
