@@ -1,0 +1,2 @@
+precision,recall,f1,true_positives,false_positives,false_negatives,policy_id,model,duration_sec,num_extracted
+0.14545454545454545,0.23529411764705882,0.17977528089887643,8,47,26,DB_223,gemini:gemini-3-pro-preview,86.3,55
