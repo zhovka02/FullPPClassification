@@ -18,11 +18,14 @@ REPORTS_DIR = "./reports"  # Folder to save HTML visualisations
 # LIST of models to benchmark
 MODELS_TO_TEST = [
     "openrouter:x-ai/grok-4.1-fast",
-    "openrouter:amazon/nova-2-lite-v1",
+    "gemini:gemini-2.5-flash",
+    "openai:gpt-5-mini-2025-08-07",
+    "openrouter:meta-llama/llama-4-maverick",
+    "openrouter:qwen/qwen-turbo"
 ]
 
-TEST_LIMIT = 1          # Set to None to process the full dataset
-GENERATE_REPORTS = True  # Set to False to disable HTML generation (faster)
+TEST_LIMIT = 10
+GENERATE_REPORTS = True
 
 
 def main():
