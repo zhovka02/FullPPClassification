@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 from src.annotator import PrivacyPolicyAnnotator
 from src.evaluator import Evaluator
-from src.visualizer import HTMLVisualizer  # <--- NEW IMPORT
+from src.visualizer import HTMLVisualizer
 from src.utils import load_c3pa_dataset
 
 # --- CONFIGURATION ---
@@ -17,11 +17,11 @@ REPORTS_DIR = "./reports"  # Folder to save HTML visualisations
 
 # LIST of models to benchmark
 MODELS_TO_TEST = [
-    "gemini:gemini-3-pro-preview",
+    "openrouter:x-ai/grok-4.1-fast",
+    "openrouter:amazon/nova-2-lite-v1",
 ]
 
-IOU_THRESHOLD = 0.5
-TEST_LIMIT = 1           # Set to None to process the full dataset
+TEST_LIMIT = 1          # Set to None to process the full dataset
 GENERATE_REPORTS = True  # Set to False to disable HTML generation (faster)
 
 
@@ -42,7 +42,7 @@ def main():
         return
 
     # 2. Initialize Evaluator & Visualizer
-    evaluator = Evaluator(iou_threshold=IOU_THRESHOLD)
+    evaluator = Evaluator()
     visualizer = HTMLVisualizer()
 
     results = []

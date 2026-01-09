@@ -67,9 +67,15 @@ class LLMClient:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ]
+
+        if self.provider == "openai":
+            temperature = 1.0
+        else:
+            temperature = 0.0
+
         response = self.client.chat.completions.create(
             model=self.model,
             messages=messages,
-            temperature=0.0,
+            temperature=temperature,
         )
         return response.choices[0].message.content.strip()

@@ -1,62 +1,97 @@
+import string
 from typing import List, Dict
 
 
 class Evaluator:
-    def __init__(self, iou_threshold: float = 0.5):
-        self.iou_threshold = iou_threshold
+    def __init__(self, match_threshold: float = 0.3):
+        # Lowered threshold to 0.3 because F1 is much stricter than Containment.
+        # An F1 of 0.3 usually implies a significant, valid overlap in long texts.
+        self.match_threshold = match_threshold
+        self.stopwords = {
+            "the", "and", "or", "of", "to", "a", "in", "is", "that", "for",
+            "on", "with", "as", "by", "at", "it", "be", "this", "from", "an",
+            "which", "we", "our", "us", "you", "your", "are", "not", "have",
+            "may", "can", "will", "data", "information", "services", "privacy"
+        }
 
-    def _compute_iou(self, text_a: str, text_b: str) -> float:
+    def _clean_tokens(self, text: str) -> List[str]:
         """
-        Calculates Jaccard Similarity (Intersection over Union) of tokens.
+        Splits text into tokens, removes punctuation and stop words.
+        Returns a LIST (not set) to preserve frequency for F1 counting.
         """
-        set_a = set(str(text_a).lower().split())
-        set_b = set(str(text_b).lower().split())
+        if not text: return []
+        text = text.lower().translate(str.maketrans('', '', string.punctuation))
+        tokens = text.split()
+        return [t for t in tokens if t not in self.stopwords]
 
-        if not set_a and not set_b: return 1.0
-        if not set_a or not set_b: return 0.0
+    def _compute_token_f1(self, text_pred: str, text_ref: str) -> float:
+        """
+        Calculates SQuAD-style Token F1 Score.
+        """
+        pred_toks = self._clean_tokens(text_pred)
+        ref_toks = self._clean_tokens(text_ref)
 
-        intersection = len(set_a.intersection(set_b))
-        union = len(set_a.union(set_b))
-        return intersection / union
+        if len(pred_toks) == 0 or len(ref_toks) == 0:
+            return 0.0
+
+        common = collections.Counter(pred_toks) & collections.Counter(ref_toks)
+        num_same = sum(common.values())
+
+        if num_same == 0:
+            return 0.0
+
+        precision = 1.0 * num_same / len(pred_toks)
+        recall = 1.0 * num_same / len(ref_toks)
+
+        f1 = (2 * precision * recall) / (precision + recall)
+        return f1
 
     def compare_annotations(self, human_anns: List[Dict], llm_anns: List[Dict]) -> Dict[str, float]:
-        """
-        Compares LLM extracted segments against Human segments.
-        """
         tp = 0
         fp = 0
 
-        # Create a working copy of human annotations to tick off matches
-        unmatched_humans = human_anns.copy()
+        # Track which human annotations were matched
+        matched_human_indices = set()
+
+        # Import collections inside the method if not at top level (or use standard dicts)
+        global collections
+        import collections
 
         for pred in llm_anns:
             label = pred.get("label")
             text_pred = pred.get("text", "")
 
-            # Filter human annotations to only those with matching labels (fuzzy match safe)
-            candidates = [h for h in unmatched_humans if h['label'] in label or label in h['label']]
+            candidates = [
+                (i, h) for i, h in enumerate(human_anns)
+                if h['label'].lower() == label.lower()
+            ]
 
-            best_iou = 0.0
-            best_match = None
+            best_score = 0.0
+            best_human_text = ""
+            best_idx = -1
 
-            # Find the best text overlap for this label
-            for hum in candidates:
-                iou = self._compute_iou(text_pred, hum['text'])
-                if iou > best_iou:
-                    best_iou = iou
-                    best_match = hum
+            for idx, hum in candidates:
+                # Use Token F1 instead of Containment
+                score = self._compute_token_f1(text_pred, hum['text'])
+                if score > best_score:
+                    best_score = score
+                    best_human_text = hum['text']
+                    best_idx = idx
 
-            # Threshold Check
-            if best_iou >= self.iou_threshold:
+            # Store metadata
+            pred['_match_score'] = best_score
+            pred['_matched_human_text'] = best_human_text
+
+            if best_score >= self.match_threshold:
                 tp += 1
-                if best_match in unmatched_humans:
-                    unmatched_humans.remove(best_match)
+                matched_human_indices.add(best_idx)
+                pred['_match_status'] = "Hit"
             else:
                 fp += 1
+                pred['_match_status'] = "Miss"
 
-        fn = len(unmatched_humans)
+        fn = len(human_anns) - len(matched_human_indices)
 
-        # Metrics Calculation
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0

@@ -9,42 +9,33 @@ class PrivacyPolicyAnnotator:
         self.client = LLMClient(model=model_name)
 
     def build_system_prompt(self) -> str:
-        # 1. Persona & High-Level Goal
         prompt = (
-            "You are a Meticulous Forensic Legal Auditor specializing in CCPA/CPRA compliance.\n"
-            "Your goal is to perform a comprehensive, exhaustive extraction of privacy policy provisions.\n"
-            "You will be penalized for missing any relevant text, no matter how redundant it seems.\n\n"
+            "You are a Forensic Legal Auditor. Your goal is to extract privacy policy provisions "
+            "that match specific legal categories exactly.\n\n"
         )
 
-        # 2. Taxonomy Injection
-        prompt += "### 1. TARGET LEGAL CATEGORIES (The Taxonomy):\n"
+        prompt += "### 1. LEGAL TAXONOMY:\n"
         for label, desc in LABEL_DESCRIPTIONS.items():
             prompt += f"- **{label}**: {desc}\n"
 
-        # 3. Detailed Rules (The "Chain of Thought" Logic)
         prompt += (
-            "\n### 2. EXTRACTION RULES (CRITICAL):\n"
-            "A. **EXHAUSTIVENESS IS MANDATORY**: Privacy policies often scatter information. "
-            "If 'Data Collection' is mentioned in Section 1, Section 4, and Section 12, YOU MUST EXTRACT ALL THREE INSTANCES. "
-            "Do not stop after finding the first match.\n"
-            "B. **Include Full Context**: Do not just extract the keyword. Extract the full sentence or paragraph that provides the context. "
-            "If a list of data types is provided, extract the *entire list*.\n"
-            "C. **Exact Text Match**: Your extraction must be a verbatim copy of the text in the document. "
-            "Do not summarize. Do not fix typos. Do not use '...' to skip text.\n"
-            "D. **Headers & Definitions**: If a section header helps identify the category (e.g., 'Your Rights'), include the header in the extraction.\n"
-            "E. **Negative Scope**: If the policy explicitly says 'We do not sell data', extract that under 'Categories of PI Sold'.\n"
+            "\n### 2. INSTRUCTIONS:\n"
+            "1. **Analyze** the text segment by segment.\n"
+            "2. **Identify** matches for the categories above.\n"
+            "3. **Extract** the exact text verbatim. Do not summarize.\n"
+            "4. **Reasoning**: Briefly explain why this text fits the category.\n"
+            "5. **Exhaustiveness**: Extract ALL occurrences, even if repetitive.\n"
         )
 
-        # 4. JSON Output Specification
         prompt += (
             "\n### 3. OUTPUT FORMAT:\n"
-            "Return a strictly valid JSON list of objects. No markdown fencing, no explanations.\n"
-            "Format:\n"
+            "Return a strictly valid JSON list. Example:\n"
             "[\n"
             "  {\n"
-            "    \"label\": \"Exact Category Name from Taxonomy\",\n"
-            "    \"text\": \"The exact substring extracted from the policy...\"\n"
-            "  }, ...\n"
+            "    \"label\": \"Categories of Personal Information Collected\",\n"
+            "    \"text\": \"We collect name, email, and IP address...\",\n"
+            "    \"reasoning\": \"Explicit list of collected data types.\"\n"
+            "  }\n"
             "]"
         )
         return prompt
@@ -52,14 +43,12 @@ class PrivacyPolicyAnnotator:
     def annotate(self, full_policy_text: str) -> List[Dict[str, str]]:
         system_message = self.build_system_prompt()
 
-        # SANDWICH STRATEGY:
-        # We place the instructions in the System Prompt, but we ALSO remind the model
-        # of the critical constraints AFTER the massive block of text.
+        # Chunking Strategy:
+        # For very large policies, standard practice is to split.
+        # For now, we will use the full text but emphasize the 'Start to Finish' scan.
         user_message = (
             f"### DOCUMENT START\n\n{full_policy_text}\n\n### DOCUMENT END\n\n"
-            "REMINDER: Review the document from start to finish. "
-            "Extract EVERY instance of the categories defined in the system prompt. "
-            "Do not miss scattered information. Return JSON only."
+            "Extract all relevant sections as JSON."
         )
 
         raw_response = self.client.classify(system_message, user_message)

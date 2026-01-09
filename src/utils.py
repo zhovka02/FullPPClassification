@@ -7,7 +7,13 @@ from typing import List, Dict, Any
 
 def parse_llm_json(response_text: str) -> List[Dict[str, Any]]:
     try:
-        cleaned_text = re.sub(r"```json\n?|```", "", response_text).strip()
+        # Improved regex to catch JSON between markdown blocks or raw
+        match = re.search(r"```json\s*(.*?)```", response_text, re.DOTALL)
+        if match:
+            cleaned_text = match.group(1).strip()
+        else:
+            cleaned_text = response_text.strip()
+
         data = json.loads(cleaned_text)
         if isinstance(data, list):
             return data
@@ -16,14 +22,11 @@ def parse_llm_json(response_text: str) -> List[Dict[str, Any]]:
         else:
             return []
     except json.JSONDecodeError:
-        print(f"DEBUG: JSON Parse Error on text: {response_text[:50]}...")
+        print(f"DEBUG: JSON Parse Error. Response excerpt: {response_text[:100]}...")
         return []
 
 
 def load_c3pa_dataset(root_path: str) -> List[Dict[str, Any]]:
-    """
-    Crawls C3PA folders and filters for the SINGLE BEST human annotator per file.
-    """
     dataset = []
     subsets = ['DB', 'WS']
 
@@ -45,30 +48,25 @@ def load_c3pa_dataset(root_path: str) -> List[Dict[str, Any]]:
             if not os.path.exists(txt_path): continue
 
             try:
-                # 1. Read Policy Text
                 with open(txt_path, 'r', encoding='utf-8') as f:
                     full_text = f.read()
 
-                # 2. Read Annotations
                 df = pd.read_csv(csv_path)
-                df.columns = [c.lower() for c in df.columns]  # Normalize headers
+                df.columns = [c.lower() for c in df.columns]
 
-                # --- NEW FILTERING LOGIC ---
-                # Find 'ranumb' column (annotator ID)
                 annotator_col = next((c for c in df.columns if 'ranumb' in c), None)
-
-                if annotator_col:
-                    # Pick the annotator who has the MOST rows (most thorough)
-                    best_annotator = df[annotator_col].value_counts().idxmax()
-                    df = df[df[annotator_col] == best_annotator]
-                    # print(f"   Filtered {filename}: Keeping annotator '{best_annotator}'")
-
-                # Identify Label/Text columns
-                label_col = next((c for c in df.columns if 'category' in c or 'label' in c), None)
                 text_col = next((c for c in df.columns if 'text' in c or 'segment' in c), None)
+                label_col = next((c for c in df.columns if 'category' in c or 'label' in c), None)
 
-                if not label_col or not text_col:
-                    continue
+                if annotator_col and text_col:
+
+                    df['text_len'] = df[text_col].astype(str).str.len()
+                    completeness = df.groupby(annotator_col)['text_len'].sum()
+
+                    best_annotator = completeness.idxmax()
+                    df = df[df[annotator_col] == best_annotator]
+
+                if not label_col or not text_col: continue
 
                 ground_truth = []
                 for _, row in df.iterrows():
