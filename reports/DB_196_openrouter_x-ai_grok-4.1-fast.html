@@ -1,37 +1,335 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>C3PA Annotation Audit</title>
-    <style>
-        body { font-family: "Segoe UI", sans-serif; padding: 20px; max-width: 1400px; margin: auto; background: #f5f5f5; }
-        h2 { background: #e9ecef; padding: 10px; border-left: 5px solid #007bff; margin-top: 30px; }
-        table { width: 100%; border-collapse: collapse; background: #fff; table-layout: fixed; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 12px; border: 1px solid #dee2e6; vertical-align: top; overflow-wrap: break-word; }
-        th.human-col { background: #d4edda; width: 45%; }
-        th.llm-col { background: #f8d7da; width: 45%; }
-        th.score-col { background: #e2e3e5; width: 10%; text-align: center; }
-        .human-text { font-family: monospace; font-size: 13px; color: #155724; white-space: pre-wrap; }
-        .llm-text { font-family: monospace; font-size: 13px; color: #721c24; white-space: pre-wrap; }
-        tr.match { background-color: #fff3cd; }
-        tr.miss { background-color: #fff; }
-        tr.fn { background-color: #f8f9fa; border-left: 4px solid #dc3545; }
-        .score-badge { font-weight: bold; padding: 2px 6px; border-radius: 4px; color: #fff; }
-        .score-high { background-color: #28a745; }
-        .score-med { background-color: #ffc107; color: #000; }
-        .score-low { background-color: #dc3545; }
-        .empty-cell { color: #aaa; font-style: italic; text-align: center; }
-    </style>
-</head>
-<body>
-    <h1>C3PA vs LLM Audit Report</h1>
-<h3>Policy ID: DB_196</h3><h2>Categories of Personal Information Collected</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Categories of Information We Collect\nWithin the last twelve (12) months, UpLead has collected the following categories of personal information (as defined in the CCPA) from or about Consumers (note that the lettered categories are according to lettering in the CCPA):\n\nA. Identifiers, such as a real name, unique personal identifier, online identifier, IP Address, email address, or account name\nB. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)), such as a name, signature or telephone number\nC. Protected classification characteristics under California or federal law, such as age or gender\nD. Commercial information, such as records of products purchased, obtained, or considered, or other purchasing or consuming histories or tendencies\nF. Internet or other similar network activity, such as browsing history or information on a Consumer’s interaction with a website or application.\nG. Geolocation data, such as physical location.\nH. Visual information, such as a photograph.\nI. Professional or employment-related information\nK. Inferences drawn from other personal information, such as profile information reflecting a person’s preferences.\nPersonal information does not include:\n\nPublicly available information from government records\nDeidentified or aggregated Consumer information\nCertain other information that is already regulated by other laws or regulations\nInformation that is specifically exempt from the scope of the CCPA.</div></td><td><div class='llm-text'>Within the last twelve (12) months, UpLead has collected the following categories of personal information (as defined in the CCPA) from or about Consumers (note that the lettered categories are according to lettering in the CCPA): A. Identifiers , such as a real name, unique personal identifier, online identifier, IP Address, email address, or account name B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)) , such as a name, signature or telephone number C. Protected classification characteristics under California or federal law , such as age or gender D. Commercial information , such as records of products purchased, obtained, or considered, or other purchasing or consuming histories or tendencies F. Internet or other similar network activity , such as browsing history or information on a Consumer’s interaction with a website or application. G. Geolocation data , such as physical location. H. Visual information , such as a photograph. I. Professional or employment-related information K. Inferences drawn from other personal information , such as profile information reflecting a person’s preferences.</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.81</span></td></tr><tr class='fn'><td><div class='human-text'>To Whom Does This Policy Apply
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_196</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.73</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.11</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.18</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">11</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">88</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Privacy Policy Last updated: August 30, 2022</div>
+                    <div class='match-info'><b>Matched GT:</b> Last updated: August 30, 2022</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">This Privacy Policy was last updated on the date indicated above.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.29):</b> Last updated: August 30, 2022</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Within the last twelve (12) months, UpLead has collected the following categories of personal information (as defined in the CCPA) from or about Consumers (note that the lettered categories are according to lettering in the CCPA): A. Identifiers , such as a real name, unique personal identifier, online identifier, IP Address, email address, or account name B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)) , such as a name, signature or telephone number C. Protected classification characteristics under California or federal law , such as age or gender D. Commercial information , such as records of products purchased, obtained, or considered, or other purchasing or consuming histories or tendencies F. Internet or other similar network activity , such as browsing history or information on a Consumer’s interaction with a website or application. G. Geolocation data , such as physical location. H. Visual information , such as a photograph. I. Professional or employment-related information K. Inferences drawn from other personal information , such as profile information reflecting a person’s preferences.</div>
+                    <div class='match-info'><b>Matched GT:</b> In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose:
+
+A. Identifiers
+B. Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
+C. Protected classification characteristics under California or federal law
+D. Commercial information
+F. Internet or other similar network activity
+G. Geolocation data
+H. Visual information
+I. Professional or employment-related information
+K. Inferences drawn from other personal information</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">According to this broad definition, in the year before this section was last updated, we may have sold the following categories of personal information to third parties: A. Identifiers B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)) C. Protected classification characteristics under California or federal law F. Internet or other similar network activity G. Geolocation data H. Visual information I. Professional or employment-related information K. Inferences drawn from other personal information</div>
+                    <div class='match-info'><b>Matched GT:</b> According to this broad definition, in the year before this section was last updated, we may have sold the following categories of personal information to third parties:</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose: A. Identifiers B. Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) C. Protected classification characteristics under California or federal law D. Commercial information F. Internet or other similar network activity G. Geolocation data H. Visual information I. Professional or employment-related information K. Inferences drawn from other personal information</div>
+                    <div class='match-info'><b>Matched GT:</b> Categories of Information We Collect
+Within the last twelve (12) months, UpLead has collected the following categories of personal information (as defined in the CCPA) from or about Consumers (note that the lettered categories are according to lettering in the CCPA):
+
+A. Identifiers, such as a real name, unique personal identifier, online identifier, IP Address, email address, or account name
+B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)), such as a name, signature or telephone number
+C. Protected classification characteristics under California or federal law, such as age or gender
+D. Commercial information, such as records of products purchased, obtained, or considered, or other purchasing or consuming histories or tendencies
+F. Internet or other similar network activity, such as browsing history or information on a Consumer’s interaction with a website or application.
+G. Geolocation data, such as physical location.
+H. Visual information, such as a photograph.
+I. Professional or employment-related information
+K. Inferences drawn from other personal information, such as profile information reflecting a person’s preferences.
+Personal information does not include:
+
+Publicly available information from government records
+Deidentified or aggregated Consumer information
+Certain other information that is already regulated by other laws or regulations
+Information that is specifically exempt from the scope of the CCPA.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Deleting Your Account or Business Profile If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com . We may retain certain information about you as required by law or for legitimate business purposes after you delete your account. If you would like to delete your Business Profile Data, please click here .</div>
+                    <div class='match-info'><b>Matched GT:</b> Deleting Your Account or Business Profile
+If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com. We may retain certain information about you as required by law or for legitimate business purposes after you delete your account.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Deletion Request Rights You have the right to request that UpLead delete any of your personal information that we collected from you and retained, subject to certain exceptions. Once we receive your request and verify your identity, we will delete (and direct our service providers to delete) your personal information from our records, unless an exception applies.</div>
+                    <div class='match-info'><b>Matched GT:</b> Deletion Request Rights
+
+You have the right to request that UpLead delete any of your personal information that we collected from you and retained, subject to certain exceptions</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Accessing and Changing Your Information You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> Accessing and Changing Your Information
+You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Access to Specific Information and Data Portability Rights You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months. Once we receive your request and verify your identity, we will disclose such information to you.</div>
+                    <div class='match-info'><b>Matched GT:</b> Access to Specific Information and Data Portability Rights
+
+You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click here .  You can also opt-out of the sale of your personal information that is collected automatically when you visit the Site by clicking here .</div>
+                    <div class='match-info'><b>Matched GT:</b> Opting-out of Sales of Personal Information
+
+If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click her</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Notice to Nevada Consumers We may sell your personal information within the scope of, and according to the defined meaning of, a “sale” under NRS 603A. If you would like to opt-out of such sales of your personal information, please contact privacy@uplead . We will respond to verifiable requests as required by NRS 603A.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.56):</b> Opting-out of Sales of Personal Information
+
+If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click her</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Non-Discrimination We will not discriminate against you in a manner prohibited by the CCPA because you exercise your CCPA rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Non-Discrimination
+
+We will not discriminate against you in a manner prohibited by the CCPA because you exercise your CCPA rights</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise the rights described above, please submit a verifiable Consumer request to us by either: Emailing privacy@uplead.com Business Profile Data may be deleted by clicking here</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise the rights described above, please submit a verifiable Consumer request to us by either:
+
+Emailing privacy@uplead.com
+Business Profile Data may be deleted by clicking here</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Individuals whose information is contained in a Business Profile on the Platform may contact us at privacy@uplead.com to access or have their Business Profile Data updated, rectified or deleted. You may also click here .</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.46):</b> To exercise the rights described above, please submit a verifiable Consumer request to us by either:
+
+Emailing privacy@uplead.com
+Business Profile Data may be deleted by clicking here</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Notice and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at privacy@uplead.com or see our information below.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.42):</b> If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">To Whom Does This Policy Apply
 Throughout this Privacy Policy, “personal information” (or “personal data” as used interchangeably) refers to any information that is unique to an individual, such as name, address, email address, phone number, IP address and other information that can reasonably identify an individual. This Privacy Policy applies to personal information (that we collect, store, disclose or otherwise process) from or about:
 
 Site Visitors – this includes visitors to our Site, including those who do not register for our Services.
 Customers – this includes any individual who registers individually or on behalf of an entity or organization in order to use the Services, whether as part of a free trial or paid subscription.
-Business Profiles – our business is to help people connect professionally, and for this we collect and compile business information about individuals and their companies. As such, we store and process personal information to create Business Profiles of individuals as part of our Services. Please see below for more information on how this information is collected.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Personal Information That We Collect
-What personal information we collect and process depends on a number of factors. As explain in more detail below, we process personal information that we receive directly from you when you provide it to us, such as when you sign up for our Services, or indirectly, such as through automated technologies (e.g., cookies) or from third parties. We also collect information for Business Profiles in a variety of ways as explained below.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Information We Collect Directly From You
-You can generally visit our Site without having to submit any personal information. However, if you wish to use our Services, you will be asked to provide information about yourself.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>First and last name
+Business Profiles – our business is to help people connect professionally, and for this we collect and compile business information about individuals and their companies. As such, we store and process personal information to create Business Profiles of individuals as part of our Services. Please see below for more information on how this information is collected.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Information That We Collect
+What personal information we collect and process depends on a number of factors. As explain in more detail below, we process personal information that we receive directly from you when you provide it to us, such as when you sign up for our Services, or indirectly, such as through automated technologies (e.g., cookies) or from third parties. We also collect information for Business Profiles in a variety of ways as explained below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information We Collect Directly From You
+You can generally visit our Site without having to submit any personal information. However, if you wish to use our Services, you will be asked to provide information about yourself.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">First and last name
 Company name
 Email address
 Username
@@ -39,15 +337,105 @@ Password
 Job title
 Location (Country/State/Zip Code)
 Phone number
-Billing address</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Customer Reviews
-Customer reviews contain names, photos and contact information. If you submit a Customer review, with your consent, it may be posted on the Site and publicly visible. We may also share it with strategic partners.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We, or our authorized third parties, automatically collect log data when you access and use the Site for all Site Vistors, even if you have not created an account or logged in.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Information We Collect Indirectly
+Billing address</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">First and last name
+Company name
+Email address
+Username
+Password
+Job title
+Location (Country/State/Zip Code)
+Phone number
+Billing address</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Customer Reviews
+Customer reviews contain names, photos and contact information. If you submit a Customer review, with your consent, it may be posted on the Site and publicly visible. We may also share it with strategic partners.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We, or our authorized third parties, automatically collect log data when you access and use the Site for all Site Vistors, even if you have not created an account or logged in.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Device Information – information about the devices and software you use to access the Site – primarily the internet browser or mobile device that you use, the website or source that linked or referred you to the Site, your IP address or device ID (or other persistent identifier that uniquely identifies your computer or mobile device on the Internet), the operating system of your computer or mobile device, device screen size and other similar hardware and software information, and language preference
+Usage Information – information about your interactions with the Site, including access dates and times, device event information, log data, crash data, and cookie data</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Location Information – based on this Device and Usage Information – mainly IP address – we are also able to determine general location information (country, city).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information We Collect Indirectly
 Automatically Collected Information
-If you are browsing or interacting with the Site, we collect the same basic information that many other websites collect. Even if you do not have an account, we, or authorized third parties engaged by us, automatically collect information about your use of the Site, which consists of:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Business Profile Data
+If you are browsing or interacting with the Site, we collect the same basic information that many other websites collect. Even if you do not have an account, we, or authorized third parties engaged by us, automatically collect information about your use of the Site, which consists of:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We (and certain authorized third parties) uses cookies and similar technologies in order to collect Device, Usage and Location Information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Business Profile Data
 UpLead collects and compiles information about individuals with whom it does not have a direct relationship, but whose Business Profiles are included on our Platform. This information is gathered, compiled (and updated) and provided to our Customers as part of the Services. Information that we collect and store to create Business Profiles (“Business Profile Data”) consists of business or professional information and includes personal and non-personal information, as described below. We collect Business Profile Data in a variety of ways:
 
 Directly from individuals who submit Business Profile Data to us
 From the publicly-available information available on the internet or otherwise
-From third-party companies that collect information on our behalf and license it to us</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>First and last name
+From third-party companies that collect information on our behalf and license it to us</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">First and last name
 Business e-mail address
 Business telephone (mobile in some cases)
 Company
@@ -56,8 +444,91 @@ Location (City)
 Photo
 Education
 Experience
-Public social media handles</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Payment Processing
-We collect payments from Customers only and do not directly collect or store payment information. We use third-party, PCI-compliant, payment processors, which collect payment information on our behalf in order to complete transactions with our Customers</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>UpLead also has a presence on some social media platforms, including Twitter and LinkedIn. Through our accounts on social medial platforms, we may in some instances collect personal information when you interact with the UpLead accounts or otherwise communicate with us through those accounts</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Below are the general purposes and corresponding legal bases (in brackets) for which we may use your personal information:
+Public social media handles</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">First and last name
+Business e-mail address
+Business telephone (mobile in some cases)
+Company
+Job Title
+Location (City)
+Photo
+Education
+Experience
+Public social media handles</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Google Analytics
+We use third-party analytics services, such as Google Analytics, to generate and process statistical or demographic data. These third parties use cookies to compile reports on the Site’s activity and Site Visitors, and provide other services related to Site activity and usage. The technologies used by Google may collect information such as your IP address, time of visit, whether you are a return visitor, and any referring website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Hotjar
+We use Hotjar in order to better understand our users’ needs and to optimize the Site and experience. Hotjar is a technology service that helps us better understand our users’ experience (e.g., how much time they spend on which pages, which links they choose to click, what users do and don’t like, etc.) and this enables us to build and maintain our Site and Services with user feedback in mind</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Hotjar uses cookies and other technologies to collect data on users’ behavior and their devices. This includes Device and Usage Information as well as geographic location (country only), and the preferred language used to display our website</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We use third-party, PCI-compliant, payment processors, which collect payment information on our behalf in order to complete transactions with our Customers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Payment Processing
+We collect payments from Customers only and do not directly collect or store payment information. We use third-party, PCI-compliant, payment processors, which collect payment information on our behalf in order to complete transactions with our Customers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">UpLead also has a presence on some social media platforms, including Twitter and LinkedIn. Through our accounts on social medial platforms, we may in some instances collect personal information when you interact with the UpLead accounts or otherwise communicate with us through those accounts</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Below are the general purposes and corresponding legal bases (in brackets) for which we may use your personal information:
 
 Providing, updating and maintaining the Platform – In particular, we will use your data to ensure that the Site loads and works for you, to set-up an account, or provide you with notices regarding purchases or other important information. Depending on the context, performance of a contract, legitimate interests, and in some cases, legal claims
 Collecting Business Profile Data to create and disclose Business Profiles for use by our Customers – See description above. Legitimate interests
@@ -71,62 +542,16 @@ Conducting statistical analyses and analytics by monitoring and analyzing trends
 Sending marketing communications, in line with your communication preferences
 Consent (depending on location and Customer relationship) or legitimate interests
 As required by applicable law, legal process or regulation – We may use your information to comply with valid court orders and similar legal or regulatory obligations which apply to us. This may include where we reasonably consider it is in our legitimate interests (or the legitimate interests of others) to comply, as well as where we are legally required to do so
-Legal obligations or claims</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Device Information and Location Information collected via cookies and similar technologies on our Site
-Information provided directly by Customers or individuals who reach out to us directly
-Usage Information from your use of the Platform
-Information from External Ad Partners
-Information inferred the categories of information described above.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>These features may collect your IP address and/or other information as set forth in each social platform’s privacy policy, which page you are visiting on our Site, and may set a cookie to enable the feature to function properl</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Through our accounts on social medial platforms, we may in some instances collect personal information when you interact with the UpLead accounts or otherwise communicate with us through those accounts</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Categories of Sources of Personal Information
-As explained in more detail here, UpLead obtains the categories of personal information listed above from the following categories of sources:
+Legal obligations or claims</div>
+                </div>
+                
 
-Directly from you. For example, when you sign up to use the Services.
-Indirectly. For example, from observing your actions on our Services, or from the internet (including publicly-available sources) – this includes data collected via cookies (or similar technologies) or from third parties.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose:
-
-A. Identifiers
-B. Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
-C. Protected classification characteristics under California or federal law
-D. Commercial information
-F. Internet or other similar network activity
-G. Geolocation data
-H. Visual information
-I. Professional or employment-related information
-K. Inferences drawn from other personal information</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>A. Identifiers
-B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e))
-C. Protected classification characteristics under California or federal law
-F. Internet or other similar network activity
-G. Geolocation data
-H. Visual information
-I. Professional or employment-related information
-K. Inferences drawn from other personal information</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'></div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Signing up for our Services\nIf you sign up for our Services, whether as a free trial or paid subscription, we will collect personal information as follows:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>This information allows us to understand the screens that you view, how you’ve used the Site and/or our Services (which may include administrative and support communications with us), and other actions on the Site.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We use this information to administer and improve the Services, analyze trends, track users’ use of the Site, and gather broad demographic information for aggregate use.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Device Information – information about the devices and software you use to access the Site – primarily the internet browser or mobile device that you use, the website or source that linked or referred you to the Site, your IP address or device ID (or other persistent identifier that uniquely identifies your computer or mobile device on the Internet), the operating system of your computer or mobile device, device screen size and other similar hardware and software information, and language preference\nUsage Information – information about your interactions with the Site, including access dates and times, device event information, log data, crash data, and cookie data.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Location Information – based on this Device and Usage Information – mainly IP address – we are also able to determine general location information (country, city)</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Some cookies are necessary to make the Site and our content available to you, while others are meant to improve the Site and enable us to analyze and measure audience and traffic.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>A Business Profile includes (but does not always contain all of) the following Business Profile Data:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Advertising &amp; Marketing\nInformation We Use for Advertising and Marketing\nWe advertise our Platform by targeting (and measuring the performance of) ads to Site Visitors, Customers on other websites and platforms directly or through a variety of partners, including third party advertisers, ad server companies, social networks and ad networks (collectively, “External Ad Partners”). In order to advertise our Services, we or our External Ad Partners use the following information, whether separately or combined:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Categories of Personal Information Shared / Disclosed</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose:
-
-A. Identifiers
-B. Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
-C. Protected classification characteristics under California or federal law
-D. Commercial information
-F. Internet or other similar network activity
-G. Geolocation data
-H. Visual information
-I. Professional or employment-related information
-K. Inferences drawn from other personal information</div></td><td><div class='llm-text'>In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose: A. Identifiers B. Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) C. Protected classification characteristics under California or federal law D. Commercial information F. Internet or other similar network activity G. Geolocation data H. Visual information I. Professional or employment-related information K. Inferences drawn from other personal information</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='fn'><td><div class='human-text'>First and last name
-Company name
-Email address
-Username
-Password
-Job title
-Location (Country/State/Zip Code)
-Phone number
-Billing address</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Device Information – information about the devices and software you use to access the Site – primarily the internet browser or mobile device that you use, the website or source that linked or referred you to the Site, your IP address or device ID (or other persistent identifier that uniquely identifies your computer or mobile device on the Internet), the operating system of your computer or mobile device, device screen size and other similar hardware and software information, and language preference
-Usage Information – information about your interactions with the Site, including access dates and times, device event information, log data, crash data, and cookie data</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Location Information – based on this Device and Usage Information – mainly IP address – we are also able to determine general location information (country, city).</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We (and certain authorized third parties) uses cookies and similar technologies in order to collect Device, Usage and Location Information</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>First and last name
-Business e-mail address
-Business telephone (mobile in some cases)
-Company
-Job Title
-Location (City)
-Photo
-Education
-Experience
-Public social media handles</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Google Analytics
-We use third-party analytics services, such as Google Analytics, to generate and process statistical or demographic data. These third parties use cookies to compile reports on the Site’s activity and Site Visitors, and provide other services related to Site activity and usage. The technologies used by Google may collect information such as your IP address, time of visit, whether you are a return visitor, and any referring website.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Hotjar
-We use Hotjar in order to better understand our users’ needs and to optimize the Site and experience. Hotjar is a technology service that helps us better understand our users’ experience (e.g., how much time they spend on which pages, which links they choose to click, what users do and don’t like, etc.) and this enables us to build and maintain our Site and Services with user feedback in mind</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Hotjar uses cookies and other technologies to collect data on users’ behavior and their devices. This includes Device and Usage Information as well as geographic location (country only), and the preferred language used to display our website</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We use third-party, PCI-compliant, payment processors, which collect payment information on our behalf in order to complete transactions with our Customers</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Disclosure of Personal Information
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Disclosure of Personal Information
 We disclose your personal information as described below.
 Third-Parties and Service Providers
 UpLead discloses users’ information to our third party agents, contractors or service providers who are hired to perform services on our behalf. These companies do things to help us provide the Platform, and in some cases collect information directly, for example as explained in Payment Processing above. Below is an illustrative list of functions for which we may use third-party service providers:
@@ -142,19 +567,198 @@ Functionality and debugging services
 Professional service providers, such as auditors, lawyers, consultants, accountants and insurers
 
 Customers
-Business Profile Data is disclosed to our Customers and Site Visitors in connection with our Services, as well as strategic partners</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Business Transfers
+Business Profile Data is disclosed to our Customers and Site Visitors in connection with our Services, as well as strategic partners</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise your rights with respect to personal information contained in your Business Profile, please click email privacy@uplead.com.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Business Transfers
 As we continue to grow, we may purchase websites, applications, subsidiaries, other businesses or business units. Alternatively, we may sell businesses or business units, merge with other entities and/or sell assets or stock, in some cases as part of a reorganization or liquidation in bankruptcy. In order to evaluate or as part of these transactions, we may transfer your personal information to a successor entity upon a merger, consolidation or other corporate reorganization in which UpLead participates, or to a purchaser or acquirer of all or a portion of UpLead’s assets, bankruptcy included.
 Anonymized Information
-We share aggregated, automatically-collected or otherwise non-personal information with third parties for various purposes, including (i) compliance with reporting obligations; (ii) for business or marketing purposes; (iii) to assist us and other parties in understanding our users’ interests, habits and usage patterns for certain programs, content, services, marketing and/or functionality available through the Platform. We do not share personal information about you in this case.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Legal Obligations and Security
-In addition, UpLead will preserve or disclose your personal information in limited circumstances (other than as set forth in this Privacy Policy), including: (i) with your consent; (ii) when we have a good faith belief it is required by law, such as pursuant to a subpoena, warrant or other judicial or administrative order (as further explained below); (iii) to protect the safety of any person and to protect the safety or security of our Platform or to prevent spam, abuse, or other malicious activity of actors with respect to the Platform; or (iv) to protect our rights or property or the rights or property of those who use the Platform.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Device Information and Location Information collected via cookies and similar technologies on our Site
+We share aggregated, automatically-collected or otherwise non-personal information with third parties for various purposes, including (i) compliance with reporting obligations; (ii) for business or marketing purposes; (iii) to assist us and other parties in understanding our users’ interests, habits and usage patterns for certain programs, content, services, marketing and/or functionality available through the Platform. We do not share personal information about you in this case.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Legal Obligations and Security
+In addition, UpLead will preserve or disclose your personal information in limited circumstances (other than as set forth in this Privacy Policy), including: (i) with your consent; (ii) when we have a good faith belief it is required by law, such as pursuant to a subpoena, warrant or other judicial or administrative order (as further explained below); (iii) to protect the safety of any person and to protect the safety or security of our Platform or to prevent spam, abuse, or other malicious activity of actors with respect to the Platform; or (iv) to protect our rights or property or the rights or property of those who use the Platform.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Device Information and Location Information collected via cookies and similar technologies on our Site
 Information provided directly by Customers or individuals who reach out to us directly
 Usage Information from your use of the Platform
 Information from External Ad Partners
-Information inferred the categories of information described above.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Advertising &amp; Marketing
-Information We Use for Advertising and Marketing
-We advertise our Platform by targeting (and measuring the performance of) ads to Site Visitors, Customers on other websites and platforms directly or through a variety of partners, including third party advertisers, ad server companies, social networks and ad networks (collectively, “External Ad Partners”). In order to advertise our Services, we or our External Ad Partners use the following information, whether separately or combined:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>When we serve ads based on the foregoing information, it is referred to as “targeted advertising” because External Ad Partners track your activity on and off the Site in order to deliver targeted advertising based on your activity, such as one of your visits to the Site. In addition, as noted above, the information that External Ad Partners collect from our Services may be combined with other information from other sources and be used to build profiles on you and other individuals for the purposes of delivering targeted advertising.
+Information inferred the categories of information described above.</div>
+                </div>
+                
 
-In addition to advertising our Services, we use Customer data and content to market our Services, promote additional features or encourage Customers to share our Platform.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>These features may collect your IP address and/or other information as set forth in each social platform’s privacy policy, which page you are visiting on our Site, and may set a cookie to enable the feature to function properly</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Categories of Information We Collect
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Device Information and Location Information collected via cookies and similar technologies on our Site
+Information provided directly by Customers or individuals who reach out to us directly
+Usage Information from your use of the Platform
+Information from External Ad Partners
+Information inferred the categories of information described above.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Advertising &amp; Marketing
+Information We Use for Advertising and Marketing
+We advertise our Platform by targeting (and measuring the performance of) ads to Site Visitors, Customers on other websites and platforms directly or through a variety of partners, including third party advertisers, ad server companies, social networks and ad networks (collectively, “External Ad Partners”). In order to advertise our Services, we or our External Ad Partners use the following information, whether separately or combined:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">When we serve ads based on the foregoing information, it is referred to as “targeted advertising” because External Ad Partners track your activity on and off the Site in order to deliver targeted advertising based on your activity, such as one of your visits to the Site. In addition, as noted above, the information that External Ad Partners collect from our Services may be combined with other information from other sources and be used to build profiles on you and other individuals for the purposes of delivering targeted advertising.
+
+In addition to advertising our Services, we use Customer data and content to market our Services, promote additional features or encourage Customers to share our Platform.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Ad Choices
+You can opt-out from some third party behavioral adverting by clicking here.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can opt-out from some third party behavioral adverting by clicking here.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">These features may collect your IP address and/or other information as set forth in each social platform’s privacy policy, which page you are visiting on our Site, and may set a cookie to enable the feature to function properly</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">These features may collect your IP address and/or other information as set forth in each social platform’s privacy policy, which page you are visiting on our Site, and may set a cookie to enable the feature to function properl</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Through our accounts on social medial platforms, we may in some instances collect personal information when you interact with the UpLead accounts or otherwise communicate with us through those accounts</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Accessing and Changing Your Information
+You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Accessing and Changing Your Information
+You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you would like to delete your Business Profile Data, please click here.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Controlling Promotional Communications
+You may opt-out of receiving some or all categories of promotional communications from UpLead by following the instructions/link contained in those communications or, if you are a Customer, by updating your email options in your account preferences. If you opt-out of promotional communications, we may still send you non-promotional communications, such as information about your account and/or transactions, or your use of the Services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may opt-out of receiving some or all categories of promotional communications from UpLead by following the instructions/link contained in those communications or, if you are a Customer, by updating your email options in your account preferences</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Categories of Information We Collect
 Within the last twelve (12) months, UpLead has collected the following categories of personal information (as defined in the CCPA) from or about Consumers (note that the lettered categories are according to lettering in the CCPA):
 
 A. Identifiers, such as a real name, unique personal identifier, online identifier, IP Address, email address, or account name
@@ -171,43 +775,52 @@ Personal information does not include:
 Publicly available information from government records
 Deidentified or aggregated Consumer information
 Certain other information that is already regulated by other laws or regulations
-Information that is specifically exempt from the scope of the CCPA.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Use of Personal Information
+Information that is specifically exempt from the scope of the CCPA.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Categories of Sources of Personal Information
+As explained in more detail here, UpLead obtains the categories of personal information listed above from the following categories of sources:
+
+Directly from you. For example, when you sign up to use the Services.
+Indirectly. For example, from observing your actions on our Services, or from the internet (including publicly-available sources) – this includes data collected via cookies (or similar technologies) or from third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Use of Personal Information
 We may use, or disclose the personal information we collect for one or more of the following business purposes as described here.
 Disclosure of Personal Information
 Service Providers
 
-UpLead may disclose your personal information to service providers for a business purpose</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>As explained in more detail above, we also share your personal information with certain categories of service providers who assist us in providing our Services and with our business.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>A. Identifiers
-B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e))
-C. Protected classification characteristics under California or federal law
-F. Internet or other similar network activity
-G. Geolocation data
-H. Visual information
-I. Professional or employment-related information
-K. Inferences drawn from other personal information</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>If you are a Customer, we use PCI-compliant third-party processors, as explained in Payment Processing. Payment information is processed by our payment service providers, and we receive a confirmation of payment, which we then associate with your account and any relevant transactions.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Customer Reviews\nCustomer reviews contain names, photos and contact information. If you submit a Customer review, with your consent, it may be posted on the Site and publicly visible. We may also share it with strategic partners.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Information We Collect Indirectly\nAutomatically Collected Information\nIf you are browsing or interacting with the Site, we collect the same basic information that many other websites collect. Even if you do not have an account, we, or authorized third parties engaged by us, automatically collect information about your use of the Site, which consists of:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We, or our authorized third parties, automatically collect log data when you access and use the Site for all Site Vistors, even if you have not created an account or logged in.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>A Business Profile includes (but does not always contain all of) the following Business Profile Data:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Social Media\nWe use social media plug-ins (e.g., Facebook, Twitter). These features may collect your IP address and/or other information as set forth in each social platform’s privacy policy, which page you are visiting on our Site, and may set a cookie to enable the feature to function proper</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Collecting Business Profile Data to create and disclose Business Profiles for use by our Customers – See description above. Legitimate interests</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Processing and completing transactions, and sending you related information, including purchase confirmations and invoices – In particular, we will use your data to complete any purchases for the Services, set up billing and resolve any issues with respect to the foregoing. Performance of a contract</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>As required by applicable law, legal process or regulation – We may use your information to comply with valid court orders and similar legal or regulatory obligations which apply to us. This may include where we reasonably consider it is in our legitimate interests (or the legitimate interests of others) to comply, as well as where we are legally required to do so</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Interacting with individuals on social media via our social media accounts and marketing our Platform – This includes any data we collect when you interact with our social media handles, and any advertising or re-targeting that we may undertake as set forth in this Privacy Policy. Consent where required (e.g., third-party cookies) or legitimate interests</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Categories of Personal Information Sold</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>A. Identifiers
-B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e))
-C. Protected classification characteristics under California or federal law
-F. Internet or other similar network activity
-G. Geolocation data
-H. Visual information
-I. Professional or employment-related information
-K. Inferences drawn from other personal information</div></td><td><div class='llm-text'>According to this broad definition, in the year before this section was last updated, we may have sold the following categories of personal information to third parties: A. Identifiers B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)) C. Protected classification characteristics under California or federal law F. Internet or other similar network activity G. Geolocation data H. Visual information I. Professional or employment-related information K. Inferences drawn from other personal information</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.84</span></td></tr><tr class='fn'><td><div class='human-text'>Categories of Information We Collect
-Within the last twelve (12) months, UpLead has collected the following categories of personal information (as defined in the CCPA) from or about Consumers (note that the lettered categories are according to lettering in the CCPA):
+UpLead may disclose your personal information to service providers for a business purpose</div>
+                </div>
+                
 
-A. Identifiers, such as a real name, unique personal identifier, online identifier, IP Address, email address, or account name
-B. Personal information categories listed in the California Customer Records Statute (Cal. Civ. Code § 1798.80(e)), such as a name, signature or telephone number
-C. Protected classification characteristics under California or federal law, such as age or gender
-D. Commercial information, such as records of products purchased, obtained, or considered, or other purchasing or consuming histories or tendencies
-F. Internet or other similar network activity, such as browsing history or information on a Consumer’s interaction with a website or application.
-G. Geolocation data, such as physical location.
-H. Visual information, such as a photograph.
-I. Professional or employment-related information
-K. Inferences drawn from other personal information, such as profile information reflecting a person’s preferences.
-Personal information does not include:
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">As explained in more detail above, we also share your personal information with certain categories of service providers who assist us in providing our Services and with our business.</div>
+                </div>
+                
 
-Publicly available information from government records
-Deidentified or aggregated Consumer information
-Certain other information that is already regulated by other laws or regulations
-Information that is specifically exempt from the scope of the CCPA.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose:
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, UpLead has disclosed the following categories of personal information for a business purpose:
 
 A. Identifiers
 B. Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
@@ -217,37 +830,404 @@ F. Internet or other similar network activity
 G. Geolocation data
 H. Visual information
 I. Professional or employment-related information
-K. Inferences drawn from other personal information</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>According to this broad definition, in the year before this section was last updated, we may have sold the following categories of personal information to third parties:</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>The third parties to whom we may sell personal information are:
+K. Inferences drawn from other personal information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">The third parties to whom we may sell personal information are:
 
 Our Customers
 Social Media Platforms – these third parties maintain networks connecting individuals and organizations – such as Facebook, LinkedIn, or Twitter
 Advertising Partners – these third parties help us advertise our Services
-Promotional Partners</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Business Profile Data\nUpLead collects and compiles information about individuals with whom it does not have a direct relationship, but whose Business Profiles are included on our Platform. This information is gathered, compiled (and updated) and provided to our Customers as part of the Services.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>A Business Profile includes (but does not always contain all of) the following Business Profile Data:\n\nFirst and last name\nBusiness e-mail address\nBusiness telephone (mobile in some cases)\nCompany\nJob Title\nLocation (City)\nPhoto\nEducation\nExperience\nPublic social media handles</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Device Information – information about the devices and software you use to access the Site – primarily the internet browser or mobile device that you use, the website or source that linked or referred you to the Site, your IP address or device ID (or other persistent identifier that uniquely identifies your computer or mobile device on the Internet), the operating system of your computer or mobile device, device screen size and other similar hardware and software information, and language preference</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Usage Information – information about your interactions with the Site, including access dates and times, device event information, log data, crash data, and cookie data</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Location Information – based on this Device and Usage Information – mainly IP address – we are also able to determine general location information (country, city).</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Customer Reviews\nCustomer reviews contain names, photos and contact information.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>First and last name\nCompany name\nEmail address\nUsername\nPassword\nJob title\nLocation (Country/State/Zip Code)\nPhone number\nBilling address</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Hotjar is contractually forbidden from selling any of the information that it collects on UpLead’s behalf.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Collecting Business Profile Data to create and disclose Business Profiles for use by our Customers – See description above. Legitimate interests</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Customers\nBusiness Profile Data is disclosed to our Customers and Site Visitors in connection with our Services, as well as strategic partners</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Business Transfers\nAs we continue to grow, we may purchase websites, applications, subsidiaries, other businesses or business units. Alternatively, we may sell businesses or business units, merge with other entities and/or sell assets or stock, in some cases as part of a reorganization or liquidation in bankruptcy. In order to evaluate or as part of these transactions, we may transfer your personal information to a successor entity upon a merger, consolidation or other corporate reorganization in which UpLead participates, or to a purchaser or acquirer of all or a portion of UpLead’s assets, bankruptcy included.\n</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Advertising &amp; Marketing\nInformation We Use for Advertising and Marketing\nWe advertise our Platform by targeting (and measuring the performance of) ads to Site Visitors, Customers on other websites and platforms directly or through a variety of partners, including third party advertisers, ad server companies, social networks and ad networks (collectively, “External Ad Partners”). In order to advertise our Services, we or our External Ad Partners use the following information, whether separately or combined:\n\nDevice Information and Location Information collected via cookies and similar technologies on our Site\nInformation provided directly by Customers or individuals who reach out to us directly\nUsage Information from your use of the Platform\nInformation from External Ad Partners\nInformation inferred the categories of information described above.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>In addition to advertising our Services, we use Customer data and content to market our Services, promote additional features or encourage Customers to share our Platform.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Sale of Personal Information\n\nThe CCPA defines ‘sale’ very broadly. It includes the sharing of personal information with third parties in exchange for anything of value.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Correct Information</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='miss'><td><div class='human-text'>Accessing and Changing Your Information
-You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div></td><td><div class='llm-text'>Individuals whose information is contained in a Business Profile on the Platform may contact us at privacy@uplead.com to access or have their Business Profile Data updated, rectified or deleted. You may also click here .</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.21</span></td></tr><tr class='match'><td><div class='human-text'>Accessing and Changing Your Information
-You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div></td><td><div class='llm-text'>Accessing and Changing Your Information You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com .</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='miss'><td><div class='human-text'>Accessing and Changing Your Information
-You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div></td><td><div class='llm-text'>The right to rectification – your right to request that we correct personal data about you if it is incomplete or inaccurate (though we generally recommend first making any changes in your account settings);</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.06</span></td></tr></tbody></table><h2>Description of Right to Delete</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='miss'><td><div class='human-text'>Deleting Your Account or Business Profile
-If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com. We may retain certain information about you as required by law or for legitimate business purposes after you delete your account.</div></td><td><div class='llm-text'>If you would like to delete your Business Profile Data, please click here .</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.25</span></td></tr><tr class='match'><td><div class='human-text'>Deleting Your Account or Business Profile
-If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com. We may retain certain information about you as required by law or for legitimate business purposes after you delete your account.</div></td><td><div class='llm-text'>Deleting Your Account or Business Profile If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com . We may retain certain information about you as required by law or for legitimate business purposes after you delete your account. If you would like to delete your Business Profile Data, please click here .</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.84</span></td></tr><tr class='match'><td><div class='human-text'>Deletion Request Rights
+Promotional Partners</div>
+                </div>
+                
 
-You have the right to request that UpLead delete any of your personal information that we collected from you and retained, subject to certain exceptions</div></td><td><div class='llm-text'>Deletion Request Rights You have the right to request that UpLead delete any of your personal information that we collected from you and retained, subject to certain exceptions. Once we receive your request and verify your identity, we will delete (and direct our service providers to delete) your personal information from our records, unless an exception applies.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.65</span></td></tr><tr class='miss'><td><div class='human-text'>Deleting Your Account or Business Profile
-If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com. We may retain certain information about you as required by law or for legitimate business purposes after you delete your account.</div></td><td><div class='llm-text'>Business Profile Data may be deleted by clicking here</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.14</span></td></tr><tr class='fn'><td><div class='human-text'>Note: we may deny your deletion request if retaining the information is necessary for us or our service provider(s) for certain reasons as permitted and set forth in the CCPA, in which case we will inform you of those reasons.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>While you may request to delete your personal information under CCPA, such deletions may affect our ability to offer the Services.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Know PI Collected</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Access to Specific Information and Data Portability Rights
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click here.  You can also opt-out of the sale of your personal information that is collected automatically when you visit the Site by clicking here.</div>
+                </div>
+                
 
-You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months.</div></td><td><div class='llm-text'>The right of access – your right to request a copy of the personal data we hold about you (also known as a ‘data subject access request’);</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.31</span></td></tr><tr class='match'><td><div class='human-text'>Access to Specific Information and Data Portability Rights
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Access to Specific Information and Data Portability Rights
 
-You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months.</div></td><td><div class='llm-text'>Access to Specific Information and Data Portability Rights You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months. Once we receive your request and verify your identity, we will disclose such information to you.</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.83</span></td></tr><tr class='fn'><td><div class='human-text'>Accessing and Changing Your Information
-You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Know PI sold / shared</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Access to Specific Information and Data Portability Rights
+You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months</div>
+                </div>
+                
 
-You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months</div></td><td><div class='llm-text'>Access to Specific Information and Data Portability Rights You have the right to request that UpLead disclose certain information to you about our collection and use of your personal information over the past 12 months.</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='fn'><td><div class='human-text'>Other California Privacy Rights
-California residents may request information about our disclosures of certain categories of personal information to third parties for such third parties’ direct marketing purposes</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We will provide a list of the categories of personal information disclosed to such third parties for their direct marketing purposes during the immediately preceding calendar year, along with the names and addresses or these third parties</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Non-discrimination on exercising rights</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Non-Discrimination
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Note: we may deny your deletion request if retaining the information is necessary for us or our service provider(s) for certain reasons as permitted and set forth in the CCPA, in which case we will inform you of those reasons.</div>
+                </div>
+                
 
-We will not discriminate against you in a manner prohibited by the CCPA because you exercise your CCPA rights</div></td><td><div class='llm-text'>Non-Discrimination We will not discriminate against you in a manner prohibited by the CCPA because you exercise your CCPA rights.</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr></tbody></table><h2>Description of Right to Opt-out of sale of PI</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Opting-out of Sales of Personal Information
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">While you may request to delete your personal information under CCPA, such deletions may affect our ability to offer the Services.</div>
+                </div>
+                
 
-If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click her</div></td><td><div class='llm-text'>Notice to Nevada Consumers We may sell your personal information within the scope of, and according to the defined meaning of, a “sale” under NRS 603A. If you would like to opt-out of such sales of your personal information, please contact privacy@uplead . We will respond to verifiable requests as required by NRS 603A.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.36</span></td></tr><tr class='match'><td><div class='human-text'>Opting-out of Sales of Personal Information
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Other California Privacy Rights
+California residents may request information about our disclosures of certain categories of personal information to third parties for such third parties’ direct marketing purposes</div>
+                </div>
+                
 
-If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click her</div></td><td><div class='llm-text'>Opting-out of Sales of Personal Information If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click here .  You can also opt-out of the sale of your personal information that is collected automatically when you visit the Site by clicking here .</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.68</span></td></tr><tr class='fn'><td><div class='human-text'>Ad Choices
-You can opt-out from some third party behavioral adverting by clicking here.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Controlling Promotional Communications
-You may opt-out of receiving some or all categories of promotional communications from UpLead by following the instructions/link contained in those communications or, if you are a Customer, by updating your email options in your account preferences. If you opt-out of promotional communications, we may still send you non-promotional communications, such as information about your account and/or transactions, or your use of the Services.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>To learn more about how to opt-out tracking by Google Analytics, please click here</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Methods to exercise rights</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='miss'><td><div class='human-text'>If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com</div></td><td><div class='llm-text'>If you have any questions, comments, or concerns regarding this Privacy Policy, our Cookie Notice and/or our data practices, or would like to exercise your rights, do not hesitate to contact us at privacy@uplead.com or see our information below.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.21</span></td></tr><tr class='match'><td><div class='human-text'>To exercise your rights with respect to personal information contained in your Business Profile, please click email privacy@uplead.com.</div></td><td><div class='llm-text'>Individuals whose information is contained in a Business Profile on the Platform may contact us at privacy@uplead.com to access or have their Business Profile Data updated, rectified or deleted. You may also click here .</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.34</span></td></tr><tr class='match'><td><div class='human-text'>To exercise your rights with respect to personal information contained in your Business Profile, please click email privacy@uplead.com.</div></td><td><div class='llm-text'>To exercise your rights with respect to personal information contained in your Business Profile, please click email privacy@uplead.com .</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='miss'><td><div class='human-text'>If you are a Customer, you may delete your account information at any time by emailing us at privacy@uplead.com</div></td><td><div class='llm-text'>If you are located in the EEA or the U.K. and wish to exercise any of the rights set out above, you may contact us at privacy@uplead.com .</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.29</span></td></tr><tr class='match'><td><div class='human-text'>To exercise the rights described above, please submit a verifiable Consumer request to us by either:
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">California residents may make such request to us at privacy@uplead.com</div>
+                </div>
+                
 
-Emailing privacy@uplead.com
-Business Profile Data may be deleted by clicking here</div></td><td><div class='llm-text'>To exercise the rights described above, please submit a verifiable Consumer request to us by either: Emailing privacy@uplead.com Business Profile Data may be deleted by clicking here</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='miss'><td><div class='human-text'>California residents may make such request to us at privacy@uplead.com</div></td><td><div class='llm-text'>You may only make a verifiable Consumer request for access or data portability twice within a 12-month period.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.24</span></td></tr><tr class='fn'><td><div class='human-text'>You can opt-out from some third party behavioral adverting by clicking here.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Accessing and Changing Your Information
-You can access and change certain information through the Platform if you are a Customer, or by contacting us as privacy@upLead.com.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>If you would like to delete your Business Profile Data, please click here.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>You may opt-out of receiving some or all categories of promotional communications from UpLead by following the instructions/link contained in those communications or, if you are a Customer, by updating your email options in your account preferences</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>If your information is contained in a Business Profile and you would like to opt-out of us selling your personal information, please click here.  You can also opt-out of the sale of your personal information that is collected automatically when you visit the Site by clicking here.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>To learn more about how to opt-out tracking by Google Analytics, please click here</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Updated Privacy Policy</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Last updated: August 30, 2022</div></td><td><div class='llm-text'>Privacy Policy Last updated: August 30, 2022</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.91</span></td></tr><tr class='match'><td><div class='human-text'>Last updated: August 30, 2022</div></td><td><div class='llm-text'>This Privacy Policy was last updated on the date indicated above.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.33</span></td></tr></tbody></table></body></html>
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">We will provide a list of the categories of personal information disclosed to such third parties for their direct marketing purposes during the immediately preceding calendar year, along with the names and addresses or these third parties</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content"></div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Signing up for our Services\nIf you sign up for our Services, whether as a free trial or paid subscription, we will collect personal information as follows:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">If you are a Customer, we use PCI-compliant third-party processors, as explained in Payment Processing. Payment information is processed by our payment service providers, and we receive a confirmation of payment, which we then associate with your account and any relevant transactions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Customer Reviews\nCustomer reviews contain names, photos and contact information. If you submit a Customer review, with your consent, it may be posted on the Site and publicly visible. We may also share it with strategic partners.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Information We Collect Indirectly\nAutomatically Collected Information\nIf you are browsing or interacting with the Site, we collect the same basic information that many other websites collect. Even if you do not have an account, we, or authorized third parties engaged by us, automatically collect information about your use of the Site, which consists of:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This information allows us to understand the screens that you view, how you’ve used the Site and/or our Services (which may include administrative and support communications with us), and other actions on the Site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We use this information to administer and improve the Services, analyze trends, track users’ use of the Site, and gather broad demographic information for aggregate use.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We, or our authorized third parties, automatically collect log data when you access and use the Site for all Site Vistors, even if you have not created an account or logged in.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Device Information – information about the devices and software you use to access the Site – primarily the internet browser or mobile device that you use, the website or source that linked or referred you to the Site, your IP address or device ID (or other persistent identifier that uniquely identifies your computer or mobile device on the Internet), the operating system of your computer or mobile device, device screen size and other similar hardware and software information, and language preference\nUsage Information – information about your interactions with the Site, including access dates and times, device event information, log data, crash data, and cookie data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Location Information – based on this Device and Usage Information – mainly IP address – we are also able to determine general location information (country, city)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Some cookies are necessary to make the Site and our content available to you, while others are meant to improve the Site and enable us to analyze and measure audience and traffic.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Business Profile Data\nUpLead collects and compiles information about individuals with whom it does not have a direct relationship, but whose Business Profiles are included on our Platform. This information is gathered, compiled (and updated) and provided to our Customers as part of the Services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">A Business Profile includes (but does not always contain all of) the following Business Profile Data:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">A Business Profile includes (but does not always contain all of) the following Business Profile Data:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">A Business Profile includes (but does not always contain all of) the following Business Profile Data:\n\nFirst and last name\nBusiness e-mail address\nBusiness telephone (mobile in some cases)\nCompany\nJob Title\nLocation (City)\nPhoto\nEducation\nExperience\nPublic social media handles</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Device Information – information about the devices and software you use to access the Site – primarily the internet browser or mobile device that you use, the website or source that linked or referred you to the Site, your IP address or device ID (or other persistent identifier that uniquely identifies your computer or mobile device on the Internet), the operating system of your computer or mobile device, device screen size and other similar hardware and software information, and language preference</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Usage Information – information about your interactions with the Site, including access dates and times, device event information, log data, crash data, and cookie data</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Location Information – based on this Device and Usage Information – mainly IP address – we are also able to determine general location information (country, city).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Customer Reviews\nCustomer reviews contain names, photos and contact information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">First and last name\nCompany name\nEmail address\nUsername\nPassword\nJob title\nLocation (Country/State/Zip Code)\nPhone number\nBilling address</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To learn more about how to opt-out tracking by Google Analytics, please click here</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To learn more about how to opt-out tracking by Google Analytics, please click here</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Hotjar is contractually forbidden from selling any of the information that it collects on UpLead’s behalf.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Social Media\nWe use social media plug-ins (e.g., Facebook, Twitter). These features may collect your IP address and/or other information as set forth in each social platform’s privacy policy, which page you are visiting on our Site, and may set a cookie to enable the feature to function proper</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Collecting Business Profile Data to create and disclose Business Profiles for use by our Customers – See description above. Legitimate interests</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Collecting Business Profile Data to create and disclose Business Profiles for use by our Customers – See description above. Legitimate interests</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Processing and completing transactions, and sending you related information, including purchase confirmations and invoices – In particular, we will use your data to complete any purchases for the Services, set up billing and resolve any issues with respect to the foregoing. Performance of a contract</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">As required by applicable law, legal process or regulation – We may use your information to comply with valid court orders and similar legal or regulatory obligations which apply to us. This may include where we reasonably consider it is in our legitimate interests (or the legitimate interests of others) to comply, as well as where we are legally required to do so</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Interacting with individuals on social media via our social media accounts and marketing our Platform – This includes any data we collect when you interact with our social media handles, and any advertising or re-targeting that we may undertake as set forth in this Privacy Policy. Consent where required (e.g., third-party cookies) or legitimate interests</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Customers\nBusiness Profile Data is disclosed to our Customers and Site Visitors in connection with our Services, as well as strategic partners</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Business Transfers\nAs we continue to grow, we may purchase websites, applications, subsidiaries, other businesses or business units. Alternatively, we may sell businesses or business units, merge with other entities and/or sell assets or stock, in some cases as part of a reorganization or liquidation in bankruptcy. In order to evaluate or as part of these transactions, we may transfer your personal information to a successor entity upon a merger, consolidation or other corporate reorganization in which UpLead participates, or to a purchaser or acquirer of all or a portion of UpLead’s assets, bankruptcy included.\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Advertising &amp; Marketing\nInformation We Use for Advertising and Marketing\nWe advertise our Platform by targeting (and measuring the performance of) ads to Site Visitors, Customers on other websites and platforms directly or through a variety of partners, including third party advertisers, ad server companies, social networks and ad networks (collectively, “External Ad Partners”). In order to advertise our Services, we or our External Ad Partners use the following information, whether separately or combined:\n\nDevice Information and Location Information collected via cookies and similar technologies on our Site\nInformation provided directly by Customers or individuals who reach out to us directly\nUsage Information from your use of the Platform\nInformation from External Ad Partners\nInformation inferred the categories of information described above.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Advertising &amp; Marketing\nInformation We Use for Advertising and Marketing\nWe advertise our Platform by targeting (and measuring the performance of) ads to Site Visitors, Customers on other websites and platforms directly or through a variety of partners, including third party advertisers, ad server companies, social networks and ad networks (collectively, “External Ad Partners”). In order to advertise our Services, we or our External Ad Partners use the following information, whether separately or combined:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In addition to advertising our Services, we use Customer data and content to market our Services, promote additional features or encourage Customers to share our Platform.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sale of Personal Information\n\nThe CCPA defines ‘sale’ very broadly. It includes the sharing of personal information with third parties in exchange for anything of value.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

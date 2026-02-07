@@ -1,8 +1,12 @@
 import os
 import threading
+import json
 from collections import deque
-from typing import Optional
+from typing import Optional, Dict, Any, Union, List
 import aisuite as ai
+# pip install json_repair
+from json_repair import repair_json
+
 
 class LLMClient:
     """
@@ -62,20 +66,47 @@ class LLMClient:
             if api_key:
                 self.client.api_key = api_key
 
-    def classify(self, system_prompt: str, user_prompt: str) -> str:
+    def classify(self, system_prompt: str, user_prompt: str, response_format: Optional[Dict[str, Any]] = None) -> str:
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ]
+        return self._call_model(messages, response_format)
 
+    def get_completion(self, messages, response_format: Optional[Dict[str, Any]] = None) -> str:
+        return self._call_model(messages, response_format)
+
+    def _call_model(self, messages: List[Dict[str, str]], response_format: Optional[Dict[str, Any]] = None) -> str:
         if self.provider == "openai":
             temperature = 1.0
         else:
             temperature = 0.0
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            temperature=temperature,
-        )
-        return response.choices[0].message.content.strip()
+        kwargs = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+        }
+
+        if response_format:
+            kwargs["response_format"] = response_format
+
+        try:
+            response = self.client.chat.completions.create(**kwargs)
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            print(f"LLM Error: {e}")
+            return ""
+
+    def parse_json(self, json_string: str) -> Union[Dict, List, None]:
+        """
+        Robustly parses a JSON string using json_repair.
+        Returns the parsed object (dict or list) or None if parsing fails completely.
+        """
+        try:
+            # json_repair returns the parsed object directly
+            decoded_object = repair_json(json_string, return_objects=True)
+            return decoded_object
+        except Exception as e:
+            print(f"JSON Parsing failed even with repair: {e}")
+            return None

@@ -1,27 +1,535 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>C3PA Annotation Audit</title>
-    <style>
-        body { font-family: "Segoe UI", sans-serif; padding: 20px; max-width: 1400px; margin: auto; background: #f5f5f5; }
-        h2 { background: #e9ecef; padding: 10px; border-left: 5px solid #007bff; margin-top: 30px; }
-        table { width: 100%; border-collapse: collapse; background: #fff; table-layout: fixed; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 12px; border: 1px solid #dee2e6; vertical-align: top; overflow-wrap: break-word; }
-        th.human-col { background: #d4edda; width: 45%; }
-        th.llm-col { background: #f8d7da; width: 45%; }
-        th.score-col { background: #e2e3e5; width: 10%; text-align: center; }
-        .human-text { font-family: monospace; font-size: 13px; color: #155724; white-space: pre-wrap; }
-        .llm-text { font-family: monospace; font-size: 13px; color: #721c24; white-space: pre-wrap; }
-        tr.match { background-color: #fff3cd; }
-        tr.miss { background-color: #fff; }
-        tr.fn { background-color: #f8f9fa; border-left: 4px solid #dc3545; }
-        .score-badge { font-weight: bold; padding: 2px 6px; border-radius: 4px; color: #fff; }
-        .score-high { background-color: #28a745; }
-        .score-med { background-color: #ffc107; color: #000; }
-        .score-low { background-color: #dc3545; }
-        .empty-cell { color: #aaa; font-style: italic; text-align: center; }
-    </style>
-</head>
-<body>
-    <h1>C3PA vs LLM Audit Report</h1>
-<h3>Policy ID: DB_155</h3><h2>Categories of Personal Information Collected</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Information You Provide To Us\nWe collect information you provide directly to us. For example, we collect information when you create an account, update your profile, participate in certain interactive features of the Services, fill out a form, request customer support, or communicate with us. The types of information we collect may include your name, email address, phone number, interests and preferences, location, and other information you choose to provide.\n\nIf you provide personal information to us about someone else, you must ensure that you are entitled to disclose that information to us, including having had obtained any necessary consent on his or her part; and, that we may collect, use, and disclose such information for the purposes described in this Privacy Policy. Any collection and processing of information that you have provided about another person will be in accordance with this Policy.</div></td><td><div class='llm-text'>The types of information we collect may include your name, email address, phone number, interests and preferences, location, and other information you choose to provide.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.33</span></td></tr><tr class='match'><td><div class='human-text'>Information We Get When You Use Our Services\nWe may collect information about the Services you or your household use and how they are used, such as when you watch a video on a Samba mobile application, visit a third-party website or app that uses our Integrated Services, or interact with our ads and content.\n\na. What Information We Receive\nContent Viewing Information: We receive information about the content you view and interact with when you enable our Services in your Smart TV (“Content Viewing Information”). We may also receive Content Viewing Information if you enable a Smart TV App that integrates our Services. Content Viewing Information includes things like the title of the content, actions taken while viewing the content, and the length of time you viewed it.\nLog Information: We automatically collect standard log files when you use our Services, which include the time and date of access, pages or features viewed, IP address, the type of web browser you use, and the referral URL.\nDevice Information: We collect information about the devices you use to interact with our Services. This device-specific information may include the hardware model and brand, operating system, device identifiers, resource usage, and error logs. We may also discover when your Smart TV is available to connect with a mobile device, which can, for example, be used to make pairing your devices easier.\nb. How We Receive This information\nSmart TV Services: When you opt-in to our Smart TV Services, we may recognize the content played through your TV. Please note, we are only able to recognize public content, such as certain shows and movies. We won’t know when you’re watching, for example, home videos.\nSmart TV Apps: We may receive such viewing information when you use our Smart TV Apps or third-party Smart TV apps that use our Integrated Services.\nMobile Applications: We may receive information about your mobile device and the applications you are running on it. The information we receive may include, for instance, the mobile device’s advertising identifier (e.g. the IDFA or Google Android Ad ID).\nCookies and Other Technologies: We use various technologies to collect information when you interact with our Services. These technologies include cookies, local storage and web beacons. Cookies and local storage are small data files that are stored on your device when you visit a website. Cookies and local storage enable us and our customers to provide features and functionality (such as keeping you logged in), measure the popularity of our Services, and monitor their performance. Web beacons (or pixel tags) are electronic images that may be used in our Services or emails to help deliver cookies, count website visits, and determine the effectiveness of email marketing campaigns. Our cookies are generally set to expire thirteen (13) months from the last time our systems encounter a particular computer or device.\nInformation from Integrated Services: We collect information when you visit or use third-party websites and apps that use our Integrated Services, including through cookies and other technologies described above. For example, when you elect to pair a broadcaster’s app to your TV, that broadcaster can use our technology to synchronize your experience on their mobile apps as you watch a show on your TV. Also, third-party apps and websites can use our measurement and advertising services to better understand usage of their services and enable the delivery of interest-based advertisements. The information we collect includes information about your use of those websites and apps, as well as information those apps or websites enable us to collect from their services. For example, a streaming video provider may enable us to receive information about the content you watch so that our recommendation service can suggest additional content that you might like.\n1.3 Information We Collect from Other Sources\nWhere the law permits, we may also obtain information from other sources and combine that with information we collect through our Services. For example, we might obtain information from data providers and advertising exchange services, including assumed demographics and interests, and data about your engagement with certain ads. We may also obtain from our data providers household or unique device identifiers (such as IP Addresses and Advertising IDs) gathered across platforms (including websites, TV applications, or mobile applications) which may be combined with our data and distributed to our clients so they can better tailor their advertising, marketing, measurement, analytics, and research; our data providers who are contractually bound to comply with all applicable data privacy laws before collecting such data and providing it to us.\n\nAlso, if you create or log into your Samba TV account through a social media service, we will have access to certain information from that service based on the settings and authorizations you grant us through that service.</div></td><td><div class='llm-text'>Content Viewing Information: We receive information about the content you view and interact with when you enable our Services in your Smart TV (“Content Viewing Information”). We may also receive Content Viewing Information if you enable a Smart TV App that integrates our Services. Content Viewing Information includes things like the title of the content, actions taken while viewing the content, and the length of time you viewed it. Log Information: We automatically collect standard log files when you use our Services, which include the time and date of access, pages or features viewed, IP address, the type of web browser you use, and the referral URL. Device Information: We collect information about the devices you use to interact with our Services. This device-specific information may include the hardware model and brand, operating system, device identifiers, resource usage, and error logs.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.31</span></td></tr><tr class='match'><td><div class='human-text'>Personal Information We Collect, Use, and Share  \nWe do not knowingly collect information from individuals under the age of 16 without parental consent.\n\nThe list below summarizes, during the 12 months preceding the last update of this Privacy Policy, the categories of personal information we collect, as well as where we collect it from, how we use it, and who we share it with.  More information regarding the: sources from which we collect personal information can be found in Section 1; business and commercial purposes for which we collect your personal information can be found in Section 2; categories of recipients with whom personal information is shared or sold can be found in Section 3.\n\n1. Email address, IP address, device ids, cookies, and advertising IDS\n\nSources: You, your browser, computer, or mobile device, or Samba Smart TV Services, third party data providers\nPurposes of use of PI: Communicate with you; provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on an off the Services.\nCategories of third parties to whom we disclose the PI: Law enforcement and third party partners, such as advertisers and content producers.\n2. Demographic information such as household income, age bracket, and homeownership\n\nSources: You or, with your permission, third parties; partners such a marketing and data providers.\nPurposes of use of PI: Communicate with you, provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on and off the Services\nCategories of third parties to whom we disclose the PI: Advertisers or companies offering services through Samba; law enforcement.\n3. Ad Exposure and Content Viewing information associated with your TV ID or IP Address\n\nSources: Your Smart TV, if it has Samba Smart TV Services installed and you have opted-in to data collection.\nPurposes of use of PI: Provide, improve, and resolve errors in our Services; provide content recommendations; and provide and improve advertisements and other commercial offerings both on and off the Services.</div></td><td><div class='llm-text'>1. Email address, IP address, device ids, cookies, and advertising IDS Sources : You, your browser, computer, or mobile device, or Samba Smart TV Services, third party data providers Purposes of use of PI : Communicate with you; provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on an off the Services. 2. Demographic information such as household income, age bracket, and homeownership Sources: You or, with your permission, third parties; partners such a marketing and data providers. Purposes of use of PI: Communicate with you, provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on and off the Services Categories of third parties to whom we disclose the PI: Advertisers or companies offering services through Samba; law enforcement. 3. Ad Exposure and Content Viewing information associated with your TV ID or IP Address Sources: Your Smart TV, if it has Samba Smart TV Services installed and you have opted-in to data collection. Purposes of use of PI: Provide, improve, and resolve errors in our Services; provide content recommendations; and provide and improve advertisements and other commercial offerings both on and off the Services.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.73</span></td></tr><tr class='fn'><td><div class='human-text'>Use of Information\nWe may use the information we collect to:\n\nProvide, maintain and improve our Services (for instance, we use information we collect to refine the user experience, fix service malfunctions, test our security systems and increase our technical performance);\nMonitor and analyze usage of our Services;\nPersonalize our Services and deliver recommendations, advertisements, content and features that match your interests;\nImprove our advertising and measurement systems so we can show you relevant ads on and off our Services (for example, if you are interested in cooking shows, we may serve you ads for new TV cooking programs);\nCommunicate with you about products, services, offers and events offered by Samba TV or others, and provide content we think you will find interesting;\nRespond to your comments and questions and provide customer service; and,\nDetect, investigate and prevent fraudulent and other illegal activities, and protect the rights, safety and property of Samba TV and others.\nTo clarify, information we receive about you or your household from using one device or Smart TV may be combined with information we receive from use of other devices or Smart TVs.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Retention of Information\nWe will generally retain your personal information for as long as is needed to fulfill the purposes outlined in this Privacy Policy. However, we may retain certain information as required by applicable law (such as tax, accounting or other legal requirements). When we have no basis to continue processing your personal information, we will either delete or anonymize it in accordance with applicable laws (though we may need to retain cached or archived copies for a certain period until deletion is possible).\n\nWe may store Content Viewership and Ad Exposure Information for up to three (3) years from the last time our Services encounter a particular device, unless you ask us to delete that information before then. Our cookies are set to expire in less than 13 months. Identifiers associated with your non-Samba TV devices (such as device IDs, mobile ad ids, IP addresses) are kept for no more than 180 days since our last receipt of such identifier.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>We require TV manufacturers to provide you with an opt-in to enable our Smart TV Services that collect Content Viewership Information.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>f you opt out of our Smart TV Services, we will no longer collect TV viewing information through this service. However, we still may receive Content Viewership Information, as described above in the “Collection of Information” section, when you watch content through certain Smart TV Apps. You should review the opt-out options provided by such applications.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Categories of Personal Information Shared / Disclosed</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='miss'><td><div class='human-text'>Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.\nIn the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div></td><td><div class='llm-text'>The types of personal information we may share include device IDs, advertising IDs, IP addresses, hashed/encrypted versions of your email address or other identifier, or pseudonymous IDs.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.19</span></td></tr><tr class='match'><td><div class='human-text'>Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.\nIn the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div></td><td><div class='llm-text'>Categories of third parties to whom we disclose the PI : Law enforcement and third party partners, such as advertisers and content producers.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.46</span></td></tr><tr class='match'><td><div class='human-text'>Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.\nIn the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div></td><td><div class='llm-text'>Categories of third parties to whom we disclose the PI: Advertisers or companies offering services through Samba; law enforcement.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.41</span></td></tr><tr class='fn'><td><div class='human-text'>Use of Information\nWe may use the information we collect to:\n\nProvide, maintain and improve our Services (for instance, we use information we collect to refine the user experience, fix service malfunctions, test our security systems and increase our technical performance);\nMonitor and analyze usage of our Services;\nPersonalize our Services and deliver recommendations, advertisements, content and features that match your interests;\nImprove our advertising and measurement systems so we can show you relevant ads on and off our Services (for example, if you are interested in cooking shows, we may serve you ads for new TV cooking programs);\nCommunicate with you about products, services, offers and events offered by Samba TV or others, and provide content we think you will find interesting;\nRespond to your comments and questions and provide customer service; and,\nDetect, investigate and prevent fraudulent and other illegal activities, and protect the rights, safety and property of Samba TV and others.\nTo clarify, information we receive about you or your household from using one device or Smart TV may be combined with information we receive from use of other devices or Smart TVs.\n\n‍</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Sharing of Information\nWe may share the information we collect about you with third parties in the following circumstances:\n\nWith Your Consent Or At Your Direction: At your direction or if we have your consent to do so, we will share information with companies, organizations or individuals outside of Samba TV. When you authorize us to share information about you with other companies, you should review their privacy policies to understand how they may use and treat personal information.\nWith Service Providers And Data Processors: We may share information with, consultants, data processors, service providers and other trusted businesses who make our business-to-business activities in digital advertising possible.\nFor Legal Reasons: We may share information with companies, organizations, or individuals outside of Samba TV: in response to a request for information if we believe disclosure is in accordance with, or required by, any applicable law, legal process or national security requirements; if we believe your actions are inconsistent with our user agreements; or, to protect the rights, property or safety of Samba or others.\nWith Our Corporate Family: We may share information between and among Samba TV’s current and future parents, affiliates, subsidiaries and other companies under our common control and ownership. We do so in order to administer and deliver our Services as described in this Policy.\nPursuant To A Change Of Control: We may also share information in connection with any merger, sale of assets, financing or acquisition of all or a portion of our business by another company.\nWhen You Are Not Directly Identified: We may share certain information, such as Content Viewing Information, that does not, on its own, directly identify you as an individual. We may share this information with our partners and customers (including for advertising and analytics purposes), and the public. We may, for instance, publish aggregated reports regarding how many people viewed a particular TV show. Or, we may share data about your device with advertising platforms to help make the ads you see more relevant to you.\nWith Advertising Partners: We engage other companies to serve advertisements on our behalf across the Internet and provide analytics services to us. These companies may use cookies, web beacons, device IDs and other technologies to collect information about your use of the Services and other websites and apps, including: your IP address, web browser, pages viewed, time spent on pages or in apps, links clicked and conversion information. This information may be used by Samba TV and others in various ways, including to determine the popularity of certain features, deliver interest-based advertising and other content targeted to your interests on our Services and other websites, and to understand the impact of certain advertising and content.\nTo clarify, the personal information that we share will not directly identify you, but may indirectly identify you through, for example, your device or other means. The types of personal information we may share include device IDs, advertising IDs, IP addresses, hashed/encrypted versions of your email address or other identifier, or pseudonymous IDs.\n\n‍</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Categories of Personal Information Sold</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.\nIn the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div></td><td><div class='llm-text'>In the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.77</span></td></tr><tr class='fn'><td><div class='human-text'>Use of Information\nWe may use the information we collect to:\n\nProvide, maintain and improve our Services (for instance, we use information we collect to refine the user experience, fix service malfunctions, test our security systems and increase our technical performance);\nMonitor and analyze usage of our Services;\nPersonalize our Services and deliver recommendations, advertisements, content and features that match your interests;\nImprove our advertising and measurement systems so we can show you relevant ads on and off our Services (for example, if you are interested in cooking shows, we may serve you ads for new TV cooking programs);\nCommunicate with you about products, services, offers and events offered by Samba TV or others, and provide content we think you will find interesting;\nRespond to your comments and questions and provide customer service; and,\nDetect, investigate and prevent fraudulent and other illegal activities, and protect the rights, safety and property of Samba TV and others.\nTo clarify, information we receive about you or your household from using one device or Smart TV may be combined with information we receive from use of other devices or Smart TVs.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>With Advertising Partners: We engage other companies to serve advertisements on our behalf across the Internet and provide analytics services to us. These companies may use cookies, web beacons, device IDs and other technologies to collect information about your use of the Services and other websites and apps, including: your IP address, web browser, pages viewed, time spent on pages or in apps, links clicked and conversion information. This information may be used by Samba TV and others in various ways, including to determine the popularity of certain features, deliver interest-based advertising and other content targeted to your interests on our Services and other websites, and to understand the impact of certain advertising and content.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Correct Information</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div></td><td><div class='llm-text'>In general, you have the right to access, update or delete your personal information. This means you have the right to request that we: ... Correct any errors in that information.</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.86</span></td></tr><tr class='miss'><td><div class='human-text'>In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div></td><td><div class='llm-text'>You have the right to (a) access your personal data, (b) rectify, restrict, or delete your personal data, (c) object to the processing of your personal data (this is your “opt-out”), (d) revoke your consent to our processing of your personal data, and (e) raise concerns about our use of your personal data to our data protection officer or to the relevant data protection authorities.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.21</span></td></tr><tr class='fn'><td><div class='human-text'>Correct any errors in that information.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Delete</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div></td><td><div class='llm-text'>In general, you have the right to access, update or delete your personal information. This means you have the right to request that we: ... Delete your personal information.</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.90</span></td></tr><tr class='match'><td><div class='human-text'>delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”).</div></td><td><div class='llm-text'>Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”).</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.65</span></td></tr><tr class='fn'><td><div class='human-text'>Delete your personal information.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Know PI Collected</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it.</div></td><td><div class='llm-text'>Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it.</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='match'><td><div class='human-text'>Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell</div></td><td><div class='llm-text'>Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”).</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.65</span></td></tr><tr class='miss'><td><div class='human-text'>In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div></td><td><div class='llm-text'>You have the right to (a) access your personal data, (b) rectify, restrict, or delete your personal data, (c) object to the processing of your personal data (this is your “opt-out”), (d) revoke your consent to our processing of your personal data, and (e) raise concerns about our use of your personal data to our data protection officer or to the relevant data protection authorities.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.21</span></td></tr></tbody></table><h2>Description of Right to Know PI sold / shared</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Disclose to you what personal information of yours we have shared or sold to third parties.</div></td><td><div class='llm-text'>Disclose to you what personal information of yours we have shared or sold to third parties.</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='match'><td><div class='human-text'>Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell</div></td><td><div class='llm-text'>Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”).</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.65</span></td></tr><tr class='fn'><td><div class='human-text'>Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Limit use of PI</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='fn'><td><div class='human-text'>You may also choose to enable Limit Ad Tracking from the Privacy menu within Smart TV Settings on your Smart TV.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Description of Right to Non-discrimination on exercising rights</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>You also have a right not to be discriminated against for exercising any of these rights, and Samba will not do so.</div></td><td><div class='llm-text'>You also have a right not to be discriminated against for exercising any of these rights, and Samba will not do so.</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr></tbody></table><h2>Description of Right to Opt-out of sale of PI</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='miss'><td class='empty-cell'>No close match found</td><td><div class='llm-text'>You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.00</span></td></tr><tr class='match'><td><div class='human-text'>Stop sharing, processing, or selling your personal information.</div></td><td><div class='llm-text'>Stop sharing, processing, or selling your personal information.</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='miss'><td class='empty-cell'>No close match found</td><td><div class='llm-text'>We adhere to the NAI Code and implement the opt out mechanisms provided by the NAI and DAA: Web Browsers: You can opt out of having Samba use your web browsing information for “interest-based” or “tailored” advertisements by visiting http://optout.networkadvertising.org or https://optout.aboutads.info . Mobile Devices: For the most effective and up-to-date methods to limit ad tracking on your mobile device, please refer to your mobile operating system settings to see how you can opt out of “interest-based” or “tailored” advertisements, or reset your mobile device advertiser ID to unlink information previously associated with your advertiser ID. Please also review the NAI’s mobile opt-out instructions located at mobile-choice. For more information on opting out of targeted advertisements on mobile devices. Note, you will need to opt out on each browser on each of your devices.</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.00</span></td></tr></tbody></table><h2>Methods to exercise rights</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>You can exercise these rights by:\n\nadjusting the settings in the Samba TV products and services that you use;\nsubmitting a request through our online webform\nemailing us at privacy@samba.tv\nwriting to us at the addresses listed in Section 11 (Contact US)</div></td><td><div class='llm-text'>You can exercise these rights by: adjusting the settings in the Samba TV products and services that you use; submitting a request through our online webform emailing us at privacy@samba.tv writing to us at the addresses listed in Section 11 (Contact US) We will respond to all requests in accordance with applicable laws, which may require that you provide us with additional information to confirm your identity. This confirming information will only be used to process your request.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.53</span></td></tr><tr class='match'><td><div class='human-text'>You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv.</div></td><td><div class='llm-text'>You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.69</span></td></tr><tr class='match'><td><div class='human-text'>You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv.</div></td><td><div class='llm-text'>You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div></td><td style='text-align:center;'><span class='score-badge score-med'>0.69</span></td></tr><tr class='miss'><td><div class='human-text'>If you cannot find the opt-out settings, please contact us at privacy@samba.tv.</div></td><td><div class='llm-text'>If you have any questions or complaints regarding this policy or about Samba TV’s privacy practices, please contact us at privacy@samba.tv , or at: Samba TV, Inc. (ATTN: Privacy) 118 King Street Suite 110 San Francisco, CA 94107 USA You may also contact our Data Protection Officer at: Vincent Rezzouk-Hammachi Bird &amp; Bird Privacy Solutions Avenue Louise 235 Box 1 1050 Brussels, Belgium dpo.sambatv@twobirds.com</div></td><td style='text-align:center;'><span class='score-badge score-low'>0.15</span></td></tr><tr class='fn'><td><div class='human-text'>You should be able to opt in or out of our Smart TV Services at any time your TV is connected to the Internet. You typically can find a feature to opt-out and opt-in in the “settings” menu of your TV; it may also be in the settings menu of the application that integrates our Services. If you have trouble finding this feature, you should contact the TV manufacturer to determine the exact location.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Note that whenever you want to unlink the data associated with your Samba TV Advertising ID, you can simply reset it. Please check with the TV manufacturer for the exact location of these features. If you cannot find them or your TV manufacturer has not enabled them, please contact us at privacy@samba.tv with your TV manufacturer and model number and we will attempt to provide you with more detailed instructions on where to locate these features.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>Web Browsers: You can opt out of having Samba use your web browsing information for “interest-based” or “tailored” advertisements by visiting http://optout.networkadvertising.org or https://optout.aboutads.info.\nMobile Devices: For the most effective and up-to-date methods to limit ad tracking on your mobile device, please refer to your mobile operating system settings to see how you can opt out of “interest-based” or “tailored” advertisements, or reset your mobile device advertiser ID to unlink information previously associated with your advertiser ID. Please also review the NAI’s mobile opt-out instructions located at mobile-choice. For more information on opting out of targeted advertisements on mobile devices.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr><tr class='fn'><td><div class='human-text'>If you prefer, you can usually choose to set your browser to remove or reject browser cookies or to clear local storage.</div></td><td class='empty-cell'>Not Extracted by LLM</td><td style='text-align:center;'>FN</td></tr></tbody></table><h2>Updated Privacy Policy</h2><table><thead><tr><th class='human-col'>Human Ground Truth</th><th class='llm-col'>LLM Prediction</th><th class='score-col'>Score</th></tr></thead><tbody><tr class='match'><td><div class='human-text'>Last Updated: July 12, 2021</div></td><td><div class='llm-text'>Last Updated: July 12, 2021</div></td><td style='text-align:center;'><span class='score-badge score-high'>1.00</span></td></tr><tr class='match'><td><div class='human-text'>Changes\nWe may change this policy from time to time. If we make changes, we will revise the date at the top of the policy and provide notice. Such notice may take various forms, such as updating the date on the top of the policy, adding a statement to our website, sending you an email, or providing an on-screen notification on your Smart TV.</div></td><td><div class='llm-text'>We may change this policy from time to time. If we make changes, we will revise the date at the top of the policy and provide notice. Such notice may take various forms, such as updating the date on the top of the policy, adding a statement to our website, sending you an email, or providing an on-screen notification on your Smart TV.</div></td><td style='text-align:center;'><span class='score-badge score-high'>0.99</span></td></tr></tbody></table></body></html>
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_155</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.79</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.53</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.63</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">19</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">18</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated: July 12, 2021</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Updated: July 12, 2021</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">We may change this policy from time to time. If we make changes, we will revise the date at the top of the policy and provide notice. Such notice may take various forms, such as updating the date on the top of the policy, adding a statement to our website, sending you an email, or providing an on-screen notification on your Smart TV.</div>
+                    <div class='match-info'><b>Matched GT:</b> Changes\nWe may change this policy from time to time. If we make changes, we will revise the date at the top of the policy and provide notice. Such notice may take various forms, such as updating the date on the top of the policy, adding a statement to our website, sending you an email, or providing an on-screen notification on your Smart TV.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The types of information we collect may include your name, email address, phone number, interests and preferences, location, and other information you choose to provide.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information You Provide To Us\nWe collect information you provide directly to us. For example, we collect information when you create an account, update your profile, participate in certain interactive features of the Services, fill out a form, request customer support, or communicate with us. The types of information we collect may include your name, email address, phone number, interests and preferences, location, and other information you choose to provide.\n\nIf you provide personal information to us about someone else, you must ensure that you are entitled to disclose that information to us, including having had obtained any necessary consent on his or her part; and, that we may collect, use, and disclose such information for the purposes described in this Privacy Policy. Any collection and processing of information that you have provided about another person will be in accordance with this Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">a. What Information We Receive
+Content Viewing Information: We receive information about the content you view and interact with when you enable our Services in your Smart TV (&quot;Content Viewing Information&quot;). We may also receive Content Viewing Information if you enable a Smart TV App that integrates our Services. Content Viewing Information includes things like the title of the content, actions taken while viewing the content, and the length of time you viewed it.
+Log Information: We automatically collect standard log files when you use our Services, which include the time and date of access, pages or features viewed, IP address, the type of web browser you use, and the referral URL.
+Device Information: We collect information about the devices you use to interact with our Services. This device-specific information may include the hardware model and brand, operating system, device identifiers, resource usage, and error logs.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Get When You Use Our Services\nWe may collect information about the Services you or your household use and how they are used, such as when you watch a video on a Samba mobile application, visit a third-party website or app that uses our Integrated Services, or interact with our ads and content.\n\na. What Information We Receive\nContent Viewing Information: We receive information about the content you view and interact with when you enable our Services in your Smart TV (“Content Viewing Information”). We may also receive Content Viewing Information if you enable a Smart TV App that integrates our Services. Content Viewing Information includes things like the title of the content, actions taken while viewing the content, and the length of time you viewed it.\nLog Information: We automatically collect standard log files when you use our Services, which include the time and date of access, pages or features viewed, IP address, the type of web browser you use, and the referral URL.\nDevice Information: We collect information about the devices you use to interact with our Services. This device-specific information may include the hardware model and brand, operating system, device identifiers, resource usage, and error logs. We may also discover when your Smart TV is available to connect with a mobile device, which can, for example, be used to make pairing your devices easier.\nb. How We Receive This information\nSmart TV Services: When you opt-in to our Smart TV Services, we may recognize the content played through your TV. Please note, we are only able to recognize public content, such as certain shows and movies. We won’t know when you’re watching, for example, home videos.\nSmart TV Apps: We may receive such viewing information when you use our Smart TV Apps or third-party Smart TV apps that use our Integrated Services.\nMobile Applications: We may receive information about your mobile device and the applications you are running on it. The information we receive may include, for instance, the mobile device’s advertising identifier (e.g. the IDFA or Google Android Ad ID).\nCookies and Other Technologies: We use various technologies to collect information when you interact with our Services. These technologies include cookies, local storage and web beacons. Cookies and local storage are small data files that are stored on your device when you visit a website. Cookies and local storage enable us and our customers to provide features and functionality (such as keeping you logged in), measure the popularity of our Services, and monitor their performance. Web beacons (or pixel tags) are electronic images that may be used in our Services or emails to help deliver cookies, count website visits, and determine the effectiveness of email marketing campaigns. Our cookies are generally set to expire thirteen (13) months from the last time our systems encounter a particular computer or device.\nInformation from Integrated Services: We collect information when you visit or use third-party websites and apps that use our Integrated Services, including through cookies and other technologies described above. For example, when you elect to pair a broadcaster’s app to your TV, that broadcaster can use our technology to synchronize your experience on their mobile apps as you watch a show on your TV. Also, third-party apps and websites can use our measurement and advertising services to better understand usage of their services and enable the delivery of interest-based advertisements. The information we collect includes information about your use of those websites and apps, as well as information those apps or websites enable us to collect from their services. For example, a streaming video provider may enable us to receive information about the content you watch so that our recommendation service can suggest additional content that you might like.\n1.3 Information We Collect from Other Sources\nWhere the law permits, we may also obtain information from other sources and combine that with information we collect through our Services. For example, we might obtain information from data providers and advertising exchange services, including assumed demographics and interests, and data about your engagement with certain ads. We may also obtain from our data providers household or unique device identifiers (such as IP Addresses and Advertising IDs) gathered across platforms (including websites, TV applications, or mobile applications) which may be combined with our data and distributed to our clients so they can better tailor their advertising, marketing, measurement, analytics, and research; our data providers who are contractually bound to comply with all applicable data privacy laws before collecting such data and providing it to us.\n\nAlso, if you create or log into your Samba TV account through a social media service, we will have access to certain information from that service based on the settings and authorizations you grant us through that service.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and Other Technologies: We use various technologies to collect information when you interact with our Services. These technologies include cookies, local storage and web beacons. Cookies and local storage are small data files that are stored on your device when you visit a website. Cookies and local storage enable us and our customers to provide features and functionality (such as keeping you logged in), measure the popularity of our Services, and monitor their performance. Web beacons (or pixel tags) are electronic images that may be used in our Services or emails to help deliver cookies, count website visits, and determine the effectiveness of email marketing campaigns. Our cookies are generally set to expire thirteen (13) months from the last time our systems encounter a particular computer or device.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Get When You Use Our Services\nWe may collect information about the Services you or your household use and how they are used, such as when you watch a video on a Samba mobile application, visit a third-party website or app that uses our Integrated Services, or interact with our ads and content.\n\na. What Information We Receive\nContent Viewing Information: We receive information about the content you view and interact with when you enable our Services in your Smart TV (“Content Viewing Information”). We may also receive Content Viewing Information if you enable a Smart TV App that integrates our Services. Content Viewing Information includes things like the title of the content, actions taken while viewing the content, and the length of time you viewed it.\nLog Information: We automatically collect standard log files when you use our Services, which include the time and date of access, pages or features viewed, IP address, the type of web browser you use, and the referral URL.\nDevice Information: We collect information about the devices you use to interact with our Services. This device-specific information may include the hardware model and brand, operating system, device identifiers, resource usage, and error logs. We may also discover when your Smart TV is available to connect with a mobile device, which can, for example, be used to make pairing your devices easier.\nb. How We Receive This information\nSmart TV Services: When you opt-in to our Smart TV Services, we may recognize the content played through your TV. Please note, we are only able to recognize public content, such as certain shows and movies. We won’t know when you’re watching, for example, home videos.\nSmart TV Apps: We may receive such viewing information when you use our Smart TV Apps or third-party Smart TV apps that use our Integrated Services.\nMobile Applications: We may receive information about your mobile device and the applications you are running on it. The information we receive may include, for instance, the mobile device’s advertising identifier (e.g. the IDFA or Google Android Ad ID).\nCookies and Other Technologies: We use various technologies to collect information when you interact with our Services. These technologies include cookies, local storage and web beacons. Cookies and local storage are small data files that are stored on your device when you visit a website. Cookies and local storage enable us and our customers to provide features and functionality (such as keeping you logged in), measure the popularity of our Services, and monitor their performance. Web beacons (or pixel tags) are electronic images that may be used in our Services or emails to help deliver cookies, count website visits, and determine the effectiveness of email marketing campaigns. Our cookies are generally set to expire thirteen (13) months from the last time our systems encounter a particular computer or device.\nInformation from Integrated Services: We collect information when you visit or use third-party websites and apps that use our Integrated Services, including through cookies and other technologies described above. For example, when you elect to pair a broadcaster’s app to your TV, that broadcaster can use our technology to synchronize your experience on their mobile apps as you watch a show on your TV. Also, third-party apps and websites can use our measurement and advertising services to better understand usage of their services and enable the delivery of interest-based advertisements. The information we collect includes information about your use of those websites and apps, as well as information those apps or websites enable us to collect from their services. For example, a streaming video provider may enable us to receive information about the content you watch so that our recommendation service can suggest additional content that you might like.\n1.3 Information We Collect from Other Sources\nWhere the law permits, we may also obtain information from other sources and combine that with information we collect through our Services. For example, we might obtain information from data providers and advertising exchange services, including assumed demographics and interests, and data about your engagement with certain ads. We may also obtain from our data providers household or unique device identifiers (such as IP Addresses and Advertising IDs) gathered across platforms (including websites, TV applications, or mobile applications) which may be combined with our data and distributed to our clients so they can better tailor their advertising, marketing, measurement, analytics, and research; our data providers who are contractually bound to comply with all applicable data privacy laws before collecting such data and providing it to us.\n\nAlso, if you create or log into your Samba TV account through a social media service, we will have access to certain information from that service based on the settings and authorizations you grant us through that service.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">a. Personal Information We Collect, Use, and Share
+1. Email address, IP address, device ids, cookies, and advertising IDS Sources : You, your browser, computer, or mobile device, or Samba Smart TV Services, third party data providers Purposes of use of PI : Communicate with you; provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on an off the Services. Categories of third parties to whom we disclose the PI : Law enforcement and third party partners, such as advertisers and content producers.
+2. Demographic information such as household income, age bracket, and homeownership Sources: You or, with your permission, third parties; partners such a marketing and data providers. Purposes of use of PI: Communicate with you, provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on and off the Services Categories of third parties to whom we disclose the PI: Advertisers or companies offering services through Samba; law enforcement.
+3. Ad Exposure and Content Viewing information associated with your TV ID or IP Address Sources: Your Smart TV, if it has Samba Smart TV Services installed and you have opted-in to data collection. Purposes of use of PI: Provide, improve, and resolve errors in our Services; provide content recommendations; and provide and improve advertisements and other commercial offerings both on and off the Services.
+Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal Information We Collect, Use, and Share  \nWe do not knowingly collect information from individuals under the age of 16 without parental consent.\n\nThe list below summarizes, during the 12 months preceding the last update of this Privacy Policy, the categories of personal information we collect, as well as where we collect it from, how we use it, and who we share it with.  More information regarding the: sources from which we collect personal information can be found in Section 1; business and commercial purposes for which we collect your personal information can be found in Section 2; categories of recipients with whom personal information is shared or sold can be found in Section 3.\n\n1. Email address, IP address, device ids, cookies, and advertising IDS\n\nSources: You, your browser, computer, or mobile device, or Samba Smart TV Services, third party data providers\nPurposes of use of PI: Communicate with you; provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on an off the Services.\nCategories of third parties to whom we disclose the PI: Law enforcement and third party partners, such as advertisers and content producers.\n2. Demographic information such as household income, age bracket, and homeownership\n\nSources: You or, with your permission, third parties; partners such a marketing and data providers.\nPurposes of use of PI: Communicate with you, provide and improve the Services; prevent fraud and ensure the security of your account and our services; and provide and improve advertisements and other commercial offerings both on and off the Services\nCategories of third parties to whom we disclose the PI: Advertisers or companies offering services through Samba; law enforcement.\n3. Ad Exposure and Content Viewing information associated with your TV ID or IP Address\n\nSources: Your Smart TV, if it has Samba Smart TV Services installed and you have opted-in to data collection.\nPurposes of use of PI: Provide, improve, and resolve errors in our Services; provide content recommendations; and provide and improve advertisements and other commercial offerings both on and off the Services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div>
+                    <div class='match-info'><b>Matched GT:</b> Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.\nIn the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The types of personal information we may share include device IDs, advertising IDs, IP addresses, hashed/encrypted versions of your email address or other identifier, or pseudonymous IDs.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing of Information\nWe may share the information we collect about you with third parties in the following circumstances:\n\nWith Your Consent Or At Your Direction: At your direction or if we have your consent to do so, we will share information with companies, organizations or individuals outside of Samba TV. When you authorize us to share information about you with other companies, you should review their privacy policies to understand how they may use and treat personal information.\nWith Service Providers And Data Processors: We may share information with, consultants, data processors, service providers and other trusted businesses who make our business-to-business activities in digital advertising possible.\nFor Legal Reasons: We may share information with companies, organizations, or individuals outside of Samba TV: in response to a request for information if we believe disclosure is in accordance with, or required by, any applicable law, legal process or national security requirements; if we believe your actions are inconsistent with our user agreements; or, to protect the rights, property or safety of Samba or others.\nWith Our Corporate Family: We may share information between and among Samba TV’s current and future parents, affiliates, subsidiaries and other companies under our common control and ownership. We do so in order to administer and deliver our Services as described in this Policy.\nPursuant To A Change Of Control: We may also share information in connection with any merger, sale of assets, financing or acquisition of all or a portion of our business by another company.\nWhen You Are Not Directly Identified: We may share certain information, such as Content Viewing Information, that does not, on its own, directly identify you as an individual. We may share this information with our partners and customers (including for advertising and analytics purposes), and the public. We may, for instance, publish aggregated reports regarding how many people viewed a particular TV show. Or, we may share data about your device with advertising platforms to help make the ads you see more relevant to you.\nWith Advertising Partners: We engage other companies to serve advertisements on our behalf across the Internet and provide analytics services to us. These companies may use cookies, web beacons, device IDs and other technologies to collect information about your use of the Services and other websites and apps, including: your IP address, web browser, pages viewed, time spent on pages or in apps, links clicked and conversion information. This information may be used by Samba TV and others in various ways, including to determine the popularity of certain features, deliver interest-based advertising and other content targeted to your interests on our Services and other websites, and to understand the impact of certain advertising and content.\nTo clarify, the personal information that we share will not directly identify you, but may indirectly identify you through, for example, your device or other means. The types of personal information we may share include device IDs, advertising IDs, IP addresses, hashed/encrypted versions of your email address or other identifier, or pseudonymous IDs.\n\n‍</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">When You Are Not Directly Identified: We may share certain information, such as Content Viewing Information, that does not, on its own, directly identify you as an individual. We may share this information with our partners and customers (including for advertising and analytics purposes), and the public.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing of Information\nWe may share the information we collect about you with third parties in the following circumstances:\n\nWith Your Consent Or At Your Direction: At your direction or if we have your consent to do so, we will share information with companies, organizations or individuals outside of Samba TV. When you authorize us to share information about you with other companies, you should review their privacy policies to understand how they may use and treat personal information.\nWith Service Providers And Data Processors: We may share information with, consultants, data processors, service providers and other trusted businesses who make our business-to-business activities in digital advertising possible.\nFor Legal Reasons: We may share information with companies, organizations, or individuals outside of Samba TV: in response to a request for information if we believe disclosure is in accordance with, or required by, any applicable law, legal process or national security requirements; if we believe your actions are inconsistent with our user agreements; or, to protect the rights, property or safety of Samba or others.\nWith Our Corporate Family: We may share information between and among Samba TV’s current and future parents, affiliates, subsidiaries and other companies under our common control and ownership. We do so in order to administer and deliver our Services as described in this Policy.\nPursuant To A Change Of Control: We may also share information in connection with any merger, sale of assets, financing or acquisition of all or a portion of our business by another company.\nWhen You Are Not Directly Identified: We may share certain information, such as Content Viewing Information, that does not, on its own, directly identify you as an individual. We may share this information with our partners and customers (including for advertising and analytics purposes), and the public. We may, for instance, publish aggregated reports regarding how many people viewed a particular TV show. Or, we may share data about your device with advertising platforms to help make the ads you see more relevant to you.\nWith Advertising Partners: We engage other companies to serve advertisements on our behalf across the Internet and provide analytics services to us. These companies may use cookies, web beacons, device IDs and other technologies to collect information about your use of the Services and other websites and apps, including: your IP address, web browser, pages viewed, time spent on pages or in apps, links clicked and conversion information. This information may be used by Samba TV and others in various ways, including to determine the popularity of certain features, deliver interest-based advertising and other content targeted to your interests on our Services and other websites, and to understand the impact of certain advertising and content.\nTo clarify, the personal information that we share will not directly identify you, but may indirectly identify you through, for example, your device or other means. The types of personal information we may share include device IDs, advertising IDs, IP addresses, hashed/encrypted versions of your email address or other identifier, or pseudonymous IDs.\n\n‍</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">In general, you have the right to access, update or delete your personal information. This means you have the right to request that we: Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it. Correct any errors in that information. Delete your personal information. Disclose to you what personal information of yours we have shared or sold to third parties. Stop sharing, processing, or selling your personal information. You can exercise these rights by: adjusting the settings in the Samba TV products and services that you use; submitting a request through our online webform emailing us at privacy@samba.tv writing to us at the addresses listed in Section 11 (Contact US) We will respond to all requests in accordance with applicable laws, which may require that you provide us with additional information to confirm your identity. This confirming information will only be used to process your request.</div>
+                    <div class='match-info'><b>Matched GT:</b> In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">b. Your Rights Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”). You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div>
+                    <div class='match-info'><b>Matched GT:</b> Delete your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Correct any errors in that information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Correct any errors in that information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You have the right to (a) access your personal data, (b) rectify, restrict, or delete your personal data, (c) object to the processing of your personal data (this is your “opt-out”), (d) revoke your consent to our processing of your personal data, and (e) raise concerns about our use of your personal data to our data protection officer or to the relevant data protection authorities. You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.57):</b> In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it.</div>
+                    <div class='match-info'><b>Matched GT:</b> Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">b. Your Rights Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”).</div>
+                    <div class='match-info'><b>Matched GT:</b> Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Disclose to you what personal information of yours we have shared or sold to third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Disclose to you what personal information of yours we have shared or sold to third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">b. Your Rights Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”).</div>
+                    <div class='match-info'><b>Matched GT:</b> Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Stop sharing, processing, or selling your personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Stop sharing, processing, or selling your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">b. Your Rights Under the CCPA you have the right to request that we (a) disclose to you what personal information we collect, use, disclose, and sell, (b) delete personal information we collected or maintain about you, and (c) do not sell your personal information (CCPA “opt-out”). You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> Stop sharing, processing, or selling your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">You also have a right not to be discriminated against for exercising any of these rights, and Samba will not do so.</div>
+                    <div class='match-info'><b>Matched GT:</b> You also have a right not to be discriminated against for exercising any of these rights, and Samba will not do so.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can exercise these rights by: adjusting the settings in the Samba TV products and services that you use; submitting a request through our online webform emailing us at privacy@samba.tv writing to us at the addresses listed in Section 11 (Contact US) We will respond to all requests in accordance with applicable laws, which may require that you provide us with additional information to confirm your identity. This confirming information will only be used to process your request.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.74):</b> You can exercise these rights by:\n\nadjusting the settings in the Samba TV products and services that you use;\nsubmitting a request through our online webform\nemailing us at privacy@samba.tv\nwriting to us at the addresses listed in Section 11 (Contact US)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv . Additional information on how to exercise these rights may be found in Section 7.</div>
+                    <div class='match-info'><b>Matched GT:</b> You can exercise these rights by submitted a request via our webform or emailing privacy@samba.tv.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you have any questions about this policy or how we handle your information, please contact us at privacy@samba.tv or as described in Section 11 (Contact Us).</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.49):</b> If you cannot find the opt-out settings, please contact us at privacy@samba.tv.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you have any questions or complaints regarding this policy or about Samba TV’s privacy practices, please contact us at privacy@samba.tv , or at: Samba TV, Inc. (ATTN: Privacy) 118 King Street Suite 110 San Francisco, CA 94107 USA You may also contact our Data Protection Officer at: Vincent Rezzouk-Hammachi Bird &amp; Bird Privacy Solutions Avenue Louise 235 Box 1 1050 Brussels, Belgium dpo.sambatv@twobirds.com</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.44):</b> If you cannot find the opt-out settings, please contact us at privacy@samba.tv.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Use of Information\nWe may use the information we collect to:\n\nProvide, maintain and improve our Services (for instance, we use information we collect to refine the user experience, fix service malfunctions, test our security systems and increase our technical performance);\nMonitor and analyze usage of our Services;\nPersonalize our Services and deliver recommendations, advertisements, content and features that match your interests;\nImprove our advertising and measurement systems so we can show you relevant ads on and off our Services (for example, if you are interested in cooking shows, we may serve you ads for new TV cooking programs);\nCommunicate with you about products, services, offers and events offered by Samba TV or others, and provide content we think you will find interesting;\nRespond to your comments and questions and provide customer service; and,\nDetect, investigate and prevent fraudulent and other illegal activities, and protect the rights, safety and property of Samba TV and others.\nTo clarify, information we receive about you or your household from using one device or Smart TV may be combined with information we receive from use of other devices or Smart TVs.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Use of Information\nWe may use the information we collect to:\n\nProvide, maintain and improve our Services (for instance, we use information we collect to refine the user experience, fix service malfunctions, test our security systems and increase our technical performance);\nMonitor and analyze usage of our Services;\nPersonalize our Services and deliver recommendations, advertisements, content and features that match your interests;\nImprove our advertising and measurement systems so we can show you relevant ads on and off our Services (for example, if you are interested in cooking shows, we may serve you ads for new TV cooking programs);\nCommunicate with you about products, services, offers and events offered by Samba TV or others, and provide content we think you will find interesting;\nRespond to your comments and questions and provide customer service; and,\nDetect, investigate and prevent fraudulent and other illegal activities, and protect the rights, safety and property of Samba TV and others.\nTo clarify, information we receive about you or your household from using one device or Smart TV may be combined with information we receive from use of other devices or Smart TVs.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Use of Information\nWe may use the information we collect to:\n\nProvide, maintain and improve our Services (for instance, we use information we collect to refine the user experience, fix service malfunctions, test our security systems and increase our technical performance);\nMonitor and analyze usage of our Services;\nPersonalize our Services and deliver recommendations, advertisements, content and features that match your interests;\nImprove our advertising and measurement systems so we can show you relevant ads on and off our Services (for example, if you are interested in cooking shows, we may serve you ads for new TV cooking programs);\nCommunicate with you about products, services, offers and events offered by Samba TV or others, and provide content we think you will find interesting;\nRespond to your comments and questions and provide customer service; and,\nDetect, investigate and prevent fraudulent and other illegal activities, and protect the rights, safety and property of Samba TV and others.\nTo clarify, information we receive about you or your household from using one device or Smart TV may be combined with information we receive from use of other devices or Smart TVs.\n\n‍</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">With Advertising Partners: We engage other companies to serve advertisements on our behalf across the Internet and provide analytics services to us. These companies may use cookies, web beacons, device IDs and other technologies to collect information about your use of the Services and other websites and apps, including: your IP address, web browser, pages viewed, time spent on pages or in apps, links clicked and conversion information. This information may be used by Samba TV and others in various ways, including to determine the popularity of certain features, deliver interest-based advertising and other content targeted to your interests on our Services and other websites, and to understand the impact of certain advertising and content.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Retention of Information\nWe will generally retain your personal information for as long as is needed to fulfill the purposes outlined in this Privacy Policy. However, we may retain certain information as required by applicable law (such as tax, accounting or other legal requirements). When we have no basis to continue processing your personal information, we will either delete or anonymize it in accordance with applicable laws (though we may need to retain cached or archived copies for a certain period until deletion is possible).\n\nWe may store Content Viewership and Ad Exposure Information for up to three (3) years from the last time our Services encounter a particular device, unless you ask us to delete that information before then. Our cookies are set to expire in less than 13 months. Identifiers associated with your non-Samba TV devices (such as device IDs, mobile ad ids, IP addresses) are kept for no more than 180 days since our last receipt of such identifier.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">In general, you have the right to access, update or delete your personal information. This means you have the right to request that we:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Inform you of the personal information we collect (and provide you with a copy of your personal information) and how we use it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can exercise these rights by:\n\nadjusting the settings in the Samba TV products and services that you use;\nsubmitting a request through our online webform\nemailing us at privacy@samba.tv\nwriting to us at the addresses listed in Section 11 (Contact US)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We require TV manufacturers to provide you with an opt-in to enable our Smart TV Services that collect Content Viewership Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You should be able to opt in or out of our Smart TV Services at any time your TV is connected to the Internet. You typically can find a feature to opt-out and opt-in in the “settings” menu of your TV; it may also be in the settings menu of the application that integrates our Services. If you have trouble finding this feature, you should contact the TV manufacturer to determine the exact location.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">f you opt out of our Smart TV Services, we will no longer collect TV viewing information through this service. However, we still may receive Content Viewership Information, as described above in the “Collection of Information” section, when you watch content through certain Smart TV Apps. You should review the opt-out options provided by such applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you cannot find the opt-out settings, please contact us at privacy@samba.tv.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">You may also choose to enable Limit Ad Tracking from the Privacy menu within Smart TV Settings on your Smart TV.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Note that whenever you want to unlink the data associated with your Samba TV Advertising ID, you can simply reset it. Please check with the TV manufacturer for the exact location of these features. If you cannot find them or your TV manufacturer has not enabled them, please contact us at privacy@samba.tv with your TV manufacturer and model number and we will attempt to provide you with more detailed instructions on where to locate these features.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Web Browsers: You can opt out of having Samba use your web browsing information for “interest-based” or “tailored” advertisements by visiting http://optout.networkadvertising.org or https://optout.aboutads.info.\nMobile Devices: For the most effective and up-to-date methods to limit ad tracking on your mobile device, please refer to your mobile operating system settings to see how you can opt out of “interest-based” or “tailored” advertisements, or reset your mobile device advertiser ID to unlink information previously associated with your advertiser ID. Please also review the NAI’s mobile opt-out instructions located at mobile-choice. For more information on opting out of targeted advertisements on mobile devices.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you prefer, you can usually choose to set your browser to remove or reject browser cookies or to clear local storage.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Categories of third parties to whom we disclose the PI: Law enforcement; and third party partners, such as advertisers or companies offering services through Samba.\nIn the past 12 months, we have disclosed or sold IP addresses, device IDs, advertising IDs, and content and ad exposure data, as described in this Privacy Policy, to our advertising, media, and content recommendation partners, for the purposes of delivering digital advertisements and measuring content and advertising effectiveness,</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

@@ -43,9 +43,6 @@ class PrivacyPolicyAnnotator:
     def annotate(self, full_policy_text: str) -> List[Dict[str, str]]:
         system_message = self.build_system_prompt()
 
-        # Chunking Strategy:
-        # For very large policies, standard practice is to split.
-        # For now, we will use the full text but emphasize the 'Start to Finish' scan.
         user_message = (
             f"### DOCUMENT START\n\n{full_policy_text}\n\n### DOCUMENT END\n\n"
             "Extract all relevant sections as JSON."
