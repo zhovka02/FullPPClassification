@@ -114,16 +114,13 @@ class AIEvaluator:
                 if self._are_labels_compatible(gt_label, p_label):
                     potential_gts.append((i, gt))
 
-            # If no label match, try all GTs (fallback for mislabeled extractions)
-            if not potential_gts:
-                potential_gts = [(i, gt) for i, gt in enumerate(true_labels)]
-
             matched_gts_for_this_pred = []
             best_match_score = 0.0
             closest_gt_text = None
 
             # Temp storage to capture reasoning if needed
             ai_reasoning_map = {}
+            ai_rejection_reasons = []  # Store reasons why AI rejected matches
 
             # CHECK AGAINST ALL CANDIDATES
             for i, gt in potential_gts:
@@ -157,6 +154,12 @@ class AIEvaluator:
                     if is_ai_match:
                         match_type = "CORRECT_AI"
                         ai_reasoning_map[i] = reasoning
+                    else:
+                        # Store rejection reasoning for wrong predictions
+                        ai_rejection_reasons.append({
+                            "gt_text": gt_text,
+                            "reasoning": reasoning
+                        })
 
                 if match_type:
                     matched_gts_for_this_pred.append((i, gt, match_type))
@@ -204,12 +207,19 @@ class AIEvaluator:
                     "matched_count": len(matched_gts_for_this_pred)
                 })
             else:
+                # Build reasoning from AI rejections if any
+                rejection_reasoning = None
+                if ai_rejection_reasons:
+                    # Use the first rejection reason (or combine if multiple)
+                    rejection_reasoning = ai_rejection_reasons[0]["reasoning"]
+
                 decision_map.append({
                     "text": p_text,
                     "label": p_label,
                     "status": "WRONG",
                     "closest_match": closest_gt_text if best_match_score > 0.1 else None,
-                    "closest_score": round(best_match_score, 2)
+                    "closest_score": round(best_match_score, 2),
+                    "reasoning": rejection_reasoning  # AI reasoning for why it was rejected
                 })
 
         # --- METRICS ---
