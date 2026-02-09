@@ -1,0 +1,720 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_70</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.50</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.14</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.21</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">6</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">6</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">38</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Reviewed: 12/06/2022 Last Updated: 02/24/2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Revisions
+
+We may change our Privacy Policy in the future in order to adjust to changes in the law or best practices. We recommend that you check it frequently.
+
+Last Reviewed: 12/06/2022
+
+Last Updated: 02/24/2023</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may gather your name, address, email address, telephone number, IP Address, and/or Mobile Device ID</div>
+                    <div class='match-info'><b>Matched GT:</b> Information Collected Directly by Us
+
+DPI is the sole owner of the information collected through our websites or directly by our company representatives. We only have access to/collect information that you voluntarily give us via email, contact form, or other direct contact initiated by you. We may gather your name, address, email address, telephone number, IP Address, and/or Mobile Device ID in your voluntary use of our websites or when you contact our representatives.
+
+We will use your information to respond to you, regarding the reason you contacted us, and for appropriate follow-up.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We do not sell or rent this information to anyone.</div>
+                    <div class='match-info'><b>Matched GT:</b> We will not share your information with any third party outside of our organization, other than as necessary to fulfill your request, e.g. to ship an order, or as a means to enhance our communications with you (like via an email provider). This information is used solely to help us better communicate directly with you. We do not sell or rent this information to anyone.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We will not share your information with any third party outside of our organization, other than as necessary to fulfill your request</div>
+                    <div class='match-info'><b>Matched GT:</b> We will not share your information with any third party outside of our organization, other than as necessary to fulfill your request, e.g. to ship an order, or as a means to enhance our communications with you (like via an email provider). This information is used solely to help us better communicate directly with you. We do not sell or rent this information to anyone.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You may opt out of any consumer marketing database we maintain... Your request will be processed as soon as possible</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You may exercise control over your information as follows: ... Call us toll-free at 866.423.1818 and speak with our Consumer Privacy Coordinator who will assist you with your request.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You may exercise control over your information as follows: ... Clicking the “ Manage Your Privacy Preferences ” button located on our homepage of each of our websites and following the simple instructions regarding submitting your information request;</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">What personally identifiable information is collected from you through our websites, how it is used and with whom it may be shared.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You may opt out of any consumer marketing database we maintain... Your request will be processed as soon as possible</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">You may opt out of any consumer marketing database we maintain... Your request will be processed as soon as possible</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">We do NOT discriminate or retaliate in any way against any consumer who chooses to opt out of one or more of our databases.</div>
+                    <div class='match-info'><b>Matched GT:</b> No Discrimination, Retaliation, Cost, or Incentives
+
+We do NOT discriminate or retaliate in any way against any consumer who chooses to opt out of one or more of our databases. We offer no financial benefit, service difference, reward, or other incentive to you for disclosing information to us or allowing us to share your information, nor do we penalize you in any way for choosing to opt out or exercise any privacy rights you have under state or federal law. We never charge any fee for opting out or exercising any of your privacy rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Clicking the “ Manage Your Privacy Preferences ” button located on our homepage of each of our websites and following the simple instructions regarding submitting your information request; or Call us toll-free at 866.423.1818 and speak with our Consumer Privacy Coordinator who will assist you with your request.</div>
+                    <div class='match-info'><b>Matched GT:</b> You may opt out of any consumer marketing database we maintain in two ways:
+
+Clicking the “Manage Your Privacy Preferences” button located on our homepage of each of our websites and following the simple instructions regarding submitting your information request; or
+Call us toll-free at 866.423.1818 and speak with our Consumer Privacy Coordinator who will assist you with your request.</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This Privacy Policy provides useful information on how we use consumer and business data and how you may control information pertaining to you. This Privacy Policy applies to information collected by our websites as well as to the information buying and selling practices of DPI. It notifies you of the following:
+
+What personally identifiable information is collected from you through our websites, how it is used and with whom it may be shared.
+What personally identifiable information we license from third-party providers and/or relicense to our clients.
+What choices are available to you regarding the use of your data.
+The security protections in place to protect the misuse of your information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">This Privacy Policy provides useful information on how we use consumer and business data and how you may control information pertaining to you. This Privacy Policy applies to information collected by our websites as well as to the information buying and selling practices of DPI. It notifies you of the following:
+
+What personally identifiable information is collected from you through our websites, how it is used and with whom it may be shared.
+What personally identifiable information we license from third-party providers and/or relicense to our clients.
+What choices are available to you regarding the use of your data.
+The security protections in place to protect the misuse of your information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">This Privacy Policy provides useful information on how we use consumer and business data and how you may control information pertaining to you. This Privacy Policy applies to information collected by our websites as well as to the information buying and selling practices of DPI. It notifies you of the following:
+
+What personally identifiable information is collected from you through our websites, how it is used and with whom it may be shared.
+What personally identifiable information we license from third-party providers and/or relicense to our clients.
+What choices are available to you regarding the use of your data.
+The security protections in place to protect the misuse of your information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you do not wish us to contact you any further, please see the Opt Out section below on how to unsubscribe from our communications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information We License from Third-Parties
+
+Our core business is relicensing consumer and business information to help our clients market their products and services more effectively. The products we sell contain information on individuals and households that we license from third-parties. The information we license to our clients is collected by our third-party partners from many sources. These sources include public records, publicly available information, subscription information, warranty cards, surveys, point-of-sale information, website directories, website visits, online activity, mobile applications, and commercially available consumer data from other third-party information providers who may or may not have collected the data directly from you.
+
+Some of this information may have been modeled or inferred from other information. For example, if you subscribe to a bridal magazine we might assume (i.e., infer) that you are engaged to be married. Or, the provider of information might make a calculated estimate of your home’s value based on the known values of surrounding homes (i.e., modeling). We may also use personal data to construct a non-existent “average consumer” that encompasses certain average characteristics of consumers who buy or do not buy (i.e., profiling). Inferring, modeling, and profiling are common practices used in trying to match consumers with products and services they are most likely to want when exact information is not available or feasible.
+
+Identifiers such as name, address, and telephone numbers are sourced from publicly accessible sources such as the white and yellow page telephone directories, online directories, website postings, public records, public websites, property and assessor files, governmental issued licenses, and information available to the public through directory assistance.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">What We Do with Information We License from Third-Parties
+
+Our clients are small, medium, and large businesses, non-profit organizations, government agencies, and political organizations who want to market to consumers. Our clients use our products to enhance their marketing efforts and better align their products and services with consumer wants and needs.
+
+Examples of the types of information we license for use in marketing are general contact information (like consumer and business names, titles, addresses, telephone numbers); consumer demographics (like age, gender, income, marital status, home value, net worth etc.); household makeup (like number of adults or presence of children); consumer buying behavior (like owning a boat, or buying pet toys); consumer interests (like an interest in golf); telecommunications characteristics (like whether you have a satellite dish or high-speed internet service); business firmographics (sales volume, number of employees, years in business, etc.); and life-event triggers (a recent move, purchase of a home, or recent marriage).
+
+Our products are sometimes used by us (on behalf of our clients) or by our clients directly to draw inferences about consumers or develop predictive models. These predictions are used to make educated guesses about consumer preferences and future buying behavior and enable our clients to deliver marketing messages to the consumers who are most likely to want to receive them.
+
+We may sometimes match different elements of information or points of contact together to help our clients engage in “multichannel” marketing. For example, a client with a list of telephone numbers of their customers may wish to add email addresses and mailing addresses to their list so they can reach their customers via email and direct mail. We may also use anonymized (hashed) versions of our information to match our products to our client’s files.
+
+Ultimately, our goal is to help our clients ensure their marketing messages reach consumers who are most likely to want to receive them, and avoid consumers who don’t. Our clients ultimately use our information to send targeted offers to consumers and businesses via various marketing channels such as direct mail, telemarketing, digital ads, social media ads, mobile ads, etc.
+
+The explanation and examples above are intended to give you a good idea of the major categories of information we maintain and most of the ways we use that information. However, it is not intended to be an exhaustive list of all the information we maintain and all the ways that information might be used.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What We Do with Information We License from Third-Parties
+
+Our clients are small, medium, and large businesses, non-profit organizations, government agencies, and political organizations who want to market to consumers. Our clients use our products to enhance their marketing efforts and better align their products and services with consumer wants and needs.
+
+Examples of the types of information we license for use in marketing are general contact information (like consumer and business names, titles, addresses, telephone numbers); consumer demographics (like age, gender, income, marital status, home value, net worth etc.); household makeup (like number of adults or presence of children); consumer buying behavior (like owning a boat, or buying pet toys); consumer interests (like an interest in golf); telecommunications characteristics (like whether you have a satellite dish or high-speed internet service); business firmographics (sales volume, number of employees, years in business, etc.); and life-event triggers (a recent move, purchase of a home, or recent marriage).
+
+Our products are sometimes used by us (on behalf of our clients) or by our clients directly to draw inferences about consumers or develop predictive models. These predictions are used to make educated guesses about consumer preferences and future buying behavior and enable our clients to deliver marketing messages to the consumers who are most likely to want to receive them.
+
+We may sometimes match different elements of information or points of contact together to help our clients engage in “multichannel” marketing. For example, a client with a list of telephone numbers of their customers may wish to add email addresses and mailing addresses to their list so they can reach their customers via email and direct mail. We may also use anonymized (hashed) versions of our information to match our products to our client’s files.
+
+Ultimately, our goal is to help our clients ensure their marketing messages reach consumers who are most likely to want to receive them, and avoid consumers who don’t. Our clients ultimately use our information to send targeted offers to consumers and businesses via various marketing channels such as direct mail, telemarketing, digital ads, social media ads, mobile ads, etc.
+
+The explanation and examples above are intended to give you a good idea of the major categories of information we maintain and most of the ways we use that information. However, it is not intended to be an exhaustive list of all the information we maintain and all the ways that information might be used.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What We Do with Information We License from Third-Parties
+
+Our clients are small, medium, and large businesses, non-profit organizations, government agencies, and political organizations who want to market to consumers. Our clients use our products to enhance their marketing efforts and better align their products and services with consumer wants and needs.
+
+Examples of the types of information we license for use in marketing are general contact information (like consumer and business names, titles, addresses, telephone numbers); consumer demographics (like age, gender, income, marital status, home value, net worth etc.); household makeup (like number of adults or presence of children); consumer buying behavior (like owning a boat, or buying pet toys); consumer interests (like an interest in golf); telecommunications characteristics (like whether you have a satellite dish or high-speed internet service); business firmographics (sales volume, number of employees, years in business, etc.); and life-event triggers (a recent move, purchase of a home, or recent marriage).
+
+Our products are sometimes used by us (on behalf of our clients) or by our clients directly to draw inferences about consumers or develop predictive models. These predictions are used to make educated guesses about consumer preferences and future buying behavior and enable our clients to deliver marketing messages to the consumers who are most likely to want to receive them.
+
+We may sometimes match different elements of information or points of contact together to help our clients engage in “multichannel” marketing. For example, a client with a list of telephone numbers of their customers may wish to add email addresses and mailing addresses to their list so they can reach their customers via email and direct mail. We may also use anonymized (hashed) versions of our information to match our products to our client’s files.
+
+Ultimately, our goal is to help our clients ensure their marketing messages reach consumers who are most likely to want to receive them, and avoid consumers who don’t. Our clients ultimately use our information to send targeted offers to consumers and businesses via various marketing channels such as direct mail, telemarketing, digital ads, social media ads, mobile ads, etc.
+
+The explanation and examples above are intended to give you a good idea of the major categories of information we maintain and most of the ways we use that information. However, it is not intended to be an exhaustive list of all the information we maintain and all the ways that information might be used.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Limitations
+
+Our clients are permitted to use the information we provide for a limited purpose. Our clients may use our data only for lawfully conducted marketing or for things related to lawful marketing (such as cleaning their customer lists or verification of data they already have). No other purpose is allowed.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information we Do NOT Collect, Use, Share, or Sell
+
+We do not collect, store, share, or use personal information that falls into any of the following categories, either directly on our sites or from third-party data providers, nor do we ever sell this information to our clients:
+
+personal signatures (other than in regard to agreements we may sign with our clients)
+credit card numbers or debit card numbers (other than to process purchases made by our clients)
+social security numbers
+passport numbers
+national ID numbers
+drivers’ license numbers
+state ID card numbers
+military ID numbers
+insurance policy numbers
+bank account numbers
+financial account numbers (other than to process purchases made by our clients)
+facial recognition data
+physical characteristics or descriptions
+exact dates of birth
+citizenship
+geolocation information of any individual (we may geolocate buildings &amp; other structures, roads, land boundaries, etc.)
+actual credit scores
+actual medical conditions
+actual physical or mental disabilities
+gender identity or expression other than birth gender
+sexual orientation
+audio information (except for our clients who may call us directly)
+video information
+genetic information (including familial genetic information)
+online account usernames or passwords (other than those we issue for access to our sites)
+internet browsing or search history, or
+any personally identifiable information regarding any person under 18 years of age.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Information we Do NOT Collect, Use, Share, or Sell
+
+We do not collect, store, share, or use personal information that falls into any of the following categories, either directly on our sites or from third-party data providers, nor do we ever sell this information to our clients:
+
+personal signatures (other than in regard to agreements we may sign with our clients)
+credit card numbers or debit card numbers (other than to process purchases made by our clients)
+social security numbers
+passport numbers
+national ID numbers
+drivers’ license numbers
+state ID card numbers
+military ID numbers
+insurance policy numbers
+bank account numbers
+financial account numbers (other than to process purchases made by our clients)
+facial recognition data
+physical characteristics or descriptions
+exact dates of birth
+citizenship
+geolocation information of any individual (we may geolocate buildings &amp; other structures, roads, land boundaries, etc.)
+actual credit scores
+actual medical conditions
+actual physical or mental disabilities
+gender identity or expression other than birth gender
+sexual orientation
+audio information (except for our clients who may call us directly)
+video information
+genetic information (including familial genetic information)
+online account usernames or passwords (other than those we issue for access to our sites)
+internet browsing or search history, or
+any personally identifiable information regarding any person under 18 years of age.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Information we Do NOT Collect, Use, Share, or Sell
+
+We do not collect, store, share, or use personal information that falls into any of the following categories, either directly on our sites or from third-party data providers, nor do we ever sell this information to our clients:
+
+personal signatures (other than in regard to agreements we may sign with our clients)
+credit card numbers or debit card numbers (other than to process purchases made by our clients)
+social security numbers
+passport numbers
+national ID numbers
+drivers’ license numbers
+state ID card numbers
+military ID numbers
+insurance policy numbers
+bank account numbers
+financial account numbers (other than to process purchases made by our clients)
+facial recognition data
+physical characteristics or descriptions
+exact dates of birth
+citizenship
+geolocation information of any individual (we may geolocate buildings &amp; other structures, roads, land boundaries, etc.)
+actual credit scores
+actual medical conditions
+actual physical or mental disabilities
+gender identity or expression other than birth gender
+sexual orientation
+audio information (except for our clients who may call us directly)
+video information
+genetic information (including familial genetic information)
+online account usernames or passwords (other than those we issue for access to our sites)
+internet browsing or search history, or
+any personally identifiable information regarding any person under 18 years of age.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Opt Out: All email offers for goods and services sent to you by us include an opportunity to opt-out from receiving future communications from us about our services. Simply follow the “Opt Out” instructions included in the email message.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Please note that we do not collect, process, or store any information on consumers outside of the United States.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Iowa</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We preserve your data so that we can show continuing compliance with your opt-out request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Whenever we collect sensitive information (such as credit card data) from our clients online, that information is encrypted and transmitted to us in a secure way.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">If you fill out our online submission form to obtain more information from us regarding one of our products or services, you must submit information on how we may contact you such as your name, business name, title, address, telephone number and/or email address. If you choose to correspond with us through email, we may retain the content of your email messages together with your email address and our responses and contact you regarding the subject matter of your inquiry. We will retain any information you submit so that we may more effectively communicate with you in the future.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Information that you submit to induce us to contact you is never sold to or shared with third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Information that you submit to induce us to contact you is never sold to or shared with third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We request information from you on our order forms and agreements. Like any vendor, to buy from us, you must provide contact information (like your name, business name, and address) and sometimes financial information (like credit card number and/or expiration date). All information you submit on an order form is used for billing purposes and to fill your orders only.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">It will never be sold, rented, or disclosed to third parties, except as necessary to complete the transaction (e.g., providing your credit card number to a payment processor).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">It will never be sold, rented, or disclosed to third parties, except as necessary to complete the transaction (e.g., providing your credit card number to a payment processor).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may use “cookies” on this site. A cookie is a piece of data stored on a site visitor’s computer to help us improve your access to our site and identify repeat visitors to our site. For instance, when we use a cookie to identify you, you would not have to log in a password more than once, thereby saving you time when visiting our site. Cookies can also enable us to track and target the interests of our users to enhance the experience on our site. Usage of a cookie is in no way linked to any personally identifiable information on our site and it is never sold, rented to, or accessible by third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Usage of a cookie is in no way linked to any personally identifiable information on our site and it is never sold, rented to, or accessible by third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Usage of a cookie is in no way linked to any personally identifiable information on our site and it is never sold, rented to, or accessible by third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Except for the limited situations described below, we never share, sell, or rent information you send directly to us with third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Except for the limited situations described below, we never share, sell, or rent information you send directly to us with third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We use a credit card processing company to bill users for goods and services. These companies do not retain, share, store or use personally identifiable information for any secondary purposes beyond fulfilling your order.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We use a credit card processing company to bill users for goods and services. These companies do not retain, share, store or use personally identifiable information for any secondary purposes beyond fulfilling your order.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may partner with a third party to provide specific services to our clients. In that event, we will share names, or other contact information that is necessary for the third party to provide these services to that client. These third parties are not allowed to use personally identifiable information except for the purpose of providing the services we have authorized.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may partner with a third party to provide specific services to our clients. In that event, we will share names, or other contact information that is necessary for the third party to provide these services to that client. These third parties are not allowed to use personally identifiable information except for the purpose of providing the services we have authorized.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">If Data Partners Inc. is acquired, our user information may be among the assets transferred to the buyer in the sale.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information We License from Third-Parties
+
+Information about you that we license from third-parties is shared with our clients who re-license that information from us. For example, our client may request a list of names and addresses of consumers who recently moved into neighborhoods near their store locations.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">As stated above, any sharing of your information with third parties is limited exclusively for purposes of lawful marketing, such as mailing you offers for goods and services. No other purpose is permitted.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information required may include contact information (such as name and shipping address), and demographic information (such as zip code, age level). Contact information will be used to notify the winners and award prizes. Survey responses will be used for purposes of improving client satisfaction or development of new products and services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may disclose your personal information when required by law or in the good-faith belief that such action is necessary in order to conform to federal, state, or local laws or regulations, or to comply with a court order, an investigation by law enforcement, or when legal process served on us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Log Files
+
+We may record log files in regard to visits to our websites. The information we log may include your internet protocol (IP) address, browser type, referring/exit pages, platform type, date/time stamp, and number of clicks to analyze trends, administer the website, track users’ movements in the aggregate, and gather broad demographic information for aggregate use. None of this information, including IP addresses, are linked to personally identifiable information, and this information is never sold or rented to third parties.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>
