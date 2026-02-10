@@ -20,11 +20,7 @@ REPORTS_DIR = "./reports"
 
 # 1. Models to Benchmark
 MODELS_TO_TEST = [
-    "openrouter:x-ai/grok-4.1-fast",
-    "gemini:gemini-2.5-flash",
-    "openai:gpt-5-mini-2025-08-07",
-    "openrouter:meta-llama/llama-4-maverick",
-]
+    "gemini:gemini-3-flash-preview"]
 
 # 2. Judge Configuration
 JUDGE_MODEL = "openai:gpt-4o-mini"
