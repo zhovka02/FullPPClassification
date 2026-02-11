@@ -1,0 +1,256 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_78</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.70</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.47</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.56</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">7</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Name Business email address Job title and department Business phone numbers (general and direct) Social Networking URLs</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains all the individual items listed in the Expected Output under &#x27;Personal Information Collected,&#x27; thus meeting the criteria for Correctness in terms of content. However, it lacks full context and does not appear as a substring within the Expected Output itself, which limits its alignment with the evaluation steps. Therefore, it is partially accurate but does not fully satisfy the outlined criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.44):</b> Personal Information We Collect\nIn the preceding twelve (12) months, amplemarket has collected &amp; processed the following categories of Identifiers &amp; Personal Information:\n\nPersonal Information Collected:\n\nName\nBusiness email address\nJob title and department\nBusiness phone numbers (general and direct)\nSocial Networking URLs\nCategories of Sources from which this Personal Information was Collected:\n\nPublicly Available Information\nDirectly and indirectly: from Amplemarket&#x27;s customers, partners, suppliers and from user activity on Amplemarket&#x27;s app or chrome extension.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">name, employer, job title, email address, phone number, office address, social media or professional profile link, and work or educational history.</div>
+                    <div class='match-info'><b>Matched GT:</b> Selling Personal Information\nWe sell personal information collected for our database to our customers. This database may contain information about consumers&#x27; business personas including name, employer, job title, email address, phone number, office address, social media or professional profile link, and work or educational history. This information is sold to Amplemarket&#x27;s customers for the purpose of business-to-business sales and marketing and recruiting and is provided subject to license agreements that limit its use to those purposes.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you are a California consumer (as that term is defined in the CCPA), you have the right to opt-out of the &quot;sale&quot; of your Personal Information on a going-forward basis, as &quot;sale&quot; is defined in the CCPA.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you are a California consumer (as that term is defined in the CCPA), you have the right to opt-out of the &quot;sale&quot; of your Personal Information on a going-forward basis, as &quot;sale&quot; is defined in the CCPA. You may request to exercise this opt-out by sending us an email to privacy@amplemarket.com with information that allows us to identify.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may request to exercise this opt-out by sending us an email to privacy@amplemarket.com with information that allows us to identify.</div>
+                    <div class='match-info'><b>Matched GT:</b> You may request to exercise this opt-out by sending us an email to privacy@amplemarket.com with information that allows us to identify.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">A consumer has the right to request that we disclose certain information to that consumer about Amplemarket&#x27;s collection and use of that consumer&#x27;s personal information over the past 12 months.</div>
+                    <div class='match-info'><b>Matched GT:</b> Access to Personal Information and Data Portability Rights\nA consumer has the right to request that we disclose certain information to that consumer about Amplemarket&#x27;s collection and use of that consumer&#x27;s personal information over the past 12 months. Once we receive and confirm a consumer&#x27;s verifiable consumer request.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">A consumer has the right to request that Amplemarket delete any of its personal information that we have collected and retained, subject to certain exceptions.</div>
+                    <div class='match-info'><b>Matched GT:</b> Deletion Request Rights\nA consumer has the right to request that Amplemarket delete any of its personal information that we have collected and retained, subject to certain exceptions. Once we receive and confirm a consumer&#x27;s verifiable consumer request, we will delete (and direct our service providers and/or customers to delete) that consumer&#x27;s personal information from our records, unless an exception applies.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise the access, data portability, and deletion rights described above, please submit a verifiable consumer request to us by sending us an email to: privacy@amplemarket.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise the access, data portability, and deletion rights described above, please submit a verifiable consumer request to us by sending us an email to: privacy@amplemarket.com.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">We will not discriminate against a consumer for exercising any CCPA rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Non-Discrimination\nWe will not discriminate against a consumer for exercising any CCPA rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">For questions or comments concerning this notice, our Privacy Statement, or your rights regarding the CCPA and how we process your data, please do not hesitate to contact us at: privacy@amplemarket.com .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output at all nor is it related to the specific methods for exercising rights as described in the Expected Output. It discusses privacy concerns without mentioning access, data portability, or deletion rights, failing to meet the evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.40):</b> To exercise the access, data portability, and deletion rights described above, please submit a verifiable consumer request to us by sending us an email to: privacy@amplemarket.com.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Copyright © 2023 amplemarket</div>
+                    
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Information We Collect\nIn the preceding twelve (12) months, amplemarket has collected &amp; processed the following categories of Identifiers &amp; Personal Information:\n\nPersonal Information Collected:\n\nName\nBusiness email address\nJob title and department\nBusiness phone numbers (general and direct)\nSocial Networking URLs\nCategories of Sources from which this Personal Information was Collected:\n\nPublicly Available Information\nDirectly and indirectly: from Amplemarket&#x27;s customers, partners, suppliers and from user activity on Amplemarket&#x27;s app or chrome extension.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Purpose for Collection of this Personal Information:\n\nTo fulfill or meet the purpose for which the information is provided.\nTo include in Amplemarket&#x27;s database of business contacts, which Amplemarket licenses to its customers designed to enable them to promote their goods and services using direct marketing to the right people (decision makers, influencers, champions etc.) in other businesses;\nTo provide the consumer with information, products or services that the consumer requests from Amplemarket.\nTo provide our customers with access to a database of accurate Business Data Records\nTo improve our users experience;\nTo gather analytics on usage and other statistics in order to improve features and functionality.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Purpose for Collection of this Personal Information:\n\nTo fulfill or meet the purpose for which the information is provided.\nTo include in Amplemarket&#x27;s database of business contacts, which Amplemarket licenses to its customers designed to enable them to promote their goods and services using direct marketing to the right people (decision makers, influencers, champions etc.) in other businesses;\nTo provide the consumer with information, products or services that the consumer requests from Amplemarket.\nTo provide our customers with access to a database of accurate Business Data Records\nTo improve our users experience;\nTo gather analytics on usage and other statistics in order to improve features and functionality.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Purpose for Collection of this Personal Information:\n\nTo fulfill or meet the purpose for which the information is provided.\nTo include in Amplemarket&#x27;s database of business contacts, which Amplemarket licenses to its customers designed to enable them to promote their goods and services using direct marketing to the right people (decision makers, influencers, champions etc.) in other businesses;\nTo provide the consumer with information, products or services that the consumer requests from Amplemarket.\nTo provide our customers with access to a database of accurate Business Data Records\nTo improve our users experience;\nTo gather analytics on usage and other statistics in order to improve features and functionality.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Categories of Third Parties with whom this Personal Information is Shared:\n\nAmplemarket customers\nAmplemarket affiliates\nService Providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Categories of Third Parties with whom this Personal Information is Shared:\n\nAmplemarket customers\nAmplemarket affiliates\nService Providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We will not collect additional categories of personal information or use the personal information we collected for materially different, unrelated, or incompatible purposes without providing prior notice.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to Our Privacy Statement\nWe reserve the right to make changes and update this privacy statement at our discretion and at any time. Please check back regularly to stay updated.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

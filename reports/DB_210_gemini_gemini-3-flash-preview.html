@@ -1,0 +1,956 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_210</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.91</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.36</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.51</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">29</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">54</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Date Modified: February 9, 2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Date Modified: February 9, 2023</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated Date: February 9, 2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Updated Date: February 9, 2023</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The information collected through such forms includes: name, email, company name, title, phone, current employer, and employer street address.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Collect Through Our Platform:\n\nWhen companies form a business relationship with Salutary Data, they sometimes obtain the information that we license using our Platform. Platform users leverage the Platform to run searches for business contacts utilizing different variables, such as: title, function, company size, location, company type and industry and generate a list of Professional Data regarding potential business prospects. When a user registers to use the Platform, they submit certain information to us such as the company they work for, their email, title and selected password. This information is not shared with third parties (except our service providers) nor re-distributed.\n\nInformation We Collect Through Our Website:\n\nInformation that you intentionally provide: When you visit our Website, you may (but are not required to) submit certain information to us through our Contact form or when you complete our “Do Not Sell My Personal Information” form. The information collected through such forms includes: name, email, company name, title, phone, current employer, and employer street address. There also exist text boxes that enable you to provide free-form text.\n\nInformation collected via cookies: When you visit our Website, including when using our Platform, our goal is to make the experience simple and effective. To that end, we use text files, known as cookies, to track information about your use of our Website. A cookie is a text file that a website stores on a visitor’s computer to enable recognition of that visitor’s computer each time they return. As you navigate through and interact with our Website, we will automatically collect certain information about your equipment, browsing actions and patterns using these cookies. This may include information about: (i) your IP address and browser information; (ii) the general location where you access our Website, (iii) the pages you access on our Website and time you spend on our Website, and; (iv) how you reached our Website (e.g., web searches, directly using our website URL, or third party referrals or hyperlinks. Some of the information we collect via cookies may be considered Personal Information beyond California.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This may include information about: (i) your IP address and browser information; (ii) the general location where you access our Website, (iii) the pages you access on our Website and time you spend on our Website, and; (iv) how you reached our Website (e.g., web searches, directly using our website URL, or third party referrals or hyperlinks.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Collect Through Our Platform:\n\nWhen companies form a business relationship with Salutary Data, they sometimes obtain the information that we license using our Platform. Platform users leverage the Platform to run searches for business contacts utilizing different variables, such as: title, function, company size, location, company type and industry and generate a list of Professional Data regarding potential business prospects. When a user registers to use the Platform, they submit certain information to us such as the company they work for, their email, title and selected password. This information is not shared with third parties (except our service providers) nor re-distributed.\n\nInformation We Collect Through Our Website:\n\nInformation that you intentionally provide: When you visit our Website, you may (but are not required to) submit certain information to us through our Contact form or when you complete our “Do Not Sell My Personal Information” form. The information collected through such forms includes: name, email, company name, title, phone, current employer, and employer street address. There also exist text boxes that enable you to provide free-form text.\n\nInformation collected via cookies: When you visit our Website, including when using our Platform, our goal is to make the experience simple and effective. To that end, we use text files, known as cookies, to track information about your use of our Website. A cookie is a text file that a website stores on a visitor’s computer to enable recognition of that visitor’s computer each time they return. As you navigate through and interact with our Website, we will automatically collect certain information about your equipment, browsing actions and patterns using these cookies. This may include information about: (i) your IP address and browser information; (ii) the general location where you access our Website, (iii) the pages you access on our Website and time you spend on our Website, and; (iv) how you reached our Website (e.g., web searches, directly using our website URL, or third party referrals or hyperlinks. Some of the information we collect via cookies may be considered Personal Information beyond California.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">If you communicate with us by e-mail, mail, phone or otherwise, you may provide us with information that identifies you, such as your name, your company, your work or personal e-mail address, or personal and/or business telephone numbers.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Collect Through Email, Snail Mail, Phone Calls and other Communications:\n\nIf you communicate with us by e-mail, mail, phone or otherwise, you may provide us with information that identifies you, such as your name, your company, your work or personal e-mail address, or personal and/or business telephone numbers. We use this information solely to communicate with you regarding your request. We do not share or re-distribute this information.\n\nInformation We Collect From Our Third-Party Data Sources\n\nSalutary Data aggregates Professional Data that we license from third-party data sources. The third-party data sources typically collect the Professional Data that we license from publicly available websites, business directories, government sources, social networks, court records, and other commercial sources. The primary fields of our Professional Data include:\n\nfirst and last name\nwork email address\nname of the company where a person works\nthe company’s address\nwork title\nwork telephone number\nLinkedIn profile page URL</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The primary fields of our Professional Data include: first and last name work email address name of the company where a person works the company’s address work title work telephone number LinkedIn profile page URL</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Collect Through Email, Snail Mail, Phone Calls and other Communications:\n\nIf you communicate with us by e-mail, mail, phone or otherwise, you may provide us with information that identifies you, such as your name, your company, your work or personal e-mail address, or personal and/or business telephone numbers. We use this information solely to communicate with you regarding your request. We do not share or re-distribute this information.\n\nInformation We Collect From Our Third-Party Data Sources\n\nSalutary Data aggregates Professional Data that we license from third-party data sources. The third-party data sources typically collect the Professional Data that we license from publicly available websites, business directories, government sources, social networks, court records, and other commercial sources. The primary fields of our Professional Data include:\n\nfirst and last name\nwork email address\nname of the company where a person works\nthe company’s address\nwork title\nwork telephone number\nLinkedIn profile page URL</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Identifiers: First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password</div>
+                    <div class='match-info'><b>Matched GT:</b> 0: Category of Personal Information Collected ||| 1: Examples of Data Elements Collected ||| 2: Categories of Sources of Personal Information ||| 3: Purpose for Collection\n\n0: Personal Identifiers: ||| 1: First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password ||| 2: Customers Data brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; licensing data to Customers for re-licensing / resale and/or for their own business purposes to authenticate access to the Platform; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize Site and Platform performance; to send customers our newsletter and provide information about our products and services; to request feedback regarding Customers’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Company Name Title Any other information that Site visitors enter into free-form text boxes ||| 2: Site visitors: ||| 3: to respond to inquiries and requests; for bug and performance tracking and to optimize Site performance; to send visitors our newsletter and provide information about our products and services; to request feedback regarding visitors’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Any other information that an individual may provide during such interactions ||| 2: Others with whom we interact in person, on the phone or through some other medium. ||| 3: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; to respond to inquiries and requests; auditing interactions and transactions; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Characteristics of protected classification and sensitive information: ||| 1: Birth year Gender ||| 2: Data Brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers; licensing data to Customers for re-licensing / resale and/or for their own business purposes\n\n0: Electronic Network Activity: ||| 1: Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes ||| 2: Customers and Site visitors: ||| 3: for bug and performance tracking and to optimize Site and Platform performance. auditing interactions and transactions; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. to identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\n\n0: Commercial Information: ||| 1: Records of products/services licensed ||| 2: Customers ||| 3: performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions; verifying information; complying with laws and regulations: to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; auditing interactions and transactions; protecting against malicious, deceptive fraudulent or illegal activity\n\n0: Professional and Employment Related Information ||| 1: Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history; ||| 2: Customers; Site visitors Data Brokers; ||| 3: licensing data to Customers for re-licensing / resale and/or for their own business purposes performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize website and Platform performance; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law\n\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Characteristics of protected classification and sensitive information: Birth year Gender</div>
+                    <div class='match-info'><b>Matched GT:</b> Category of Personal Information Collected	Examples of Data Elements Collected	Categories of Sources of Personal Information	Purpose for Collection\nPersonal Identifiers:	First and last name\nBusiness address\nLinkedIn URL\nTwitter URL\nFacebook URL\nIP address\nPhone number\nCurrent and historical Email domain and address (business and personal)\nPlatform Password	\nCustomers\nData brokers\nNone of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nto authenticate access to the Platform;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize Site and Platform performance;\nto send customers our newsletter and provide information about our products and services;\nto request feedback regarding Customers’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nCompany Name\nTitle\nAny other information that Site visitors enter into free-form text boxes	Site visitors:	\nto respond to inquiries and requests;\nfor bug and performance tracking and to optimize Site performance;\nto send visitors our newsletter and provide information about our products and services;\nto request feedback regarding visitors’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nAny other information that an individual may provide during such interactions	Others with whom we interact in person, on the phone or through some other medium.	\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\nprotecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nCharacteristics of protected classification and sensitive information:	Birth year\nGender	Data Brokers	None of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nElectronic Network Activity:\nUnique device identification numbers;\nOperating system and version;\nPerformance data and browsing history;\nTime spent per visit;\nCumulative time spent across all usage;\nFrequency of usage;\nFeatures used;\nButtons clicked;\nActions taken and frequency of each;\nAd tracking codes	Customers and Site visitors:	\nfor bug and performance tracking and to optimize Site and Platform performance.\nauditing interactions and transactions;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nto identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\nCommercial Information:	Records of products/services licensed	Customers	\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions;\nverifying information;\ncomplying with laws and regulations:\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nauditing interactions and transactions;\nprotecting against malicious, deceptive fraudulent or illegal activity\nProfessional and Employment Related Information	Tax ID Number;\nEmployer Name\nEmployer Address\nCompany URL\nJob Title\nJob Level\nJob Function\nLinkedIn URL\nSkills\nInterests\nRecent Job Change\nLinkedIn Connection Count\nLinkedIn Followers Count\nJob State Date\nPrimary Industry\nWork History\nCurrent and prior employment history;	Customers;\nSite visitors\nData Brokers;	\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize website and Platform performance;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Electronic Network Activity : Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes</div>
+                    <div class='match-info'><b>Matched GT:</b> Category of Personal Information Collected	Examples of Data Elements Collected	Categories of Sources of Personal Information	Purpose for Collection\nPersonal Identifiers:	First and last name\nBusiness address\nLinkedIn URL\nTwitter URL\nFacebook URL\nIP address\nPhone number\nCurrent and historical Email domain and address (business and personal)\nPlatform Password	\nCustomers\nData brokers\nNone of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nto authenticate access to the Platform;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize Site and Platform performance;\nto send customers our newsletter and provide information about our products and services;\nto request feedback regarding Customers’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nCompany Name\nTitle\nAny other information that Site visitors enter into free-form text boxes	Site visitors:	\nto respond to inquiries and requests;\nfor bug and performance tracking and to optimize Site performance;\nto send visitors our newsletter and provide information about our products and services;\nto request feedback regarding visitors’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nAny other information that an individual may provide during such interactions	Others with whom we interact in person, on the phone or through some other medium.	\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\nprotecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nCharacteristics of protected classification and sensitive information:	Birth year\nGender	Data Brokers	None of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nElectronic Network Activity:\nUnique device identification numbers;\nOperating system and version;\nPerformance data and browsing history;\nTime spent per visit;\nCumulative time spent across all usage;\nFrequency of usage;\nFeatures used;\nButtons clicked;\nActions taken and frequency of each;\nAd tracking codes	Customers and Site visitors:	\nfor bug and performance tracking and to optimize Site and Platform performance.\nauditing interactions and transactions;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nto identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\nCommercial Information:	Records of products/services licensed	Customers	\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions;\nverifying information;\ncomplying with laws and regulations:\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nauditing interactions and transactions;\nprotecting against malicious, deceptive fraudulent or illegal activity\nProfessional and Employment Related Information	Tax ID Number;\nEmployer Name\nEmployer Address\nCompany URL\nJob Title\nJob Level\nJob Function\nLinkedIn URL\nSkills\nInterests\nRecent Job Change\nLinkedIn Connection Count\nLinkedIn Followers Count\nJob State Date\nPrimary Industry\nWork History\nCurrent and prior employment history;	Customers;\nSite visitors\nData Brokers;	\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize website and Platform performance;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Commercial Information : Records of products/services licensed</div>
+                    <div class='match-info'><b>Matched GT:</b> Category of Personal Information Collected	Examples of Data Elements Collected	Categories of Sources of Personal Information	Purpose for Collection\nPersonal Identifiers:	First and last name\nBusiness address\nLinkedIn URL\nTwitter URL\nFacebook URL\nIP address\nPhone number\nCurrent and historical Email domain and address (business and personal)\nPlatform Password	\nCustomers\nData brokers\nNone of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nto authenticate access to the Platform;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize Site and Platform performance;\nto send customers our newsletter and provide information about our products and services;\nto request feedback regarding Customers’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nCompany Name\nTitle\nAny other information that Site visitors enter into free-form text boxes	Site visitors:	\nto respond to inquiries and requests;\nfor bug and performance tracking and to optimize Site performance;\nto send visitors our newsletter and provide information about our products and services;\nto request feedback regarding visitors’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nAny other information that an individual may provide during such interactions	Others with whom we interact in person, on the phone or through some other medium.	\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\nprotecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nCharacteristics of protected classification and sensitive information:	Birth year\nGender	Data Brokers	None of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nElectronic Network Activity:\nUnique device identification numbers;\nOperating system and version;\nPerformance data and browsing history;\nTime spent per visit;\nCumulative time spent across all usage;\nFrequency of usage;\nFeatures used;\nButtons clicked;\nActions taken and frequency of each;\nAd tracking codes	Customers and Site visitors:	\nfor bug and performance tracking and to optimize Site and Platform performance.\nauditing interactions and transactions;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nto identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\nCommercial Information:	Records of products/services licensed	Customers	\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions;\nverifying information;\ncomplying with laws and regulations:\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nauditing interactions and transactions;\nprotecting against malicious, deceptive fraudulent or illegal activity\nProfessional and Employment Related Information	Tax ID Number;\nEmployer Name\nEmployer Address\nCompany URL\nJob Title\nJob Level\nJob Function\nLinkedIn URL\nSkills\nInterests\nRecent Job Change\nLinkedIn Connection Count\nLinkedIn Followers Count\nJob State Date\nPrimary Industry\nWork History\nCurrent and prior employment history;	Customers;\nSite visitors\nData Brokers;	\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize website and Platform performance;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Professional and Employment Related Information Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history;</div>
+                    <div class='match-info'><b>Matched GT:</b> 0: Category of Personal Information Collected ||| 1: Examples of Data Elements Collected ||| 2: Categories of Sources of Personal Information ||| 3: Purpose for Collection\n\n0: Personal Identifiers: ||| 1: First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password ||| 2: Customers Data brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; licensing data to Customers for re-licensing / resale and/or for their own business purposes to authenticate access to the Platform; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize Site and Platform performance; to send customers our newsletter and provide information about our products and services; to request feedback regarding Customers’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Company Name Title Any other information that Site visitors enter into free-form text boxes ||| 2: Site visitors: ||| 3: to respond to inquiries and requests; for bug and performance tracking and to optimize Site performance; to send visitors our newsletter and provide information about our products and services; to request feedback regarding visitors’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Any other information that an individual may provide during such interactions ||| 2: Others with whom we interact in person, on the phone or through some other medium. ||| 3: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; to respond to inquiries and requests; auditing interactions and transactions; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Characteristics of protected classification and sensitive information: ||| 1: Birth year Gender ||| 2: Data Brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers; licensing data to Customers for re-licensing / resale and/or for their own business purposes\n\n0: Electronic Network Activity: ||| 1: Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes ||| 2: Customers and Site visitors: ||| 3: for bug and performance tracking and to optimize Site and Platform performance. auditing interactions and transactions; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. to identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\n\n0: Commercial Information: ||| 1: Records of products/services licensed ||| 2: Customers ||| 3: performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions; verifying information; complying with laws and regulations: to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; auditing interactions and transactions; protecting against malicious, deceptive fraudulent or illegal activity\n\n0: Professional and Employment Related Information ||| 1: Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history; ||| 2: Customers; Site visitors Data Brokers; ||| 3: licensing data to Customers for re-licensing / resale and/or for their own business purposes performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize website and Platform performance; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law\n\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Salutary Data does not share Consumer’s Personal Information, but we do sell such information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output and lacks relevance to the categories of personal information, as it focuses instead on data sharing practices. The expected phrases regarding how Salutary Data uses and shares information are absent.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.43):</b> HOW SALUTARY DATA USES THE INFORMATION THAT WE COLLECT\nInformation We Collect Through Our Platform:\n\nSalutary Data uses the information we collect from our Platform users in order to authenticate our Platform users, to provide services to such Platform users, to manage their account, and sometimes to communicate with you via email or phone.\n\nInformation We Collect Through Our Website:\n\nInformation that you intentionally provide: Salutary Data uses the information that you provide through our webforms in order respond to your inquiry or request. We do not use the information for any other purposes. With the exception of our own service providers, we do not sell, share or otherwise provide this information to anyone else.\n\nInformation collected via cookies: The information we collect via cookies helps us to improve our Website and deliver better and more personalized content and services, enables us to estimate our audience size and usage patterns and recognize when you return to our Website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Personal Identifiers [Sold to] Data Brokers End User Businesses Third Parties</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal Information Sold to Third Parties\nAs explained above, Salutary Data is a boutique aggregator of U.S. based business contact information that is licensed to other data aggregators for redistribution and to end user businesses for various business purposes. The chart below reflects: (i) the categories of Personal Information sold to third parties in the preceding twelve (12) months; (ii) the categories of third parties to which the Personal Information was sold, and (iii) the purpose for sale. Salutary Data does not share Personal Information as that term is defined in the CCPA.\n\n \n\nCategory of Personal Information	Is Personal Information Sold to Third Parties	Category of Third Parties to Whom Sold	For what Purpose\nPersonal Identifiers	Y	Data Brokers\nEnd User Businesses\nThird Parties	\nData Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities.\nEnd user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.\nGoogle Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\nElectronic Network Activity	Y	Third Parties	\nGoogle Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\nCharacteristics of protected classification and other sensitive information:	N		\nCommercial Information	N		\nProfessional or Employment-related Information	Y	Data Brokers\nEnd User Businesses	\nData Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities.\nEnd user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Electronic Network Activity [Sold to] Third Parties</div>
+                    <div class='match-info'><b>Matched GT:</b> 0: Category of Personal Information ||| 1: Is Personal Information Sold to Third Parties ||| 2: Is Personal Information Sold to Third Parties ||| 3: Category of Third Parties to Whom Sold ||| 4: Category of Third Parties to Whom Sold ||| 5: Category of Third Parties to Whom Sold ||| 6: For what Purpose\n\n0: Personal Identifiers ||| 1: Personal Identifiers ||| 2: Y ||| 3: Y ||| 4: Data Brokers End User Businesses Third Parties ||| 5: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| 6: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\n\n0: Electronic Network Activity ||| 1: Electronic Network Activity ||| 2: Y ||| 3: Y ||| 4: Third Parties ||| 5: Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| 6: Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\n\n0: Characteristics of protected classification and other sensitive information: ||| 1: Characteristics of protected classification and other sensitive information: ||| 2: N ||| 3: N ||| 4: nan ||| 5: nan ||| 6: nan\n\n0: Commercial Information ||| 1: Commercial Information ||| 2: N ||| 3: N ||| 4: nan ||| 5: nan ||| 6: nan\n\n0: Professional or Employment-related Information ||| 1: Professional or Employment-related Information ||| 2: Y ||| 3: Y ||| 4: Data Brokers End User Businesses ||| 5: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. ||| 6: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Professional or Employment-related Information [Sold to] Data Brokers End User Businesses</div>
+                    <div class='match-info'><b>Matched GT:</b> Category of Personal Information	Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose	Category of Third Parties to Whom Disclosed	For what Purpose\nPersonal Identifiers	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nElectronic Network Activity	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCharacteristics of protected classification and other sensitive information:	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCommercial Information	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nProfessional or Employment-related Information	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance; and\nsecurity</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Personal Identifiers [Disclosed to] Service Providers</div>
+                    <div class='match-info'><b>Matched GT:</b> \nCategory of Personal Information	Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose	Category of Third Parties to Whom Disclosed	For what Purpose\nPersonal Identifiers	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nElectronic Network Activity	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCharacteristics of protected classification and other sensitive information:	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCommercial Information	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nProfessional or Employment-related Information	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance; and\nsecurity</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Electronic Network Activity [Disclosed to] Service Providers</div>
+                    <div class='match-info'><b>Matched GT:</b> 0: Category of Personal Information ||| 1: Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose ||| 2: Category of Third Parties to Whom Disclosed ||| 3: For what Purpose\n\n0: Personal Identifiers ||| 1: Y ||| 2: Service Providers ||| 3: verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Electronic Network Activity ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Characteristics of protected classification and other sensitive information: ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Commercial Information ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Professional or Employment-related Information ||| 1: Y ||| 2: Service Providers ||| 3: verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; and security</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Characteristics of protected classification and other sensitive information: [Disclosed to] Service Providers</div>
+                    <div class='match-info'><b>Matched GT:</b> \nCategory of Personal Information	Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose	Category of Third Parties to Whom Disclosed	For what Purpose\nPersonal Identifiers	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nElectronic Network Activity	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCharacteristics of protected classification and other sensitive information:	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCommercial Information	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nProfessional or Employment-related Information	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance; and\nsecurity</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Commercial Information [Disclosed to] Service Providers</div>
+                    <div class='match-info'><b>Matched GT:</b> 0: Category of Personal Information ||| 1: Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose ||| 2: Category of Third Parties to Whom Disclosed ||| 3: For what Purpose\n\n0: Personal Identifiers ||| 1: Y ||| 2: Service Providers ||| 3: verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Electronic Network Activity ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Characteristics of protected classification and other sensitive information: ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Commercial Information ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Professional or Employment-related Information ||| 1: Y ||| 2: Service Providers ||| 3: verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; and security</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Professional or Employment-related Information [Disclosed to] Service Providers</div>
+                    <div class='match-info'><b>Matched GT:</b> \nCategory of Personal Information	Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose	Category of Third Parties to Whom Disclosed	For what Purpose\nPersonal Identifiers	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nElectronic Network Activity	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCharacteristics of protected classification and other sensitive information:	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nCommercial Information	Y	Service Providers	\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance;\nsecurity; and\ndebugging\nProfessional or Employment-related Information	Y	Service Providers	\nverifying the accuracy of information\nauditing interactions and transactions;\nprocessing interactions and transactions;\nmanaging interactions and transactions;\nperforming services;\nquality assurance; and\nsecurity</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to Request Deletion : Consumers have the right, at any time, to request that Salutary Data delete any Personal Information that we collected directly from them.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Request Deletion: Consumers have the right, at any time, to request that Salutary Data delete any Personal Information that we collected directly from them. Salutary Data collects Personal Information directly from Consumers as described in the Section titled “Information that We Collect” above and as described further in the chart below. The obligation to delete Personal information upon request is not absolute. The CCPA allows businesses to retain Personal Information for certain purposes even when a deletion request is received. In addition, before deleting Personal Information in response to a request, we must verify the requesting Consumer’s identity.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Right to Correct Inaccurate Personal Information : Consumers have the right to request, at any time, the correction of inaccurate Personal Information that Salutary Data maintains about the requesting Consumer.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Correct Inaccurate Personal Information: Consumers have the right to request, at any time, the correction of inaccurate Personal Information that Salutary Data maintains about the requesting Consumer. Before correcting Personal Information in response to a request, we must verify the requesting Consumer’s identity.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Know What Personal Information Is Collected and Right to Access : Consumers have the right to request from Salutary Data disclosure of the following information, up to twice in a twelve-month period: the categories and specific pieces of Personal Information that we have collected about them; the categories of sources from which that Personal Information is collected; the business or commercial purpose for collecting, selling or sharing that Personal Information, and; the categories of third parties to whom Salutary Data discloses Personal Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know What Personal Information Is Collected and Right to Access: Consumers have the right to request from Salutary Data disclosure of the following information, up to twice in a twelve-month period:\nthe categories and specific pieces of Personal Information that we have collected about them;\nthe categories of sources from which that Personal Information is collected;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Right to Know About Personal Information Disclosed . Consumers have the right to know the categories of Personal Information disclosed about them for a business purpose and the categories of persons to whom each category of Personal Information was disclosed.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know About Personal Information Disclosed. Consumers have the right to know the categories of Personal Information disclosed about them for a business purpose and the categories of persons to whom each category of Personal Information was disclosed. Before providing such information to a Consumer, we must verify their identity.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Right to Know About Personal Information Sold or Shared : Consumers have the right to know the categories of Personal Information sold about them, the categories of third parties to whom each category of Personal Information was sold and the purpose for doing so.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know About Personal Information Sold or Shared: Consumers have the right to know the categories of Personal Information sold about them, the categories of third parties to whom each category of Personal Information was sold and the purpose for doing so. Before providing such information to a Consumer, we must verify their identity.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Right to Opt-out of the Sale or Sharing of Personal Information : Consumers have the right, at any time, to direct companies that sell or share Personal Information about Consumer to third parties not to sell or share the Consumer’s Personal Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Opt-out of the Sale or Sharing of Personal Information: Consumers have the right, at any time, to direct companies that sell or share Personal Information about Consumer to third parties not to sell or share the Consumer’s Personal Information. Salutary Data does not share Consumer’s Personal Information, but we do sell such information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Right to Opt-Out of Sale of Your Personal Information If you wish to exercise your right to opt-out of the sale of your Personal Information, please click here: D O NOT SELL MY PERSONAL INFORMATION</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output, nor is it a list or a substring of the Expected Output that maintains the primary meaning. Additionally, the Actual Output focuses solely on the right to opt-out without addressing the broader context and specific elements mentioned in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.57):</b> Right to Opt-out of the Sale or Sharing of Personal Information: Consumers have the right, at any time, to direct companies that sell or share Personal Information about Consumer to third parties not to sell or share the Consumer’s Personal Information. Salutary Data does not share Consumer’s Personal Information, but we do sell such information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">Right to Limit Use and Disclosure of Sensitive Personal Information : Consumers have the right, at any time, to direct companies to limit the use of their Sensitive Personal Information to that necessary to provide the services requested by such Consumer and to those purposes otherwise allowed by California law.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Limit Use and Disclosure of Sensitive Personal Information: Consumers have the right, at any time, to direct companies to limit the use of their Sensitive Personal Information to that necessary to provide the services requested by such Consumer and to those purposes otherwise allowed by California law. Salutary Data does not collect Sensitive Personal Information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Right to Non-Discrimination : California law prohibits Salutary Data from discriminating or retaliating against a Consumer based on such Consumer’s exercise of the privacy rights described herein.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Non-Discrimination: California law prohibits Salutary Data from discriminating or retaliating against a Consumer based on such Consumer’s exercise of the privacy rights described herein.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can also email us at privacy@salutarydata.com or call us at the following toll free number: 1-866-451-4868, to learn more.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains elements of the Expected Output, including the email address and the toll-free number; however, it lacks crucial context about exercising rights, which is a significant part of the Expected Output. Therefore, while there are relevant details, the main meaning is not preserved in its entirety.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.65):</b> The agent may call Salutary Data at the following toll-free telephone number: 1-866-451-4868. Alternatively, the agent may submit a request to the following email address or by mail at the following address:\n\nEmail address: privacy@salutarydata.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Method to Submit Requests : Requests to Delete, Correct and to Know If you wish to exercise your right to delete, correct and / or know (as described above), you may do so by calling Salutary Data at the following toll-free telephone number 1-866-451-4868 or alternatively via our website form . Finally, you can submit such requests to the following email address or by mail at the following address: Email address: privacy@salutarydata.com</div>
+                    <div class='match-info'><b>Matched GT:</b> Method to Submit Requests:\nRequests to Delete, Correct and to Know</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">How An Authorized Agent Can Make a Request for You : You may use an authorized agent to submit a request to delete, to correct or to know. The agent may call Salutary Data at the following toll-free telephone number: 1-866-451-4868. Alternatively, the agent may submit a request to the following email address or by mail at the following address: Email address: privacy@salutarydata.com</div>
+                    <div class='match-info'><b>Matched GT:</b> The agent may call Salutary Data at the following toll-free telephone number: 1-866-451-4868. Alternatively, the agent may submit a request to the following email address or by mail at the following address:\n\nEmail address: privacy@salutarydata.com</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Information That We Collect</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How Salutary Data Uses the Information That We Collect</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How Salutary Data Uses the Information That We Collect\nHow Salutary Data Shares the Information That We Collect</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How Salutary Data Uses the Information That We Collect\nHow Salutary Data Shares the Information That We Collect</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to this Privacy Policy</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This privacy policy (“Privacy Policy”) is designed to assist you in understanding how we collect, use, share, safeguard, retain and delete the Professional Data and, in particular, any Personal Information (defined below) on individuals that we collect from: (a) our corporate website (the “Website”); (b) operation of the platform that we make available to Customers (the “Platform”); (c) other direct interactions with individuals, and; (d) third party data sources; and (e) service providers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">“Personal Information” means any information relating to an identified or identifiable natural person.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Generally, the information that Salutary Data collects through its operations pertains to persons operating in their capacity as an owner or employee of a company or organization</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">PERSONAL INFORMATION THAT WE COLLECT\nAs explained above, Salutary Data does not collect what is typically considered Personal Information. We are a B2B company that aggregates and licenses data about individuals in their professional capacity. Currently, such Professional Data is only considered to be Personal Information in the State of California.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">However, with respect to Professional Data, Salutary Data receives it in a number of ways: (1) from Customers in connection with the establishment of an account with Salutary Data and our interactions with such individuals, including through our Platform (“Platform Users”); (2) from visitors to our Website (in limited quantities); (3) from vendors and Customers and other individuals with whom we interact in person, over the telephone, via email and other means of communication, and; (4) from third-party data sources.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">HOW SALUTARY DATA USES THE INFORMATION THAT WE COLLECT\nInformation We Collect Through Our Platform:\n\nSalutary Data uses the information we collect from our Platform users in order to authenticate our Platform users, to provide services to such Platform users, to manage their account, and sometimes to communicate with you via email or phone.\n\nInformation We Collect Through Our Website:\n\nInformation that you intentionally provide: Salutary Data uses the information that you provide through our webforms in order respond to your inquiry or request. We do not use the information for any other purposes. With the exception of our own service providers, we do not sell, share or otherwise provide this information to anyone else.\n\nInformation collected via cookies: The information we collect via cookies helps us to improve our Website and deliver better and more personalized content and services, enables us to estimate our audience size and usage patterns and recognize when you return to our Website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">HOW SALUTARY DATA USES THE INFORMATION THAT WE COLLECT\nInformation We Collect Through Our Platform:\n\nSalutary Data uses the information we collect from our Platform users in order to authenticate our Platform users, to provide services to such Platform users, to manage their account, and sometimes to communicate with you via email or phone.\n\nInformation We Collect Through Our Website:\n\nInformation that you intentionally provide: Salutary Data uses the information that you provide through our webforms in order respond to your inquiry or request. We do not use the information for any other purposes. With the exception of our own service providers, we do not sell, share or otherwise provide this information to anyone else.\n\nInformation collected via cookies: The information we collect via cookies helps us to improve our Website and deliver better and more personalized content and services, enables us to estimate our audience size and usage patterns and recognize when you return to our Website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">HOW SALUTARY DATA USES THE INFORMATION THAT WE COLLECT\nInformation We Collect Through Our Platform:\n\nSalutary Data uses the information we collect from our Platform users in order to authenticate our Platform users, to provide services to such Platform users, to manage their account, and sometimes to communicate with you via email or phone.\n\nInformation We Collect Through Our Website:\n\nInformation that you intentionally provide: Salutary Data uses the information that you provide through our webforms in order respond to your inquiry or request. We do not use the information for any other purposes. With the exception of our own service providers, we do not sell, share or otherwise provide this information to anyone else.\n\nInformation collected via cookies: The information we collect via cookies helps us to improve our Website and deliver better and more personalized content and services, enables us to estimate our audience size and usage patterns and recognize when you return to our Website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can opt out of Google Analytics’ collection and use of data generated by your use of the Site by going to http://tools.google.com/dlpage/gaoptout.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Salutary Data uses the information collected through cookies to evaluate use of our Website, improve the functionality and usability of our Website and for similar operational purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Salutary Data uses the information collected through cookies to evaluate use of our Website, improve the functionality and usability of our Website and for similar operational purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Salutary Data uses the information collected through cookies to evaluate use of our Website, improve the functionality and usability of our Website and for similar operational purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Many cookies are “session cookies,” which means that they are automatically deleted at the end of each Website session. Other cookies are “persistent cookies,” which means that they can stay on your device for an extended period of time.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can manage cookies through your web browser. Different browsers provide different methods to block and delete cookies. You can change the settings of your browser to block/delete the cookies.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Listed below are the links to the support documents on how to manage and delete cookies from the major web browsers.\n\nGoogle Chrome: https://support.google.com/accounts/answer/32050\n\nSafari: https://support.apple.com/en-in/guide/safari/sfri11471/mac\n\nFirefox: https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox?redirectslug=delete-cookies-remove-info-websites-stored&amp;redirectlocale=en-US\n\nInternet Explorer: https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc\n\nMicrosoft Edge: https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd\n\nIf you use any other web browser, please visit your browser’s official support documents.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">If you disable a cookie that was previously placed on your device, we will cease collecting any further information during your user experience. However, the information collected prior to the preference change may still be used.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">With respect to marketing cookies, when you opt out of tracking, a new cookie is placed on your device to prevent future tracking.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To find out more about cookies, including how to see what cookies have been set and how to block and delete cookies, please visit http://www.aboutcookies.org/.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Information We Collect Through Email, Snail Mail, Phone Calls and other Communications:\n\nSalutary Data uses the information we collect through these means of communication in order to provide services to those with whom we communicate, manage our Customer and vendor accounts, and respond to inquiries and requests.\n\nInformation We Collect From Our Third-Party Data Sources\n\nWe aggregate Professional Data obtained from our third-party data sources to build database(s) that our Customers license from us to help them market their products and services to current or prospective customers. In addition, we license Professional Data to other data aggregators who sublicense the data as part of their products and services to their end user customers for several purposes such as sales and marketing, recruiting, or research and analysis.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Information We Collect Through Email, Snail Mail, Phone Calls and other Communications:\n\nSalutary Data uses the information we collect through these means of communication in order to provide services to those with whom we communicate, manage our Customer and vendor accounts, and respond to inquiries and requests.\n\nInformation We Collect From Our Third-Party Data Sources\n\nWe aggregate Professional Data obtained from our third-party data sources to build database(s) that our Customers license from us to help them market their products and services to current or prospective customers. In addition, we license Professional Data to other data aggregators who sublicense the data as part of their products and services to their end user customers for several purposes such as sales and marketing, recruiting, or research and analysis.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Information We Collect Through Email, Snail Mail, Phone Calls and other Communications:\n\nSalutary Data uses the information we collect through these means of communication in order to provide services to those with whom we communicate, manage our Customer and vendor accounts, and respond to inquiries and requests.\n\nInformation We Collect From Our Third-Party Data Sources\n\nWe aggregate Professional Data obtained from our third-party data sources to build database(s) that our Customers license from us to help them market their products and services to current or prospective customers. In addition, we license Professional Data to other data aggregators who sublicense the data as part of their products and services to their end user customers for several purposes such as sales and marketing, recruiting, or research and analysis.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">HOW SALUTARY DATA SHARES THE INFORMATION THAT WE COLLECT\nExcept as otherwise provided in this Privacy Policy, or any agreements you enter into with us, we will use reasonable measures to keep the information provided to us private and, except as authorized by law, will not share it with third parties unless such disclosure is necessary to: (a) comply with applicable laws, regulations, rules or legal process; (b) provide our products and services to Customers; (c) protect our rights and/or property; (d) enforce our rights; (e) protect the interests of other users of the Website or any other person; (f) operate or conduct maintenance and repair of our equipment or Website; (g) detect, prevent and/or otherwise address fraud, security or technical issues, and; (h) verify that you are who you say you are. Notwithstanding any of the foregoing, we may transfer, sell or assign the information that you provide to us to third parties, as a result of the sale, merger, consolidation, change in control, transfer of substantial assets, or reorganization or liquidation of our company.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">CHANGES TO THIS PRIVACY POLICY\nOver time, we may update this Privacy Policy to align with changes in the Platform, our business and/or Privacy Laws. The Last Updated Data at the beginning of this Privacy Policy will reflect the last date on which the Privacy Policy was updated. We recommend that you periodically review the Privacy Policy to stay informed of changes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Know Before Collection of Personal Information: At or before the point your Personal Information is collected we must inform you of the following:\nThe categories of Personal Information to be collected and the purposes for which they are collected or used;\nThe categories of Sensitive Personal Information to be collected and the purposes for which the information is collected and used;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The length of time Salutary Data intends to retain each category of Personal Information (including Sensitive Personal Information) collected or, if that is not possible, the criteria used to determine that period.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The categories of Personal Information to be collected and the purposes for which they are collected or used;\nThe categories of Sensitive Personal Information to be collected and the purposes for which the information is collected and used;\nWhether Personal Information and/or Sensitive Personal Information is sold or shared;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">the business or commercial purpose for collecting, selling or sharing that Personal Information, and;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">the categories of third parties to whom Salutary Data discloses Personal Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information Collected	Examples of Data Elements Collected	Categories of Sources of Personal Information	Purpose for Collection\nPersonal Identifiers:	First and last name\nBusiness address\nLinkedIn URL\nTwitter URL\nFacebook URL\nIP address\nPhone number\nCurrent and historical Email domain and address (business and personal)\nPlatform Password	\nCustomers\nData brokers\nNone of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nto authenticate access to the Platform;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize Site and Platform performance;\nto send customers our newsletter and provide information about our products and services;\nto request feedback regarding Customers’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nCompany Name\nTitle\nAny other information that Site visitors enter into free-form text boxes	Site visitors:	\nto respond to inquiries and requests;\nfor bug and performance tracking and to optimize Site performance;\nto send visitors our newsletter and provide information about our products and services;\nto request feedback regarding visitors’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nAny other information that an individual may provide during such interactions	Others with whom we interact in person, on the phone or through some other medium.	\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\nprotecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nCharacteristics of protected classification and sensitive information:	Birth year\nGender	Data Brokers	None of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nElectronic Network Activity:\nUnique device identification numbers;\nOperating system and version;\nPerformance data and browsing history;\nTime spent per visit;\nCumulative time spent across all usage;\nFrequency of usage;\nFeatures used;\nButtons clicked;\nActions taken and frequency of each;\nAd tracking codes	Customers and Site visitors:	\nfor bug and performance tracking and to optimize Site and Platform performance.\nauditing interactions and transactions;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nto identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\nCommercial Information:	Records of products/services licensed	Customers	\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions;\nverifying information;\ncomplying with laws and regulations:\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nauditing interactions and transactions;\nprotecting against malicious, deceptive fraudulent or illegal activity\nProfessional and Employment Related Information	Tax ID Number;\nEmployer Name\nEmployer Address\nCompany URL\nJob Title\nJob Level\nJob Function\nLinkedIn URL\nSkills\nInterests\nRecent Job Change\nLinkedIn Connection Count\nLinkedIn Followers Count\nJob State Date\nPrimary Industry\nWork History\nCurrent and prior employment history;	Customers;\nSite visitors\nData Brokers;	\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize website and Platform performance;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">\nCategory of Personal Information Collected	Examples of Data Elements Collected	Categories of Sources of Personal Information	Purpose for Collection\nPersonal Identifiers:	First and last name\nBusiness address\nLinkedIn URL\nTwitter URL\nFacebook URL\nIP address\nPhone number\nCurrent and historical Email domain and address (business and personal)\nPlatform Password	\nCustomers\nData brokers\nNone of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nto authenticate access to the Platform;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize Site and Platform performance;\nto send customers our newsletter and provide information about our products and services;\nto request feedback regarding Customers’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nCompany Name\nTitle\nAny other information that Site visitors enter into free-form text boxes	Site visitors:	\nto respond to inquiries and requests;\nfor bug and performance tracking and to optimize Site performance;\nto send visitors our newsletter and provide information about our products and services;\nto request feedback regarding visitors’ experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nFirst and last name\nEmail address\nPhone number\nAny other information that an individual may provide during such interactions	Others with whom we interact in person, on the phone or through some other medium.	\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\nprotecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nCharacteristics of protected classification and sensitive information:	Birth year\nGender	Data Brokers	None of this information is used to infer characteristics about the individual to whom it pertains:\nperforming services for Customers;\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nElectronic Network Activity:\nUnique device identification numbers;\nOperating system and version;\nPerformance data and browsing history;\nTime spent per visit;\nCumulative time spent across all usage;\nFrequency of usage;\nFeatures used;\nButtons clicked;\nActions taken and frequency of each;\nAd tracking codes	Customers and Site visitors:	\nfor bug and performance tracking and to optimize Site and Platform performance.\nauditing interactions and transactions;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\nperforming services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law.\nto identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\nCommercial Information:	Records of products/services licensed	Customers	\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions;\nverifying information;\ncomplying with laws and regulations:\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nauditing interactions and transactions;\nprotecting against malicious, deceptive fraudulent or illegal activity\nProfessional and Employment Related Information	Tax ID Number;\nEmployer Name\nEmployer Address\nCompany URL\nJob Title\nJob Level\nJob Function\nLinkedIn URL\nSkills\nInterests\nRecent Job Change\nLinkedIn Connection Count\nLinkedIn Followers Count\nJob State Date\nPrimary Industry\nWork History\nCurrent and prior employment history;	Customers;\nSite visitors\nData Brokers;	\nlicensing data to Customers for re-licensing / resale and/or for their own business purposes\nperforming services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information;\nto respond to inquiries and requests;\nauditing interactions and transactions;\nfor bug and performance tracking and to optimize website and Platform performance;\nto send our newsletter and provide information about our products and services;\nto request feedback regarding experience with the business;\ndetecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity;\nshort-term, transient internal use;\ninternal research for technological development;\nto respond to or defend against subpoenas, court orders, or other legal process;\nto establish or exercise our legal rights;\nto otherwise comply with applicable law</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information Collected ||| 1: Examples of Data Elements Collected ||| 2: Categories of Sources of Personal Information ||| 3: Purpose for Collection\n\n0: Personal Identifiers: ||| 1: First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password ||| 2: Customers Data brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; licensing data to Customers for re-licensing / resale and/or for their own business purposes to authenticate access to the Platform; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize Site and Platform performance; to send customers our newsletter and provide information about our products and services; to request feedback regarding Customers’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Company Name Title Any other information that Site visitors enter into free-form text boxes ||| 2: Site visitors: ||| 3: to respond to inquiries and requests; for bug and performance tracking and to optimize Site performance; to send visitors our newsletter and provide information about our products and services; to request feedback regarding visitors’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Any other information that an individual may provide during such interactions ||| 2: Others with whom we interact in person, on the phone or through some other medium. ||| 3: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; to respond to inquiries and requests; auditing interactions and transactions; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Characteristics of protected classification and sensitive information: ||| 1: Birth year Gender ||| 2: Data Brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers; licensing data to Customers for re-licensing / resale and/or for their own business purposes\n\n0: Electronic Network Activity: ||| 1: Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes ||| 2: Customers and Site visitors: ||| 3: for bug and performance tracking and to optimize Site and Platform performance. auditing interactions and transactions; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. to identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\n\n0: Commercial Information: ||| 1: Records of products/services licensed ||| 2: Customers ||| 3: performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions; verifying information; complying with laws and regulations: to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; auditing interactions and transactions; protecting against malicious, deceptive fraudulent or illegal activity\n\n0: Professional and Employment Related Information ||| 1: Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history; ||| 2: Customers; Site visitors Data Brokers; ||| 3: licensing data to Customers for re-licensing / resale and/or for their own business purposes performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize website and Platform performance; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information Collected ||| 1: Examples of Data Elements Collected ||| 2: Categories of Sources of Personal Information ||| 3: Purpose for Collection\n\n0: Personal Identifiers: ||| 1: First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password ||| 2: Customers Data brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; licensing data to Customers for re-licensing / resale and/or for their own business purposes to authenticate access to the Platform; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize Site and Platform performance; to send customers our newsletter and provide information about our products and services; to request feedback regarding Customers’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Company Name Title Any other information that Site visitors enter into free-form text boxes ||| 2: Site visitors: ||| 3: to respond to inquiries and requests; for bug and performance tracking and to optimize Site performance; to send visitors our newsletter and provide information about our products and services; to request feedback regarding visitors’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Personal Identifiers: ||| 1: First and last name Email address Phone number Any other information that an individual may provide during such interactions ||| 2: Others with whom we interact in person, on the phone or through some other medium. ||| 3: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; to respond to inquiries and requests; auditing interactions and transactions; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law.\n\n0: Characteristics of protected classification and sensitive information: ||| 1: Birth year Gender ||| 2: Data Brokers ||| 3: None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers; licensing data to Customers for re-licensing / resale and/or for their own business purposes\n\n0: Electronic Network Activity: ||| 1: Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes ||| 2: Customers and Site visitors: ||| 3: for bug and performance tracking and to optimize Site and Platform performance. auditing interactions and transactions; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. to identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site\n\n0: Commercial Information: ||| 1: Records of products/services licensed ||| 2: Customers ||| 3: performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions; verifying information; complying with laws and regulations: to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; auditing interactions and transactions; protecting against malicious, deceptive fraudulent or illegal activity\n\n0: Professional and Employment Related Information ||| 1: Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history; ||| 2: Customers; Site visitors Data Brokers; ||| 3: licensing data to Customers for re-licensing / resale and/or for their own business purposes performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize website and Platform performance; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information Collected ||| Personal Identifiers: ||| Personal Identifiers: ||| Personal Identifiers: ||| Characteristics of protected classification and sensitive information: ||| Electronic Network Activity: ||| Commercial Information: ||| Professional and Employment Related Information\n\nExamples of Data Elements Collected ||| First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password ||| First and last name Email address Phone number Company Name Title Any other information that Site visitors enter into free-form text boxes ||| First and last name Email address Phone number Any other information that an individual may provide during such interactions ||| Birth year Gender ||| Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes ||| Records of products/services licensed ||| Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history;\n\nCategories of Sources of Personal Information ||| Customers Data brokers ||| Site visitors: ||| Others with whom we interact in person, on the phone or through some other medium. ||| Data Brokers ||| Customers and Site visitors: ||| Customers ||| Customers; Site visitors Data Brokers;\n\nPurpose for Collection ||| None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; licensing data to Customers for re-licensing / resale and/or for their own business purposes to authenticate access to the Platform; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize Site and Platform performance; to send customers our newsletter and provide information about our products and services; to request feedback regarding Customers’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. ||| to respond to inquiries and requests; for bug and performance tracking and to optimize Site performance; to send visitors our newsletter and provide information about our products and services; to request feedback regarding visitors’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. ||| performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; to respond to inquiries and requests; auditing interactions and transactions; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. ||| None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers; licensing data to Customers for re-licensing / resale and/or for their own business purposes ||| for bug and performance tracking and to optimize Site and Platform performance. auditing interactions and transactions; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. to identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site ||| performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions; verifying information; complying with laws and regulations: to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; auditing interactions and transactions; protecting against malicious, deceptive fraudulent or illegal activity ||| licensing data to Customers for re-licensing / resale and/or for their own business purposes performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize website and Platform performance; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information Collected ||| Personal Identifiers: ||| Personal Identifiers: ||| Personal Identifiers: ||| Characteristics of protected classification and sensitive information: ||| Electronic Network Activity: ||| Commercial Information: ||| Professional and Employment Related Information\n\nExamples of Data Elements Collected ||| First and last name Business address LinkedIn URL Twitter URL Facebook URL IP address Phone number Current and historical Email domain and address (business and personal) Platform Password ||| First and last name Email address Phone number Company Name Title Any other information that Site visitors enter into free-form text boxes ||| First and last name Email address Phone number Any other information that an individual may provide during such interactions ||| Birth year Gender ||| Unique device identification numbers; Operating system and version; Performance data and browsing history; Time spent per visit; Cumulative time spent across all usage; Frequency of usage; Features used; Buttons clicked; Actions taken and frequency of each; Ad tracking codes ||| Records of products/services licensed ||| Tax ID Number; Employer Name Employer Address Company URL Job Title Job Level Job Function LinkedIn URL Skills Interests Recent Job Change LinkedIn Connection Count LinkedIn Followers Count Job State Date Primary Industry Work History Current and prior employment history;\n\nCategories of Sources of Personal Information ||| Customers Data brokers ||| Site visitors: ||| Others with whom we interact in person, on the phone or through some other medium. ||| Data Brokers ||| Customers and Site visitors: ||| Customers ||| Customers; Site visitors Data Brokers;\n\nPurpose for Collection ||| None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; licensing data to Customers for re-licensing / resale and/or for their own business purposes to authenticate access to the Platform; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize Site and Platform performance; to send customers our newsletter and provide information about our products and services; to request feedback regarding Customers’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. ||| to respond to inquiries and requests; for bug and performance tracking and to optimize Site performance; to send visitors our newsletter and provide information about our products and services; to request feedback regarding visitors’ experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. ||| performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information; to respond to inquiries and requests; auditing interactions and transactions; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. ||| None of this information is used to infer characteristics about the individual to whom it pertains: performing services for Customers; licensing data to Customers for re-licensing / resale and/or for their own business purposes ||| for bug and performance tracking and to optimize Site and Platform performance. auditing interactions and transactions; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; performing services for Customers, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying Customer information, processing payments; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law. to identify the performance of ads that Salutary Data places on third party sites to drive traffic to our Site ||| performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions; verifying information; complying with laws and regulations: to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; auditing interactions and transactions; protecting against malicious, deceptive fraudulent or illegal activity ||| licensing data to Customers for re-licensing / resale and/or for their own business purposes performing services, maintaining or servicing accounts, providing customer service, processing or fulfilling transactions, verifying information; to respond to inquiries and requests; auditing interactions and transactions; for bug and performance tracking and to optimize website and Platform performance; to send our newsletter and provide information about our products and services; to request feedback regarding experience with the business; detecting security incidents, protecting against malicious, deceptive fraudulent or illegal activity; short-term, transient internal use; internal research for technological development; to respond to or defend against subpoenas, court orders, or other legal process; to establish or exercise our legal rights; to otherwise comply with applicable law</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Personal Information Disclosed to Third Parties for a Business Purpose\nThere are certain circumstances in which we may disclose Personal Information to trusted entities in order to improve, protect and support our business. For instance, Salutary Data may disclose Personal Information to: (i) service providers (e.g., hosting providers, entities that verify accuracy and currency of our contact records, business advisors, auditors, etc.); and (ii) any potential purchasers or investors in the business. Salutary Data requires our Platform hosting developer and provider with whom we share Personal Information to process Personal Information strictly for Customer use of the Platform and in accordance with our contract with such service providers. We ensure that any service provider with whom we share Personal Information is subject to privacy and security obligations consistent with this Privacy Notice and applicable laws. In addition, Salutary Data may disclose Personal Information if required to do so by law or in the good faith belief that such action is necessary to: (a) comply with a legal obligation; (b) protect and defend our rights or property; or (c) protect the rights, property, or safety of our Customers, visitors to our Site, or the public.\n\nWith respect to disclosures of Personal Information for business purposes during the preceding twelve (12) months, Salutary Data has operated as described in the chart below. Salutary Data does not disclose Sensitive Personal Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information ||| 1: Is the Personal Information Disclosed to Third Parties for a Business Operations Purpose ||| 2: Category of Third Parties to Whom Disclosed ||| 3: For what Purpose\n\n0: Personal Identifiers ||| 1: Y ||| 2: Service Providers ||| 3: verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Electronic Network Activity ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Characteristics of protected classification and other sensitive information: ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Commercial Information ||| 1: Y ||| 2: Service Providers ||| 3: auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging\n\n0: Professional or Employment-related Information ||| 1: Y ||| 2: Service Providers ||| 3: verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; and security\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information ||| Personal Identifiers ||| Electronic Network Activity ||| Characteristics of protected classification and other sensitive information: ||| Commercial Information ||| Professional or Employment-related Information\n\nIs the Personal Information Disclosed to Third Parties for a Business Operations Purpose ||| Y ||| Y ||| Y ||| Y ||| Y\n\nCategory of Third Parties to Whom Disclosed ||| Service Providers ||| Service Providers ||| Service Providers ||| Service Providers ||| Service Providers\n\nFor what Purpose ||| verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; and security</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">For what Purpose ||| verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; security; and debugging ||| verifying the accuracy of information auditing interactions and transactions; processing interactions and transactions; managing interactions and transactions; performing services; quality assurance; and security</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">\nCategory of Personal Information	Is Personal Information Sold to Third Parties	Category of Third Parties to Whom Sold	For what Purpose\nPersonal Identifiers	Y	Data Brokers\nEnd User Businesses\nThird Parties	\nData Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities.\nEnd user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.\nGoogle Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\nElectronic Network Activity	Y	Third Parties	\nGoogle Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\nCharacteristics of protected classification and other sensitive information:	N		\nCommercial Information	N		\nProfessional or Employment-related Information	Y	Data Brokers\nEnd User Businesses	\nData Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities.\nEnd user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information	Is Personal Information Sold to Third Parties	Category of Third Parties to Whom Sold	For what Purpose\nPersonal Identifiers	Y	Data Brokers\nEnd User Businesses\nThird Parties	\nData Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities.\nEnd user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.\nGoogle Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\nElectronic Network Activity	Y	Third Parties	\nGoogle Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\nCharacteristics of protected classification and other sensitive information:	N		\nCommercial Information	N		\nProfessional or Employment-related Information	Y	Data Brokers\nEnd User Businesses	\nData Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities.\nEnd user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information ||| 1: Is Personal Information Sold to Third Parties ||| 2: Is Personal Information Sold to Third Parties ||| 3: Category of Third Parties to Whom Sold ||| 4: Category of Third Parties to Whom Sold ||| 5: Category of Third Parties to Whom Sold ||| 6: For what Purpose\n\n0: Personal Identifiers ||| 1: Personal Identifiers ||| 2: Y ||| 3: Y ||| 4: Data Brokers End User Businesses Third Parties ||| 5: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| 6: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\n\n0: Electronic Network Activity ||| 1: Electronic Network Activity ||| 2: Y ||| 3: Y ||| 4: Third Parties ||| 5: Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| 6: Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\n\n0: Characteristics of protected classification and other sensitive information: ||| 1: Characteristics of protected classification and other sensitive information: ||| 2: N ||| 3: N ||| 4: nan ||| 5: nan ||| 6: nan\n\n0: Commercial Information ||| 1: Commercial Information ||| 2: N ||| 3: N ||| 4: nan ||| 5: nan ||| 6: nan\n\n0: Professional or Employment-related Information ||| 1: Professional or Employment-related Information ||| 2: Y ||| 3: Y ||| 4: Data Brokers End User Businesses ||| 5: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. ||| 6: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information ||| 1: Is Personal Information Sold to Third Parties ||| 2: Is Personal Information Sold to Third Parties ||| 3: Category of Third Parties to Whom Sold ||| 4: Category of Third Parties to Whom Sold ||| 5: Category of Third Parties to Whom Sold ||| 6: For what Purpose\n\n0: Personal Identifiers ||| 1: Personal Identifiers ||| 2: Y ||| 3: Y ||| 4: Data Brokers End User Businesses Third Parties ||| 5: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| 6: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\n\n0: Electronic Network Activity ||| 1: Electronic Network Activity ||| 2: Y ||| 3: Y ||| 4: Third Parties ||| 5: Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| 6: Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here.\n\n0: Characteristics of protected classification and other sensitive information: ||| 1: Characteristics of protected classification and other sensitive information: ||| 2: N ||| 3: N ||| 4: nan ||| 5: nan ||| 6: nan\n\n0: Commercial Information ||| 1: Commercial Information ||| 2: N ||| 3: N ||| 4: nan ||| 5: nan ||| 6: nan\n\n0: Professional or Employment-related Information ||| 1: Professional or Employment-related Information ||| 2: Y ||| 3: Y ||| 4: Data Brokers End User Businesses ||| 5: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. ||| 6: Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information ||| Personal Identifiers ||| Electronic Network Activity ||| Characteristics of protected classification and other sensitive information: ||| Commercial Information ||| Professional or Employment-related Information\n\nIs Personal Information Sold to Third Parties ||| Personal Identifiers ||| Electronic Network Activity ||| Characteristics of protected classification and other sensitive information: ||| Commercial Information ||| Professional or Employment-related Information\n\nIs Personal Information Sold to Third Parties ||| Y ||| Y ||| N ||| N ||| Y\n\nCategory of Third Parties to Whom Sold ||| Y ||| Y ||| N ||| N ||| Y\n\nCategory of Third Parties to Whom Sold ||| Data Brokers End User Businesses Third Parties ||| Third Parties ||| nan ||| nan ||| Data Brokers End User Businesses\n\nCategory of Third Parties to Whom Sold ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| nan ||| nan ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.\n\nFor what Purpose ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| nan ||| nan ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information ||| Personal Identifiers ||| Electronic Network Activity ||| Characteristics of protected classification and other sensitive information: ||| Commercial Information ||| Professional or Employment-related Information\n\nIs Personal Information Sold to Third Parties ||| Personal Identifiers ||| Electronic Network Activity ||| Characteristics of protected classification and other sensitive information: ||| Commercial Information ||| Professional or Employment-related Information\n\nIs Personal Information Sold to Third Parties ||| Y ||| Y ||| N ||| N ||| Y\n\nCategory of Third Parties to Whom Sold ||| Y ||| Y ||| N ||| N ||| Y\n\nCategory of Third Parties to Whom Sold ||| Data Brokers End User Businesses Third Parties ||| Third Parties ||| nan ||| nan ||| Data Brokers End User Businesses\n\nCategory of Third Parties to Whom Sold ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| nan ||| nan ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.\n\nFor what Purpose ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity. Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| Google Analytics collects information regarding visitors to our Website and provides aggregated, statistical information back to Salutary Data regarding Website visits. Google Analytics also uses the information collected as disclosed here. ||| nan ||| nan ||| Data Brokers license Personal Information from Salutary Data in order to sub-license / resell the Personal Information to end user businesses for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activities. End user businesses license Personal Information for their use in sales and marketing to commercial buyers, recruiting, analytics and other business activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Salutary Data does not share Personal Information with third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you submit your request by Email or snail mail, please provide your name, address, phone number and any other identifiers that you think will help us to verify you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Any Personal Information received by Salutary Data with respect to a request delete, to correct and / or to know will  be held strictly in confidence, used only for the purposes of processing your request and in accordance with applicable data privacy laws and regulations.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to exercise your right to opt-out of the sale of your Personal Information, please click here:\nDO NOT SELL MY PERSONAL INFORMATION</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">HOW LONG DO WE RETAIN PERSONAL INFORMATION?\nInformation about Platform Users: Salutary Data retains Personal Information collected from Platform users as long as necessary to fulfill the purpose(s) for which it was collected, including legal, accounting, and reporting requirements or as otherwise set forth under applicable law.\n\nInformation about Website Visitors: Salutary Data retains Personal Information about those who visit the Website as long as necessary to fulfill the purpose(s) for which it was collected, including legal, accounting, and reporting requirements or as otherwise set forth under applicable law.\n\nInformation from Third Party Data Sources: Salutary Data retains Personal Information obtained from third party data sources for as long as such information is deemed reliable and of use to the markets we serve.\n\nOther Information: Salutary Data retains other Personal Information as long as necessary to fulfill the purpose(s) for which it was collected, including legal, accounting, and reporting requirements or as otherwise set forth under applicable law.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

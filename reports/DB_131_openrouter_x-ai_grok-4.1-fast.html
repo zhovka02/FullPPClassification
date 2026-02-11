@@ -1,0 +1,506 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_131</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.61</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.40</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.48</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">14</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">9</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">17</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated: April 1, 2022</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Updated: April 1, 2022</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">This Privacy Policy (https://www.iwave.com/privacy-policy/) will change periodically to comply with privacy law requirements. If the changes are significant, we will provide notice.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in its entirety, nor is it a part of a list. Additionally, the Actual Output is not a substring of the Expected Output that maintains primary meaning. There is no alignment with any of the steps outlined, leading to a score of zero.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.51):</b> CHANGES TO THE PRIVACY POLICY\nWe reserve the right to update or modify this Privacy Policy from time to time at our discretion. We will indicate changes to this Privacy Policy by updating the “Effective Date” at the beginning of the Privacy Policy. Please review this Privacy Policy periodically and especially before you provide any personal information to us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">We reserve the right to update or modify this Privacy Policy from time to time at our discretion. We will indicate changes to this Privacy Policy by updating the “Effective Date” at the beginning of the Privacy Policy.</div>
+                    <div class='match-info'><b>Matched GT:</b> CHANGES TO THE PRIVACY POLICY\nWe reserve the right to update or modify this Privacy Policy from time to time at our discretion. We will indicate changes to this Privacy Policy by updating the “Effective Date” at the beginning of the Privacy Policy. Please review this Privacy Policy periodically and especially before you provide any personal information to us.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Identifiers — When you sign up for our services such as name, company name, address, phone number, email address, billing information (name and address), number of employees or users and name of employees or users within your organization using our services. Please note that iWave does not collect credit card or other financial information — payment transactions are processed directly through Invoiced.com Internet and Network Activity — We and our vendors, including service providers and third parties, collect information about how you use our services and the computers or other devices, such as mobile phones or tablets, you use to access our services. Examples include: IP address, Unique device identifiers and device attributes, like operating system and browser type, Usage data, such as: web log data, referring and exit pages and URLs, platform type, number of clicks, domain names, landing pages, pages and content viewed and the order of those pages, the amount of time spent on particular pages, the date and time you used our services, the frequency of your use of our services, error logs, and other similar information, transactional data, such as names and email addresses of parties to a transaction, subject line, history of actions that individuals take during a transaction (e.g., downloading an e-book, watching a webinar) and information about those individuals or their devices, such as name, email address, IP address, and authentication methods.</div>
+                    <div class='match-info'><b>Matched GT:</b> What We Collect\nThe type and manner of data that we and our vendors, including third parties like Google, collect includes the following:\n\nPersonal Identifiers — When you sign up for our services such as name, company name, address, phone number, email address, billing information (name and address), number of employees or users and name of employees or users within your organization using our services. Please note that iWave does not collect credit card or other financial information — payment transactions are processed directly through Invoiced.com\nInternet and Network Activity —We and our vendors, including service providers and third parties, collect information about how you use our services and the computers or other devices, such as mobile phones or tablets, you use to access our services. Examples include: IP address, Unique device identifiers and device attributes, like operating system and browser type, Usage data, such as: web log data, referring and exit pages and URLs, platform type, number of clicks, domain names, landing pages, pages and content viewed and the order of those pages, the amount of time spent on particular pages, the date and time you used our services, the frequency of your use of our services, error logs, and other similar information, transactional data, such as names and email addresses of parties to a transaction, subject line, history of actions that individuals take during a transaction (e.g., downloading an e-book, watching a webinar) and information about those individuals or their devices, such as name, email address, IP address, and authentication methods.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Identifiers such as name, address, phone number, email address Demographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc. Internet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type Commercial Information such as records of personal and commercial property User Provided Data – data entered into the application by a customer, such as giving history, custom records, notes and comments, etc.</div>
+                    <div class='match-info'><b>Matched GT:</b> PRIVACY PRACTICES RELATED TO INDIVIDUALS WHOSE PERSONAL DATA IS IN OUR PRODUCT DATABASES\nHow we collect\nTo constitute our databases, we collect information including personal data from third-party sources including publicly available records, data brokers, data aggregators, our clients, government entities, public registers, marketers, business alliances, researchers, service providers, and others, including open sources, where consent has been obtained to share personal data. This means that the source of personal data, whether open source or a third-party data provider, has obtained consent from individuals to have their data shared to be sold for charitable fundraising. This also means that those individuals have been given the opportunity to opt out of that sharing.\n\nWhat We Collect\nThe type of data we collect about includes:\n\nPersonal Identifiers such as name, address, phone number, email address\nDemographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc.\nInternet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type\nCommercial Information such as records of personal and commercial property\nUser Provided Data – data entered into the application by a customer, such as giving history, custom records, notes and comments, etc.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, iWave has disclosed the following categories of personal data for a business purpose. Category of Personal Information Categories of Recipients Personal Identifiers such as name, address, phone number, email address Service Providers Demographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc. Service Providers Internet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type Service Providers Commercial Information such as records of personal and commercial property Service Providers User Provided Data Service Providers</div>
+                    <div class='match-info'><b>Matched GT:</b> In the preceding 12 months, iWave has disclosed the following categories of personal data for a business purpose.\n\nCategory of Personal Information	Categories of Recipients\nPersonal Identifiers such as name, address, phone number, email address	Service Providers\nDemographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc.	Service Providers\nInternet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type	Service Providers\nCommercial Information such as records of personal and commercial property	Service Providers\nUser Provided Data	Service Providers</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We share personal data with: (Visitors and/or Clients as indicated) Service Providers. These are companies that we use to support our services such as intelligent search technology, intelligent analytics, authentication systems, bill collection, fraud detection, and vendors that provide the systems we use to run our sales cycle. We have contracts with our service providers that address the safeguarding and proper use of your personal data. “Visitors” Public or Government Authorities . We may share personal data where government authorities have demonstrated their lawful authority to obtain the information or where there are threats to personal safety, violations of this Privacy Policy or other agreements, or to protect existing legal rights. “Both” Business Transactions . We may share personal data where it is necessary in the context of a transaction like a merger, or sale of our assets, or as part of the due diligence for such contemplated transactions. If this occurs, we will provide notification to the individuals concerned. “Both” Third parties. Vendors, including social media platforms and advertising networks that we work with to communicate with you for our marketing efforts and to send advertisements that may be relevant to you. “Visitors” Consent. We may share personal data with your consent and at your direction, for example, when we post testimonials on our websites or when individuals choose to post comments on our blogs. “Clients”</div>
+                    <div class='match-info'><b>Matched GT:</b> With Whom We Share Personal Data\nWe share personal data with: (Visitors and/or Clients as indicated)\n\nService Providers. These are companies that we use to support our services such as intelligent search technology, intelligent analytics, authentication systems, bill collection, fraud detection, and vendors that provide the systems we use to run our sales cycle. We have contracts with our service providers that address the safeguarding and proper use of your personal data. “Visitors”\nPublic or Government Authorities. We may share personal data where government authorities have demonstrated their lawful authority to obtain the information or where there are threats to personal safety, violations of this Privacy Policy or other agreements, or to protect existing legal rights. “Both”\nBusiness Transactions. We may share personal data where it is necessary in the context of a transaction like a merger, or sale of our assets, or as part of the due diligence for such contemplated transactions. If this occurs, we will provide notification to the individuals concerned. “Both”\nThird parties. Vendors, including social media platforms and advertising networks that we work with to communicate with you for our marketing efforts and to send advertisements that may be relevant to you. “Visitors”\nConsent. We may share personal data with your consent and at your direction, for example, when we post testimonials on our websites or when individuals choose to post comments on our blogs. “Clients”</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Service Providers . We share personal data with companies we use to support our services like intelligent search technology, intelligent analytics, authentication systems, bill collection, and fraud detection. We have contracts with our service providers that address the safeguarding and proper use of personal data. Public or Government Authorities . We may share personal data where government authorities have demonstrated their lawful authority to obtain the information or where there are threats to personal safety, violations of this Privacy Policy or other agreements, or to protect existing legal rights. Business Transactions . We may share personal data where it is necessary in the context of a transaction like a merger, or sale of our assets, or as part of the due diligence for such contemplated transactions. If this occurs, we will provide notification to the individuals concerned. Consent . We may share personal data with your consent based on notice provided to you at collection or as permitted by law.</div>
+                    <div class='match-info'><b>Matched GT:</b> With Whom We Share Personal Data\nWe share personal data with: (Visitors and/or Clients as indicated)\n\nService Providers. These are companies that we use to support our services such as intelligent search technology, intelligent analytics, authentication systems, bill collection, fraud detection, and vendors that provide the systems we use to run our sales cycle. We have contracts with our service providers that address the safeguarding and proper use of your personal data. “Visitors”\nPublic or Government Authorities. We may share personal data where government authorities have demonstrated their lawful authority to obtain the information or where there are threats to personal safety, violations of this Privacy Policy or other agreements, or to protect existing legal rights. “Both”\nBusiness Transactions. We may share personal data where it is necessary in the context of a transaction like a merger, or sale of our assets, or as part of the due diligence for such contemplated transactions. If this occurs, we will provide notification to the individuals concerned. “Both”\nThird parties. Vendors, including social media platforms and advertising networks that we work with to communicate with you for our marketing efforts and to send advertisements that may be relevant to you. “Visitors”\nConsent. We may share personal data with your consent and at your direction, for example, when we post testimonials on our websites or when individuals choose to post comments on our blogs. “Clients”</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to Withdraw Consent – If consent was a basis of collection of your personal information and you no longer consent to us retaining and using your personal data, you may request to have it deleted. We will do so immediately, unless legal requirements (for example, tax law in relation to clients) impose retention periods.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in its entirety, nor is the Expected Output a substring of the Actual Output that maintains the main meaning. The Actual Output discusses the right to withdraw consent while the Expected Output explicitly states the right to request deletion, which are not equivalent in meaning.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.41):</b> Right to Delete — You have the right to request the deletion of your personal data collected or maintained by us subject to certain exceptions permitted by law.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to Delete — You have the right to request the deletion of your personal data collected or maintained by us subject to certain exceptions permitted by law.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Delete — You have the right to request the deletion of your personal data collected or maintained by us subject to certain exceptions permitted by law.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Right to Correct – If you find your information is inaccurate, you may have it corrected.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Correct – If you find your information is inaccurate, you may have it corrected.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Access – You may request to have access to the personal data we have relating to you. We will reply within 30 days either to provide you your information if we have it, or let you know we do not, or if we have it but are not allowed to provide you access, for example if doing so would violate the privacy of another individual, we will provide you with justification.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Access – You may request to have access to the personal data we have relating to you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Know – You have the right to request that we disclose to you the following information about Personal Information we collect from you: categories of personal information collected; categories of sources of personal information collected; the business or commercial purpose for collecting or selling personal information; the categories of third parties with whom we share personal information; and the specific pieces of personal information we have collected about you over the past 12 months.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know – You have the right to request that we disclose to you the following information about Personal Information we collect from you:\ncategories of personal information collected;\ncategories of sources of personal information collected;\nthe business or commercial purpose for collecting or selling personal information;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Right to Know – You have the right to request that we disclose to you the following information about Personal Information we collect from you: categories of personal information collected; categories of sources of personal information collected; the business or commercial purpose for collecting or selling personal information; the categories of third parties with whom we share personal information; and the specific pieces of personal information we have collected about you over the past 12 months.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know – You have the right to request that we disclose to you the following information about Personal Information we collect from you:\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Right to Opt-Out of Sale of Personal Information — You have the right to opt out of the sale of your personal data.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Opt-Out of Sale of Personal Information — You have the right to opt out of the sale of your personal data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Right to Non-Discrimination — You have the right to not receive discriminatory treatment for exercising your CCPA privacy rights. We do not use the fact that you have exercised or requested to exercise any CCPA rights for any purpose other than facilitating a response to your request.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Non-Discrimination — You have the right to not receive discriminatory treatment for exercising your CCPA privacy rights. We do not use the fact that you have exercised or requested to exercise any CCPA rights for any purpose other than facilitating a response to your request.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may make a CCPA request by: Via our online webform available here by email to privacy@iwave.com</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains similar information to the Expected Output, but it is missing the introductory phrase &#x27;Making a CCPA Request&#x27; and the newline characters that separate the different components. This indicates partial alignment, but it does not fully meet the expectations outlined in the evaluation steps.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.84):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To request this search, please use this link.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.19):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">For our VeriGift database, we offer a search and opt-out function where you can request that we search our VeriGift database to find out if we have your personal data. If we do, you can opt-out. To verify that the information pertains to you, we will need you to provide your name, the year(s) of your gift(s), the range of your gift(s), the organization recipient of your gift, as well as the city and state of that organization. To request this search, please use this link.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.18):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may submit these requests by email to privacy@iwave.com . We may require specific information from you to help us verify your identity prior to processing your request.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.38):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a Nevada resident, you may submit such opt-out requests to privacy@iwave.com .</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">please contact us by phone at 1-800-655-7729 , or via webform or by writing to us at: iWave, Attention: Privacy Team 2nd Level, Confederation Court Mall 134 Kent Street Charlottetown, PE C1A 8R8</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.19):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To make any request to exercise your California privacy rights please contact privacy@iwave.com or write to us at iWave Information Systems Inc., 2nd Level, Confederation Court Mall, 134 Kent Street, Charlottetown, PE C1A 8R8, with a reference to CA Shine The Light Disclosure.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Collect\niWave collects personal data from you directly when you express an interest in obtaining\n\nadditional information about our services, register to use the services, or purchase our services, register or log in to your account, create or edit your user profile, contact iWave’s customer support team, comment on our blogs or in community forums, or when you interact with us in any form. iWave also collects your personal data from other sources including third parties, clients, advertising networks, operating systems and platforms, data brokers, partner publishers, social media platforms, service providers, etc. iWave may combine information about you that it already has with the information it receives from other sources. iWave and its vendors, including third parties like Google, also collect personal data from you using automated technology through its websites (https://www.iwave.com; https://app.iwave.com; https://ca.iwave.com).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Data\nWe use your personal data for the following purposes:\n\nTo administer our websites, services and products, and internal operations, including to fix problems individuals may have with our services, such as answering support questions and resolving technical issues;\nManage the services platform including support systems and security;\nRespond to your inquiries about your expression of interest in our services such as through iWave’s “Contact Me” or “Free Trial” web form;\nSend records of your subscription relationship;\nFor marketing features, products, promotions or special events, research and advertising purposes, including to deliver tailored content and targeted advertising;\nTo analyze and improve our products, business, services, and websites including to create and review data about our users and how they use our services;\nTo test changes in our services and develop new features and products;\nTo comply with our obligations including legal obligations, establishing, exercising, or defending legal claims, monitoring, and reporting compliance issues, records retention periods;\nTo prevent, investigate and respond to fraud, unauthorized access to or use of our services, breaches of terms and policies, or other wrongful behavior;\nAs otherwise disclosed or permitted by law, or as otherwise specified at the time of collection.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Data\nWe use your personal data for the following purposes:\n\nTo administer our websites, services and products, and internal operations, including to fix problems individuals may have with our services, such as answering support questions and resolving technical issues;\nManage the services platform including support systems and security;\nRespond to your inquiries about your expression of interest in our services such as through iWave’s “Contact Me” or “Free Trial” web form;\nSend records of your subscription relationship;\nFor marketing features, products, promotions or special events, research and advertising purposes, including to deliver tailored content and targeted advertising;\nTo analyze and improve our products, business, services, and websites including to create and review data about our users and how they use our services;\nTo test changes in our services and develop new features and products;\nTo comply with our obligations including legal obligations, establishing, exercising, or defending legal claims, monitoring, and reporting compliance issues, records retention periods;\nTo prevent, investigate and respond to fraud, unauthorized access to or use of our services, breaches of terms and policies, or other wrongful behavior;\nAs otherwise disclosed or permitted by law, or as otherwise specified at the time of collection.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Data\nWe use your personal data for the following purposes:\n\nTo administer our websites, services and products, and internal operations, including to fix problems individuals may have with our services, such as answering support questions and resolving technical issues;\nManage the services platform including support systems and security;\nRespond to your inquiries about your expression of interest in our services such as through iWave’s “Contact Me” or “Free Trial” web form;\nSend records of your subscription relationship;\nFor marketing features, products, promotions or special events, research and advertising purposes, including to deliver tailored content and targeted advertising;\nTo analyze and improve our products, business, services, and websites including to create and review data about our users and how they use our services;\nTo test changes in our services and develop new features and products;\nTo comply with our obligations including legal obligations, establishing, exercising, or defending legal claims, monitoring, and reporting compliance issues, records retention periods;\nTo prevent, investigate and respond to fraud, unauthorized access to or use of our services, breaches of terms and policies, or other wrongful behavior;\nAs otherwise disclosed or permitted by law, or as otherwise specified at the time of collection.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and Related Technologies\nWe and our vendors, including service providers and third parties, use cookies, which are text files containing small amounts of information that are downloaded on your device, and related technologies such as web beacons, local shared objects, and tracking pixels to store or collect information for the purposes mentioned in this Privacy Policy including targeted advertising, monitoring performance, analytics, and improving our services and websites.\n\nOur websites uses both session cookies (used to maintain authentication while clients are using our products) and advertising cookies (that help us serve you tailored ads).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How Long We Keep Personal Data\nFor “visitors” we retain your personal data for 30 days to allow you to return to our websites and be recognized. This means that choices you made less than 30 days before still apply. For “clients”, we retain personal data for as long as the account is open, unless a longer retention period is required, for example under tax law. All prospect or potential donor names provided to us by clients are deleted 60 days after a client subscription ends. (30 Days from our production database and an additional 30 days to be removed from our backups)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Data\nWe use your personal data for the following purposes:\n\nThrough its proprietary databases and search tools, iWave allows our clients to conduct prospect research by searching wealth and philanthropic data to determine which prospective donors to ask, how much to ask for, and when to ask;\nTo analyze and improve our products, business, services, and websites;\nTo administer our services and products, websites, and internal operations;\nTo comply with our obligations including legal obligations, establishing, exercising or defending legal claims, monitoring, and reporting compliance issues.\nUser-provided data is not shared with other organizations and is only accessible by the organization that provided it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Data\nWe use your personal data for the following purposes:\n\nThrough its proprietary databases and search tools, iWave allows our clients to conduct prospect research by searching wealth and philanthropic data to determine which prospective donors to ask, how much to ask for, and when to ask;\nTo analyze and improve our products, business, services, and websites;\nTo administer our services and products, websites, and internal operations;\nTo comply with our obligations including legal obligations, establishing, exercising or defending legal claims, monitoring, and reporting compliance issues.\nUser-provided data is not shared with other organizations and is only accessible by the organization that provided it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Data\nWe use your personal data for the following purposes:\n\nThrough its proprietary databases and search tools, iWave allows our clients to conduct prospect research by searching wealth and philanthropic data to determine which prospective donors to ask, how much to ask for, and when to ask;\nTo analyze and improve our products, business, services, and websites;\nTo administer our services and products, websites, and internal operations;\nTo comply with our obligations including legal obligations, establishing, exercising or defending legal claims, monitoring, and reporting compliance issues.\nUser-provided data is not shared with other organizations and is only accessible by the organization that provided it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data that We Collect from Open Sources. We collect personal information from open sources to include in our VeriGift subscription. This personal information does not include anything except for name, without contact information, and some details relating to donation history with specific charitable organizations related to that name.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, iWave has disclosed the following categories of personal data for a business purpose.\n\nCategory of Personal Information	Categories of Recipients\nPersonal Identifiers such as name, address, phone number, email address	Service Providers\nDemographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc.	Service Providers\nInternet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type	Service Providers\nCommercial Information such as records of personal and commercial property	Service Providers\nUser Provided Data	Service Providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information ||| 1: Categories of Recipients\n\n0: Personal Identifiers such as name, address, phone number, email address ||| 1: Service Providers\n\n0: Demographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc. ||| 1: Service Providers\n\n0: Internet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type ||| 1: Service Providers\n\n0: Commercial Information such as records of personal and commercial property ||| 1: Service Providers\n\n0: User Provided Data ||| 1: Service Providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">0: Category of Personal Information ||| 1: Categories of Recipients\n\n0: Personal Identifiers such as name, address, phone number, email address ||| 1: Service Providers\n\n0: Demographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc. ||| 1: Service Providers\n\n0: Internet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type ||| 1: Service Providers\n\n0: Commercial Information such as records of personal and commercial property ||| 1: Service Providers\n\n0: User Provided Data ||| 1: Service Providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Category of Personal Information ||| Personal Identifiers such as name, address, phone number, email address ||| Demographic Information/Characteristics of Protected Classes such as gender, age, occupation, education, ethnicity, etc. ||| Internet and Network Activity — IP address, Unique device identifiers, and device attributes, like operating system and browser type ||| Commercial Information such as records of personal and commercial property ||| User Provided Data\n\nCategories of Recipients ||| Service Providers ||| Service Providers ||| Service Providers ||| Service Providers ||| Service Providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Making a CCPA Request\nYou may make a CCPA request by:\n\nVia our online webform available here\nby email to privacy@iwave.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">California’s Shine the Light Law. We do not share personal data with third parties for their own direct marketing purposes without your consent.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We only share personal data when there is evidence of that consent.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

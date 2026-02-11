@@ -1,0 +1,340 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_214</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.85</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.41</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.55</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">11</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">2</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">13</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">(Last Updated January 24, 2023)</div>
+                    <div class='match-info'><b>Matched GT:</b> (Last Updated January 24, 2023)</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Self-reported Information (i.e. name, home address, previous address, email address, demographic info)</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal information:\n\nPersonal information is collected, processed, used, shared, or sold as described below:\n\n​\n\nInformation Collected: \n\nSelf-reported Information (i.e. name, home address, previous address, email address, demographic info)   \n\n​\n\nSource of Information Collected:\n\nProcessing Centers\n\nProvided directly via direct communication\n\nData Compiling Companies\n\n​\n\nPurpose of Information Collected:\n\nData Marketing/ Marketing Services\n\nAnalysis\n\nOnline Targeting\n\n\n\nNotice at Collection:\n\nThe information collected by ACH is done so in accordance with client’s privacy policy.\n\n​\n\nThe data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.\n\n​\n\nACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal information:\n\nPersonal information is collected, processed, used, shared, or sold as described below:\n\n​\n\nInformation Collected: \n\nSelf-reported Information (i.e. name, home address, previous address, email address, demographic info)   \n\n​\n\nSource of Information Collected:\n\nProcessing Centers\n\nProvided directly via direct communication\n\nData Compiling Companies\n\n​\n\nPurpose of Information Collected:\n\nData Marketing/ Marketing Services\n\nAnalysis\n\nOnline Targeting\n\n\n\nNotice at Collection:\n\nThe information collected by ACH is done so in accordance with client’s privacy policy.\n\n​\n\nThe data collected from Personal Information is defined as any information concerning the personal or material circumstances of an identified or identifiable individual. Personal Information shall include but is not limited to: name, home address, home zip code, home telephone number, mobile phone number, or email address.\n\n​\n\nACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">ACH does not knowingly collect personal information from anyone under the age of 18. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.13):</b> Purpose of Information Collected:\n\nData Marketing/ Marketing Services\n\nAnalysis\n\nOnline Targeting</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Personal information will only be disclosed in accordance with client’s privacy policy.</div>
+                    <div class='match-info'><b>Matched GT:</b> With Whom:\n\nPersonal information will only be disclosed in accordance with client’s privacy policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You have the right to request deletion of all your personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to request deletion of all your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You have the right to request correction of your personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to request correction of your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.</div>
+                    <div class='match-info'><b>Matched GT:</b> Access to Personal Information:\n\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">You have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.</div>
+                    <div class='match-info'><b>Matched GT:</b> Access to Personal Information:\n\nYou have the right to know what specific personal information has been collected about you, the categories of sources from which the personal information has been collected, and the categories of third parties with whom your information is used, shared or sold.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You have the right to opt out of the sale of your personal information. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to opt out of the sale of your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">You have the right to not be discriminated against for exercising any of your CCPA/CPRA-provided rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to not be discriminated against for exercising any of your CCPA/CPRA-provided rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code. Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION</div>
+                    <div class='match-info'><b>Matched GT:</b> Click Here to OPT OUT: DO NOT SELL MY PERSONAL INFORMATION</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">ACH does not collect sensitive data concerning a consumer, i.e. health data, political and philosophical beliefs, precise geolocation, racial/ ethnic data.</div>
+                    
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">While visiting the ACH website, your visit will not be recorded and any personal information is not retained, other than the specific request to delete or correct one&#x27;s information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Purpose of Information Collected:\n\nData Marketing/ Marketing Services\n\nAnalysis\n\nOnline Targeting</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Purpose of Information Collected:\n\nData Marketing/ Marketing Services\n\nAnalysis\n\nOnline Targeting</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Use:\n\nPersonal Information is not accessible to anyone outside the specific function for which it is collected.\n\n\n\nACH does not use affiliates or unauthorized third party data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">To properly verify your information, ACH will require you to submit the following: Full name, Address, City, State, Zip Code.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Full name, Address, City, State, Zip Code.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Full name, Address, City, State, Zip Code.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to request access to your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You have the right to opt-out of sharing.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">You have the right to opt-out of automated decision making and profiling.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Full name, Address, City, State, Zip Code.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Retention:\n\nACH will keep personal information as long as necessary for our business purposes, as described in this Privacy Policy. Once personal information is no longer needed, it will be removed from our system.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

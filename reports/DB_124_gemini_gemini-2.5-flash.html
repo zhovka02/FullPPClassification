@@ -1,0 +1,432 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_124</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.82</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.74</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.78</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">14</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Effective: October 28, 2022</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective: October 28, 2022</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Visitor information may include, among other things, your first and last name, your home addresses, your business address, your company name, and your telephone number, and your payment card information.</div>
+                    <div class='match-info'><b>Matched GT:</b> We may collect, maintain, and access certain information you provide and information collected from your use of the website and services available through the website. This visitor information may include information that can be associated with you personally (“Personally Identifiable Information”). Visitor information may include, among other things, your first and last name, your home addresses, your business address, your company name, and your telephone number, and your payment card information. We will collect Personally Identifiable Information about you when you voluntarily provide it to us. When you use web site features that ask you for certain information, for example, when you register for an account, log in to the web site, or purchase advertising on the web site, you provide Personally Identifiable Information. You can navigate through the web site without giving us Personally Identifiable Information, but certain activities are only available to our visitors who log in. We may also collect Personally Identifiable Information if we survey visitors about various topics. Responding to any such survey is entirely voluntary. Personally Identifiable Information does not include aggregated data, anonymized information, or other information that does not identify a particular person. Your zip code is an example of a type of data we collect that is not Personally Identifiable Information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">A cookie is a small encrypted computer code added to a file on your computer as a record of its visit. It does not collect or provide your name or any other personal information about you. It can, however, be used by this web site to note information about your visit, such as your type of web browser, operating system and Internet Protocol address, to better tailor the site for you.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output nor does it match any single item within a list, as it focuses on cookies and does not mention any personal information collected, which is central to the Expected Output. Additionally, the Actual Output does not serve as a substring of the Expected Output that maintains primary meaning, leading to a clear misalignment with all evaluation conditions.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.55):</b> We may collect, maintain, and access certain information you provide and information collected from your use of the website and services available through the website. This visitor information may include information that can be associated with you personally (“Personally Identifiable Information”). Visitor information may include, among other things, your first and last name, your home addresses, your business address, your company name, and your telephone number, and your payment card information. We will collect Personally Identifiable Information about you when you voluntarily provide it to us. When you use web site features that ask you for certain information, for example, when you register for an account, log in to the web site, or purchase advertising on the web site, you provide Personally Identifiable Information. You can navigate through the web site without giving us Personally Identifiable Information, but certain activities are only available to our visitors who log in. We may also collect Personally Identifiable Information if we survey visitors about various topics. Responding to any such survey is entirely voluntary. Personally Identifiable Information does not include aggregated data, anonymized information, or other information that does not identify a particular person. Your zip code is an example of a type of data we collect that is not Personally Identifiable Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">For example, we collect your Internet Protocol (“IP”) address, the name and location of your Internet Service Provider, the type and version of your browser, the length of time you visit the website, your search queries on the web site, and the average number of pages you viewed.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output. While it discusses collected information, it diverges significantly in content and context, failing to represent the detailed categories of Personally Identifiable Information specified in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.47):</b> We may collect, maintain, and access certain information you provide and information collected from your use of the website and services available through the website. This visitor information may include information that can be associated with you personally (“Personally Identifiable Information”). Visitor information may include, among other things, your first and last name, your home addresses, your business address, your company name, and your telephone number, and your payment card information. We will collect Personally Identifiable Information about you when you voluntarily provide it to us. When you use web site features that ask you for certain information, for example, when you register for an account, log in to the web site, or purchase advertising on the web site, you provide Personally Identifiable Information. You can navigate through the web site without giving us Personally Identifiable Information, but certain activities are only available to our visitors who log in. We may also collect Personally Identifiable Information if we survey visitors about various topics. Responding to any such survey is entirely voluntary. Personally Identifiable Information does not include aggregated data, anonymized information, or other information that does not identify a particular person. Your zip code is an example of a type of data we collect that is not Personally Identifiable Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Right to Opt-Out From Sales. You also have a right to opt-out from future sales of personal information, which you can exercise by clicking on the “Do Not Sell My Personal Information” button on the home page of our website.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output, nor is it a substring that retains essential meaning. It discusses the right to opt-out of personal information sales, whereas the Expected Output focuses on how Personally Identifiable Information is disclosed and shared. This mismatch indicates a complete lack of alignment with the evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.40):</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”).</div>
+                    <div class='match-info'><b>Matched GT:</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website.</div>
+                    <div class='match-info'><b>Matched GT:</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders.</div>
+                    <div class='match-info'><b>Matched GT:</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.</div>
+                    <div class='match-info'><b>Matched GT:</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site.</div>
+                    <div class='match-info'><b>Matched GT:</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    <div class='match-info'><b>Matched GT:</b> When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to Delete. You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Delete. You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Access/Right to Know. You have a right under the CCPA to request that we provide you with the following information: The categories and specific pieces of personal information we have collected about you in the last 12 months. The categories of sources from which we collected your personal information. Our purpose for collecting, using, or selling personal information. The categories of third parties with which we share personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Access/Right to Know. You have a right under the CCPA to request that we provide you with the following information:
+
+The categories and specific pieces of personal information we have collected about you in the last 12 months.
+The categories of sources from which we collected your personal information.
+Our purpose for collecting, using, or selling personal information.
+The categories of third parties with which we share personal information.
+The categories of personal information we have disclosed about you for a business purpose.
+The categories of personal information we have sold about you for each category of third party to which the personal information was sold.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The categories of personal information we have disclosed about you for a business purpose. The categories of personal information we have sold about you for each category of third party to which the personal information was sold.</div>
+                    <div class='match-info'><b>Matched GT:</b> Access/Right to Know. You have a right under the CCPA to request that we provide you with the following information:
+
+The categories and specific pieces of personal information we have collected about you in the last 12 months.
+The categories of sources from which we collected your personal information.
+Our purpose for collecting, using, or selling personal information.
+The categories of third parties with which we share personal information.
+The categories of personal information we have disclosed about you for a business purpose.
+The categories of personal information we have sold about you for each category of third party to which the personal information was sold.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Right to Opt-Out From Sales. You also have a right to opt-out from future sales of personal information, which you can exercise by clicking on the “Do Not Sell My Personal Information” button on the home page of our website.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Opt-Out From Sales. You also have a right to opt-out from future sales of personal information, which you can exercise by clicking on the “Do Not Sell My Personal Information” button on the home page of our website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">You have a right to not be discriminated against for exercising rights set out in the CCPA.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have a right to not be discriminated against for exercising rights set out in the CCPA.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can exercise your CCPA rights by submitting your request(s) to us using the online form located at https://www.mrginc.com/opt-out/ or by emailing us at info@mrginc.com.</div>
+                    <div class='match-info'><b>Matched GT:</b> How to Exercise Your California CCPA Rights
+
+You can exercise your CCPA rights by submitting your request(s) to us using the online form located at https://www.mrginc.com/opt-out/ or by emailing us at info@mrginc.com.</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may also collect visitor information in the following ways:
+
+Cookies. Similar to most web site operators, we use “cookies” to collect information about your visit to our web site and to manage information concerning your preferences.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Clear GIFs. Like many web sites, we may use clear GIFs (also known as “web beacons,” “Internet tags,” or “pixel tags”). Clear GIFs are lines of code that allow web sites to summarize overall visitor usage patterns and to provide personalized services. We may use clear GIFs, for instance, to track visitor preferences or to gather aggregated information about visitor usage patterns. We may at our discretion use clear GIFs to collect any Personally Identifiable Information about visitors.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How we use visitor information
+We use Personally Identifiable Information collected from visitors and from visitors logged in to the web site for several important purposes, including:
+a) to help us fulfill service requests
+b) to notify you about sweepstakes and promotional events and to allow you to participate in those sweepstakes and events
+c) to protect the security of visitors and the web site
+d) to facilitate e-commerce transactions, such as purchases of goods and services
+e) to help prevent fraud
+f) to provide you with a web site and services of enhanced value to you
+g) to market and promote our services and website</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How we use visitor information
+We use Personally Identifiable Information collected from visitors and from visitors logged in to the web site for several important purposes, including:
+a) to help us fulfill service requests
+b) to notify you about sweepstakes and promotional events and to allow you to participate in those sweepstakes and events
+c) to protect the security of visitors and the web site
+d) to facilitate e-commerce transactions, such as purchases of goods and services
+e) to help prevent fraud
+f) to provide you with a web site and services of enhanced value to you
+g) to market and promote our services and website</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How we use visitor information
+We use Personally Identifiable Information collected from visitors and from visitors logged in to the web site for several important purposes, including:
+a) to help us fulfill service requests
+b) to notify you about sweepstakes and promotional events and to allow you to participate in those sweepstakes and events
+c) to protect the security of visitors and the web site
+d) to facilitate e-commerce transactions, such as purchases of goods and services
+e) to help prevent fraud
+f) to provide you with a web site and services of enhanced value to you
+g) to market and promote our services and website</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may use Personally Identifiable Information collected in conjunction with such events to market additional services and events by Media Resource Group, by its promotional partners, by sponsors, or by all of these entities. For each sweepstake and special or promotional event, we will post applicable rules for the event on the website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may use Personally Identifiable Information collected in conjunction with such events to market additional services and events by Media Resource Group, by its promotional partners, by sponsors, or by all of these entities. For each sweepstake and special or promotional event, we will post applicable rules for the event on the website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may use Personally Identifiable Information collected in conjunction with such events to market additional services and events by Media Resource Group, by its promotional partners, by sponsors, or by all of these entities. For each sweepstake and special or promotional event, we will post applicable rules for the event on the website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">When we disclose visitor information
+Except as described in this Privacy Policy, we will not disclose Personally Identifiable Information collected through the website to entities other than to Media Resource Group affiliates unless (a) it is necessary to enable us to provide services or to conduct legitimate business activities related to the web site; or (b) you give your consent before we disclose your Personally Identifiable Information. We may share your Personally Identifiable Information with persons or companies who help us operate the website by providing services, such as sweepstakes fulfillment services, maintenance and technical services, and e-commerce contractors (collectively “service providers”). We may provide your Personally Identifiable Information to other third parties when you expressly consent, such as when you make a purchase from a third-party vendor using our website. If you use a payment card for goods or services on the website, our service providers may share your Personally Identifiable Information and payment card data with others, for example with a ticket agent, a payment card processing company, and a shipping or fulfillment company, to complete your purchases and orders. We contractually require our service providers to maintain at least the same level of confidentiality for the Personally Identifiable Information we provide to them as we maintain for such information. Additionally, we require that our service providers’ use of such information not exceed that needed to provide the service. We currently conduct joint activities with Media Resource Group affiliates. We will not share visitors’ Personally Identifiable Information collected through the website with our affiliates except as provided in this Privacy Policy. We may disclose the content of any e-mail visitors sends to us to our affiliates or to other persons.
+
+We may provide aggregated or anonymized information about visitors to our advertisers, to sponsors, to promotional partners, and to affiliates. Such information may include, for example, how many persons visited a particular page or activity and the preferences and dislikes of visitors. Such information does not include Personally Identifiable Information about any individual visitor. You acknowledge and agree that we may disclose your Personally Identifiable Information if we are required to do so by law or if we have a good faith belief that such disclosure is reasonably necessary (a) to comply with applicable law, a subpoena, or other legal process; (b) to investigate violations of this Privacy Policy or other contracts we have with you; (c) to respond to claims that any content violates the rights of third parties; (d) to respond to your requests for customer service; and (e) to protect the rights, property, or personal safety of the public, Media Resource Group, its agents, its users, or the web site. We reserve the right to disclose and transfer your visitor information, including your Personally Identifiable Information, in the event of a merger, acquisition, or sale of all, or components, of our business.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to this Privacy Policy
+We may change this Privacy Policy at any time. We will notify you of material changes by posting the revised Privacy Policy on the web site. We encourage you to periodically review the web site Privacy Policy to inform yourself of any changes. The revised Privacy Policy will be effective on the date it is posted unless the revised policy states otherwise. If you use the web site after the effective date of the revised Privacy Policy, we will conclude that you accept the revised Privacy Policy.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

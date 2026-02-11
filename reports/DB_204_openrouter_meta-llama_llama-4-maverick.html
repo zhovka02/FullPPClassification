@@ -1,0 +1,391 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_204</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.90</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.26</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.40</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">9</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">1</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">23</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Effective Date: 10/13/2020 Date Last Updated: 10/18/2021</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective Date: 10/13/2020\nDate Last Updated: 10/18/2021</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers, such as your name, alias, postal address, country of residence, internet protocol address, email address, account name, phone number, social media identifiers (e.g., Twitter handle, Instagram name, etc.) or other similar identifiers. Customer records, such as signatures. Protected Class and Demographic information, such as age, race, gender, national origin, religion, sex, disability, citizenship, medical condition, political activity or affiliation, military or veteran status, education, or date of birth. Commercial information and preferences, including records of personal property, creditworthiness, products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies. Internet or other electronic network activity information, such as your browsing history, search history, and information regarding your interactions with us (including interacting with us online, by the mobile application, and through advertisements). Geolocation information, such as longitude and latitude from your IP address. Audio, electronic, visual, thermal, olfactory or similar information, such as video recordings of our premises, call center recordings, or customer support chat logs. Professional, employment, or education information, such as job title, business address, employment history, or other professional information. Education information that is not publicly available personally identifiable information as defined in the Family Educational Rights and Privacy Act. Inferences drawn from any of the information we collect to create a profile about you reflecting your preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes.</div>
+                    <div class='match-info'><b>Matched GT:</b> Types of Personal Information We Collect\nThe types of information that we have collected about you during the previous 12 months are:\n\nIdentifiers, such as your name, alias, postal address, country of residence, internet protocol address, email address, account name, phone number, social media identifiers (e.g., Twitter handle, Instagram name, etc.) or other similar identifiers.\nCustomer records, such as signatures.\nProtected Class and Demographic information, such as age, race, gender, national origin, religion, sex, disability, citizenship, medical condition, political activity or affiliation, military or veteran status, education, or date of birth.\nCommercial information and preferences, including records of personal property, creditworthiness, products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\nInternet or other electronic network activity information, such as your browsing history, search history, and information regarding your interactions with us (including interacting with us online, by the mobile application, and through advertisements).\nGeolocation information, such as longitude and latitude from your IP address.\nAudio, electronic, visual, thermal, olfactory or similar information, such as video recordings of our premises, call center recordings, or customer support chat logs.\nProfessional, employment, or education information, such as job title, business address, employment history, or other professional information.\nEducation information that is not publicly available personally identifiable information as defined in the Family Educational Rights and Privacy Act.\nInferences drawn from any of the information we collect to create a profile about you reflecting your preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Identifiers such as real name, postal address, country of origin, IP address, email address, account name, date of birth, other similar identifiers. ... Customer records, such as signatures. ... Characteristics of protected classifications under California or Federal Law, such as age and gender. ... Commercial information, including products or services purchased, obtained or considered, or other purchasing or consumer history. ... Internet or other electronic network activity information, including, but not limited to, status/HTTP status code, operating system and its interface, version of browsing software, device ID, other device information, browsing history, search history and information regarding a consumer’s interaction with an internet website, application or advertisement. ... Geolocation data, such as your precise or approximate location derived from information from your mobile device. ... Audio, electronic, visual, thermal, olfactory, or similar information, such as audio recordings of customer service calls. ... Inferences drawn from any of the information identified above to create a profile about a consumer reflecting the consumer’s preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes. ... Education information that isn’t public as defined by the Family Education Rights an Privacy Act. ... Professional or employment-related information, such as job title, business address, employment history, or other professional information.</div>
+                    <div class='match-info'><b>Matched GT:</b> \nCategories of Personal Information We Collect	\nCategories of Third Parties to Which We Disclose Personal Information for a Business Purpose\n\nCategories of Third Parties to Which We Sell Personal Information\n\nIdentifiers such as real name, postal address, country of origin, IP address, email address, account name, date of birth, other similar identifiers.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\nPersonal information subject to the California Customer Records Act, such as signatures.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nCharacteristics of protected classifications under California or Federal Law, such as age and gender.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nCommercial information, including products or services purchased, obtained or considered, or other purchasing or consumer history.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nInternet or other electronic network activity information, including, but not limited to, status/HTTP status code, operating system and its interface, version of browsing software, device ID, other device information, browsing history, search history and information regarding a consumer’s interaction with an internet website, application or advertisement.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nGeolocation data, such as your precise or approximate location derived from information from your mobile device.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nAudio, electronic, visual, thermal, olfactory, or similar information, such as audio recordings of customer service calls.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nInferences drawn from any of the information identified above to create a profile about a consumer reflecting the consumer’s preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nEducation information that isn’t public as defined by the Family Education Rights an Privacy Act.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\n\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nProfessional or employment-related information, such as job title, business address, employment history, or other professional information.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\n\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Identifiers such as real name, postal address, country of origin, IP address, email address, account name, date of birth, other similar identifiers. ... Customer records, such as signatures. ... Characteristics of protected classifications under California or Federal Law, such as age and gender. ... Commercial information, including products or services purchased, obtained or considered, or other purchasing or consumer history. ... Internet or other electronic network activity information, including, but not limited to, status/HTTP status code, operating system and its interface, version of browsing software, device ID, other device information, browsing history, search history and information regarding a consumer’s interaction with an internet website, application or advertisement. ... Geolocation data, such as your precise or approximate location derived from information from your mobile device. ... Audio, electronic, visual, thermal, olfactory, or similar information, such as audio recordings of customer service calls. ... Inferences drawn from any of the information identified above to create a profile about a consumer reflecting the consumer’s preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes. ... Education information that isn’t public as defined by the Family Education Rights an Privacy Act. ... Professional or employment-related information, such as job title, business address, employment history, or other professional information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Categories of Personal Information We Collect	\nCategories of Third Parties to Which We Disclose Personal Information for a Business Purpose\n\nCategories of Third Parties to Which We Sell Personal Information\n\nIdentifiers such as real name, postal address, country of origin, IP address, email address, account name, date of birth, other similar identifiers.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\nPersonal information subject to the California Customer Records Act, such as signatures.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nCharacteristics of protected classifications under California or Federal Law, such as age and gender.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nCommercial information, including products or services purchased, obtained or considered, or other purchasing or consumer history.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nInternet or other electronic network activity information, including, but not limited to, status/HTTP status code, operating system and its interface, version of browsing software, device ID, other device information, browsing history, search history and information regarding a consumer’s interaction with an internet website, application or advertisement.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nGeolocation data, such as your precise or approximate location derived from information from your mobile device.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nAudio, electronic, visual, thermal, olfactory, or similar information, such as audio recordings of customer service calls.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nInferences drawn from any of the information identified above to create a profile about a consumer reflecting the consumer’s preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nEducation information that isn’t public as defined by the Family Education Rights an Privacy Act.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\n\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nProfessional or employment-related information, such as job title, business address, employment history, or other professional information.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\n\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You have the right to request that we delete Personal Information that we have collected from you.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Delete. You have the right to request that we delete Personal Information that we have collected from you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to request information about the categories of Personal Information we have collected about you, the categories of sources from which we collected the Personal Information, the purposes for collecting the Personal Information, the categories of third parties with whom we have shared your Personal Information, and the purpose for which we shared your Personal Information (“Categories Report”). You may also request information about the specific pieces of Personal Information we have collected about you (“Specific Pieces Report”).</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know. You have the right to request information about the categories of Personal Information we have collected about you, the categories of sources from which we collected the Personal Information, the purposes for collecting the Personal Information, the categories of third parties with whom we have shared your Personal Information, and the purpose for which we shared your Personal Information (“Categories Report”). You may also request information about the specific pieces of Personal Information we have collected about you (“Specific Pieces Report”).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">You have the right to request information about the categories of third parties with whom we have shared your Personal Information, and the purpose for which we shared your Personal Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know. You have the right to request information about the categories of Personal Information we have collected about you, the categories of sources from which we collected the Personal Information, the purposes for collecting the Personal Information, the categories of third parties with whom we have shared your Personal Information, and the purpose for which we shared your Personal Information (“Categories Report”). You may also request information about the specific pieces of Personal Information we have collected about you (“Specific Pieces Report”).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You have the right to opt out of the sale of your Personal Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Opt Out. You have the right to opt out of the sale of your Personal Information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">We will not discriminate against you, in any manner prohibited by applicable law, for exercising these rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> We will not discriminate against you, in any manner prohibited by applicable law, for exercising these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">California residents may exercise the following rights via our webform at CCPA, by emailing us at ccpa@greatlakeslists.com.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.21):</b> Authorized Agents: Authorized agents may exercise rights on behalf of consumers, but we reserve the right to also verify the consumer directly as described above.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We collect information in several contexts as described below.  However, this Notice does not apply to the following information:\n\nInformation about our employees, contractors, agents, and job applicants.  Such information is subject to a separate privacy notice that we will make available to individuals.\nInformation we collect from individuals with whom we engage in solely business-to-business communications and transactions, such as information about the employees of our business partners and customers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes: We may update this Notice from time-to-time.  The current Notice will be effective when posted.  Please check this Notice periodically for updates.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Sources of Personal Information\nWe collect information about you and how you interact with us in several ways, including:\n\nInformation you provide to us directly.  We collect the information you provide to us directly.\nInformation automatically collected or inferred from your interaction with us.  We automatically collect technical information about your interactions with us (such as IP address and browsing preferences).\nInformation from public sources, including  government entities from which public records are obtained and information you submit in public forums\nInformation from third parties.  We receive information about you and your interactions with us from third parties, such as from data brokers, third party service and content providers, credit reporting agencies, and others interacting with us.\nWe may combine information that we receive from the various sources described in this Notice, including third party sources and public sources, and use or disclose it for the purposes identified below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Information\nWe may use each category of your information described above in the following ways:\n\nTo enable interactions between you and us, such as to provide you with and support your interactions with us; communicate with you about our data practices; install and configure changes and updates to programs and technologies related to interactions with us; authenticate those who interact with us; or to respond to your requests, complaints, and inquiries.\nFor our own internal business purposes, such as to evaluate or audit the usage and performance of programs and technologies related to interactions with us; evaluate and improve the quality of your interactions with us and programs and technologies related to interactions with us; perform internal research for technological development and demonstration; conduct data analysis and testing; maintain proper business records and other relevant records.\nFor legal, safety, or security reasons, such as to comply with legal requirements; protect our safety, our property or rights of those who interact with us, or others; and detect, prevent, and respond to security incidents or other malicious, deceptive, fraudulent, or illegal activity.\nIn a de-identified, anonymized, or aggregated format.  When converted to a de-identified, anonymized, or aggregated format, data no longer constitutes Personal Information and we may use this information for any purpose.\nFor marketing.  We may use your Personal Information to market our products or services or those of third parties, such as our business partners. We may use your Personal Information when you participate in marketing surveys, questionnaires, promotions, events or contests.  We may audit aspects of our ad impressions. We may use your Personal Information for short-term transient use, including for contextual ad customization. We may use your Personal Information to enhance our content and to potentially send you commercial emails. \nFor any other purposes for which you provide consent.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Information\nWe may use each category of your information described above in the following ways:\n\nTo enable interactions between you and us, such as to provide you with and support your interactions with us; communicate with you about our data practices; install and configure changes and updates to programs and technologies related to interactions with us; authenticate those who interact with us; or to respond to your requests, complaints, and inquiries.\nFor our own internal business purposes, such as to evaluate or audit the usage and performance of programs and technologies related to interactions with us; evaluate and improve the quality of your interactions with us and programs and technologies related to interactions with us; perform internal research for technological development and demonstration; conduct data analysis and testing; maintain proper business records and other relevant records.\nFor legal, safety, or security reasons, such as to comply with legal requirements; protect our safety, our property or rights of those who interact with us, or others; and detect, prevent, and respond to security incidents or other malicious, deceptive, fraudulent, or illegal activity.\nIn a de-identified, anonymized, or aggregated format.  When converted to a de-identified, anonymized, or aggregated format, data no longer constitutes Personal Information and we may use this information for any purpose.\nFor marketing.  We may use your Personal Information to market our products or services or those of third parties, such as our business partners. We may use your Personal Information when you participate in marketing surveys, questionnaires, promotions, events or contests.  We may audit aspects of our ad impressions. We may use your Personal Information for short-term transient use, including for contextual ad customization. We may use your Personal Information to enhance our content and to potentially send you commercial emails. \nFor any other purposes for which you provide consent.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Use Your Personal Information\nWe may use each category of your information described above in the following ways:\n\nTo enable interactions between you and us, such as to provide you with and support your interactions with us; communicate with you about our data practices; install and configure changes and updates to programs and technologies related to interactions with us; authenticate those who interact with us; or to respond to your requests, complaints, and inquiries.\nFor our own internal business purposes, such as to evaluate or audit the usage and performance of programs and technologies related to interactions with us; evaluate and improve the quality of your interactions with us and programs and technologies related to interactions with us; perform internal research for technological development and demonstration; conduct data analysis and testing; maintain proper business records and other relevant records.\nFor legal, safety, or security reasons, such as to comply with legal requirements; protect our safety, our property or rights of those who interact with us, or others; and detect, prevent, and respond to security incidents or other malicious, deceptive, fraudulent, or illegal activity.\nIn a de-identified, anonymized, or aggregated format.  When converted to a de-identified, anonymized, or aggregated format, data no longer constitutes Personal Information and we may use this information for any purpose.\nFor marketing.  We may use your Personal Information to market our products or services or those of third parties, such as our business partners. We may use your Personal Information when you participate in marketing surveys, questionnaires, promotions, events or contests.  We may audit aspects of our ad impressions. We may use your Personal Information for short-term transient use, including for contextual ad customization. We may use your Personal Information to enhance our content and to potentially send you commercial emails. \nFor any other purposes for which you provide consent.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">With Whom We Share Your Personal Information\nWe may share your Personal Information with the categories of recipients described below:\n\nAffiliates and subsidiaries:  We may share your Personal Information within the our group of companies, which includes parents, corporate affiliates, subsidiaries, business units and other companies that share common ownership for the purposes described above.\nService providers: We may share your Personal Information with service providers working on our behalf in order to facilitate our interactions with you or request or support our relationship with you, such as hosting service providers, IT providers, operating systems and platforms, internet service providers, analytics companies, and marketing providers (e.g., we may share your email address with our outbound email marketing provider).  We may contract with other companies to provide certain services, including identity verification, email distribution, market research, promotions management and payment processing. We provide these companies with only the information they need to perform their services and work with them to ensure that your privacy is respected and protected. These companies are prohibited by contract from using this information for their own marketing purposes or from sharing this information with anyone other than with us, unless at our direction as part of providing the service.\nBusiness partners: We may also provide your Personal Information or provide access to your Personal Information to our business partners, including for third party marketing or as a sale. If legally required, we will seek your consent before engaging in such sharing.\nFor legal, security and safety purposes:  We may share your Personal Information with third parties such as law enforcement or other government agencies to comply with law or legal requirements; to enforce or apply our Terms of Use and other agreements; and to protect our rights and our property or safety of our users or third parties.\nIn connection with a corporate transaction:  If we sell some or all of our assets, merge or are acquired by another entity, including through a sale or in connection with a bankruptcy, we will share your Personal Information with that entity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may also de-identity, anonymize, or aggregate Personal Information to share with third parties for any purpose.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Use Cookies and Automatic Data Collection Tools\nWe also collect information, via cookies, web beacons, pixels, tags or other tracking technologies, such as your Internet Service Provider and IP address, the date and time you access our website, the pages you accessed while visiting our website, and the Internet address from which you accessed our website. Some cookies exist only during a single session and some are persistent over multiple sessions over time. We use these technologies to remember user preferences, maximize the performance of our website and services, provide you with offers that may be of interest to you, measure the effectiveness of our email campaigns and to personalize online content. These cookies and other technologies may be used to track you across devices.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">This is a site offered by the Network Advertising Initiative (&quot;NAI&quot;) that includes information on how consumers can opt-out from receiving interest-based advertising from some or all of NAI&#x27;s members.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">However, you may refuse or delete cookies.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Source of Your Personal Information\n\nThe categories of sources of personal information are detailed in the Section 2 above and are summarized as follows: (a) directly from you, (b) through automated technologies or interactions, (c) public sources, and (d) from third parties.\n\nUses of Your personal information\n\nThe business and/or commercial purposes for which we collect personal information are detailed in the Section 4 and are part of the following general purposes: (a) performing services, (b) auditing, (c) legal and compliance, (d) quality assurance, (e) security, (f) debugging, (g) short term, transient use, (h) internal research, and (i) corporate transactions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Uses of Your personal information\n\nThe business and/or commercial purposes for which we collect personal information are detailed in the Section 4 and are part of the following general purposes: (a) performing services, (b) auditing, (c) legal and compliance, (d) quality assurance, (e) security, (f) debugging, (g) short term, transient use, (h) internal research, and (i) corporate transactions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Uses of Your personal information\n\nThe business and/or commercial purposes for which we collect personal information are detailed in the Section 4 and are part of the following general purposes: (a) performing services, (b) auditing, (c) legal and compliance, (d) quality assurance, (e) security, (f) debugging, (g) short term, transient use, (h) internal research, and (i) corporate transactions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sharing Personal Information\n\nThe categories of third parties to whom we disclose personal information for a business purpose are detailed in the Section 5 and are summarized as follows: (a) affiliates and subsidiaries, (b) third party service providers, (c) business partners, (d) legal, safety, and security, (e) corporate transactions, (f) entities related to online data collection, and (g) otherwise with your consent.\n\nOur data sharing practices are detailed in the chart below and align with the categories described in Section 3 (Personal Information) and Section 5 (Sharing).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Categories of Personal Information We Collect	\nCategories of Third Parties to Which We Disclose Personal Information for a Business Purpose\n\nCategories of Third Parties to Which We Sell Personal Information\n\nIdentifiers such as real name, postal address, country of origin, IP address, email address, account name, date of birth, other similar identifiers.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\nPersonal information subject to the California Customer Records Act, such as signatures.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nCharacteristics of protected classifications under California or Federal Law, such as age and gender.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nCommercial information, including products or services purchased, obtained or considered, or other purchasing or consumer history.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nInternet or other electronic network activity information, including, but not limited to, status/HTTP status code, operating system and its interface, version of browsing software, device ID, other device information, browsing history, search history and information regarding a consumer’s interaction with an internet website, application or advertisement.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nGeolocation data, such as your precise or approximate location derived from information from your mobile device.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nAudio, electronic, visual, thermal, olfactory, or similar information, such as audio recordings of customer service calls.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nInferences drawn from any of the information identified above to create a profile about a consumer reflecting the consumer’s preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nEducation information that isn’t public as defined by the Family Education Rights an Privacy Act.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\n\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n \n\nProfessional or employment-related information, such as job title, business address, employment history, or other professional information.\n\nAffiliates and subsidiaries\nService providers\nBusiness partners\nFor legal, security, and safety purposes\nIn connection with a corporate transaction\nCookie and automatic data collection entities\nEntities to which you have consented to the disclosure\n\nBusiness partners\nCompanies that operate cookie and other online tracking technologies described in Section 6\nData Brokers\nCustomers who purchase data from us.\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Categories of Personal Information We Collect ||| 1: Categories of Third Parties to Which We Disclose Personal Information for a Business Purpose ||| 2: Categories of Third Parties to Which We Sell Personal Information\n\n0: Identifiers such as real name, postal address, country of origin, IP address, email address, account name, date of birth, other similar identifiers. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Personal information subject to the California Customer Records Act, such as signatures. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Characteristics of protected classifications under California or Federal Law, such as age and gender. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Commercial information, including products or services purchased, obtained or considered, or other purchasing or consumer history. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Internet or other electronic network activity information, including, but not limited to, status/HTTP status code, operating system and its interface, version of browsing software, device ID, other device information, browsing history, search history and information regarding a consumer’s interaction with an internet website, application or advertisement. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Geolocation data, such as your precise or approximate location derived from information from your mobile device. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Audio, electronic, visual, thermal, olfactory, or similar information, such as audio recordings of customer service calls. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Inferences drawn from any of the information identified above to create a profile about a consumer reflecting the consumer’s preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Education information that isn’t public as defined by the Family Education Rights an Privacy Act. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.\n\n0: Professional or employment-related information, such as job title, business address, employment history, or other professional information. ||| 1: Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| 2: Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Categories of Third Parties to Which We Disclose Personal Information for a Business Purpose ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure ||| Affiliates and subsidiaries Service providers Business partners For legal, security, and safety purposes In connection with a corporate transaction Cookie and automatic data collection entities Entities to which you have consented to the disclosure</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Categories of Third Parties to Which We Sell Personal Information ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us. ||| Business partners Companies that operate cookie and other online tracking technologies described in Section 6 Data Brokers Customers who purchase data from us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Verification: In order to exercise your rights, we will need to obtain information to locate you in our records or verify your identity depending on the nature of the request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">For a Specific Pieces Report, we will request your phone number, legal first and last name, and complete postal information to verify your identity and seek a signed declaration, under penalty of perjury, that you are who you say you are. For a Categories Report, we will request your phone number, legal first and last name, and complete postal information to verify your identity.  For a Right to Delete request, we will request your phone number, legal first and last name, and complete postal information to verify your identity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">For a Specific Pieces Report, we will request your phone number, legal first and last name, and complete postal information to verify your identity and seek a signed declaration, under penalty of perjury, that you are who you say you are. For a Categories Report, we will request your phone number, legal first and last name, and complete postal information to verify your identity.  For a Right to Delete request, we will request your phone number, legal first and last name, and complete postal information to verify your identity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Authorized Agents: Authorized agents may exercise rights on behalf of consumers, but we reserve the right to also verify the consumer directly as described above.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

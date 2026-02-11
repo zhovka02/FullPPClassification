@@ -1,0 +1,681 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_33</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.71</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.63</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.67</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">22</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">9</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">17</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last updated: 04/04/2022</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We collect and collate information that you either directly provide or that we infer about you while using our Services. If you can be identified from this information, and it relates to you, then it will be your Personal Data.</div>
+                    <div class='match-info'><b>Matched GT:</b> Why we collect Personal Data and from what sources
+We collect and collate information that you either directly provide or that we infer about you while using our Services. If you can be identified from this information, and it relates to you, then it will be your Personal Data.
+
+We may also collect data about you from public sources, advertising networks, internet service providers (ISPs), analytics providers, social networks and operating systems and platforms.The data we collect about you depends on the Services that you use (and how you use them). For example, if you are the primary account holder for your company and use Brandwatch Consumer Research, the data we collect about you would be different than the data that we collect about a user who has view-only access to Brandwatch Consumer Research.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">If you register as a user of any of our Services, we may ask you to provide your name, email address, contact telephone number, the company you work for, your address, a username and password, and other data relevant to the Services we provide.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you register as a user of any of our Services, we may ask you to provide your name, email address, contact telephone number, the company you work for, your address, a username and password, and other data relevant to the Services we provide</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may also collect other data directly from you and/or your device.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you are not an administrative user for your account, the same data about you may be provided by a colleague or other third party. We may also collect other data directly from you and/or your device. Depending on your account type, our payment processors may collect payment data from you in order to take payment for our Services.
+
+If you contact our support services, we will collect the data we need to categorize your question and respond to it. We also use this data to track potential issues with our Services and customize our support responses to better serve you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may also collect data about you from public sources, advertising networks, internet service providers (ISPs), analytics providers, social networks and operating systems and platforms.</div>
+                    <div class='match-info'><b>Matched GT:</b> Why we collect Personal Data and from what sources
+We collect and collate information that you either directly provide or that we infer about you while using our Services. If you can be identified from this information, and it relates to you, then it will be your Personal Data.
+
+We may also collect data about you from public sources, advertising networks, internet service providers (ISPs), analytics providers, social networks and operating systems and platforms.The data we collect about you depends on the Services that you use (and how you use them). For example, if you are the primary account holder for your company and use Brandwatch Consumer Research, the data we collect about you would be different than the data that we collect about a user who has view-only access to Brandwatch Consumer Research.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We collect data about you when you use any part of our Services. For example, if you are logged in to your account, we will collect data as to how often you use it, what queries you created or amended, and other data about how you interact with the services on our platform.</div>
+                    <div class='match-info'><b>Matched GT:</b> For example, if you are logged in to your account, we will collect data as to how often you use it, what queries you created or amended, and other data about how you interact with the services on our platform. We may also collect data about how you interact with messages we send to you, for example, whether you opened an email or read an in-app message.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may also collect data about how you interact with messages we send to you, for example, whether you opened an email or read an in-app message.</div>
+                    <div class='match-info'><b>Matched GT:</b> For example, if you are logged in to your account, we will collect data as to how often you use it, what queries you created or amended, and other data about how you interact with the services on our platform. We may also collect data about how you interact with messages we send to you, for example, whether you opened an email or read an in-app message.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We collect data about the device you use to access our Services, including operating system details, web browser type, your mobile device identifier and mobile operating system, and the name of your ISP or mobile carrier. We may also collect and infer your general location (for example, at a country or city level based on your permission and/or device settings and jurisdiction).</div>
+                    <div class='match-info'><b>Matched GT:</b> We collect data about the device you use to access our Services, including operating system details, web browser type, your mobile device identifier and mobile operating system, and the name of your ISP or mobile carrier. We may also collect and infer your general location (for example, at a country or city level based on your permission and/or device settings and jurisdiction).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We also infer data about you based on the data you have provided or made available to us. This may include personalizing your experience of using our Services, suggesting different Services you may be interested in trying, or other inferences about you.</div>
+                    <div class='match-info'><b>Matched GT:</b> We also infer data about you based on the data you have provided or made available to us. This may include personalizing your experience of using our Services, suggesting different Services you may be interested in trying, or other inferences about you.  We may use aggregated, deidentified or anonymized data for any reason.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We do not sell personal information in the traditional sense although we do engage in online advertising.</div>
+                    <div class='match-info'><b>Matched GT:</b> We do not sell personal information in the traditional sense although we do engage in online advertising</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The categories of personal information (as defined by the CCPA) about California residents that we may collect and disclose to others for a business purpose are listed and described in section 4.</div>
+                    <div class='match-info'><b>Matched GT:</b> California Residents\n\nThe categories of personal information (as defined by the CCPA) about California residents that we may collect and disclose to others for a business purpose are listed and described in section 4. We collect these categories for the purposes described in section 5 and with the parties described in section 7</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your data with our subsidiaries, parent companies, and affiliates.</div>
+                    <div class='match-info'><b>Matched GT:</b> With whom we may share your Personal Data
+Any member of our company group
+
+We may share your data with our subsidiaries, parent companies, and affiliates.
+
+Unaffiliated entities
+
+We may share your data with selected unaffiliated entities for legitimate purposes, for example:
+
+business partners, suppliers, and sub-contractors – for the performance of any contract we enter into with them;
+customers – to administer business accounts and for the performance of any contract we enter into with them;
+analytics, ISPs, and search engine providers – for analytics and improving our website and Services;
+advertising networks and social networks – for marketing and communications;
+government entities, law enforcement and others – for fraud protection, security and verification services;
+for potential threats, violations and legal process;
+to comply with the law;
+professional advisors, including lawyers, accountants, and insurers where necessary to enable them to provide their services to us. 
+prospective buyers – if a third party acquires us or our assets, your Personal Data may be part of the transferred company or assets</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your data with selected unaffiliated entities for legitimate purposes, for example: business partners, suppliers, and sub-contractors – for the performance of any contract we enter into with them; customers – to administer business accounts and for the performance of any contract we enter into with them; analytics, ISPs, and search engine providers – for analytics and improving our website and Services; advertising networks and social networks – for marketing and communications; government entities, law enforcement and others – for fraud protection, security and verification services; for potential threats, violations and legal process; to comply with the law; professional advisors, including lawyers, accountants, and insurers where necessary to enable them to provide their services to us. prospective buyers – if a third party acquires us or our assets, your Personal Data may be part of the transferred company or assets.</div>
+                    <div class='match-info'><b>Matched GT:</b> With whom we may share your Personal Data
+Any member of our company group
+
+We may share your data with our subsidiaries, parent companies, and affiliates.
+
+Unaffiliated entities
+
+We may share your data with selected unaffiliated entities for legitimate purposes, for example:
+
+business partners, suppliers, and sub-contractors – for the performance of any contract we enter into with them;
+customers – to administer business accounts and for the performance of any contract we enter into with them;
+analytics, ISPs, and search engine providers – for analytics and improving our website and Services;
+advertising networks and social networks – for marketing and communications;
+government entities, law enforcement and others – for fraud protection, security and verification services;
+for potential threats, violations and legal process;
+to comply with the law;
+professional advisors, including lawyers, accountants, and insurers where necessary to enable them to provide their services to us. 
+prospective buyers – if a third party acquires us or our assets, your Personal Data may be part of the transferred company or assets</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    <div class='match-info'><b>Matched GT:</b> ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you request that we delete your data, we will also delete your data from our Services unless we are required to retain the data according to applicable law.</div>
+                    <div class='match-info'><b>Matched GT:</b> However, if you request that we delete your data, we will also delete your data from our Services unless we are required to retain the data according to applicable law. We delete, deidentify, or anonymize any data about you as soon as it is reasonably practical, once you no longer use our Services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">We delete, deidentify, or anonymize any data about you as soon as it is reasonably practical, once you no longer use our Services.</div>
+                    <div class='match-info'><b>Matched GT:</b> However, if you request that we delete your data, we will also delete your data from our Services unless we are required to retain the data according to applicable law. We delete, deidentify, or anonymize any data about you as soon as it is reasonably practical, once you no longer use our Services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                    <div class='match-info'><b>Matched GT:</b> For example, you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    <div class='match-info'><b>Matched GT:</b> ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">request access to the Personal Data that we have about you;</div>
+                    <div class='match-info'><b>Matched GT:</b> Your rights
+
+You may have certain rights in relation to your data under applicable data privacy law. Depending on applicable law, you may:
+
+request access to the Personal Data that we have about you;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                    <div class='match-info'><b>Matched GT:</b> For example, you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output and does not maintain the main meaning. It is largely focused on actions regarding Personal Data without addressing the context of showing or correcting data as specified in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.39):</b> For example, you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The categories of personal information (as defined by the CCPA) about California residents that we may collect and disclose to others for a business purpose are listed and described in section 4.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.29):</b> Your rights
+
+You may have certain rights in relation to your data under applicable data privacy law. Depending on applicable law, you may:
+
+request access to the Personal Data that we have about you;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    <div class='match-info'><b>Matched GT:</b> ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">We do not sell personal information in the traditional sense although we do engage in online advertising.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.12):</b> ask us to update, rectify, delete, opt-out of the sale of or block your Personal Data;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Please see section 10 above and our cookie policy for your options and choices.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">We prohibit members of our company group and relevant third parties from using your Personal Data: to target and profile you on the basis of sensitive categories of Personal Data (e.g. health status, sexual orientation, political beliefs, etc.); to single out individuals for unlawful or discriminatory purposes; in any way that goes against the law, including data protection law.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">not be discriminated against for the exercise of your privacy rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> not be discriminated against for the exercise of your privacy rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">We prohibit members of our company group and relevant third parties from using your Personal Data: ... to single out individuals for unlawful or discriminatory purposes;</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.20):</b> not be discriminated against for the exercise of your privacy rights.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise any of these rights, ask us questions, voice concerns, or request a copy of this statement in a different format, please submit a verifiable request to us by either: completing our web form at www.brandwatch.com/legal/data-subject-access-request ; emailing us at privacy@brandwatch.com ; or calling us toll-free at 1-855-368-1500</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise any of these rights, ask us questions, voice concerns, or request a copy of this statement in a different format, please submit a verifiable request to us by either:
+
+completing our web form at www.brandwatch.com/legal/data-subject-access-request;
+emailing us at privacy@brandwatch.com; or
+calling us toll-free at 1-855-368-1500</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can unsubscribe to our marketing emails by clicking the link in the emails that we send to you.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.17):</b> To exercise any of these rights, ask us questions, voice concerns, or request a copy of this statement in a different format, please submit a verifiable request to us by either:
+
+completing our web form at www.brandwatch.com/legal/data-subject-access-request;
+emailing us at privacy@brandwatch.com; or
+calling us toll-free at 1-855-368-1500</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Only you, or a person you have authorized to act on your behalf, may make a request related to your Personal Data. If you submit a request through an authorized agent, the agent must present signed written permission to act on your behalf, and you may also be required to independently verify your identity with us.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.25):</b> To exercise any of these rights, ask us questions, voice concerns, or request a copy of this statement in a different format, please submit a verifiable request to us by either:
+
+completing our web form at www.brandwatch.com/legal/data-subject-access-request;
+emailing us at privacy@brandwatch.com; or
+calling us toll-free at 1-855-368-1500</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">If you have used any of our websites or logged into any of our platforms, Brandwatch may have collected Personal Data about you. In order to run our business effectively, there are times when we request or require your Personal Data. When you use our website, we may ask for your contact information in order to market relevant information to you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">When using our platform tools and services, we collect your name and email address as part of the login process. And finally, while you use any of our websites or platforms, we may collect usage metrics in order to optimize our services to you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">For example, you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">For example, you can ask us to show you what data we have about you, make us correct that data if it is inaccurate, and even ask us to delete or stop using the data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How we use your Personal Data
+Primary use
+
+We use data and content that you make available to us to provide the Services to you (for example, your login details across our services), invoice you, provide quotes,  and to comply with our legal obligations. We also use data to audit, detect security incidents, protect against fraud or illegal activity, identify and repair errors, and conduct research and development for the improvement of our Services so that we can provide all of our users with a better experience. 
+
+We combine data about you across our different Services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may communicate transactional or service messages to you, such as welcoming you to our Services or informing you of scheduled downtime. We may ask your opinion or feedback on our services or industry. We may also use your data to provide improved website and product experience and communications. We may also send you marketing communications, on our own behalf or on the behalf of unaffiliated entities. Marketing communications may be sent to you, even if you do not have an account, if you have indicated to us that you wanted to receive such communication or as otherwise allowed by law</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Your rights
+
+You may have certain rights in relation to your data under applicable data privacy law. Depending on applicable law, you may:
+
+request access to the Personal Data that we have about you;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Our legal basis for this type of data processing is that we have a legitimate interest in running our business and providing our Services to our customers, which includes providing technology that empowers our customers to act with more certainty in a way that is easy-to-access and use.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Secondary use\n\nWe communicate with you in writing, via email, or other means available on or through the Services (for example, via messaging in Brandwatch Consumer Research or push notifications if you use a mobile application)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Unaffiliated entities\n\nWe may share your data with selected unaffiliated entities for legitimate purposes, for example:\n\nbusiness partners, suppliers, and sub-contractors – for the performance of any contract we enter into with them;\ncustomers – to administer business accounts and for the performance of any contract we enter into with them;\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">California Residents\n\nThe categories of personal information (as defined by the CCPA) about California residents that we may collect and disclose to others for a business purpose are listed and described in section 4. We collect these categories for the purposes described in section 5 and with the parties described in section 7</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">If you register as a user of any of our Services, we may ask you to provide your name, email address, contact telephone number, the company you work for, your address, a username and password, and other data relevant to the Services we provide.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">For example, if you are logged in to your account, we will collect data as to how often you use it, what queries you created or amended, and other data about how you interact with the services on our platform. We may also collect data about how you interact with messages we send to you, for example, whether you opened an email or read an in-app message.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We collect data about the device you use to access our Services, including operating system details, web browser type, your mobile device identifier and mobile operating system, and the name of your ISP or mobile carrier. We may also collect and infer your general location (for example, at a country or city level based on your permission and/or device settings and jurisdiction).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We also infer data about you based on the data you have provided or made available to us. This may include personalizing your experience of using our Services, suggesting different Services you may be interested in trying, or other inferences about you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">If you register as a user of any of our Services, we may ask you to provide your name, email address, contact telephone number, the company you work for, your address, a username and password, and other data relevant to the Services we provide.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">For example, if you are logged in to your account, we will collect data as to how often you use it, what queries you created or amended, and other data about how you interact with the services on our platform. We may also collect data about how you interact with messages we send to you, for example, whether you opened an email or read an in-app message.\n\nWe collect data about the device you use to access our Services, including operating system details, web browser type, your mobile device identifier and mobile operating system, and the name of your ISP or mobile carrier. We may also collect and infer your general location (for example, at a country or city level based on your permission and/or device settings and jurisdiction).\n\nWe also infer data about you based on the data you have provided or made available to us. This may include personalizing your experience of using our Services, suggesting different Services you may be interested in trying, or other inferences about you.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

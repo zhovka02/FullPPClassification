@@ -1,0 +1,359 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_116</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.82</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.36</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.50</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">9</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">2</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">18</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Effective Date: March 22, 2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective Date:  March 22, 2023</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">name, contact details, information about your job (like your title or the name of your employer), content you post in our community forums or over social media</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal Information We Collect from You\n\nYou may provide your name, contact details, information about your job (like your title or the name of your employer), content you post in our community forums or over social media, and other personal information directly to Demandbase when you interact with us or our services.\n\nWe also may collect personal information about you through your device or browser while you are using or visiting our sites or services or when you engage or interact with us, such as by opening an email.  This personal information may include your IP address, device identifier, geographic location, or usage information such as authentication, analytics, and other information that allows us to provide you with a more personalized experience.  Please see the section on Cookies and Tracking below for more details.\n\nPersonal Information We Receive from Other Sources\n\nIn addition to personal information we collect from you, we may receive personal information about you from other sources and through our own research. We may receive your personal information from Demandbase customers or subscribers/users.  We may also receive your personal information from third party partners, email campaigns and marketing partners. Such third party data may include company information, demographic information, employment history and salary information, and professional/business contact details.\n\nWe collect personal information from a variety of publicly available and other sources, including:\n\ncompany websites\ncompany blogs\nnon-confidential corporate records or reports (for example, government filings and commercial registers)\ngovernment publications\npress releases\nnews articles\nmagazines\nsocial media sites\nthe digital advertising bidstream\nour customers\ndata brokers\nother content published by or on behalf of a company by third parties.\nFrom these sources we obtain many categories of personal information related to where and how individuals do business.  We do not intentionally collect sensitive personal information like health information, biometric data or credit card information from third parties.\n\nWe may also generate or receive predictive data or inferences about business users such as account characteristics, interests or business buying behavior.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">IP address, device identifier, geographic location, or usage information such as authentication, analytics</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal Information We Collect from You\n\nYou may provide your name, contact details, information about your job (like your title or the name of your employer), content you post in our community forums or over social media, and other personal information directly to Demandbase when you interact with us or our services.\n\nWe also may collect personal information about you through your device or browser while you are using or visiting our sites or services or when you engage or interact with us, such as by opening an email.  This personal information may include your IP address, device identifier, geographic location, or usage information such as authentication, analytics, and other information that allows us to provide you with a more personalized experience.  Please see the section on Cookies and Tracking below for more details.\n\nPersonal Information We Receive from Other Sources\n\nIn addition to personal information we collect from you, we may receive personal information about you from other sources and through our own research. We may receive your personal information from Demandbase customers or subscribers/users.  We may also receive your personal information from third party partners, email campaigns and marketing partners. Such third party data may include company information, demographic information, employment history and salary information, and professional/business contact details.\n\nWe collect personal information from a variety of publicly available and other sources, including:\n\ncompany websites\ncompany blogs\nnon-confidential corporate records or reports (for example, government filings and commercial registers)\ngovernment publications\npress releases\nnews articles\nmagazines\nsocial media sites\nthe digital advertising bidstream\nour customers\ndata brokers\nother content published by or on behalf of a company by third parties.\nFrom these sources we obtain many categories of personal information related to where and how individuals do business.  We do not intentionally collect sensitive personal information like health information, biometric data or credit card information from third parties.\n\nWe may also generate or receive predictive data or inferences about business users such as account characteristics, interests or business buying behavior.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We share personal information with our customers and partners in order to provide services to our customers.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Share Personal Information\n\nWe may share personal information with third parties as described below:\n\nSharing with customers and partners. We share personal information with our customers and partners in order to provide services to our customers.  Demandbase customers and other third parties may combine the personal information we share with additional data they have for their own marketing and sales purposes.\nSharing to improve ad personalization. We share personal information to create targeting segments to enable organizations to better personalize advertising.\nSharing for business purposes. We share personal information for our legitimate business needs.  For example, we share information with third party vendors (such as marketing, billing or service providers), consultants, and other service providers who work on our behalf and need access to personal information to perform their work for us.\nSharing for security. We may share personal information for security, fraud prevention, law and policy enforcement purposes, or enforcing our policies and terms, protecting rights, property and safety of individuals or other third parties.\nSharing for marketing. Any information you volunteer for marketing purposes or otherwise, may be shared with the other third party(ies) or partner(s) mentioned when you provide such information.\nDisclosures required by law.  In certain situations, we may be requested or required to disclose personal information in response to lawful requests by public authorities, including to meet national security or law enforcement requirements. Demandbase will disclose personal information where required to do so.\nTransfer to acquirer or successor entity.   If Demandbase sells a substantial portion of its assets or is acquired, reorganized, merged into another entity, goes out of business or enters bankruptcy, it is likely that personal information will be one of the business assets transferred in connection with such activity.\nSharing with your consent. We may share your personal information for any other purpose with your consent.  If you have consented to a specific use of your personal information, you may revoke your consent for future use of your personal information for that purpose by contacting us through this form.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We share personal information with third party vendors (such as marketing, billing or service providers), consultants, and other service providers who work on our behalf and need access to personal information to perform their work for us.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Share Personal Information\n\nWe may share personal information with third parties as described below:\n\nSharing with customers and partners. We share personal information with our customers and partners in order to provide services to our customers.  Demandbase customers and other third parties may combine the personal information we share with additional data they have for their own marketing and sales purposes.\nSharing to improve ad personalization. We share personal information to create targeting segments to enable organizations to better personalize advertising.\nSharing for business purposes. We share personal information for our legitimate business needs.  For example, we share information with third party vendors (such as marketing, billing or service providers), consultants, and other service providers who work on our behalf and need access to personal information to perform their work for us.\nSharing for security. We may share personal information for security, fraud prevention, law and policy enforcement purposes, or enforcing our policies and terms, protecting rights, property and safety of individuals or other third parties.\nSharing for marketing. Any information you volunteer for marketing purposes or otherwise, may be shared with the other third party(ies) or partner(s) mentioned when you provide such information.\nDisclosures required by law.  In certain situations, we may be requested or required to disclose personal information in response to lawful requests by public authorities, including to meet national security or law enforcement requirements. Demandbase will disclose personal information where required to do so.\nTransfer to acquirer or successor entity.   If Demandbase sells a substantial portion of its assets or is acquired, reorganized, merged into another entity, goes out of business or enters bankruptcy, it is likely that personal information will be one of the business assets transferred in connection with such activity.\nSharing with your consent. We may share your personal information for any other purpose with your consent.  If you have consented to a specific use of your personal information, you may revoke your consent for future use of your personal information for that purpose by contacting us through this form.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You have the right to request that we correct or otherwise amend your personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output, nor does it summarize the core meaning. It lacks relevance to the Right to Delete, focusing instead on the correction of personal information, which addresses a different aspect of user rights.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.59):</b> You have the right to request to know more details about the categories or specific pieces of Personal Information we collect (including how we use and disclose this Personal Information), to delete your Personal Information, to opt out of any “sales” (as defined in the CPRA) that may be occurring, and to not be discriminated against for exercising these rights.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You have the right to request that we correct or otherwise amend your personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to request that we correct or otherwise amend your personal information. If you use Demandbase services, you may be able to correct your own personal information.  If we process your personal information on behalf of one of our customers, we may ask that you work with the customer to amend your personal information.  We may ask for adequate proof of the amended personal information before we make a requested change.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to request that we disclose to you what &#x27;Personal Information&#x27; as defined in the California Consumer Privacy Act as amended by the California Privacy Rights Act (referred to in a consolidated way as &#x27;CPRA&#x27;) we collect, use, disclose and sell, and the specific Personal Information we have collected about you in the prior 12 months.</div>
+                    <div class='match-info'><b>Matched GT:</b> Once per calendar year, you may request that we disclose to you what “Personal Information” as defined in the California Consumer Privacy Act as amended by the California Privacy Rights Act (referred to in a consolidated way as “CPRA”) we collect, use, disclose and sell, and the specific Personal Information we have collected about you in the prior 12 months.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You have the right to request to opt out of any &#x27;sales&#x27; (as defined in the CPRA) that may be occurring.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to request to know more details about the categories or specific pieces of Personal Information we collect (including how we use and disclose this Personal Information), to delete your Personal Information, to opt out of any “sales” (as defined in the CPRA) that may be occurring, and to not be discriminated against for exercising these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise these rights please use this form or call 1-888-914-9661 and use Demandbase PIN 239540.</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise these rights please use this form or call 1-888-914-9661 and use Demandbase PIN 239540.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Demandbase will not discriminate against consumers for exercising their rights under the CPRA.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output mentions non-discrimination but does not include other key elements from the Expected Output, such as the rights to request information, delete Personal Information, or opt out of sales. It partially reflects the meaning but lacks essential details, failing to meet any of the criteria for being deemed CORRECT.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.34):</b> You have the right to request to know more details about the categories or specific pieces of Personal Information we collect (including how we use and disclose this Personal Information), to delete your Personal Information, to opt out of any “sales” (as defined in the CPRA) that may be occurring, and to not be discriminated against for exercising these rights.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Depending on the circumstances, Demandbase will use different legal bases to process personal information. In some circumstances, Demandbase processes personal information when required to do so by law, or if necessary to protect your interests, our interests, or the interests of a third party. Demandbase may also process data when it is in Demandbase’s legitimate interests, provided that such interests are not overridden by the fundamental rights and freedoms of individuals. A few examples of these legitimate interests may be to provide its services to customers, operate its business, conduct direct marketing and maintain security.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Depending on the circumstances, Demandbase will use different legal bases to process personal information. In some circumstances, Demandbase processes personal information when required to do so by law, or if necessary to protect your interests, our interests, or the interests of a third party. Demandbase may also process data when it is in Demandbase’s legitimate interests, provided that such interests are not overridden by the fundamental rights and freedoms of individuals. A few examples of these legitimate interests may be to provide its services to customers, operate its business, conduct direct marketing and maintain security.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you would like to exercise your privacy rights, please use this form.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to this Notice\n\nWhen we change this Privacy Notice, the updated terms will be available on this page and effective as of the date posted.  We encourage you to periodically review this page for the latest information on our privacy practices. Past versions of the policy will be archived and available here.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Targeting Cookies\nThese cookies are set by us and our advertising partners to provide you with relevant content and to understand the content’s effectiveness. They may be used to collect information about your online activities over time and across different websites to predict your preferences and to display more relevant advertisements to you. These cookies also allow a profile to be built about you and your interests and enable personalized ads to be shown to you based on your profile. If you do not allow these cookies, you will continue to receive advertising, but that advertising may be less tailored to your organization’s interests.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Social Media Cookies\nThese cookies are set by a range of social media services that we have added to the site to enable you to share our content with your friends and networks. They are capable of tracking your browser across other sites and building up a profile of your interests. This may impact the content and messages you see on other websites you visit.    If you do not allow these cookies you may not be able to use or see these sharing tools.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Performance Cookies\nThese cookies allow us to optimize performance by collecting information on how users interact with our website, including which pages are visited most, as well as other analytical data. We use these details to improve how our website functions and to understand how users interact with it. If you do not allow these cookies, we will not know when you have visited our website, and will not be able to monitor its performance.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Functional Cookies\nThese cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.    If you do not allow these cookies then some or all of these services may not function properly.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Always Active\nThese cookies are essential for our website and services to perform basic functions and are necessary for us to operate certain features. These include those required to allow registered users to authenticate and perform account-related functions, store preferences set by users such as account name, language, and location, and ensure our services are operating properly.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise your privacy rights, please use this form.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Once per calendar year, you may request that we disclose to you what “Personal Information” as defined in the California Consumer Privacy Act as amended by the California Privacy Rights Act (referred to in a consolidated way as “CPRA”) we collect, use, disclose and sell, and the specific Personal Information we have collected about you in the prior 12 months.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to request to know more details about the categories or specific pieces of Personal Information we collect (including how we use and disclose this Personal Information), to delete your Personal Information, to opt out of any “sales” (as defined in the CPRA) that may be occurring, and to not be discriminated against for exercising these rights.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You have the right to request to know more details about the categories or specific pieces of Personal Information we collect (including how we use and disclose this Personal Information), to delete your Personal Information, to opt out of any “sales” (as defined in the CPRA) that may be occurring, and to not be discriminated against for exercising these rights.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">You have the right to request to know more details about the categories or specific pieces of Personal Information we collect (including how we use and disclose this Personal Information), to delete your Personal Information, to opt out of any “sales” (as defined in the CPRA) that may be occurring, and to not be discriminated against for exercising these rights.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Share Personal Information\n\nWe may share personal information with third parties as described below:\n\nSharing with customers and partners. We share personal information with our customers and partners in order to provide services to our customers.  Demandbase customers and other third parties may combine the personal information we share with additional data they have for their own marketing and sales purposes.\nSharing to improve ad personalization. We share personal information to create targeting segments to enable organizations to better personalize advertising.\nSharing for business purposes. We share personal information for our legitimate business needs.  For example, we share information with third party vendors (such as marketing, billing or service providers), consultants, and other service providers who work on our behalf and need access to personal information to perform their work for us.\nSharing for security. We may share personal information for security, fraud prevention, law and policy enforcement purposes, or enforcing our policies and terms, protecting rights, property and safety of individuals or other third parties.\nSharing for marketing. Any information you volunteer for marketing purposes or otherwise, may be shared with the other third party(ies) or partner(s) mentioned when you provide such information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Use Personal Information\n\nDemandbase uses personal information in the following ways:\n\nFor providing and improving our services. We use personal information to operate, improve and personalize our business and services. This use includes collecting data through integrations with customer relationship management (CRM), email or other systems, troubleshooting or improving our services, making inferences, and deriving insights, trends, use, and analytics, whether actual or predicted, from personal information collected. We use personal information to augment, create, validate, enrich or enhance existing data sets. We may work with third parties to receive data or insights and combine that information with the data and insights we already have.\nAdvertising and marketing for Demandbase and our customers. We use personal information for advertising and marketing, such as analyzing and predicting business buying behavior or business interests and delivering interest-based advertising and content to your device, such as ads, widgets, or website content tailored to you on behalf of advertisers, across websites and devices, and over time. We use personal information to communicate with you about offers, events, services or products by us and partners and to track engagement with messaging. We may combine the personal information we have with third party data, including data that may directly or indirectly identify you, for improving the personalization of ads.\nAs required by applicable law, legal process or regulation. We may use all personal information we collect or receive as required under contract, law, legal or financial processes like audits and to protect Demandbase’s legal and contractual rights.\nTo provide reporting and analytics. We may use personal information to create reports (such as performance analytics, statistics, metrics and other details) for our company and for Demandbase customers on the companies that visit our or their websites as well as actual or predicted interests for those visitors. We may also use personal information to measure and report on engagement with current and prospective customers, by measuring which communications are received or viewed through which channels.  We may also use personal information to carry out actions requested by our customers, such as combining data with additional data in our possession or provided by customers or using data to retarget specific companies’ users with personalized advertising.\nFor running our business.  We use personal information for billing, account management, invoicing, maintaining security and privacy, as well as other legitimate business interests.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Use Personal Information\n\nDemandbase uses personal information in the following ways:\n\nFor providing and improving our services. We use personal information to operate, improve and personalize our business and services. This use includes collecting data through integrations with customer relationship management (CRM), email or other systems, troubleshooting or improving our services, making inferences, and deriving insights, trends, use, and analytics, whether actual or predicted, from personal information collected. We use personal information to augment, create, validate, enrich or enhance existing data sets. We may work with third parties to receive data or insights and combine that information with the data and insights we already have.\nAdvertising and marketing for Demandbase and our customers. We use personal information for advertising and marketing, such as analyzing and predicting business buying behavior or business interests and delivering interest-based advertising and content to your device, such as ads, widgets, or website content tailored to you on behalf of advertisers, across websites and devices, and over time. We use personal information to communicate with you about offers, events, services or products by us and partners and to track engagement with messaging. We may combine the personal information we have with third party data, including data that may directly or indirectly identify you, for improving the personalization of ads.\nAs required by applicable law, legal process or regulation. We may use all personal information we collect or receive as required under contract, law, legal or financial processes like audits and to protect Demandbase’s legal and contractual rights.\nTo provide reporting and analytics. We may use personal information to create reports (such as performance analytics, statistics, metrics and other details) for our company and for Demandbase customers on the companies that visit our or their websites as well as actual or predicted interests for those visitors. We may also use personal information to measure and report on engagement with current and prospective customers, by measuring which communications are received or viewed through which channels.  We may also use personal information to carry out actions requested by our customers, such as combining data with additional data in our possession or provided by customers or using data to retarget specific companies’ users with personalized advertising.\nFor running our business.  We use personal information for billing, account management, invoicing, maintaining security and privacy, as well as other legitimate business interests.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Use Personal Information\n\nDemandbase uses personal information in the following ways:\n\nFor providing and improving our services. We use personal information to operate, improve and personalize our business and services. This use includes collecting data through integrations with customer relationship management (CRM), email or other systems, troubleshooting or improving our services, making inferences, and deriving insights, trends, use, and analytics, whether actual or predicted, from personal information collected. We use personal information to augment, create, validate, enrich or enhance existing data sets. We may work with third parties to receive data or insights and combine that information with the data and insights we already have.\nAdvertising and marketing for Demandbase and our customers. We use personal information for advertising and marketing, such as analyzing and predicting business buying behavior or business interests and delivering interest-based advertising and content to your device, such as ads, widgets, or website content tailored to you on behalf of advertisers, across websites and devices, and over time. We use personal information to communicate with you about offers, events, services or products by us and partners and to track engagement with messaging. We may combine the personal information we have with third party data, including data that may directly or indirectly identify you, for improving the personalization of ads.\nAs required by applicable law, legal process or regulation. We may use all personal information we collect or receive as required under contract, law, legal or financial processes like audits and to protect Demandbase’s legal and contractual rights.\nTo provide reporting and analytics. We may use personal information to create reports (such as performance analytics, statistics, metrics and other details) for our company and for Demandbase customers on the companies that visit our or their websites as well as actual or predicted interests for those visitors. We may also use personal information to measure and report on engagement with current and prospective customers, by measuring which communications are received or viewed through which channels.  We may also use personal information to carry out actions requested by our customers, such as combining data with additional data in our possession or provided by customers or using data to retarget specific companies’ users with personalized advertising.\nFor running our business.  We use personal information for billing, account management, invoicing, maintaining security and privacy, as well as other legitimate business interests.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

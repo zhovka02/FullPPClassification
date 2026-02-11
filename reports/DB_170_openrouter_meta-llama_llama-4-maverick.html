@@ -1,0 +1,547 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_170</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.93</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.26</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.41</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">14</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">1</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">33</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Effective Date: January 1, 2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Privacy Policy
+Effective Date: January 1, 2023</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers and Personal Information Categories. What We Collect: Social Catfish collects the following identifiers from users of our Website: First and last names, email addresses, phone numbers, billing addresses, credit and debit card numbers and IP addresses.</div>
+                    <div class='match-info'><b>Matched GT:</b> Identifiers and Personal Information Categories.\nWhat We Collect: Social Catfish collects the following identifiers from users of our Website: First and last names, email addresses, phone numbers, billing addresses, credit and debit card numbers and IP addresses.\n\nWhat We do With It: We have disclosed this information, but not sold it, since January 01, 2022. This information is collected for purposes of creating accounts and billing for use of our services. It is also used to allow us to provide the services of the website and respond to customer service requests. It is also used for analytics and internal marketing purposes. This information is also used for fraud prevention.\n\nThis information is disclosed to billing vendors, Social Catfish&#x27;s marketing services, Social Catfish&#x27;s third-party analytics services, and Social Catfish&#x27;s customer service vendor\n\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers and Personal Information Categories. What We Collect: Social Catfish collects the following identifiers through licensing from third parties and publicly available sources on the internet: First and last names, aliases, usernames, profile images, current and past email addresses, current and past home addresses, current and past phone numbers, publicly available education history, potential associates, and publicly available online profiles.</div>
+                    <div class='match-info'><b>Matched GT:</b> Identifiers and Personal Information Categories.\nWhat We Collect: Social Catfish collects the following identifiers through licensing from third parties and publicly available sources on the internet: First and last names, aliases, usernames, profile images, current and past email addresses, current and past home addresses, current and past phone numbers, publicly available education history, potential associates, and publicly available online profiles.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022 This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed and sold to Consumers using Social Catfish’s services to make searches.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We have disclosed and sold this information since January 01, 2022. This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.</div>
+                    <div class='match-info'><b>Matched GT:</b> What We Collect: Social Catfish collects the following personal information categories from users of our Website: Purchase histories and purchase tendencies (eg. what services a customer has previously used or purchased) regarding use of Social Catfish services.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022. This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed to billing vendors, Social Catfish&#x27;s marketing services, Social Catfish&#x27;s analytics services, and Social Catfish&#x27;s customer service vendor</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We have disclosed this information, but not sold it, since January 01, 2022. This information is collected for purposes of creating accounts and billing for use of our services. It is also used to allow us to provide the services of the website and respond to customer service requests. It is also used for analytics and internal marketing purposes. This information is also used for fraud prevention. This information is disclosed to billing vendors, Social Catfish&#x27;s marketing services, Social Catfish&#x27;s third-party analytics services, and Social Catfish&#x27;s customer service vendor</div>
+                    <div class='match-info'><b>Matched GT:</b> What We do With It: We have disclosed this information, but not sold it, since January 01, 2022. This information is collected for purposes of creating accounts and billing for use of our services. It is also used to allow us to provide the services of the website and respond to customer service requests. It is also used for analytics and internal marketing purposes. This information is also used for fraud prevention.\n\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Request to Delete A request that a business delete personal information about the consumer.</div>
+                    <div class='match-info'><b>Matched GT:</b> Request to Delete A request that a business delete personal information about the consumer.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Request to Correct A request that a business correct inaccurate personal information that it maintains about you.</div>
+                    <div class='match-info'><b>Matched GT:</b> Request to Correct A request that a business correct inaccurate personal information that it maintains about you. Where Social Catfish believes you will not be negatively impacted by the deletion of the data you wish corrected, we will simply delete the inaccurate data in response to Requests to Correct.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Request to Know A request that a business disclose personal information that it has collected about the consumer</div>
+                    <div class='match-info'><b>Matched GT:</b> Request to KnowA request that a business disclose personal information that it has collected about the consumer the since January 01, 2022 (see details below)</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Request to Know ... Categories of personal information that the business sold or disclosed for a business purpose about the consumer;</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring nor does it match any part of it. The content of both outputs is different, and the Actual Output fails to capture the overall meaning of the Expected Output regarding the user&#x27;s rights under California law.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.38):</b> California law permits users who are California residents to request and obtain from us once a year, free of charge, a list of the third parties to whom we have disclosed their ‘personal information’ (if any, and as defined under applicable California law) for their direct marketing purposes in the prior calendar year, as well as the type of personal information disclosed to those parties. We do not sell user information to third parties for direct marketing purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Request to Opt-Out A request that a business not sell the consumer’s personal information to third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Request to Opt-Out A request that a business not sell the consumer’s personal information to third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Non-Discrimination You have the right to not be discriminated against or receive discriminatory treatment for exercising your CCPA/CPRA rights. We will not discriminate against you for exercising any of your CCPA/CPRA rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Non-Discrimination You have the right to not be discriminated against or receive discriminatory treatment for exercising your CCPA/CPRA rights. We will not discriminate against you for exercising any of your CCPA/CPRA rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may submit a Request to Know through our Request for Access Form or sending an email to CCPARequest@socialcatfish.com</div>
+                    <div class='match-info'><b>Matched GT:</b> You may submit a Request to Know through our Request for Access Form or sending an email to CCPARequest@socialcatfish.com.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may submit a Request to Delete through our Request for Deletion Form or sending an email to CCPARequest@socialcatfish.com</div>
+                    <div class='match-info'><b>Matched GT:</b> You may submit a Request to Know through our Request for Access Form or sending an email to CCPARequest@socialcatfish.com.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may submit a Request to Correct through our Request to Correct Form or sending an email to CCPARequest@socialcatfish.com</div>
+                    <div class='match-info'><b>Matched GT:</b> You may submit a Request to Know through our Request for Access Form or sending an email to CCPARequest@socialcatfish.com.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may submit a Request to Opt-Out through our Do Not Sell My Personal Information or sending an email to CCPARequest@socialcatfish.com</div>
+                    <div class='match-info'><b>Matched GT:</b> You may submit a Request to Opt-Out through our Do Not Sell My Personal Information or sending an email to CCPARequest@socialcatfish.com.</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">SocialCatfish does not disclose, sell, exchange or transfer the Personal Information you provide on this website except as specifically noted in this Privacy Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">SocialCatfish does not disclose, sell, exchange or transfer the Personal Information you provide on this website except as specifically noted in this Privacy Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">SocialCatfish does not disclose, sell, exchange or transfer the Personal Information you provide on this website except as specifically noted in this Privacy Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What We do With It: We have disclosed this information, but not sold it, since January 01, 2022. This information is collected for purposes of creating accounts and billing for use of our services. It is also used to allow us to provide the services of the website and respond to customer service requests. It is also used for analytics and internal marketing purposes. This information is also used for fraud prevention.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Commercial Information\nWhat We Collect: Social Catfish collects the following personal information categories from users of our Website: Purchase histories and purchase tendencies (eg. what services a customer has previously used or purchased) regarding use of Social Catfish services.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022. This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed to billing vendors, Social Catfish&#x27;s marketing services, Social Catfish&#x27;s analytics services, and Social Catfish&#x27;s customer service vendor</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What We Collect: Social Catfish collects the following personal information categories from users of our Website: Purchase histories and purchase tendencies (eg. what services a customer has previously used or purchased) regarding use of Social Catfish services.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022. This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed to billing vendors, Social Catfish&#x27;s marketing services, Social Catfish&#x27;s analytics services, and Social Catfish&#x27;s customer service vendor</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">nternet or Similar Network Activity\nWhat We Collect: Social Catfish collects the following personal information categories from related to internet of similar network activity from users of our Website: Analytics using Google analytics, history of searches on the Social Catfish Website including date of search and what was searched, and information on your interaction with the Social Catfish Website including clicks and website use tendencies.\n\nWhat We do With It: We have disclosed this information, but not sold it, since January 01, 2022 This information is collected for purposes of maintaining search histories to ease in the use of our services. It is is also used with our analytics platforms to help improve the service and to be able to improve our internal advertising targeting. This is also used for responding to customer service requests and fraud prevention.\n\nThis information is disclosed to Social Catfish&#x27;s marketing services, Social Catfish&#x27;s analytics services, and Social Catfish&#x27;s customer service vendor.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Internet or Similar Network Activity\nWhat We Collect: Social Catfish collects the following personal information categories from related to internet of similar network activity from users of our Website: Analytics using Google analytics, history of searches on the Social Catfish Website including date of search and what was searched, and information on your interaction with the Social Catfish Website including clicks and website use tendencies.\n\nWhat We do With It: We have disclosed this information, but not sold it, since January 01, 2022 This information is collected for purposes of maintaining search histories to ease in the use of our services. It is is also used with our analytics platforms to help improve the service and to be able to improve our internal advertising targeting. This is also used for responding to customer service requests and fraud prevention.\n\nThis information is disclosed to Social Catfish&#x27;s marketing services, Social Catfish&#x27;s analytics services, and Social Catfish&#x27;s customer service vendor.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Internet or Similar Network Activity\nWhat We Collect: Social Catfish collects the following personal information categories from related to internet of similar network activity from users of our Website: Analytics using Google analytics, history of searches on the Social Catfish Website including date of search and what was searched, and information on your interaction with the Social Catfish Website including clicks and website use tendencies.\n\nWhat We do With It: We have disclosed this information, but not sold it, since January 01, 2022 This information is collected for purposes of maintaining search histories to ease in the use of our services. It is is also used with our analytics platforms to help improve the service and to be able to improve our internal advertising targeting. This is also used for responding to customer service requests and fraud prevention.\n\nThis information is disclosed to Social Catfish&#x27;s marketing services, Social Catfish&#x27;s analytics services, and Social Catfish&#x27;s customer service vendor.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Equipment Information\nWhat We Collect: Social Catfish collects the following personal information categories related to equipment information from users of our Website: information about the type of device you use to access the Social Catfish website.\n\nWhat We do With It: We have disclosed this information, but not sold it, since January 01, 2022 This information is collected for analytics purposes, to improve your interaction with the website and for advertising purposes. This information is also used for customer service and fraud prevention.\n\nThis information is disclosed to Social Catfish&#x27;s third-party marketing services and Social Catfish&#x27;s third-party analytics services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Equipment Information\nWhat We Collect: Social Catfish collects the following personal information categories related to equipment information from users of our Website: information about the type of device you use to access the Social Catfish website.\n\nWhat We do With It: We have disclosed this information, but not sold it, since January 01, 2022 This information is collected for analytics purposes, to improve your interaction with the website and for advertising purposes. This information is also used for customer service and fraud prevention.\n\nThis information is disclosed to Social Catfish&#x27;s third-party marketing services and Social Catfish&#x27;s third-party analytics services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Identifiers and Personal Information Categories.\nWhat We Collect: Social Catfish collects the following identifiers through licensing from third parties and publicly available sources on the internet: First and last names, aliases, usernames, profile images, current and past email addresses, current and past home addresses, current and past phone numbers, publicly available education history, potential associates, and publicly available online profiles.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022 This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed and sold to Consumers using Social Catfish’s services to make searches.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Protected Classification Characteristics\nWhat We Collect: Social Catfish collects the following identifiers through licensing from third parties and publicly available sources on the internet: age, birth date, marital status, languages potentially spoken, and gender.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022 This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed and sold to Consumers using Social Catfish’s services to make searches.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Protected Classification Characteristics\nWhat We Collect: Social Catfish collects the following identifiers through licensing from third parties and publicly available sources on the internet: age, birth date, marital status, languages potentially spoken, and gender.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022 This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed and sold to Consumers using Social Catfish’s services to make searches.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Professional or Employment Related Information\nWhat We Collect: Social Catfish collects the following identifiers related to professional or employment related information through licensing from third parties and publicly available sources on the internet: current and previous job history including job title, period worked, industry, employing organization.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022 This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed and sold to Consumers using Social Catfish’s services to make searches.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Professional or Employment Related Information\nWhat We Collect: Social Catfish collects the following identifiers related to professional or employment related information through licensing from third parties and publicly available sources on the internet: current and previous job history including job title, period worked, industry, employing organization.\n\nWhat We do With It: We have disclosed and sold this information since January 01, 2022 This information is collected, disclosed, and sold for purposes of providing SocialCatfish’s search services to consumers.\n\nThis information is disclosed and sold to Consumers using Social Catfish’s services to make searches.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We obtain the categories of personal information listed above from the following categories of sources:\n\nDirectly from our clients as part of the registration and transaction process.\nIndirectly from our clients through website usage details collected automatically.\nFrom third-party consumer data resellers and licensors.\nInformation collected from public websites.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may use or disclose the personal information we collect for one or more of the following business purposes:\n\nTo provide you, and other users where stated above in the Information We Collect Section, with information, products or services that you request from us, such as using Social Catfish’s search to find lost connections and verify a person&#x27;s online identity.\nTo provide, support, personalize, and develop our Website, products, and services.\nTo create, maintain, customize, and secure your account with us.\nTo process your requests, purchases, transactions, and payments and prevent transactional fraud.\nTo help maintain the safety, security, and integrity of our Website, products and services, databases and other technology assets, and business.\nTo respond to law enforcement requests and as required by applicable law, court order, or governmental regulations.\nTo evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by SocialCatfish about our Website users is among the assets transferred.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may use or disclose the personal information we collect for one or more of the following business purposes:\n\nTo provide you, and other users where stated above in the Information We Collect Section, with information, products or services that you request from us, such as using Social Catfish’s search to find lost connections and verify a person&#x27;s online identity.\nTo provide, support, personalize, and develop our Website, products, and services.\nTo create, maintain, customize, and secure your account with us.\nTo process your requests, purchases, transactions, and payments and prevent transactional fraud.\nTo help maintain the safety, security, and integrity of our Website, products and services, databases and other technology assets, and business.\nTo respond to law enforcement requests and as required by applicable law, court order, or governmental regulations.\nTo evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by SocialCatfish about our Website users is among the assets transferred.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may use or disclose the personal information we collect for one or more of the following business purposes:\n\nTo provide you, and other users where stated above in the Information We Collect Section, with information, products or services that you request from us, such as using Social Catfish’s search to find lost connections and verify a person&#x27;s online identity.\nTo provide, support, personalize, and develop our Website, products, and services.\nTo create, maintain, customize, and secure your account with us.\nTo process your requests, purchases, transactions, and payments and prevent transactional fraud.\nTo help maintain the safety, security, and integrity of our Website, products and services, databases and other technology assets, and business.\nTo respond to law enforcement requests and as required by applicable law, court order, or governmental regulations.\nTo evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by SocialCatfish about our Website users is among the assets transferred.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We do not use or disclose any sensitive information on you except to perform services or provide the goods reasonably expected by you, for fraud detection purposes, and to detect security incidents–for example the use of credit card information when you are purchasing services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We do not use or disclose any sensitive information on you except to perform services or provide the goods reasonably expected by you, for fraud detection purposes, and to detect security incidents–for example the use of credit card information when you are purchasing services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We do not use or disclose any sensitive information on you except to perform services or provide the goods reasonably expected by you, for fraud detection purposes, and to detect security incidents–for example the use of credit card information when you are purchasing services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Sensitive information is defined by the California Privacy Rights Act as information that reveals any of the following: your social security, driver’s license, state identification card, or passport number, your account log-in, financial account, debit card, or credit card number in combination with any required security or access code, password, or credentials allowing access to an account, your precise geolocation; your racial or ethnic origin, religious or philosophical beliefs, or union membership, the contents of your mail, email, and text messages unless the business is the intended recipient of the communication, and your genetic data, biometric information for the purpose of uniquely identifying you, information collected and analyzed concerning your health, and information collected and analyzed concerning your sex life or sexual orientation.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sensitive information is defined by the California Privacy Rights Act as information that reveals any of the following: your social security, driver’s license, state identification card, or passport number, your account log-in, financial account, debit card, or credit card number in combination with any required security or access code, password, or credentials allowing access to an account, your precise geolocation; your racial or ethnic origin, religious or philosophical beliefs, or union membership, the contents of your mail, email, and text messages unless the business is the intended recipient of the communication, and your genetic data, biometric information for the purpose of uniquely identifying you, information collected and analyzed concerning your health, and information collected and analyzed concerning your sex life or sexual orientation.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sensitive information is defined by the California Privacy Rights Act as information that reveals any of the following: your social security, driver’s license, state identification card, or passport number, your account log-in, financial account, debit card, or credit card number in combination with any required security or access code, password, or credentials allowing access to an account, your precise geolocation; your racial or ethnic origin, religious or philosophical beliefs, or union membership, the contents of your mail, email, and text messages unless the business is the intended recipient of the communication, and your genetic data, biometric information for the purpose of uniquely identifying you, information collected and analyzed concerning your health, and information collected and analyzed concerning your sex life or sexual orientation.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We receive and store certain types of information whenever you interact with us. SocialCatfish.com and its authorized agents automatically receive and record certain &quot;traffic data&quot; on their server logs from your browser including your IP address, SocialCatfish.com cookie information, device information and the page you requested. SocialCatfish.com uses this traffic data to help diagnose problems with its servers, analyze trends and administer the website.\n\nCookies are alphanumeric identifiers that we transfer to your computer&#x27;s hard drive through your Web browser to enable our systems to recognize your browser and tell us how and when pages in our website are visited and by how many people. SocialCatfish.com cookies do not collect personal information, and we do not combine information collected through cookies with other personal information to tell us who you are or what your screen name or e-mail address is.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">SocialCatfish’s website is hosted in the United States and are governed by United States law. If you are using the website from outside the United States, please be aware that your information may be transferred to, stored and processed in the United States. The data protection and other laws of the United States might not be as comprehensive or protective of certain rights as those in your country. Under United States law, your information may be subject to access requests from governments, courts, or law enforcement in the United States. By using the website, you consent to your information being transferred to our facilities and to the facilities of those third parties with whom we share it as described in this Privacy Policy and processed in those facilities.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to remove your information from the site, please submit an opt out request through our Opt-Out form: https://socialcatfish.com/opt-out/.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to make a CCPA or Nevada Opt-Out request, please see the details related to those requests in the relevant sections below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">This Website is only available to users 18 and over. If you are under the age of 18, please do not provide personally identifiable information of any kind whatsoever.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">SocialCatfish.com may amend this Privacy Policy from time to time, at its sole discretion. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used. If we make changes to the Privacy Policy, we will notify you by posting an announcement on the SocialCatfish.com website so you are always aware of what information we collect, how we use it, and under what circumstances if any, it is disclosed. For your information, For your information the date this policy was last updated is listed at the top of this page.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">California law permits users who are California residents to request and obtain from us once a year, free of charge, a list of the third parties to whom we have disclosed their ‘personal information’ (if any, and as defined under applicable California law) for their direct marketing purposes in the prior calendar year, as well as the type of personal information disclosed to those parties. We do not sell user information to third parties for direct marketing purposes.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

@@ -31,19 +31,40 @@ JUDGE_MODEL = "openai:gpt-4o-mini"
 
 # 3. Policies to ignore (by ID)
 IGNORED_POLICIES = [
-  "DB_201",
-  "DB_191",
-  "DB_190",
-  "DB_154",
-  "DB_70",
-  "DB_17",
-  "DB_73",
-  "DB_60",
-  "DB_102",
-  "DB_177"
+    "DB_201",
+    "DB_191",
+    "DB_190",
+    "DB_154",
+    "DB_70",
+    "DB_17",
+    "DB_73",
+    "DB_60",
+    "DB_102",
+    "DB_177",
+    "DB_125",
+    "DB_150",
+    "DB_187",
+    "DB_199",
+    "DB_25",
+    "DB_224",
+    "DB_74",
+    "DB_122",
+    "DB_197",
+    "DB_77",
+    "DB_155",
+    "DB_123",
+    "DB_209",
+    "DB_36",
+    "DB_32",
+    "DB_43",
+    "DB_160",
+    "DB_62",
+    "DB_2",
+    "DB_1"
 ]
 
-TEST_LIMIT = 30
+
+TEST_LIMIT = 55
 GENERATE_REPORTS = True
 
 def main():

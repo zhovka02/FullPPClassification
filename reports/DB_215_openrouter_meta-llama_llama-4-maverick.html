@@ -1,0 +1,303 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_215</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.00</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.00</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.00</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">0</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">21</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+<p>No prediction data available.</p>
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Privacy Policy
+Updated: January 1, 2020</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The Types of Data That We Obtain and Use
+Email Industries receives data from, and handles data on behalf of, a variety of consumer-facing companies, applications and services, business-facing companies, and data suppliers. We also may obtain data through public sources. Some of the data we receive, use, and make available is Personally Identifiable Information (“PII”). PII includes, for instance, name, postal address, telephone number, or email address.
+
+We also collect certain information when you visit this website, as described in the below section titled “Data Collected On Our Website”.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Our Services, and How We Use Personally Identifiable Information
+We use and make available PII for various purposes. For instance,
+
+We help email service providers, brands, and agencies to preemptively identify and score email addresses, email lists, and email senders that may be harmful to their mailing reputations and or those of their customers or users.
+
+Specifically, we provide threat intelligence services such as risk scoring, abuse and fraud prevention services, and other analytic and compliance services as they pertain to email marketing.
+
+We may also use PII to help other data platforms perform cross-channel risk assessments and identity resolution. These platforms may de-identify PII (such as by creating a “hashed” version of an email address, or another associated identifier) in order to identify consumers through other marketing or communication channels.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Our Services, and How We Use Personally Identifiable Information
+We use and make available PII for various purposes. For instance,
+
+We help email service providers, brands, and agencies to preemptively identify and score email addresses, email lists, and email senders that may be harmful to their mailing reputations and or those of their customers or users.
+
+Specifically, we provide threat intelligence services such as risk scoring, abuse and fraud prevention services, and other analytic and compliance services as they pertain to email marketing.
+
+We may also use PII to help other data platforms perform cross-channel risk assessments and identity resolution. These platforms may de-identify PII (such as by creating a “hashed” version of an email address, or another associated identifier) in order to identify consumers through other marketing or communication channels.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Our Services, and How We Use Personally Identifiable Information
+We use and make available PII for various purposes. For instance,
+
+We help email service providers, brands, and agencies to preemptively identify and score email addresses, email lists, and email senders that may be harmful to their mailing reputations and or those of their customers or users.
+
+Specifically, we provide threat intelligence services such as risk scoring, abuse and fraud prevention services, and other analytic and compliance services as they pertain to email marketing.
+
+We may also use PII to help other data platforms perform cross-channel risk assessments and identity resolution. These platforms may de-identify PII (such as by creating a “hashed” version of an email address, or another associated identifier) in order to identify consumers through other marketing or communication channels.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Work with and Share Data with Third Parties
+Indiemark may share data, including PII, as follows:
+
+Clients: We may share data, including PII, with our clients to help us to perform any of the services described in this Privacy Policy. We may do so, for instance, to identify non-compliant email senders, primitively assess the risk or quality of an email address or identify consumers across multiple marketing channels.
+
+Partners: We may share data, including PII, with business and data partners (such as business partners who provide to marketers their own applications or data services) or with clients, to help provide more tailored, analytical or deliverability services.
+
+Corporate Transfers: If Indiemark or its significant assets are purchased by another entity, our data will likely be transferred to that entity, including for due diligence prior to any such potential purchase.
+
+Parents and Subsidiaries: We may share some or all of the data in our possession with affiliated or subsidiary brands.
+
+As Required by Law or to Protect Any Party: We may disclose data if we believe in good faith that such disclosure is necessary to (a) comply with relevant laws or to respond to subpoenas or warrants served on us; or (b) to protect or otherwise defend the rights, property or safety of Indiemark or any other party.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Work with and Share Data with Third Parties
+Indiemark may share data, including PII, as follows:
+
+Clients: We may share data, including PII, with our clients to help us to perform any of the services described in this Privacy Policy. We may do so, for instance, to identify non-compliant email senders, primitively assess the risk or quality of an email address or identify consumers across multiple marketing channels.
+
+Partners: We may share data, including PII, with business and data partners (such as business partners who provide to marketers their own applications or data services) or with clients, to help provide more tailored, analytical or deliverability services.
+
+Corporate Transfers: If Indiemark or its significant assets are purchased by another entity, our data will likely be transferred to that entity, including for due diligence prior to any such potential purchase.
+
+Parents and Subsidiaries: We may share some or all of the data in our possession with affiliated or subsidiary brands.
+
+As Required by Law or to Protect Any Party: We may disclose data if we believe in good faith that such disclosure is necessary to (a) comply with relevant laws or to respond to subpoenas or warrants served on us; or (b) to protect or otherwise defend the rights, property or safety of Indiemark or any other party.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Data Deletion Requests (“Delete My Information”) 
+We may deny a consumer’s deletion request if retaining the information is necessary for us or our service providers or customers to; (a) complete the transaction for which we collected the personal information, provide a good or service that a consumer requested, take actions reasonably anticipated within the context of our ongoing business relationship with that consumer, or otherwise perform our contract with that consumer; (b) detect security incidents, protect against malicious, deceptive, fraudulent, or illegal activity, or prosecute those responsible for such activities; (c) debug products to identify and repair errors that impair existing intended functionality; (d) Exercise free speech, ensure the right of another consumer to exercise their free speech rights, or exercise another right provided for by law; (e) comply with the California Electronic Communications Privacy Act (Cal. Penal Code § 1546 seq.); (f) Engage in public or peer-reviewed scientific, historical, or statistical research in the public interest that adheres to all other applicable ethics and privacy laws, when the information’s deletion may likely render impossible or seriously impair the research’s achievement, if a consumer previously provided informed consent; (g) enable solely internal uses that are reasonably aligned with consumer expectations based on a consumer’s relationship with us; (h) Comply with a legal obligation; )(i) make other internal and lawful uses of that information that are compatible with the context in which a consumer provided it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To initiate a data deletion request, submit your information using our California Privacy Rights Data Request Form or email us at privacy@emailindustries.com. If you do choose to email us please include the following information: (a) email address; (b) first and last name; and (d) mobile phone number.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Opt-out Requests (“Do Not Sell My Information”) 
+California residents have the right to opt-out of the sale of their personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To initiate an opt-out request, submit your information using our California Privacy Rights Data Request Form or email us at privacy@emailindustries.com. If you do choose to email us please include the following information: (a) email address; (b) first and last name; and (d) mobile phone number.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Requesting Your Information (“Right to Know”)
+The California Consumer Privacy Act (CCPA) further gave California residents the right to know what PII a business has collected on them.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To initiate a Right to Know request, submit your information using our California Privacy Rights Data Request Form or email us at privacy@emailindustries.com. If you do choose to email us please include the following information: (a) email address; (b) first and last name; and (d) mobile phone number.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Indiemark typically collects first name, last name, postal address, email address, IP address, date of birth, phone, email activity, risk score, quality score and modeled inferences.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Once we receive and confirm the verifiable consumer “Right to Know” request, we will provide you with; (a) the categories of personal information it has collected about you; (b) the categories of sources from which the personal information is collected; (c) the business or commercial purpose for collecting or selling personal information; (d) the categories of third parties with whom the business shares personal information; (e) the specific pieces of personal information it has collected about you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Collected on Our Website 
+This website itself is primarily directed to businesses that may wish to use our services, but we welcome consumers who want to know more about our services. When you access this website or engage with us by email, we may collect the following information:
+
+Personally Identifiable Information. When you provide us with information through our website, such as to request or download information, sign up for a newsletter, event or service, or log in to a service or application we provide, we may request and you may provide certain PII to us. We may use your PII for any business purpose, including to administer your account and provide you services, to send communications and administrative emails, to respond to your inquiries, and to send marketing and product update messages. We may also use it to analyze how customers are using our website or services.
+
+Non-Personally Identifiable Information. Whether or not you sign up for an account or provide us with PII, we may collect other information when you visit our website. This may include, the type of browser and operating system you have used to access the website, a timestamp, and other browser or device information; your IP address (which is a number automatically assigned to your computer when you access the Internet and can be used to derive your general geographic location); your clickstream data and any URL referral information (such as any website or social media platform that referred you to our website); what part(s) of our website you visit, click and view, and how long you view it; a unique identifier, which we may associate with a cookie, device identifier or similar technology. We may collect or store the above information by using cookies, web beacons, and similar technologies, and may target or retarget ads to you using those cookies, device identifiers, or similar technologies when you browse the Internet or use your mobile device. We may combine any information including PII you provide to us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies. Cookies are small text files that websites and other online services use to store information about users on users’ own computers. For instance, cookies can be used to store sign-in credentials so that you don’t have to enter them each time you return to a website, or to store other information to make web viewing more customized or efficient upon future visits. Cookies also may store a unique identifier tied to your computer so that web services and content and advertising networks can recognize you across visits to different websites. You can configure your internet browser to warn you each time a cookie is being sent or to refuse all or certain cookies completely. However, this may interfere with the functionality of your web browsing or your ability to fully use many websites.
+
+Pixels or web beacons. Pixels or web beacons may also communicate information from your Internet browser to a web server. Pixels can be embedded in web pages, videos, or emails, and can allow a web server to read certain types of information from your browser, check whether you have viewed a particular web page or email message, and determine, among other things, the time and date on which you viewed the Web beacon, the IP address of your computer, and the URL of the web page from which the Web beacon was viewed.
+
+We sometimes work with third parties to enhance our services (e.g. for purposes of retargeting and tailoring ads or placing browser cookies). These partners may set and access their own cookies, pixel tags, and similar technologies on your device, which may have cookies with a varying expiration period. Those partners may, likewise, collect various types of anonymous or de-identified information about your browser, device, or browsing activities through the use of these cookies. We also may place cookies when you open an email that we send, in order to help understand how email recipients respond to email campaigns or to learn more (or help our clients learn more) about those recipients. When you visit our website, we (or a partner we work with) may place cookies to help us target or re-target marketing to you when you visit other websites or web or mobile applications – for instance, to tell you about our services, events and other information about our company. Please note that our business partners may also use cookies and pixels, which we have no control over.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We sometimes work with third parties to enhance our services (e.g. for purposes of retargeting and tailoring ads or placing browser cookies). These partners may set and access their own cookies, pixel tags, and similar technologies on your device, which may have cookies with a varying expiration period. Those partners may, likewise, collect various types of anonymous or de-identified information about your browser, device, or browsing activities through the use of these cookies. We also may place cookies when you open an email that we send, in order to help understand how email recipients respond to email campaigns or to learn more (or help our clients learn more) about those recipients. When you visit our website, we (or a partner we work with) may place cookies to help us target or re-target marketing to you when you visit other websites or web or mobile applications – for instance, to tell you about our services, events and other information about our company. Please note that our business partners may also use cookies and pixels, which we have no control over.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">RIGHT TO KNOW - You have the right to request a report about the personal information we have about you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">RIGHT TO OPT-OUT - You have the right to opt-out of the &quot;sale&quot; of your personal information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">RIGHT TO DELETE - You have the right to request that we delete your personal information.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

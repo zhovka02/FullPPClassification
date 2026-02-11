@@ -1,0 +1,269 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_117</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.36</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.33</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.35</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">4</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">7</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated: January 11, 2023.</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Updated: January 11, 2023.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We collect Device-based Information (“Analytics”), the cookie ID and IP addresses of visitors to our Website and other Information about your visit, such as page requests, browser type, operating system and average time spent on our Website.</div>
+                    <div class='match-info'><b>Matched GT:</b> We collect Device-based Information (“Analytics”), the cookie ID and IP addresses of visitors to our Website and other Information about your visit, such as page requests, browser type, operating system and average time spent on our Website. We use this Information to help us understand our Website activity, and to monitor and improve our Website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Hivestack receives these pieces of Information from their location partners: Time and Date Information as a Timestamp Unique Device identifiers for advertising (Google Advertiser ID or IDFA) Geolocation as both a Latitude and Longitude</div>
+                    <div class='match-info'><b>Matched GT:</b> Hivestack receives these pieces of Information from their location partners:\n\nTime and Date Information as a Timestamp\n\nUnique Device identifiers for advertising (Google Advertiser ID or IDFA)\n\nGeolocation as both a Latitude and Longitude\n\nWe do not receive personally identifiable data such as names, phone numbers, email addresses or physical addresses.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your Information with third parties: If the Information is provided to help complete a transaction requested by you. If you request or authorize it. If the Information is provided to: (1) comply in good faith with applicable laws, rules, regulations, governmental and quasi-governmental requests, court orders, or subpoenas; (2) enforce our Terms of Use or other agreements; or (3) protect our rights, property, or safety or - the rights, property, or safety of our users or others. If the disclosure is done as part of a purchase, transfer, or sale of services or assets (e.g., in the event that substantially all of our assets are acquired by another party, your Information may be one of the transferred assets, or in the course of due diligence for such an event) or in the event of bankruptcy. If the Information is provided to our third-party vendors or service providers to perform functions on our behalf (e.g., analyzing data, providing marketing assistance, providing customer service, processing orders, etc.). As otherwise described in this Privacy Policy, or with your prior consent.</div>
+                    <div class='match-info'><b>Matched GT:</b> Hivestack does not share user-level data with third parties for Personalized Advertising, DOOH Advertising, or ADR purposes. We may share your Information with third parties:\n\nIf the Information is provided to help complete a transaction requested by you.\n\nIf you request or authorize it.\n\nIf the Information is provided to: (1) comply in good faith with applicable laws, rules, regulations, governmental and quasi-governmental requests, court orders, or subpoenas; (2) enforce our Terms of Use or other agreements; or (3) protect our rights, property, or safety or - the rights, property, or safety of our users or others.\n\nIf the disclosure is done as part of a purchase, transfer, or sale of services or assets (e.g., in the event that substantially all of our assets are acquired by another party, your Information may be one of the transferred assets, or in the course of due diligence for such an event) or in the event of bankruptcy.\n\nIf the Information is provided to our third-party vendors or service providers to perform functions on our behalf (e.g., analyzing data, providing marketing assistance, providing customer service, processing orders, etc.).\n\nAs otherwise described in this Privacy Policy, or with your prior consent.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to Erasure. You also have the right to obtain the erasure of Personal Data concerning you that we hold as a controller. The above opt-out process satisfies this right on a going-forward basis. When a user opts out through our partners (or through mobile Device settings), and those location partners receive that signal, they no longer collect Personal Data to provide for Hivestack’s services. We will also manually delete your Personal Data if preferred that we do so; please contact us at privacy@hivestack.com for further instructions if you wish to exercise this right manually.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Right to Correct: If you wish to exercise your right to correct Personal Data, you may do so by contacting us at the contact Information below.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Access: If you wish to exercise your right to access Personal Data we process as a data controller, you may do so by requesting access through the e-mail address privacy@hivestack.com. When we receive your request, we will provide you with current, step-by-step instructions to follow in order to obtain access.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You may manage certain collection and sharing of Information in connection with the Hivestack Site and the Services as follows: You may control how your browser responds to cookies by adjusting the privacy and security settings of your web browser. You may limit the disclosure of certain Information by your mobile Device to us and Publishers by adjusting the settings on your mobile Device. For iOS mobile Devices, go to “Settings” from your Device’s home screen; scroll down to “Privacy”; select “Advertising”; and turn on “Limit Ad Tracking.” For Android mobile Devices, go to “Google Settings” on your Device; select “Ads”; and check the box labeled “Opt Out of Interest-Based Ads.”</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Right to Access: If you wish to exercise your right to access Personal Data we process as a data controller, you may do so by requesting access through the e-mail address privacy@hivestack.com.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Right to Correct: If you wish to exercise your right to correct Personal Data, you may do so by contacting us at the contact Information below.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may opt not to receive promotional emails from us by contacting us as indicated in our contact details at the end of this document or by following the “unsubscribe” instructions in any promotional email you receive from us, or by contacting us at privacy@hivestack.com.</div>
+                    
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Hivestack partners with location data provider companies who collect and use precise location data to help advertisers provide more relevant offers to mobile application users, and to inform the delivery and measurement of DOOH advertising. Hivestack does not collect this location data directly; all location Information is provided by Hivestack’s partners, such as Cuebiq who are one of our data providers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Hivestack is a leading advertising company that provides a technology platform which gives marketers a powerful solution to deliver digital out-of-home (“DOOH”) advertising campaigns. Hivestack has developed a proprietary technology platform that enables clients to reach their desired target audience, and measure the efficacy of their campaigns.\n\nHivestack partners with location data provider companies who collect and use precise location data to help advertisers provide more relevant offers to mobile application users, and to inform the delivery and measurement of DOOH advertising. Hivestack does not collect this location data directly; all location Information is provided by Hivestack’s partners, such as Cuebiq who are one of our data providers.\n\nHivestack receives this location Information from its partners as a file in a secure AWS S3 transfer. This location Information includes lat/long (latitudinal and longitudinal) data, i.e., GPS-level data associated with a mobile advertising ID, such as an IDFA or an Google Android Advertising ID (“GAAID”) and time and date Information as a timestamp.\n\nWe use the Information we receive to understand the optimal times and locations to best reach defined audiences on DOOH screens. This allows Hivestack to deliver ads to DOOH screens and to understand movement patterns.\n\nThe location data we receive is also used to understand which mobile Device IDs (IDFA and GAAID) were in proximity to a DOOH location at a time when DOOH campaign creative was displayed and build a list of those Device IDs. That list of mobile Device IDs in proximity to DOOH locations, may then be used to build an audience for targeting delivery of mobile in-app advertisements. These Mobile Advertising IDs can be used for certain advertising purposes. They can be used to limit the number of times a specific advertisement is presented to the same Device, track a Device to show that the Device interacted with an ad (i.e. “clicked” on it, watched a video ad, or downloaded an application as a result of an advertisement).\n\nHivestack does not permit any data collected to be used for Personalized Advertising relating to sensitive health segments, or sexual orientation.\n\nThis location Information we receive from our partners may additionally be used to perform aggregated “attribution” analysis for DOOH campaigns. This analysis can help marketers understand in aggregate which users have been exposed to which DOOH ad campaigns and if Devices exposed to a DOOH advertising were then measured at that advertiser’s physical retail location. This is done so that an ad campaign’s success may be understood.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Hivestack is a leading advertising company that provides a technology platform which gives marketers a powerful solution to deliver digital out-of-home (“DOOH”) advertising campaigns. Hivestack has developed a proprietary technology platform that enables clients to reach their desired target audience, and measure the efficacy of their campaigns.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">This location Information we receive from our partners may additionally be used to perform aggregated “attribution” analysis for DOOH campaigns. This analysis can help marketers understand in aggregate which users have been exposed to which DOOH ad campaigns and if Devices exposed to a DOOH advertising were then measured at that advertiser’s physical retail location. This is done so that an ad campaign’s success may be understood.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">This location Information we receive from our partners may additionally be used to perform aggregated “attribution” analysis for DOOH campaigns. This analysis can help marketers understand in aggregate which users have been exposed to which DOOH ad campaigns and if Devices exposed to a DOOH advertising were then measured at that advertiser’s physical retail location. This is done so that an ad campaign’s success may be understood.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Hivestack does not share user-level data with third parties for Personalized Advertising, DOOH Advertising, or ADR purposes. We may share your Information with third parties:\n\nIf the Information is provided to help complete a transaction requested by you.\n\nIf you request or authorize it.\n\nIf the Information is provided to: (1) comply in good faith with applicable laws, rules, regulations, governmental and quasi-governmental requests, court orders, or subpoenas; (2) enforce our Terms of Use or other agreements; or (3) protect our rights, property, or safety or - the rights, property, or safety of our users or others.\n\nIf the disclosure is done as part of a purchase, transfer, or sale of services or assets (e.g., in the event that substantially all of our assets are acquired by another party, your Information may be one of the transferred assets, or in the course of due diligence for such an event) or in the event of bankruptcy.\n\nIf the Information is provided to our third-party vendors or service providers to perform functions on our behalf (e.g., analyzing data, providing marketing assistance, providing customer service, processing orders, etc.).\n\nAs otherwise described in this Privacy Policy, or with your prior consent.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">CHANGES TO PRIVACY POLICY\nFrom time to time, we may change this Privacy Policy by posting a notice of such change on our website. You should visit our website periodically to review any such change. When you continue to use or interact with Hivestack Services after such change, your subsequent provision of Information (e.g., personally identifiable Information) to us will be subject to such change. If such change materially expands our rights to use your personally identifiable Information that we have collected, we will notify you through email or a prominent posting on our website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">CALIFORNIA RESIDENTS\nTo learn about your opt-out rights under the California Consumer Privacy Act please click here.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

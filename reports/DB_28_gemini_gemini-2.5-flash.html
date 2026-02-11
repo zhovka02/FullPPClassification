@@ -1,0 +1,673 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_28</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.47</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.47</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.47</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">15</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">17</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">19</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Revised: December 15, 2022</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Revised: December 15, 2022</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">The practices described in this policy are current personal data protection policies as of December 15, 2022.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output at all. The Actual Output discusses current personal data protection policies but does not mention the last revised date, which is the key detail of the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.39):</b> Last Revised: December 15, 2022</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Effective as of January 1, 2023.</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective as of January 1, 2023.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">From Website Visitors, including those in the EEA, PacificEast may collect the following types of personal data: contact information company information other personal data provided by website visitors</div>
+                    <div class='match-info'><b>Matched GT:</b> From Website Visitors, including those in the EEA, PacificEast may collect the following types of personal data:
+
+contact information
+company information
+other personal data provided by website visitors</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Those details may include, among others, the customer’s name, business name, billing address, email, and phone number.</div>
+                    <div class='match-info'><b>Matched GT:</b> By transacting in the above manner, customers or consumers authorize their mobile operator and/or telecommunications service provider to disclose account details for the purpose of verifying the customer’s identity. Those details may include, among others, the customer’s name, business name, billing address, email, and phone number. When verifying the validity of a phone number, PacificEast obtains phone number status information from the telecommunication service provider to which that number is assigned. We use this information to ascertain the validity of the phone number or information related to it that has been provided by customers, businesses or consumers.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">When verifying the validity of a phone number, PacificEast obtains phone number status information from the telecommunication service provider to which that number is assigned.</div>
+                    <div class='match-info'><b>Matched GT:</b> By transacting in the above manner, customers or consumers authorize their mobile operator and/or telecommunications service provider to disclose account details for the purpose of verifying the customer’s identity. Those details may include, among others, the customer’s name, business name, billing address, email, and phone number. When verifying the validity of a phone number, PacificEast obtains phone number status information from the telecommunication service provider to which that number is assigned. We use this information to ascertain the validity of the phone number or information related to it that has been provided by customers, businesses or consumers.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">From our service customers, PacificEast may receive the following types of personal data about their clients and prospects, some of which may be residents of an EEA country: contact information company information other personal or contact information provided by our customers</div>
+                    <div class='match-info'><b>Matched GT:</b> From our service customers, PacificEast may receive the following types of personal data about their clients and prospects, some of which may be residents of an EEA country:
+
+contact information
+company information
+other personal or contact information provided by our customers</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The only individual information PacificEast itself collects and controls are the email addresses of clients who opt-in to receive email notifications and newsletters or the billing and contact information of customers transacting with PacificEast.</div>
+                    <div class='match-info'><b>Matched GT:</b> The only individual information PacificEast itself collects and controls are the email addresses of clients who opt-in to receive email notifications and newsletters or the billing and contact information of customers transacting with PacificEast.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">PacificEast receives the following categories of Personal Information from its customers and from other sources: name postal address unique personal identifier Internet Protocol address email address telephone number social security number date of birth</div>
+                    <div class='match-info'><b>Matched GT:</b> PacificEast receives the following categories of Personal Information from its customers and from other sources:
+
+name
+postal address
+unique personal identifier
+Internet Protocol address
+email address
+telephone number
+social security number
+date of birth</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">PacificEast does not store or retain personal information and therefore there is nothing for us to remove when a consumer opts out. PacificEast uses the personal information it accesses from third parties only for the purpose of completing the processing request for a specified customer and for no other purpose. PacificEast also does not retain consumer information after the processing is complete.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.18):</b> Data processing services may be performed on business or consumer/individual information, (known as “client information”) some of which may be personally identifiable.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">PacificEast does not share personal contact information we collect from customers via our websites with any third party other than for the purpose of verifying their identities and processing transactions requested by them.</div>
+                    <div class='match-info'><b>Matched GT:</b> PacificEast does not share personal contact information we collect from customers via our websites with any third party other than for the purpose of verifying their identities and processing transactions requested by them. PacificEast, as a Processor On Behalf of our customers and only at the request of our customers, may share the consumer or business contact information of our customer’s clients and prospects with companies operating in the US, Canada or the EEA with the following types of third parties and for the stated purposes:
+
+subsidiaries, affiliates and contractors, who perform data hygiene, standardization or appending on the contact data supplied by our customers
+other third party service providers contracted to provide services on our behalf
+other corporate entities if PacificEast goes through a business transition, such as a merger, acquisition by another company, or sale of all or a portion of its assets</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">PacificEast, as a Processor On Behalf of our customers and only at the request of our customers, may share the consumer or business contact information of our customer’s clients and prospects with companies operating in the US, Canada or the EEA with the following types of third parties and for the stated purposes: subsidiaries, affiliates and contractors, who perform data hygiene, standardization or appending on the contact data supplied by our customers other third party service providers contracted to provide services on our behalf other corporate entities if PacificEast goes through a business transition, such as a merger, acquisition by another company, or sale of all or a portion of its assets</div>
+                    <div class='match-info'><b>Matched GT:</b> PacificEast does not share personal contact information we collect from customers via our websites with any third party other than for the purpose of verifying their identities and processing transactions requested by them. PacificEast, as a Processor On Behalf of our customers and only at the request of our customers, may share the consumer or business contact information of our customer’s clients and prospects with companies operating in the US, Canada or the EEA with the following types of third parties and for the stated purposes:
+
+subsidiaries, affiliates and contractors, who perform data hygiene, standardization or appending on the contact data supplied by our customers
+other third party service providers contracted to provide services on our behalf
+other corporate entities if PacificEast goes through a business transition, such as a merger, acquisition by another company, or sale of all or a portion of its assets</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">PacificEast may disclose personal data in special cases when we have a good faith belief that such action is necessary to: (a) conform to legal requirements or to respond to lawful requests by public authorities, including to meet national security or law enforcement requirements; (b) protect and defend our rights or property; (c) enforce the website Terms and Conditions; or (d) act to protect the interests of our customers, users or others.</div>
+                    <div class='match-info'><b>Matched GT:</b> Requirement to Disclose\nPacificEast may disclose personal data in special cases when we have a good faith belief that such action is necessary to: (a) conform to legal requirements or to respond to lawful requests by public authorities, including to meet national security or law enforcement requirements; (b) protect and defend our rights or property; (c) enforce the website Terms and Conditions; or (d) act to protect the interests of our customers, users or others.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Any individual, including those in the EEA, who seek access to correct, amend, or delete inaccurate data must first attempt to direct their request to the Organization which has contracted with PacificEast for such processing.</div>
+                    <div class='match-info'><b>Matched GT:</b> Any individual, including those in the EEA, who seek access to correct, amend, or delete inaccurate data must first attempt to direct their request to the Organization which has contracted with PacificEast for such processing.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Any individual, including those in the EEA, who seek access to correct, amend, or delete inaccurate data must first attempt to direct their request to the Organization which has contracted with PacificEast for such processing.</div>
+                    <div class='match-info'><b>Matched GT:</b> Any individual, including those in the EEA, who seek access to correct, amend, or delete inaccurate data must first attempt to direct their request to the Organization which has contracted with PacificEast for such processing.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.38):</b> Any individual, including those in the EEA, who seek access to correct, amend, or delete inaccurate data must first attempt to direct their request to the Organization which has contracted with PacificEast for such processing.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Any individual, including those in the EEA, who seek access to correct, amend, or delete inaccurate data must first attempt to direct their request to the Organization which has contracted with PacificEast for such processing.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">However, with the express and verified direction of the consumer we will allow the consumer to choose to limit the flow of some consumer information passing through our platform.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.21):</b> PacificEast does not store or retain personal information and therefore there is nothing for us to remove when a consumer opts out.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you are 16 years of age or older, you, just as any California resident, have the right to direct us to not provide your personal information at any time (the “right to opt-out”) to the extent of the CCPA regulation.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any of the text from the Expected Output, nor does it include it as a part of a list/table. Additionally, the Actual Output is not a substring of the Expected Output that maintains the primary meaning, as they discuss different aspects of consumer rights under CCPA. Therefore, none of the evaluation criteria are met.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.47):</b> Consumers who opt-in to allow us to process or provide their personal information may opt-out at any time.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Consumers who opt-in to allow us to process or provide their personal information may opt-out at any time.</div>
+                    <div class='match-info'><b>Matched GT:</b> Consumers who opt-in to allow us to process or provide their personal information may opt-out at any time.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">However, in the spirit of cooperation with the CCPA, PacificEast provides the ability for consumers to request that their information not be passed through our systems and provided to our customers.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.25):</b> PacificEast does not store or retain personal information and therefore there is nothing for us to remove when a consumer opts out.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Do Not Sell or Share My Personal Information</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output &#x27;Do Not Sell or Share My Personal Information&#x27; does not contain the Expected Output in its entirety, is not a substring that maintains the core meaning, nor does it match the expected context regarding personal information removal.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.34):</b> PacificEast does not store or retain personal information and therefore there is nothing for us to remove when a consumer opts out.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">However, with the express and verified direction of the consumer we will allow the consumer to choose to limit the flow of some consumer information passing through our platform.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">Limit the Use of My Personal Information</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">This can be done by contacting us via the contact information in the “Right to Access” section below.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.30):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If a registered customer or prospective customer has already opted-in for PacificEast communications and do not want to receive an e-mail or E-Newsletter from PacificEast in the future, we request that they let us know by sending an e-mail notification to info@pacificeast.com .</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.38):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If they feel that PacificEast or this site is not following its stated privacy policy, we request that they please contact us at info@pacificeast.com or 1-800-665-8400 .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor is it present as an item in a list or table. Additionally, it fails to be a substring of the Expected Output while maintaining the primary meaning. Thus, none of the evaluation conditions were met, resulting in an incorrect assessment.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Please send all correspondence related to any privacy issue to the following address: PacificEast Research Inc. Attn: Office of the COO 8625 SW Cascade Ave., Suite 250 Beaverton, OR 97008</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.29):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">EEA citizens with inquiries or complaints regarding this privacy policy should first contact PacificEast at privacy@pacificeast.com or 1-800-665-8400 .</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.22):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">hello@pacificeast.com 800-665-8400</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.20):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You do not need to create an account with us to exercise your opt-out rights. You need only provide the requested personal information and we will only use the personal information provided in an opt-out request to review and comply with your request.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.27):</b> Such requests must be presented in writing to PacificEast and submitted either to our mailing address (noted at the bottom of this section) or emailed to info@pacificeast.com. Such requests will be processed only if and after PacificEast is able to authenticate that the individual making the request and the data subject are the same individual and if PacificEast has any control over the individual’s relevant PII or PHI.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Purposes of Collection and Use
+PacificEast collects and uses personal data of Website Visitors solely for the purpose of communicating with them and providing the services and/or information they request. PacificEast receives client and prospect contact data from our Business Customers (some of whom may be located in the EEA) for the purposes of:
+
+providing client and prospect data hygiene, standardization and appending services to our business customers
+providing products, services and support to our customers
+conducting related tasks for legitimate business purposes
+other purposes requested and/or disclosed at the time of collection</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may also receive some data in reliance on other compliance mechanisms, including data processing agreements based on the EU Standard Contractual Clauses.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Type of Third Parties to Which We Disclose Personal Data and Purposes</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The data processing services performed by PacificEast may require PacificEast to use contracted third-party agents acting, in turn, on our behalf for the purpose of providing standardization, verification, hygiene or appending services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">However, website performance and benchmarking software used by PacificEast may place a cookie on a user’s machine for the purpose of benchmarking and analyzing website traffic.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data processing services may be performed on business or consumer/individual information, (known as “client information”) some of which may be personally identifiable.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Data processing services may be performed on business or consumer/individual information, (known as “client information”) some of which may be personally identifiable.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Data processing services may be performed on business or consumer/individual information, (known as “client information”) some of which may be personally identifiable.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">PacificEast does not retain any customer information without the expressed, written consent of that customer, and even then it retains such information only for billing, assessment and verification of data quality, for use in customer requested predictive models or for or for customer convenience to assist them with questions regarding billing or data quality.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">PacificEast does not retain any customer information without the expressed, written consent of that customer, and even then it retains such information only for billing, assessment and verification of data quality, for use in customer requested predictive models or for or for customer convenience to assist them with questions regarding billing or data quality.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">Security
+We actively work with our customers to encourage them to use encrypted methods when moving all sensitive or personally identifiable data to and from our secure servers. All PacificEast employees have signed confidentiality agreements and access to sensitive data is on a need to know basis only. PacificEast has taken appropriate security measures of our physical facilities to protect against the loss, misuse or alteration of any client or consumer information in our possession. We maintain security policies and procedures to keep information from being accessed by any unauthorized person or business. This is reviewed on a regular basis to ensure only authorized access.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">PacificEast processes Personal Information for its customers to help them enhance their consumer data, verify identity information, meet compliance requirements, and reduce fraud.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">PacificEast does not retain or reidentify or otherwise link Personal Information received from our customers or other sources for any purpose other than to complete the particular processing for which the customer provided it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The sources of the information are the customers of PacificEast and other companies that have obtained consumer information from legitimate sources.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">If you are 16 years of age or older, you, just as any California resident, have the right to direct us to not provide your personal information at any time (the “right to opt-out”) to the extent of the CCPA regulation. We do not knowingly provide or process the personal information of consumers who are less than 16 years of age unless we receive affirmative authorization (the “right to opt-in”) from either the consumer who is between 13 and 16 years of age, or the parent or guardian of a consumer less than 13 years of age.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">PacificEast does not store or retain personal information and therefore there is nothing for us to remove when a consumer opts out.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">PacificEast uses the personal information it accesses from third parties only for the purpose of completing the processing request for a specified customer and for no other purpose.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">However, in the spirit of cooperation with the CCPA, PacificEast provides the ability for consumers to request that their information not be passed through our systems and provided to our customers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Types of Personal Data Collected</div>
+                </div>
+                
+</div>
+</div>
+</body></html>
