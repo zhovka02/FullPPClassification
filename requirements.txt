@@ -1,6 +1,0 @@
-pandas~=2.2.3
-numpy
-aisuite~=0.1.13
-python-dotenv~=1.2.1
-tqdm~=4.67.1
-deepeval
