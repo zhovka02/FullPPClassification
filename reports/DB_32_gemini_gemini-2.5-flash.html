@@ -1,0 +1,917 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_32</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.91</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.53</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.67</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">30</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">38</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated: January 1, 2023</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.10):</b> Changes to Our Privacy Policy\nWe may occasionally update this Privacy Policy to reflect changes in our practices. When we post modifications to this Privacy Policy, we will revise the &quot;Last Updated” date at the top of this web page. If the changes are material, we will endeavor to notify you in advance of such changes taking place. If you object to any modification, your sole recourse is to notify us that you do not agree and to stop using the Sites and providing us with your Personal Information.\n\nWe encourage you to periodically review this page for the latest information on our privacy practices.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers , such as your name, postal address, phone number, e-mail address, IP address, online identifiers, account names, associated passwords, social media profiles and other similar identifiers.</div>
+                    <div class='match-info'><b>Matched GT:</b> The categories of Personal Information that we collect from you depends on your interactions with us. For example, we may collect:
+
+Identifiers, such as your name, postal address, phone number, e-mail address, IP address, online identifiers, account names, associated passwords, social media profiles and other similar identifiers.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Protected Characteristics , provided with special protection under applicable law, such as your age, race, citizenship, gender, medical information, and disability information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Protected Characteristics, provided with special protection under applicable law, such as your age, race, citizenship, gender, medical information, and disability information.
+Professional and Employment-Related Information, such as information about your current and former employment, professional degrees and certifications, education background, information about references you list on your application form, certain Identifiers (in order to contact you), and other employment-related information, including your employment goals and objectives.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Professional and Employment-Related Information , such as information about your current and former employment, professional degrees and certifications, education background, information about references you list on your application form, certain Identifiers (in order to contact you), and other employment-related information, including your employment goals and objectives.</div>
+                    <div class='match-info'><b>Matched GT:</b> Protected Characteristics, provided with special protection under applicable law, such as your age, race, citizenship, gender, medical information, and disability information.
+Professional and Employment-Related Information, such as information about your current and former employment, professional degrees and certifications, education background, information about references you list on your application form, certain Identifiers (in order to contact you), and other employment-related information, including your employment goals and objectives.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Commercial Information , such as products and services purchased from us through the use of our Sites.</div>
+                    <div class='match-info'><b>Matched GT:</b> Commercial Information, such as products and services purchased from us through the use of our Sites. We may collect this information to conduct business analytics and improve our services to you.
+Internet or other Electronic Activity Information, such as your browsing history, search history, which pages you visit on the Sites, other pages you visit on the Internet, and which browser you used to view the Sites.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Internet or other Electronic Activity Information , such as your browsing history, search history, which pages you visit on the Sites, other pages you visit on the Internet, and which browser you used to view the Sites.</div>
+                    <div class='match-info'><b>Matched GT:</b> Commercial Information, such as products and services purchased from us through the use of our Sites. We may collect this information to conduct business analytics and improve our services to you.
+Internet or other Electronic Activity Information, such as your browsing history, search history, which pages you visit on the Sites, other pages you visit on the Internet, and which browser you used to view the Sites.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Profile Information , such as information about your preferences and characteristics (including inferences drawn from other personal information).</div>
+                    <div class='match-info'><b>Matched GT:</b> Profile Information, such as information about your preferences and characteristics (including inferences drawn from other personal information).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">In addition, if you visit our premises, we may collect information to protect the health and safety of our personnel, clients, guests, and the general public, such as health and travel information.</div>
+                    <div class='match-info'><b>Matched GT:</b> We may collect this information in order to understand your preferences and tailor our services and communications to you. In addition, if you visit our premises, we may collect information to protect the health and safety of our personnel, clients, guests, and the general public, such as health and travel information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Some of the information we collect may be considered Sensitive Personal Information under privacy laws, such as your health information and account log-in information.</div>
+                    <div class='match-info'><b>Matched GT:</b> In addition to the purposes for collection described above, we also may collect each category of information for the purpose of performing services for you and maintaining our relationship with you, which include:
+
+Maintaining and servicing your Account, including managing your preferences.
+Taking steps to improve our services to you, including to run analytics, improve our artificial intelligence tools, assess the quality of our services, and for other related internal business purposes.
+Administering and improving our Sites, including to measuring the effectiveness of the Sites, diagnosing problems with our server, analyzing where Site traffic is coming from, and to identifying our Site users.
+Communicating with you to personalize your experience with the BDO USA and improve our understanding of your needs, and to respond to inquiries you send to us.
+Sending you messages promoting our products and services. You may opt-out of receiving certain promotional e-mail messages from us as described in the &quot;Marketing Opt-Out&quot; section below.
+Protecting the health and safety of our personnel, clients, guests, and the general public.
+Complying with our legal, regulatory and risk management obligations, including establishing, exercising and/or defending legal claims.
+For other purposes consistent with the context of the collection of your information, or as otherwise disclosed to you prior to the use of your information.
+Some of the information we collect may be considered Sensitive Personal Information under privacy laws, such as your health information and account log-in information. We use your Sensitive Personal Information only for legitimate business purposes, including to (i) perform services or provide goods reasonably expected by an average person; (ii) detect security incidents; (iii) resist malicious, deceptive, or illegal actions; (iv) ensure the physical safety of individuals; (v) for short-term, transient use, including non-personalized advertising; (vi) perform or provide internal business services; or (vii) verify or maintain the quality or safety of a service or device.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, BDO USA has collected the categories of Personal Information detailed in “ How We Collect and Use Your Personal Information ” above.</div>
+                    <div class='match-info'><b>Matched GT:</b> California Privacy Disclosures\nCalifornia residents are entitled to the following additional disclosures about our data processing:  \n\nIn the preceding 12 months, BDO USA has collected the categories of Personal Information detailed in “How We Collect and Use Your Personal Information” above. The purposes for which BDO USA has collected Personal Information and the sources of that information are also described above</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains the Expected Output as a substring, which fulfills the first evaluation step. However, it lacks the introductory context about California Privacy Disclosures and the statements regarding purposes and sources of data processing, reducing its completeness relative to the Expected Output.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, BDO USA has sold the following categories of Personal Information to IDD clients: Identifiers, Protected Characteristics, Professional and Employment-Related Information, Commercial Information, Internet or Other Electronic Activity Information, and Profile Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> We may sell information in the context of our Investigative Due Diligence (“IDD”) services. In the preceding 12 months, BDO USA has sold the following categories of Personal Information to IDD clients:  Identifiers, Protected Characteristics, Professional and Employment-Related Information, Commercial Information, Internet or Other Electronic Activity Information, and Profile Information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, BDO USA has sold or shared the following categories of Personal Information to with our targeted advertising service providers and partners: Identifiers, Internet or Other Electronic Activity Information, and Profile Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> In the preceding 12 months, BDO USA has sold or shared the following categories of Personal Information to with our targeted advertising service providers and partners: Identifiers, Internet or Other Electronic Activity Information, and Profile Information.\nWe do not knowingly sell the Personal Information of minors under 16.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties: We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Disclose Your Personal Information
+We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties:
+
+We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.  Our policy is to inform our Service Providers not to use or disclose your Personal Information for any purpose other than for providing services to us.
+We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.
+We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:
+Our clients.
+If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.
+From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.
+We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.
+We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Disclose Your Personal Information
+We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties:
+
+We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.  Our policy is to inform our Service Providers not to use or disclose your Personal Information for any purpose other than for providing services to us.
+We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.
+We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:
+Our clients.
+If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.
+From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.
+We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.
+We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example: Our clients. If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Disclose Your Personal Information
+We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties:
+
+We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.  Our policy is to inform our Service Providers not to use or disclose your Personal Information for any purpose other than for providing services to us.
+We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.
+We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:
+Our clients.
+If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.
+From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.
+We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.
+We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Disclose Your Personal Information
+We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties:
+
+We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.  Our policy is to inform our Service Providers not to use or disclose your Personal Information for any purpose other than for providing services to us.
+We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.
+We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:
+Our clients.
+If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.
+From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.
+We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.
+We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Disclose Your Personal Information
+We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties:
+
+We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.  Our policy is to inform our Service Providers not to use or disclose your Personal Information for any purpose other than for providing services to us.
+We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.
+We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:
+Our clients.
+If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.
+From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.
+We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.
+We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Disclose Your Personal Information
+We may share the categories of Personal Information described above in the following circumstances to the following categories of third parties:
+
+We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.  Our policy is to inform our Service Providers not to use or disclose your Personal Information for any purpose other than for providing services to us.
+We may share your Personal Information with companies that we own or control, or are owned or controlled by (our “Corporate Family”), including health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.
+We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:
+Our clients.
+If you choose to submit Personal Information through the “Testimonials” link, we may share your Personal Information publicly or with Third Parties.
+From time to time, we may be required to provide Personal Information to a Third Party in response to a court order, subpoena, government investigation, or as otherwise required by law or legal process.
+We may share your Personal Information with Third Parties, such as law enforcement agencies, other government agencies, or health authorities (i) when we, in good faith, believe you or others are acting unlawfully, (ii) when we believe it is necessary or appropriate to satisfy any law, regulation or other governmental request, (iii) to operate our business and Sites properly, (iv) to protect or defend our rights or the rights or well-being of our users, even without a subpoena, warrant or court order, or (v) we believe disclosure is necessary to protect the health and safety of our personnel, clients, guests, and the general public.
+We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, BDO USA has disclosed Personal Information for a business purpose as detailed in the How we Disclose Your Personal Information section above .</div>
+                    <div class='match-info'><b>Matched GT:</b> In the preceding 12 months, BDO USA has disclosed Personal Information for a business purpose as detailed in the How we Disclose Your Personal Information section above.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">In the preceding 12 months, BDO USA has sold or shared the following categories of Personal Information to with our targeted advertising service providers and partners: Identifiers, Internet or Other Electronic Activity Information, and Profile Information.</div>
+                    <div class='match-info'><b>Matched GT:</b> In the preceding 12 months, BDO USA has sold or shared the following categories of Personal Information to with our targeted advertising service providers and partners: Identifiers, Internet or Other Electronic Activity Information, and Profile Information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">The right to delete your Personal Information under specific circumstances;</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to delete your Personal Information under specific circumstances;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">The right to correct inaccurate Personal Information that we maintain about you;</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to correct inaccurate Personal Information that we maintain about you;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to know and access your Personal Information, such as the categories of Personal Information we have collected, the sources of Personal Information, the purposes of collection, and how we used, disclosed, sold, or shared Personal Information;</div>
+                    <div class='match-info'><b>Matched GT:</b> Your Rights
+Depending on where you live, you may have the following rights, subject to any applicable exemptions or limitations:
+
+The right to know and access your Personal Information, such as the categories of Personal Information we have collected, the sources of Personal Information, the purposes of collection, and how we used, disclosed, sold, or shared Personal Information;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know and access your Personal Information, such as the categories of Personal Information we have collected, the sources of Personal Information, the purposes of collection, and how we used, disclosed, sold, or shared Personal Information;</div>
+                    <div class='match-info'><b>Matched GT:</b> Your Rights
+Depending on where you live, you may have the following rights, subject to any applicable exemptions or limitations:
+
+The right to know and access your Personal Information, such as the categories of Personal Information we have collected, the sources of Personal Information, the purposes of collection, and how we used, disclosed, sold, or shared Personal Information;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">The right to opt out of the sale or sharing of your Personal Information, as such terms are defined by applicable laws;</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of the sale or sharing of your Personal Information, as such terms are defined by applicable laws;
+The right to object or opt out of certain types of processing, such as targeted advertising, direct marketing, and certain types of profiling and automated decision-making;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">If you choose to exercise any of these rights, BDO USA will not discriminate against you in any way.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you choose to exercise any of these rights, BDO USA will not discriminate against you in any way</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form .</div>
+                    <div class='match-info'><b>Matched GT:</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form.</div>
+                    <div class='match-info'><b>Matched GT:</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                    <div class='match-info'><b>Matched GT:</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If we deny your request and you would like to submit an appeal, please contact us at privacy@bdo.com.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any portion of the Expected Output. It only discusses the process for denying a request and appeals, lacking any reference to methods for exercising rights. Thus, it does not align with any of the evaluation conditions.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.39):</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Do Not Sell My Personal Information as to BDO Investigative Due Diligence</div>
+                    <div class='match-info'><b>Matched GT:</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Opt-out of Targeted Advertising – Do Not Sell or Share My Personal Information</div>
+                    <div class='match-info'><b>Matched GT:</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Please use the toggle at the right to disable targeted advertising technologies.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output, nor is it a list or table representation. It fails to capture the main meaning of the Expected Output, which discusses methods to exercise rights in detail, instead providing unrelated information about disabling targeted advertising technologies.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.41):</b> To the extent any of the above rights are applicable, you may exercise your rights by contacting us at privacy@bdo.com, by phone at 1 (877) 236-0001 or by completing our Consumer Request Form. If you wish to opt out of the sale of your Personal Information in the context of our Investigative Due Diligence services, you can submit your request by completing our Do not sell my Personal Information request form. You may opt out of our use of cookies and other technologies for targeted advertising purposes by navigating to the “Opt Out of Targeted Advertising - Do Not Sell or Share My Personal Information” link in the footer of the BDO website you are visiting or clicking through the option in the banner that appears when you first visit our website.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This Privacy Policy (&quot;Privacy Policy&quot;) describes how BDO USA, LLP and its subsidiaries (except as described below) (together, &quot;BDO USA&quot; or &quot;we&quot; or &quot;us&quot; or “our”) collect, use, and disclose the Personal Information we collect from or about you when you:
+
+Use the BDO USA website (www.bdo.com) or any other websites, blogs or pages that link to this Privacy Policy (together, the &quot;Sites&quot;);
+Communicate with us electronically, such as via email; and
+Interact with us offline, including in person, at an event or via phone.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">BDO as a Service Provider 
+Most of our clients are businesses, and we may receive and process Personal Information when we provide services to those clients. When this happens, we process your Personal Information pursuant to our contract with our client. That client’s privacy policy applies to your Personal Information, not ours.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">&quot;Personal Information&quot; 
+
+is information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly, with you or your household, such as your name, email address, IP address, telephone number, and broader categories of information such as your professional, educational or health information, commercial information, and internet activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may collect Personal Information directly from you and automatically through our use of cookies and other data collection technologies on our Sites. We may also collect your Personal Information from third-party sources, such as social media platforms (if you interact with us through your social media account), references you list on applications and forms, and third parties to whom you direct us to collect your Personal information. We will treat Personal Information collected from third-party sources in accordance with this Privacy Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may collect this information to verify your identity and information, to communicate with you, to create your BDO USA Account (“Account”) and to facilitate your use of our Sites.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may collect this information to process and manage your profile when you interact with us regarding networking events or our professional services, or if you submit an employment or other application to us. We may also collect information provided by you in the course of evaluating or engaging you for employment or other positions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This information may include your first and last name, email address, CV, resume, cover letter and any other information provided by or about you, including information from references and background check providers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may collect this information to understand your use of the Sites and of your Account.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies track where you travel on the Sites and what you look at. In doing so, a cookie may enable us to relate your use of the Sites to your Personal Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and Other Technologies
+We may use &quot;cookies&quot; to keep, and sometimes track, information about you on our Sites</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Web beacons collect information automatically, such as the type of browser that you use and your IP address</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may also use web beacons (a.k.a. clear GIFs, web bugs or pixel tags) to personalize your experience on the Sites, to generate information about Site traffic and trends, and to verify your viewing and/or receipt of communications</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Web beacons may be used alone or in conjunction with cookies. When web beacons are used with cookies, they may link this information to other Personal Information that you have provided to us</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Please note that we do not sell any personal information received on behalf of our clients, and we do not sell any personal information obtained in the course of providing our other services, including Tax, Audit &amp; Assurance and Advisory (other than IDD) services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">The right to request the restriction of processing of your Personal Information;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Opt-out of Targeted Advertising – Do Not Sell or Share My Personal Information
+BDO USA, LLP uses third party cookies and similar technologies to deliver targeted advertisements, also known as data “sharing” and/or “selling” under California law, as further detailed in our Privacy Policy. In accordance with applicable law, we provide you with the ability to opt out of these activities. If you opt-out below, we will no longer send you targeted advertisements based on information we collect when you visit this website from your web browser.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may, as a result of a sale, merger, consolidation, change in control, transfer of assets, reorganization, or liquidation of our company (a &quot;Reorganization Event&quot;), transfer or assign your Personal Information to parties involved in the Reorganization Event. You acknowledge that such transfers may occur and are permitted by and subject to this Privacy Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may share your Personal Information with companies or individuals outside of BDO USA who may use your Personal Information for their own purposes (a “Third Party”). For example:\nOur clients.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may share your Personal Information with companies or individuals that we contract with in order to receive services (our “Service Providers”). These services may include, among other things, providing products or services to you on our behalf, creating or maintaining our databases, payment processing, researching, and analyzing the people who request information from us, preparing distribution communications, responding to inquiries, or processing applications. We may also disclose to these Service Providers your health and travel-related information in order to protect the health and safety of our personnel, clients, guests, and the general public.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Personal Information&quot; \n\nis information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly, with you or your household, such as your name, email address, IP address, telephone number, and broader categories of information such as your professional, educational or health information, commercial information, and internet activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">&quot;Personal Information&quot; \n\nis information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly, with you or your household, such as your name, email address, IP address, telephone number, and broader categories of information such as your professional, educational or health information, commercial information, and internet activity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The categories of Personal Information that we collect from you depends on your interactions with us. For example, we may collect:\n\nIdentifiers, such as your name, postal address, phone number, e-mail address, IP address, online identifiers, account names, associated passwords, social media profiles and other similar identifiers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Protected Characteristics, provided with special protection under applicable law, such as your age, race, citizenship, gender, medical information, and disability information.\nProfessional and Employment-Related Information, such as information about your current and former employment, professional degrees and certifications, education background, information about references you list on your application form, certain Identifiers (in order to contact you), and other employment-related information, including your employment goals and objectives.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Commercial Information, such as products and services purchased from us through the use of our Sites.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Internet or other Electronic Activity Information, such as your browsing history, search history, which pages you visit on the Sites, other pages you visit on the Internet, and which browser you used to view the Sites.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Profile Information, such as information about your preferences and characteristics (including inferences drawn from other personal information).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">The categories of Personal Information that we collect from you depends on your interactions with us. For example, we may collect:\n\nIdentifiers, such as your name, postal address, phone number, e-mail address, IP address, online identifiers, account names, associated passwords, social media profiles and other similar identifiers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Protected Characteristics, provided with special protection under applicable law, such as your age, race, citizenship, gender, medical information, and disability information.\nProfessional and Employment-Related Information, such as information about your current and former employment, professional degrees and certifications, education background, information about references you list on your application form, certain Identifiers (in order to contact you), and other employment-related information, including your employment goals and objectives.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Commercial Information, such as products and services purchased from us through the use of our Sites</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Internet or other Electronic Activity Information, such as your browsing history, search history, which pages you visit on the Sites, other pages you visit on the Internet, and which browser you used to view the Sites.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Profile Information, such as information about your preferences and characteristics (including inferences drawn from other personal information).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Third Party Analytics\n\nWe use automated devices and applications, such as Google Analytics and Crazy Egg, to evaluate usage of our Sites. We also may use other analytic means to evaluate our Sites and services. We use these tools to help us improve the Sites, performance, and user experiences. These entities may use cookies and other tracking technologies to perform their services. We do not share your Personal Information with these third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To learn about how Crazy Egg uses the analytics information it collects, please visit Crazy Egg’s Privacy Policy; to opt-out of Crazy Egg’s analytics tracking, please visit https://www.crazyegg.com/opt-out/.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To learn about how Crazy Egg uses the analytics information it collects, please visit Crazy Egg’s Privacy Policy; to opt-out of Crazy Egg’s analytics tracking, please visit https://www.crazyegg.com/opt-out/.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may also sell information to the extent our use of cookies and tracking technologies for targeted advertising constitutes a “sale” under the CCPA.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">This use of cookies and tracking technologies also constitutes “sharing” under the CCPA.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Your opt-out rights are described in the Your Rights section below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to Our Privacy Policy\nWe may occasionally update this Privacy Policy to reflect changes in our practices. When we post modifications to this Privacy Policy, we will revise the &quot;Last Updated” date at the top of this web page. If the changes are material, we will endeavor to notify you in advance of such changes taking place. If you object to any modification, your sole recourse is to notify us that you do not agree and to stop using the Sites and providing us with your Personal Information.\n\nWe encourage you to periodically review this page for the latest information on our privacy practices.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

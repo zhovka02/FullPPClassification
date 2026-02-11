@@ -1,0 +1,669 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_224</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.67</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.49</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.56</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">20</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">25</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Effective Date: May 11, 2018</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective Date: May 11, 2018\n\nUpdated: December 22nd, 2022</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Updated: December 22 nd , 2022</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.30):</b> Effective Date: May 11, 2018\n\nUpdated: December 22nd, 2022</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Name and salutation; Business Contact information (such as job title, organization, location, phone number, email address, and country; Nature of communication; Marketing information including contact preferences; IP Address; Account log-in credentials (email address or username and password when you sign up for an account with us); Website user stats; Troubleshooting and support data (data you provide or we otherwise collect in connection with support queries we receive from you).</div>
+                    <div class='match-info'><b>Matched GT:</b> Redi Data collects personal information from our visitors on a voluntary basis only. The individual information we collect through forms on our websites are used to: facilitate the online experience through enhanced navigation, answer inquiries, provide requested information, and improve the structure and content of the site. This data helps us customize our website to better meet your online needs, so we may request and store the following specific types of information:\n\nName and salutation;\nBusiness Contact information (such as job title, organization, location, phone number, email address, and country;\nNature of communication;\nMarketing information including contact preferences;\nIP Address;\nAccount log-in credentials (email address or username and password when you sign up for an account with us);\nWebsite user stats;\nTroubleshooting and support data (data you provide or we otherwise collect in connection with support queries we receive from you).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">In the last 12 months, we collected the following categories of personal information from California residents, depending on the services used: Name and salutation; Business Contact information (such as job title, organization, location, phone number, email address, and country; Nature of communication; Marketing information including contact preferences; IP Address; Website user stats;</div>
+                    <div class='match-info'><b>Matched GT:</b> In the last 12 months, we collected the following categories of personal information from California residents, depending on the services used:\n\nName and salutation;\nBusiness Contact information (such as job title, organization, location, phone number, email address, and country;\nNature of communication;\nMarketing information including contact preferences;\nIP Address;\nWebsite user stats;</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output completely contains the Expected Output, as it provides the same information in a similar structure, fulfilling Step 1 of the evaluation. Therefore, it is marked as CORRECT.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We do not sell, rent or trade your personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> We do not sell, rent or trade your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Redi Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing Information We Collect\nRedi-Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Redi-Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing Information We Collect\nRedi-Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Redi Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing Information We Collect\nRedi-Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Redi-Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing Information We Collect\nRedi-Data does not sell, rent or otherwise transmit personal information to other organizations that it collects on this site.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Your right to erasure – You have the right to ask us to erase your personal information in certain circumstances.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in any form. They discuss different aspects of user rights regarding personal information; the Actual Output focuses on the right to erasure, while the Expected Output addresses the right to access and request deletion of personal information. There is no overlap or substring relationship that maintains the primary meaning.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.43):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you make a request for deletion, we will remove any data we hold about you from the Redi-Data CRM system. We will process your request within 30 days. Please make your request in writing by emailing us.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you make a request for deletion, we will remove any data we hold about you from the Redi-Data CRM system.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you make a request for deletion, we will remove any data we hold about you from the Redi-Data CRM system. We will process your request within 30 days. Please make your request in writing by emailing us.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you make a request for deletion, we will remove any data we hold about you from the Redi-Data CRM system.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">CPRA added the right to correct inaccurate personal information</div>
+                    <div class='match-info'><b>Matched GT:</b> CPRA added the right to correct inaccurate personal information</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Your right to rectification – You have the right to ask us to rectify personal information you think is inaccurate. You also have the right to ask us to complete information you think is incomplete.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as part of its text, nor is it a substring that captures the main meaning. Additionally, it does not represent a list or table format where the Expected Output could be an item. Therefore, the response lacks alignment with the evaluation steps.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.53):</b> CPRA added the right to correct inaccurate personal information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to know the categories of personal information we’ve collected about them and the categories of sources from which we got the information (see section A – The Types of Personal information collected and section C – Data Collected Through Third Parties);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the categories of personal information we’ve collected about them and the categories of sources from which we got the information (see section A – The Types of Personal information collected and section C – Data Collected Through Third Parties);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Your right of access – You have the right to ask us for copies of your personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor does it match the format of a list or table. Additionally, the core meaning of the Actual Output diverges significantly from the Expected Output, which focuses on categories of personal information and sources of collection.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.53):</b> The right to know the business purposes for which we’ve shared their personal information (see section B – Use of Personal Information);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Requests for a copy of the information we have about your account – including EU General Data Protection Regulation (“GDPR”) data subject access requests can be submitted using the contact information found in “section O” below.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.35):</b> The right to know the categories of personal information we’ve collected about them and the categories of sources from which we got the information (see section A – The Types of Personal information collected and section C – Data Collected Through Third Parties);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know the business purposes for which we’ve shared their personal information (see section B – Use of Personal Information);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the business purposes for which we’ve shared their personal information (see section B – Use of Personal Information);\nThe right to know the categories of third parties with whom we’ve shared their personal information (see section H – Share Information We Collect);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know the categories of third parties with whom we’ve shared their personal information (see section H – Share Information We Collect);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the business purposes for which we’ve shared their personal information (see section B – Use of Personal Information);\nThe right to know the categories of third parties with whom we’ve shared their personal information (see section H – Share Information We Collect);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">The right to opt-out of the sale of their personal information (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt-out of the sale of their personal information (see below)</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">CPRA added the right to limit the use and disclosure of sensitive personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> CPRA added the right to limit the use and disclosure of sensitive personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">The right to not be discriminated against for exercising their CCPA privacy rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to not be discriminated against for exercising their CCPA privacy rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either: Calling us at 877-417-2436 or Emailing us at privacy@redidata.com</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us at 877-417-2436 or\nEmailing us at privacy@redidata.com</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can contact us any time in order to find out more about your rights, or to exercise those rights, using the details set out in “Section O” below.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.33):</b> To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us at 877-417-2436 or\nEmailing us at privacy@redidata.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Requests for a copy of the information we have about your account – including EU General Data Protection Regulation (“GDPR”) data subject access requests can be submitted using the contact information found in “section O” below.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you make a request for deletion, we will remove any data we hold about you from the Redi-Data CRM system. We will process your request within 30 days. Please make your request in writing by emailing us.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.24):</b> To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us at 877-417-2436 or\nEmailing us at privacy@redidata.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you make a request for deletion, we will remove any data we hold about you from the Redi-Data CRM system. We will process your request within 30 days. Please make your request in writing by emailing us.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.24):</b> To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us at 877-417-2436 or\nEmailing us at privacy@redidata.com</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Questions or comments regarding this Policy should be submitted to our DPO and Quality Department: privacy@redidata.com Phone: 877-417-2436</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output nor is it a substring that preserves the main meaning. While both include contact information, they provide different information regarding exercising rights, with the Actual Output lacking the specifics of how to submit a consumer request.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.33):</b> To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us at 877-417-2436 or\nEmailing us at privacy@redidata.com</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Redi-Data is committed to providing you with a positive experience during your visit to our website while respecting and protecting your online privacy. We have adopted this Internet Privacy Policy to safeguard your personal information and protect its confidentiality. Redi-Data limits the collection and use of your information to what is necessary to administer our business, provide you with the highest quality visit, and deliver information we believe to be of interest to you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We do not sell, rent or trade your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The individual information we collect through forms on our websites are used to: facilitate the online experience through enhanced navigation, answer inquiries, provide requested information, and improve the structure and content of the site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">The individual information we collect through forms on our websites are used to: facilitate the online experience through enhanced navigation, answer inquiries, provide requested information, and improve the structure and content of the site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Use of Personal Information\nThe information collected on this site is used:\n\nTo get a better understanding of who visits the site for the purposes of developing content and products;\nTo obtain contact information to fulfill visitor inquiries and requests for materials such as whitepapers, webinars, brochures, emails, and email newsletters;\nDelivering marketing and events communication;\nTo communicate with you about your account and provide customer support to perform our contract with you for the use of the Service or where we have entered into a contract with you;\nTo respond to lawful requests by public authorities, including to meet national security or law enforcement requirements.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Use of Personal Information\nThe information collected on this site is used:\n\nTo get a better understanding of who visits the site for the purposes of developing content and products;\nTo obtain contact information to fulfill visitor inquiries and requests for materials such as whitepapers, webinars, brochures, emails, and email newsletters;\nDelivering marketing and events communication;\nTo communicate with you about your account and provide customer support to perform our contract with you for the use of the Service or where we have entered into a contract with you;\nTo respond to lawful requests by public authorities, including to meet national security or law enforcement requirements.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Use of Personal Information\nThe information collected on this site is used:\n\nTo get a better understanding of who visits the site for the purposes of developing content and products;\nTo obtain contact information to fulfill visitor inquiries and requests for materials such as whitepapers, webinars, brochures, emails, and email newsletters;\nDelivering marketing and events communication;\nTo communicate with you about your account and provide customer support to perform our contract with you for the use of the Service or where we have entered into a contract with you;\nTo respond to lawful requests by public authorities, including to meet national security or law enforcement requirements.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Collected Through Third Parties\n\nRedi Data may use third-party website tracking services, such as Google Analytics and Lead Forensics, to collect standard internet log information and details about your visit to our website.\n\nWe collect these statistics to determine the number of daily visitors to our site; the daily requests for particular files; the types of browsers our visitors use; the visitors’ domain names, pages visited, and countries of origin. This information does not include information on individual visitors.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Statistics, including delivery of email, open,s and clicks, are gathered using industry standard technologies to help us monitor and improve our emails.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Collection of relevant and socially legitimate information from reputable sources</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and Tracking Technologies\n\nRedi Data employs “cookie” technology to help visitors move faster through the site. When you visit our site, we pass a cookie to your computer. A cookie is a string of information that is sent by a website and stored on the hard drive or temporarily in your computer’s memory.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We store name, email, and region data so that forms for gated content do not need to be completed more than once.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This cookie is used to check whether user is visiting site using mobile or not.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This cookie is used to check language of site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This cookie is used to check whether user is visiting site using mobile or not.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This cookie is used to check language of site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This cookie is used to check whether user is visiting site using mobile or not. ||| This cookie is used to check language of site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The Californian Consumer Privacy Act (CCPA) requires us to provide California residents with some additional information about the categories of personal information we collect, share, where we get that personal information, and how and why we use it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The Californian Consumer Privacy Act (CCPA) requires us to provide California residents with some additional information about the categories of personal information we collect, share, where we get that personal information, and how and why we use it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You can find more information about (a) what we collect and sources of that information, (b) the business and commercial purposes for collecting that information,</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">the business and commercial purposes for collecting that information, and (c) the categories of third parties with whom we share that information within the sections above.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to know the business purposes for which we’ve shared their personal information (see section B – Use of Personal Information);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To exercise the access, opt-out, do not sell and deletion rights described above, you may submit a verifiable consumer request to us by either:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Retention and Deletion of Data\n\nWe will only retain your personal information for as long as necessary to fulfil the purpose we collected it for including the purposes of satisfying any legal, accounting, or reporting requirements.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to this Internet Privacy Policy\n\nWe may amend this privacy policy at any time, so please review it frequently and at least every time you submit personal information to us. The date at the top of this page will be amended each time the policy is updated. Our current privacy policy applies to all information that we have about you and your account.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

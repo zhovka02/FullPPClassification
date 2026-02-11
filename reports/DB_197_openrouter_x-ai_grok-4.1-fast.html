@@ -1,0 +1,1272 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_197</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.90</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.41</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.56</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">27</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">44</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated: July 22, 2021</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Updated: July 22, 2021</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We have collected the following information in the past 12 months: Category of Personal Information Source(s) Purpose(s) Categories of Third Parties With Whom We Share Personal Information Identifiers Directly from you Indirectly from you From data licensors To provide our Services To process payments through our third party payment processor To send you marketing communications To respond to inquiries Third party service providers Individuals or businesses who use the Services Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) Directly from you From data licensors To provide our Services To process payments through our third party payment processor Third party service providers Individuals or businesses who use the Services Protected classification characteristics under California or federal law From data licensors To provide our Services Individuals or businesses who use the Services Commercial information Directly from you To process payments through our third party payment processor Third party service providers Internet or other similar network activity Directly from you Indirectly from you, i.e., from observing your actions on our PeopleFinders Applications From third-parties that interact with us in connection with the Services To provide our Services To send you marketing communications To improve user experiences by making our PeopleFinders Applications easier to use and navigate Third party service providers Geolocation data Directly from you Indirectly from you From data licensors To provide our Services To process payments through our third party payment processor Third party service providers Individuals or businesses who use the Services Professional or employment-related information From data licensors Directly from you To provide our Services To process prospective job applications at PeopleFinders Individuals or businesses who use the Services Third party service providers</div>
+                    <div class='match-info'><b>Matched GT:</b> INFORMATION WE COLLECT
+
+We have collected the following information in the past 12 months:
+
+Category of Personal Information	Source(s)	Purpose(s)	Categories of Third Parties With Whom We Share Personal Information
+Identifiers
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+To send you marketing communications
+
+To respond to inquiries
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
+
+Directly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Protected classification characteristics under California or federal law
+
+From data licensors
+
+To provide our Services
+
+Individuals or businesses who use the Services
+
+Commercial information
+
+Directly from you
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Internet or other similar network activity
+
+Directly from you
+
+Indirectly from you, i.e., from observing your actions on our PeopleFinders Applications
+
+From third-parties that interact with us in connection with the Services
+
+To provide our Services
+
+To send you marketing communications
+
+To improve user experiences by making our PeopleFinders Applications easier to use and navigate
+
+Third party service providers
+
+Geolocation data
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Professional or employment-related information
+
+From data licensors
+
+Directly from you
+
+To provide our Services
+
+To process prospective job applications at PeopleFinders
+
+Individuals or businesses who use the Services
+
+Third party service providers</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers. We collect identifiers from you such as your name, postal address, email address and account name if you register with us or subscribe to our Services.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information Provided Directly by You
+
+Identifiers. We collect identifiers from you such as your name, postal address, email address and account name if you register with us or subscribe to our Services.
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as your name, address, email address , credit card or debit card number when you register with us and/or purchase certain products and services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as your name, address, email address , credit card or debit card number when you register with us and/or purchase certain products and services.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information Provided Directly by You
+
+Identifiers. We collect identifiers from you such as your name, postal address, email address and account name if you register with us or subscribe to our Services.
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as your name, address, email address , credit card or debit card number when you register with us and/or purchase certain products and services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Commercial information. We collect information about the products or services you have purchased through our Services.</div>
+                    <div class='match-info'><b>Matched GT:</b> Commercial information. We collect information about the products or services you have purchased through our Services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Internet or other similar network activity. When you are searching for people, you may enter third party personal information such as their name, address, or phone number, email.</div>
+                    <div class='match-info'><b>Matched GT:</b> Internet or other similar network activity. When you are searching for people, you may enter third party personal information such as their name, address, or phone number, email.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Geolocation data. We collect information about the cities and states in which you are located.</div>
+                    <div class='match-info'><b>Matched GT:</b> Geolocation data. We collect information about the cities and states in which you are located.
+Professional or employment-related information. We collect current and past job history and other information when you apply for a job at PeopleFinders</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Professional or employment-related information. We collect current and past job history and other information when you apply for a job at PeopleFinders.</div>
+                    <div class='match-info'><b>Matched GT:</b> INFORMATION WE COLLECT
+
+We have collected the following information in the past 12 months:
+
+Category of Personal Information	Source(s)	Purpose(s)	Categories of Third Parties With Whom We Share Personal Information
+Identifiers
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+To send you marketing communications
+
+To respond to inquiries
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
+
+Directly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Protected classification characteristics under California or federal law
+
+From data licensors
+
+To provide our Services
+
+Individuals or businesses who use the Services
+
+Commercial information
+
+Directly from you
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Internet or other similar network activity
+
+Directly from you
+
+Indirectly from you, i.e., from observing your actions on our PeopleFinders Applications
+
+From third-parties that interact with us in connection with the Services
+
+To provide our Services
+
+To send you marketing communications
+
+To improve user experiences by making our PeopleFinders Applications easier to use and navigate
+
+Third party service providers
+
+Geolocation data
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Professional or employment-related information
+
+From data licensors
+
+Directly from you
+
+To provide our Services
+
+To process prospective job applications at PeopleFinders
+
+Individuals or businesses who use the Services
+
+Third party service providers</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers. We collect information such as the device used to access PeopleFinders Applications (“Device”), and the IP address or other unique identifier identified by that Device (“Device Identifier”).</div>
+                    <div class='match-info'><b>Matched GT:</b> Identifiers. We collect information such as the device used to access PeopleFinders Applications (“Device”), and the IP address or other unique identifier identified by that Device (“Device Identifier”). Your Device Identifier may also identify your regional location.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Internet or other similar network activity. PeopleFinders and our marketing and distribution partners, affiliates, or analytics or service providers use various technologies to gather information such as your movements around the PeopleFinders Applications.</div>
+                    <div class='match-info'><b>Matched GT:</b> Internet or other similar network activity. PeopleFinders and our marketing and distribution partners, affiliates, or analytics or service providers use various technologies to gather information such as your movements around the PeopleFinders Applications.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Geolocation information. We collect Device Identifier information for many purposes including, for example to analyze traffic on our PeopleFinders Applications.</div>
+                    <div class='match-info'><b>Matched GT:</b> Geolocation information. We collect Device Identifier information for many purposes including, for example to analyze traffic on our PeopleFinders Applications.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers. We collect information such as names, email addresses, and postal addresses from third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Identifiers. We collect information such as names, email addresses, and postal addresses from third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as names and postal addresses from third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as names and postal addresses from third parties.
+Protected classification characteristics under California or federal law. We collect information such as age and marital status from third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Protected classification characteristics under California or federal law. We collect information such as age and marital status from third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as names and postal addresses from third parties.
+Protected classification characteristics under California or federal law. We collect information such as age and marital status from third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Internet or other similar network activity. The third parties we partner with, such as service providers, collect information about your interaction with our Services and pass that information to us.</div>
+                    <div class='match-info'><b>Matched GT:</b> Internet or other similar network activity. The third parties we partner with, such as service providers, collect information about your interaction with our Services and pass that information to us.
+Geolocation information. We collect addresses, which may include city and state, from third parties.
+Professional or employment-related information. We collect current or past job history from third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Geolocation information. We collect addresses, which may include city and state, from third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Internet or other similar network activity. The third parties we partner with, such as service providers, collect information about your interaction with our Services and pass that information to us.
+Geolocation information. We collect addresses, which may include city and state, from third parties.
+Professional or employment-related information. We collect current or past job history from third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Professional or employment-related information. We collect current or past job history from third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> Internet or other similar network activity. The third parties we partner with, such as service providers, collect information about your interaction with our Services and pass that information to us.
+Geolocation information. We collect addresses, which may include city and state, from third parties.
+Professional or employment-related information. We collect current or past job history from third parties.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Categories of Third Parties With Whom We Share Personal Information Identifiers ... Third party service providers Individuals or businesses who use the Services Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) ... Third party service providers Individuals or businesses who use the Services Protected classification characteristics under California or federal law ... Individuals or businesses who use the Services Commercial information ... Third party service providers Internet or other similar network activity ... Third party service providers Geolocation data ... Third party service providers Individuals or businesses who use the Services Professional or employment-related information ... Individuals or businesses who use the Services Third party service providers</div>
+                    <div class='match-info'><b>Matched GT:</b> INFORMATION WE COLLECT
+
+We have collected the following information in the past 12 months:
+
+Category of Personal Information	Source(s)	Purpose(s)	Categories of Third Parties With Whom We Share Personal Information
+Identifiers
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+To send you marketing communications
+
+To respond to inquiries
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
+
+Directly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Protected classification characteristics under California or federal law
+
+From data licensors
+
+To provide our Services
+
+Individuals or businesses who use the Services
+
+Commercial information
+
+Directly from you
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Internet or other similar network activity
+
+Directly from you
+
+Indirectly from you, i.e., from observing your actions on our PeopleFinders Applications
+
+From third-parties that interact with us in connection with the Services
+
+To provide our Services
+
+To send you marketing communications
+
+To improve user experiences by making our PeopleFinders Applications easier to use and navigate
+
+Third party service providers
+
+Geolocation data
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Professional or employment-related information
+
+From data licensors
+
+Directly from you
+
+To provide our Services
+
+To process prospective job applications at PeopleFinders
+
+Individuals or businesses who use the Services
+
+Third party service providers</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Deletion / Removal: If you wish to delete your personal information in your account, you have the ability to do so online by logging into your account, https://www.peoplefinders.com/dashboard/account/delete . You can also email us regarding your personal information by using our contact form located at https://www.peoplefinders.com/contact .</div>
+                    <div class='match-info'><b>Matched GT:</b> Deletion / Removal: If you wish to delete your personal information in your account, you have the ability to do so online by logging into your account, https://www.peoplefinders.com/dashboard/account/delete. You can also email us regarding your personal information by using our contact form located at https://www.peoplefinders.com/contact. If you delete information in your account, we may still retain certain information associated with your account for recordkeeping integrity, as well as to prevent fraud, resolve disputes, enforce our Terms of Use or other policies, take actions we deem necessary due to technical and legal requirements and constraints related to the security, integrity and operation of our PeopleFinders Applications.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">With regard to content on our PeopleFinders Applications, upon request we can block the records we have control over in our database from being shown on PeopleFinders. You can request for your personal information to be blocked from being searched using the link below.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in any form, nor is it a substring of the Expected Output. The content provided in the Actual Output focuses on blocking records rather than addressing the deletion of personal information as specified in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.42):</b> Deletion / Removal: If you wish to delete your personal information in your account, you have the ability to do so online by logging into your account, https://www.peoplefinders.com/dashboard/account/delete. You can also email us regarding your personal information by using our contact form located at https://www.peoplefinders.com/contact. If you delete information in your account, we may still retain certain information associated with your account for recordkeeping integrity, as well as to prevent fraud, resolve disputes, enforce our Terms of Use or other policies, take actions we deem necessary due to technical and legal requirements and constraints related to the security, integrity and operation of our PeopleFinders Applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">To manage or remove your personal information from our database, please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in its entirety, nor is it a list or table where the Expected Output could be an item. Additionally, the Actual Output is not a substring of the Expected Output that retains its main meaning, as it only addresses managing or removing personal information without capturing the detailed procedures and conditions outlined in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> Deletion / Removal: If you wish to delete your personal information in your account, you have the ability to do so online by logging into your account, https://www.peoplefinders.com/dashboard/account/delete. You can also email us regarding your personal information by using our contact form located at https://www.peoplefinders.com/contact. If you delete information in your account, we may still retain certain information associated with your account for recordkeeping integrity, as well as to prevent fraud, resolve disputes, enforce our Terms of Use or other policies, take actions we deem necessary due to technical and legal requirements and constraints related to the security, integrity and operation of our PeopleFinders Applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">If for any reason you are concerned about the personal information in your account, you may contact Customer Care to assist with updating your personal information in your account.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Know / Access: With regard to the content on our Site, you have the right to request information about the categories and specific pieces of personal information we have collected about you, as well as the categories of sources from which such information is collected, the purpose for collecting such information, and the categories of third parties with whom we share such information.</div>
+                    <div class='match-info'><b>Matched GT:</b> V. YOUR RIGHTS
+
+Know / Access: With regard to the content on our Site, you have the right to request information about the categories and specific pieces of personal information we have collected about you, as well as the categories of sources from which such information is collected, the purpose for collecting such information, and the categories of third parties with whom we share such information. You also have the right to request information about our sale or disclosure for business purposes of your personal information to third parties</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">You also have the right to request information about our sale or disclosure for business purposes of your personal information to third parties.</div>
+                    <div class='match-info'><b>Matched GT:</b> V. YOUR RIGHTS
+
+Know / Access: With regard to the content on our Site, you have the right to request information about the categories and specific pieces of personal information we have collected about you, as well as the categories of sources from which such information is collected, the purpose for collecting such information, and the categories of third parties with whom we share such information. You also have the right to request information about our sale or disclosure for business purposes of your personal information to third parties</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Opt-Out: You have the right to opt out of the sale of your personal information to third parties. From January 1, 2020, you can exercise this right through the “Do Not Sell My Personal Information” link in the footer of our PeopleFinders Applications.</div>
+                    <div class='match-info'><b>Matched GT:</b> Opt-Out: You have the right to opt out of the sale of your personal information to third parties</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Non-Discrimination: You have the right to not be discriminated against for exercising any of these rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Non-Discrimination: You have the right to not be discriminated against for exercising any of these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can exercise this right by clicking here .</div>
+                    <div class='match-info'><b>Matched GT:</b> You can exercise this right by clicking here.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">https://www.peoplefinders.com/dashboard/account/delete</div>
+                    <div class='match-info'><b>Matched GT:</b> Deletion / Removal: If you wish to delete your personal information in your account, you have the ability to do so online by logging into your account, https://www.peoplefinders.com/dashboard/account/delete. You can also email us regarding your personal information by using our contact form located at https://www.peoplefinders.com/contact.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">using our contact form located at https://www.peoplefinders.com/contact</div>
+                    <div class='match-info'><b>Matched GT:</b> You may choose not to receive our promotional communications or opt out of our sharing information with third parties for marketing purposes by accessing &quot;My Account&quot; and updating your settings in “Email preferences”, or you may e-mail us by using our contact form located at https://www.peoplefinders.com/contact. You may also click the unsubscribe link in the footer of any email. You may also close your account.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">“Do Not Sell My Personal Information” link in the footer of our PeopleFinders Applications.</div>
+                    <div class='match-info'><b>Matched GT:</b> From January 1, 2020, you can exercise this right through the “Do Not Sell My Personal Information” link in the footer of our PeopleFinders Applications</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">This information may be shared with our partners and affiliates for the purpose of evaluating your qualifications for the particular position or other available positions, as well as with third-party service providers retained by us to collect, maintain and analyze candidate submissions for job postings.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Professional or employment-related information. We collect current and past job history and other information when you apply for a job at PeopleFinders</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Geolocation data. We collect information about the cities and states in which you are located.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Commercial information. We collect information about the products or services you have purchased through our Services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Identifiers. We collect information such as the device used to access PeopleFinders Applications (“Device”), and the IP address or other unique identifier identified by that Device (“Device Identifier”). Your Device Identifier may also identify your regional location.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">B. Information Collected Indirectly from You
+
+In addition to any personal information or other information that you choose to submit to us, we and our third-party service providers may use a variety of technologies, such as cookies, beacons, tags and scripts, which automatically collect certain information whenever you visit or interact with the PeopleFinders Applications. We collect the following information indirectly from you through:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This information is used for many purposes including, for example, to: (i) provide useful features to simplify your experience when you return to PeopleFinders Applications; for example, remembering the searches you conducted; (ii) deliver relevant content based on your preferences, usage patterns and location; (iii) monitor and evaluate the use and operation of our PeopleFinders Applications; and (iv) analyze traffic on our PeopleFinders Applications and on the sites and applications of third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Internet or other similar network activity. PeopleFinders and our marketing and distribution partners, affiliates, or analytics or service providers use various technologies to gather information such as your movements around the PeopleFinders Applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This information is used to analyze trends and administer the PeopleFinders Applications</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">In particular, Google Analytics Premium feature is enabled on the PeopleFinders Applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Google Analytics will collect data about our PeopleFinders Applications traffic via Google advertising cookies and anonymous identifiers, in addition to data collected through a standard Google Analytics implementation.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We also use cookies to remember users’ settings (e.g., language preference), and for authentication</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">C. Information We Collect From Third Parties
+
+We acquire information from other trusted sources, such as data licensors, to update or supplement the information you provided or we collected automatically. We use this information to help us maintain the recency of the information we collect, to target our communications so that we can inform you of products, services and offers that may be of interest, and for internal business analysis or other business purposes. We collect the following from third parties:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Identifiers. We collect information such as names, email addresses, and postal addresses from third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">II. ADVERTISING
+
+Advertisers and third parties also may collect information about your activity on PeopleFinders Applications and on third-party sites and applications using tracking technologies</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you wish to not have this information used for the purpose of serving you targeted ads, you may opt-out by clicking here</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to not have this information used for the purpose of serving you targeted ads, you may opt-out by clicking here</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">III. HOW WE USE AND SHARE YOUR INFORMATION
+
+Use of Information by Us. We may use information that we collect about you: (1) to provide you with information or process transactions that you have requested or agreed to receive; (2) to provide you with information regarding new features, products or services; (3) to improve the PeopleFinders Applications or our Services and to customize your experience; (4) to contact you with regard to your use of the PeopleFinders Applications and, in our discretion, changes to the PeopleFinders Applications and/or the PeopleFinders Applications’ policies; (5) for internal business purposes; (6) for purposes disclosed at the time you provide your information, and (7) as otherwise set forth in this Privacy Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Service Providers. We may use third party service providers to help us operate our business and the PeopleFinders Applications or administer activities on our behalf, such as processing payments. We may share your information with these third parties for those limited purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You may choose not to receive our promotional communications or opt out of our sharing information with third parties for marketing purposes by accessing &quot;My Account&quot; and updating your settings in “Email preferences”, or you may e-mail us by using our contact form located at https://www.peoplefinders.com/contact.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Your California Privacy Rights. California Civil Code Section 1798.83 permits visitors to our PeopleFinders Applications who are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Your California Privacy Rights. California Civil Code Section 1798.83 permits visitors to our PeopleFinders Applications who are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">INFORMATION WE COLLECT
+
+We have collected the following information in the past 12 months:
+
+Category of Personal Information	Source(s)	Purpose(s)	Categories of Third Parties With Whom We Share Personal Information
+Identifiers
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+To send you marketing communications
+
+To respond to inquiries
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
+
+Directly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Protected classification characteristics under California or federal law
+
+From data licensors
+
+To provide our Services
+
+Individuals or businesses who use the Services
+
+Commercial information
+
+Directly from you
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Internet or other similar network activity
+
+Directly from you
+
+Indirectly from you, i.e., from observing your actions on our PeopleFinders Applications
+
+From third-parties that interact with us in connection with the Services
+
+To provide our Services
+
+To send you marketing communications
+
+To improve user experiences by making our PeopleFinders Applications easier to use and navigate
+
+Third party service providers
+
+Geolocation data
+
+Directly from you
+
+Indirectly from you
+
+From data licensors
+
+To provide our Services
+
+To process payments through our third party payment processor
+
+Third party service providers
+
+Individuals or businesses who use the Services
+
+Professional or employment-related information
+
+From data licensors
+
+Directly from you
+
+To provide our Services
+
+To process prospective job applications at PeopleFinders
+
+Individuals or businesses who use the Services
+
+Third party service providers</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">While many products and services on our PeopleFinders Applications are provided free, some require payment from you by credit/debit card (“Billing Information”). Our third party payment processor processes Billing Information on our behalf to verify and complete the purchase transaction</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">If you are purchasing a recurring billing subscription, we store limited Billing Information (i.e., encrypted card information and expiration date).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Identifiers. We collect identifiers from you such as your name, postal address, email address and account name if you register with us or subscribe to our Services.
+Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as your name, address, email address , credit card or debit card number when you register with us and/or purchase certain products and services</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">If you are purchasing a recurring billing subscription, we store limited Billing Information (i.e., encrypted card information and expiration date).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">B. Information Collected Indirectly from You
+
+In addition to any personal information or other information that you choose to submit to us, we and our third-party service providers may use a variety of technologies, such as cookies, beacons, tags and scripts, which automatically collect certain information whenever you visit or interact with the PeopleFinders Applications. We collect the following information indirectly from you through:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To learn more about Google Analytics privacy practices and opt-out mechanisms, please visit the Google Analytics Security and Privacy Principles page at https://support.google.com/analytics/answer/6004245?hl=en.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To learn more about Google Analytics privacy practices and opt-out mechanisms, please visit the Google Analytics Security and Privacy Principles page at https://support.google.com/analytics/answer/6004245?hl=en. Google also provides a complete privacy policy and instructions on opting-out of Google Analytics at https://tools.google.com/dlpage/gaoptout</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)). We collect information such as names and postal addresses from third parties.
+Protected classification characteristics under California or federal law. We collect information such as age and marital status from third parties.
+Internet or other similar network activity. The third parties we partner with, such as service providers, collect information about your interaction with our Services and pass that information to us.
+Geolocation information. We collect addresses, which may include city and state, from third parties.
+Professional or employment-related information. We collect current or past job history from third parties.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Tracking data collected by these advertisers and third parties is used to decide which ads you see both on our PeopleFinders Applications and on third-party sites and applications, but is not associated with your registration account.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to not have this information used for the purpose of serving you targeted ads, you may opt-out by clicking here</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Transactional Communications. We may send you notices from time to time relating to your account or your orders. These may include order confirmations, invoices or customer service notifications. We may also send you service-related announcements when it is necessary to do so; for instance, if our Service is temporarily suspended for maintenance, or the delivery of a product is delayed or there is some service issue with something you may have ordered.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Co-branded Areas. Certain areas on our PeopleFinders Applications may be provided to you in association with third parties such as sponsors or advertisers which provide products and or services, (“Co-Branded Areas”). Such Co-Branded Areas will identify the third party. If you elect to register for the products and/or services provided at these Co-Branded Areas, you either will be providing your personal information to both us and the third party or we might be providing your personal information directly to the third party in order for that third party to fulfill their products and services directly with you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Co-branded Areas. Certain areas on our PeopleFinders Applications may be provided to you in association with third parties such as sponsors or advertisers which provide products and or services, (“Co-Branded Areas”). Such Co-Branded Areas will identify the third party. If you elect to register for the products and/or services provided at these Co-Branded Areas, you either will be providing your personal information to both us and the third party or we might be providing your personal information directly to the third party in order for that third party to fulfill their products and services directly with you</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Third Party Integrations. If you sign up for, or log into, our PeopleFinders Applications using a third party service such as Facebook or Google, or link your account with us to your account with a third party service such as Facebook or Google, we may receive information about you from such third party service, such as your name and email address</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Legal Matters; Safety. We may, without your consent, access and disclose your personal information, any communications sent or received by you (including, without limitation, the contents of any chat, messaging, or other communication posted in the Communication Services), and any other information that we may have about you or your account as may be permitted or required by law (including, but not limited to, court order or subpoena), or to prevent or investigate suspected fraud, violations of our Terms of Use or activity that appears to us to be illegal or may expose us to legal liability. Additionally, we may disclose your information and/or communications in situations that we believe to be: (i) emergencies involving potential threats to the physical safety of any person or property if we believe that your information in any way relates to that threat; or (ii) your conduct on the PeopleFinders Applications or when using the Communication Services that we believe is inappropriate and inconsistent with generally accepted norms of behavior.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sale or Transfer of Business or Assets. In the event that we, or any of our businesses, are sold or disposed of as a going concern, whether by merger, sale of assets or otherwise, or in the event of an insolvency, bankruptcy or receivership, personal information of our customers and visitors to our PeopleFinders Applications may be one of the assets sold or merged in connection with that transaction. Information about our customers and registered users may also need to be disclosed in connection with a commercial transaction where we or any one of our businesses are seeking financing, investment, support or funding. In such transactions, personal information will be subject to the promises made in any pre-existing Privacy Policy in effect when the information was obtained</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sale or Transfer of Business or Assets. In the event that we, or any of our businesses, are sold or disposed of as a going concern, whether by merger, sale of assets or otherwise, or in the event of an insolvency, bankruptcy or receivership, personal information of our customers and visitors to our PeopleFinders Applications may be one of the assets sold or merged in connection with that transaction. Information about our customers and registered users may also need to be disclosed in connection with a commercial transaction where we or any one of our businesses are seeking financing, investment, support or funding. In such transactions, personal information will be subject to the promises made in any pre-existing Privacy Policy in effect when the information was obtained.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Advertising and Analytics data collection. PeopleFinders and some third-party vendors use first-party cookies (such as the Google Analytics cookie) or other first-party identifiers, and third-party cookies (such as Google advertising cookies) or other third-party identifiers together to recognize you, customize your experience, and serve advertisements both on and off PeopleFinders Applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Advertising and Analytics data collection. PeopleFinders and some third-party vendors use first-party cookies (such as the Google Analytics cookie) or other first-party identifiers, and third-party cookies (such as Google advertising cookies) or other third-party identifiers together to recognize you, customize your experience, and serve advertisements both on and off PeopleFinders Applications.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">USER GENERATED CONTENT
+
+The Services may contain review or chat areas and/or other message, communication or other mechanisms designed to enable you to communicate with others or to post content on the PeopleFinders Applications (the “Communication Services”). Please remember that any information you disclose while participating with the Communication Services becomes public information, becomes the property of, and is subject to redistribution by, PeopleFinders.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to the Privacy Policy. We may change this Privacy Policy from time to time. The most recent version of the Privacy Policy will always be posted on our Site, with the &quot;Last Updated&quot; date posted at the top. We may revise and update this Privacy Policy if our practices change, as technology changes, or as we add new PeopleFinders Applications or Communication Services or change existing ones. You will know if we revise and update this Privacy Policy because the Last Updated date of the Privacy Policy will change. If we are going to use any personal information in a manner that is materially different from that stated in our Privacy Policy at the time we collected such information, we will give you a reasonable opportunity to consent to the change. If you do not consent, your personal information will be used as agreed to under the terms of the Privacy Policy in effect at the time we obtained that information. By accessing the PeopleFinders Applications after the revised Privacy Policy has been posted, you are deemed to consent to our then-current Privacy Policy. We will use information previously obtained in accordance with the Privacy Policy in effect when the information was obtained from you.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

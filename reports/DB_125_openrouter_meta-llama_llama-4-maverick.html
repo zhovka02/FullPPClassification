@@ -1,0 +1,309 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_125</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">1.00</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.55</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.71</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">12</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">11</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Privacy Policy Effective Date: Dec 26, 2019</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective Date: Dec 26, 2019</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The categories of information we collect and have collected in the last 12 months, include: Contact Data , including your name, email address, postal address, and phone number. Demographic Data , including your age, gender, and country. Search Data , including the people, usernames or phone numbers you search and the results of those searches. Content , including the content within messages you send to us such as questions to our customer support.</div>
+                    <div class='match-info'><b>Matched GT:</b> Information Collection.\nA. Information You Provide.\nWe collect information about you when you use the Service or interact with us offline, including information you provide when you search for people, usernames or phone numbers on www.peekyou.com, access our content, submit a request, or contact our customer support. The categories of information we collect and have collected in the last 12 months, include:\n\nContact Data, including your name, email address, postal address, and phone number.\nDemographic Data, including your age, gender, and country.\nSearch Data, including the people, usernames or phone numbers you search and the results of those searches.\nContent, including the content within messages you send to us such as questions to our customer support.\nYou may choose to voluntarily provide other information to us that we do not request, and, in such instances, you are solely responsible for such information.\n\nB. Information Collected Automatically.\nIn addition, we automatically collect information when you use the Service. The categories of information we automatically collect, including in the last 12 months, includes:\n\nService Use Data, including data about the features you use, the pages you visit, the searches you make and view, the links you click, the time of day you browse, and your referring and exiting pages.\nDevice Connectivity and Configuration Data, including data about the type of device or browser you use, device operating software, internet service provider, device’s regional and language settings, and device identifiers such as IP address and Ad Id.\nLocation Data, including imprecise location data (such as location derived from an IP address or data that indicates a city or postal code level) and, with your consent, precise location data (such as latitude/longitude data).\nWe use various current – and later – developed tracking technologies to automatically collect information when you use the Service, including the following:\n\nLog Files, which are files that record events that occur in connection with your use of the Service.\nCookies, which are small data files stored on your device that act as a unique tag to identify your browser. We use two types of cookies: session cookies and persistent cookies. Session cookies make it easier for you to navigate our website and expire when you close your browser. Persistent cookies help with personalizing your experience, remembering your preferences, supporting security features, and allow us to bring you advertising both on and off the Service. Persistent cookies may remain on your device for extended periods of time, and generally may be controlled through your browser settings.\nPixels (also known as web beacons), which is code embedded in a website, video, email, or advertisement that sends information about your use to a server. There are various types of pixels, including image pixels (which are small graphic images) and JavaScript pixels (which contains JavaScript code). When you access a website, video, email, or advertisement that contains a pixel, the pixel may permit us or a third party to drop or read cookies on your browser. Pixels are used in combination with cookies to track activity by a particular browser on a particular device. We may incorporate pixels from third parties that allow us to track our conversions, bring you advertising both on and off the Service, and provide you with additional functionality, such as the ability to connect our Service with your social media account.\nFor further information on how we use tracking technologies for analytics and advertising, and your rights and choices regarding them, see the “Analytics and Advertising” and “Your Rights and Choices” sections below.\n\nC. Information from Other Sources.\nWe also receive information from other sources. The categories of sources from which we collect and have collected information, including in the last 12 months, include:\n\nData brokers or resellers from which we purchase data to supplement the data we collect.\nSocial networks when you engage with our content, reference our Service, or grant us permission to access information from the social networks.\nPartners that engage in joint marketing activities.\nPublic sources, including data in the public domain. PeekYou indexes websites and content available on the public Internet to return search results you request.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The categories of information we automatically collect, including in the last 12 months, includes: Service Use Data , including data about the features you use, the pages you visit, the searches you make and view, the links you click, the time of day you browse, and your referring and exiting pages. Device Connectivity and Configuration Data , including data about the type of device or browser you use, device operating software, internet service provider, device’s regional and language settings, and device identifiers such as IP address and Ad Id. Location Data , including imprecise location data (such as location derived from an IP address or data that indicates a city or postal code level) and, with your consent, precise location data (such as latitude/longitude data).</div>
+                    <div class='match-info'><b>Matched GT:</b> Information Collection.\nA. Information You Provide.\nWe collect information about you when you use the Service or interact with us offline, including information you provide when you search for people, usernames or phone numbers on www.peekyou.com, access our content, submit a request, or contact our customer support. The categories of information we collect and have collected in the last 12 months, include:\n\nContact Data, including your name, email address, postal address, and phone number.\nDemographic Data, including your age, gender, and country.\nSearch Data, including the people, usernames or phone numbers you search and the results of those searches.\nContent, including the content within messages you send to us such as questions to our customer support.\nYou may choose to voluntarily provide other information to us that we do not request, and, in such instances, you are solely responsible for such information.\n\nB. Information Collected Automatically.\nIn addition, we automatically collect information when you use the Service. The categories of information we automatically collect, including in the last 12 months, includes:\n\nService Use Data, including data about the features you use, the pages you visit, the searches you make and view, the links you click, the time of day you browse, and your referring and exiting pages.\nDevice Connectivity and Configuration Data, including data about the type of device or browser you use, device operating software, internet service provider, device’s regional and language settings, and device identifiers such as IP address and Ad Id.\nLocation Data, including imprecise location data (such as location derived from an IP address or data that indicates a city or postal code level) and, with your consent, precise location data (such as latitude/longitude data).\nWe use various current – and later – developed tracking technologies to automatically collect information when you use the Service, including the following:\n\nLog Files, which are files that record events that occur in connection with your use of the Service.\nCookies, which are small data files stored on your device that act as a unique tag to identify your browser. We use two types of cookies: session cookies and persistent cookies. Session cookies make it easier for you to navigate our website and expire when you close your browser. Persistent cookies help with personalizing your experience, remembering your preferences, supporting security features, and allow us to bring you advertising both on and off the Service. Persistent cookies may remain on your device for extended periods of time, and generally may be controlled through your browser settings.\nPixels (also known as web beacons), which is code embedded in a website, video, email, or advertisement that sends information about your use to a server. There are various types of pixels, including image pixels (which are small graphic images) and JavaScript pixels (which contains JavaScript code). When you access a website, video, email, or advertisement that contains a pixel, the pixel may permit us or a third party to drop or read cookies on your browser. Pixels are used in combination with cookies to track activity by a particular browser on a particular device. We may incorporate pixels from third parties that allow us to track our conversions, bring you advertising both on and off the Service, and provide you with additional functionality, such as the ability to connect our Service with your social media account.\nFor further information on how we use tracking technologies for analytics and advertising, and your rights and choices regarding them, see the “Analytics and Advertising” and “Your Rights and Choices” sections below.\n\nC. Information from Other Sources.\nWe also receive information from other sources. The categories of sources from which we collect and have collected information, including in the last 12 months, include:\n\nData brokers or resellers from which we purchase data to supplement the data we collect.\nSocial networks when you engage with our content, reference our Service, or grant us permission to access information from the social networks.\nPartners that engage in joint marketing activities.\nPublic sources, including data in the public domain. PeekYou indexes websites and content available on the public Internet to return search results you request.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">In the past 12 months, PeekYou has sold certain categories of personal information, including identifiers, demographic information, Internet activity, and commercial information.</div>
+                    <div class='match-info'><b>Matched GT:</b> We use and partner with different types of entities to assist with our daily operations and manage our Service. Please review the “Sharing of Information” section for more detail about the parties we have shared information with. To the extent “sale” is interpreted to include engaging in advertising technology activities such as those disclosed in the “Analytics and Advertising” section, PeekYou will comply with applicable law. In the past 12 months, PeekYou has sold certain categories of personal information, including identifiers, demographic information, Internet activity, and commercial information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The categories of entities to whom we disclose information for business purposes, including in the last 12 months, includes: Service Providers . We share information with entities that process the information on our behalf. Service providers assist us with services such as data analytics, marketing and advertising, website hosting, and technical support. Vendors . We share information with vendors, including analytics and advertising technology companies. Partners . We share information with our partners in connection with engaging in joint marketing activities.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing of Information.\nWe share information we collect in accordance with the practices described in this Privacy Policy. The categories of entities to whom we disclose information for business purposes, including in the last 12 months, includes:\n\nService Providers. We share information with entities that process the information on our behalf. Service providers assist us with services such as data analytics, marketing and advertising, website hosting, and technical support. We contractually prohibit our service providers from retaining, using, or disclosing information about you for any purpose other than performing the services for us, although we may permit them to use information that does not identify you (including information that has been aggregated or de-identified) for any purpose except as prohibited by applicable law.\nVendors. We share information with vendors, including analytics and advertising technology companies. Vendors may act as our service providers, or in certain contexts, independently decide how to process your information. For more information on advertising and analytics, see the “Advertising and Analytics” section below.\nPartners. We share information with our partners in connection with engaging in joint marketing activities.\nMerger or Acquisition. We share information in connection with, or during negotiations of, any proposed or actual merger, purchase, sale or any other type of acquisition or business combination of all or any portion of our assets, or transfer of all or a portion of our business to another business.\nSecurity and Compelled Disclosure. We share information to comply with the law or other legal process, and where required, in response to lawful requests by public authorities, including to meet national security or law enforcement requirements. We also share information to protect the rights, property, life, health, security and safety of us, the Service or anyone else.\nFacilitating Requests. We share information at your request or direction, such as when you click on a third parties link on our website or choose to share information with a social network about your activities on the Service.\nConsent. We may share information for any other purposes with notice to you or with your consent.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you are a California resident, you have the right to delete personal information we have about you... To exercise any of these rights to know or delete, please submit a request through our online form available at ‘RIGHT TO KNOW AND DELETE’ or email us at info@peekyou.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise any of these rights to know or delete, please submit a request through our online form available at ‘RIGHT TO KNOW AND DELETE’ or email us at info@peekyou.com .</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to request the following from us: The categories of personal information we have collected about you; The categories of sources from which personal information was collected; The categories of personal information disclosed for a business purpose or sold; The categories of third parties to whom the personal information was disclosed for a business purpose or sold; The business or commercial purpose for collecting or selling personal information; and The specific pieces of personal information we have collected about you.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know and Delete.\nIf you are a California resident, you have the right to delete personal information we have about you and the right to know certain information about our data practices in the preceding 12 months. In particular, you have the right to request the following from us:\n\nThe categories of personal information we have collected about you;\nThe categories of sources from which personal information was collected;\nThe categories of personal information disclosed for a business purpose or sold;\nThe categories of third parties to whom the personal information was disclosed for a busines purpose or sold;\nThe business or commercial purpose for collecting or selling personal information; and\nThe specific pieces of personal information we have collected about you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">You have the right to request the following from us: ... The categories of personal information disclosed for a business purpose or sold; The categories of third parties to whom the personal information was disclosed for a business purpose or sold;</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Know and Delete.\nIf you are a California resident, you have the right to delete personal information we have about you and the right to know certain information about our data practices in the preceding 12 months. In particular, you have the right to request the following from us:\n\nThe categories of personal information we have collected about you;\nThe categories of sources from which personal information was collected;\nThe categories of personal information disclosed for a business purpose or sold;\nThe categories of third parties to whom the personal information was disclosed for a busines purpose or sold;\nThe business or commercial purpose for collecting or selling personal information; and\nThe specific pieces of personal information we have collected about you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To the extent PeekYou sells your personal information as the term “sell” is defined under the CCPA, you have the right to opt out of the sale of your personal information at any time. You may submit a request to opt out by clicking Do Not Sell My Personal Information or emailing us at info@peekyou.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Opt Out.\nTo the extent PeekYou sells your personal information as the term “sell” is defined under the CCPA, you have the right to opt out of the sale of your personal information at any time. You may submit a request to opt out by clicking Do Not Sell My Personal Information or emailing us at info@peekyou.com .</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">You have the right not to receive discriminatory treatment by us for the exercise of any your rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Non-Discrimination.\nYou have the right not to receive discriminatory treatment by us for the exercise of any your rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise any of these rights to know or delete, please submit a request through our online form available at ‘RIGHT TO KNOW AND DELETE’ or email us at info@peekyou.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise any of these rights to know or delete, please submit a request through our online form available at ‘RIGHT TO KNOW AND DELETE’ or email us at info@peekyou.com .</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may submit a request to opt out by clicking Do Not Sell My Personal Information or emailing us at info@peekyou.com .</div>
+                    <div class='match-info'><b>Matched GT:</b> You may submit a request to opt out by clicking Do Not Sell My Personal Information or emailing us at info@peekyou.com .</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Use of Information.\nWe use information we collect for business and commercial purposes in accordance with the practices described in this Privacy Policy. Our business and commercial purposes for using information, including in the last 12 months, include the following:\n\nProviding our Service, including processing the terms you search for in order to return results to third party websites.\nPerforming services requested by you.\nResponding to your comments, questions, and requests, and provide customer service. Sending you technical notices, updates, security alerts, information regarding changes to our policies, and support and administrative messages.\nPreventing and addressing fraud, breach of policies or terms, and threats or harm.\nMonitoring and analysing trends, usage, and activities. Conducting research, including focus groups and surveys.\nManaging and improving the Service or other PeekYou websites, apps, marketing efforts, products and services.\nDeveloping and sending you direct marketing, including advertisements and communications about our and third party products, offers, promotions, and services.\nProviding advertising.\nFulfilling any other business or commercial purposes at your direction or with your consent.\nNotwithstanding the above, we may use information that does not identify you (including information that has been aggregated or de-identified) for any purpose except as prohibited by applicable law. For information on your rights and choices regarding how we use information about you, please see the “Your Rights and Choices” section below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Use of Information.\nWe use information we collect for business and commercial purposes in accordance with the practices described in this Privacy Policy. Our business and commercial purposes for using information, including in the last 12 months, include the following:\n\nProviding our Service, including processing the terms you search for in order to return results to third party websites.\nPerforming services requested by you.\nResponding to your comments, questions, and requests, and provide customer service. Sending you technical notices, updates, security alerts, information regarding changes to our policies, and support and administrative messages.\nPreventing and addressing fraud, breach of policies or terms, and threats or harm.\nMonitoring and analysing trends, usage, and activities. Conducting research, including focus groups and surveys.\nManaging and improving the Service or other PeekYou websites, apps, marketing efforts, products and services.\nDeveloping and sending you direct marketing, including advertisements and communications about our and third party products, offers, promotions, and services.\nProviding advertising.\nFulfilling any other business or commercial purposes at your direction or with your consent.\nNotwithstanding the above, we may use information that does not identify you (including information that has been aggregated or de-identified) for any purpose except as prohibited by applicable law. For information on your rights and choices regarding how we use information about you, please see the “Your Rights and Choices” section below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Use of Information.\nWe use information we collect for business and commercial purposes in accordance with the practices described in this Privacy Policy. Our business and commercial purposes for using information, including in the last 12 months, include the following:\n\nProviding our Service, including processing the terms you search for in order to return results to third party websites.\nPerforming services requested by you.\nResponding to your comments, questions, and requests, and provide customer service. Sending you technical notices, updates, security alerts, information regarding changes to our policies, and support and administrative messages.\nPreventing and addressing fraud, breach of policies or terms, and threats or harm.\nMonitoring and analysing trends, usage, and activities. Conducting research, including focus groups and surveys.\nManaging and improving the Service or other PeekYou websites, apps, marketing efforts, products and services.\nDeveloping and sending you direct marketing, including advertisements and communications about our and third party products, offers, promotions, and services.\nProviding advertising.\nFulfilling any other business or commercial purposes at your direction or with your consent.\nNotwithstanding the above, we may use information that does not identify you (including information that has been aggregated or de-identified) for any purpose except as prohibited by applicable law. For information on your rights and choices regarding how we use information about you, please see the “Your Rights and Choices” section below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sharing of Information.\nWe share information we collect in accordance with the practices described in this Privacy Policy. The categories of entities to whom we disclose information for business purposes, including in the last 12 months, includes:\n\nService Providers. We share information with entities that process the information on our behalf. Service providers assist us with services such as data analytics, marketing and advertising, website hosting, and technical support. We contractually prohibit our service providers from retaining, using, or disclosing information about you for any purpose other than performing the services for us, although we may permit them to use information that does not identify you (including information that has been aggregated or de-identified) for any purpose except as prohibited by applicable law.\nVendors. We share information with vendors, including analytics and advertising technology companies. Vendors may act as our service providers, or in certain contexts, independently decide how to process your information. For more information on advertising and analytics, see the “Advertising and Analytics” section below.\nPartners. We share information with our partners in connection with engaging in joint marketing activities.\nMerger or Acquisition. We share information in connection with, or during negotiations of, any proposed or actual merger, purchase, sale or any other type of acquisition or business combination of all or any portion of our assets, or transfer of all or a portion of our business to another business.\nSecurity and Compelled Disclosure. We share information to comply with the law or other legal process, and where required, in response to lawful requests by public authorities, including to meet national security or law enforcement requirements. We also share information to protect the rights, property, life, health, security and safety of us, the Service or anyone else.\nFacilitating Requests. We share information at your request or direction, such as when you click on a third parties link on our website or choose to share information with a social network about your activities on the Service.\nConsent. We may share information for any other purposes with notice to you or with your consent.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">As part of this process, we may incorporate tracking technologies into our own Service (including our website and emails) as well as into our ads displayed on other websites and services. Some of these tracking technologies may track your activities across time and services for purposes of associating the different devices you use, and delivering relevant ads and/or other content to you (“Interest-based Advertising”).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to this Privacy Policy.\nWe reserve the right to revise and reissue this Privacy Policy at any time. Any changes will be effective immediately upon posting of the revised Privacy Policy. Your continued use of our Service indicates your consent to the Privacy Policy then posted. If the changes are material, we may provide you additional notice to your email address.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Notice of Collection.\nIn the past 12 months, we have collected the following categories of personal information listed in the CCPA:\n\nIdentifiers, including name, email address, phone number, IP address, and Unique ID.\nDemographics, including age and gender. This category includes data that may qualify as protected classifications under other California or federal laws.\nCommercial information, including search data.\nInternet activity, including your service use data and other interactions with the Service.\nGeolocation data, including location enabled services such as WiFi and GPS.\nFor more detail on information we collect, including the sources we receive information from, review the “Information Collection” section. We collect and use these categories of personal information for the business purposes described in the “Use of Information” section, including providing our Service.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We use and partner with different types of entities to assist with our daily operations and manage our Service. Please review the “Sharing of Information” section for more detail about the parties we have shared information with. To the extent “sale” is interpreted to include engaging in advertising technology activities such as those disclosed in the “Analytics and Advertising” section, PeekYou will comply with applicable law. In the past 12 months, PeekYou has sold certain categories of personal information, including identifiers, demographic information, Internet activity, and commercial information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you are a California resident, you have the right to delete personal information we have about you and the right to know certain information about our data practices in the preceding 12 months.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">To exercise any of these rights to know or delete, please submit a request through our online form available at ‘RIGHT TO KNOW AND DELETE’ or email us at info@peekyou.com .</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">To exercise any of these rights to know or delete, please submit a request through our online form available at ‘RIGHT TO KNOW AND DELETE’ or email us at info@peekyou.com .</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

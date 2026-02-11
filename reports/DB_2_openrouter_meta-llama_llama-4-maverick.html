@@ -1,0 +1,435 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_2</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.40</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.16</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.23</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">4</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">6</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">21</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last updated January 1, 2023</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers Name, email, phone number, IP address Internet/Solutions activity Your interaction with our websites or Solutions Professional information Organization for which you are a user</div>
+                    <div class='match-info'><b>Matched GT:</b> Category	Examples
+Identifiers	Name, email, phone number, IP address
+Internet/Solutions activity	Your interaction with our websites or Solutions
+Professional information	Organization for which you are a user</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may disclose your data to our affiliated organizations and subsidiaries, and to service providers who render services to us or you on our behalf. We also may disclose your information if required by law or to enforce our legal rights or defend us against a legal claim or for the identification or remediation of suspected or actual fraudulent activity or security incidents. We may share your information in connection with a sale or reorganization of Blackbaud. We may also share your personal data if it is necessary to act in urgent circumstances to protect the safety of Blackbaud customers, website visitors, or the public.</div>
+                    <div class='match-info'><b>Matched GT:</b> Blackbaud may share your personal information as necessary to provide the Services or as you specifically request. We may disclose your data to our affiliated organizations and subsidiaries, and to service providers who render services to us or you on our behalf. We also may disclose your information if required by law or to enforce our legal rights or defend us against a legal claim or for the identification or remediation of suspected or actual fraudulent activity or security incidents. We may share your information in connection with a sale or reorganization of Blackbaud. We may also share your personal data if it is necessary to act in urgent circumstances to protect the safety of Blackbaud customers, website visitors, or the public.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You can ask us to delete your data.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.16):</b> the right to request deletion</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You can ask us to correct any incorrect data we have about you.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.14):</b> or correction of your data</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You can ask us for a copy of the information we have about you.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output verbatim, nor is it a list or table format where the Expected Output could be found. Furthermore, the Actual Output is not a substring of the Expected Output that preserves the main meaning, resulting in a complete mismatch.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.49):</b> Use of Cookies
+A cookie is a piece of information that a web server may place on your computer when you visit a website. Cookies are commonly used by websites to improve the user experience and have not been known to transmit computer viruses or otherwise harm your computer. Many cookies last only through a single website session, or visit. Others may have an expiration date, or may remain on your computer until you delete them.
+
+We may use cookies for a number of purposes—for example, to maintain continuity during a user session, to gather data about the usage of our website for research and other purposes, to store your preferences for certain kinds of information or to store a user name or encrypted identification number so that you do not have to provide this information every time you return to our website. To ensure we are publishing content customers need and want, Blackbaud collects aggregated site-visitation statistics using cookies. When someone visits the site, a cookie is placed on the customer’s machine (if the customer accepts cookies) or is read if the customer has visited the website previously.
+
+Our cookies will track only your activity relating to your online activity on this website, and will not track your other Internet activity.
+
+You can decide if and how your computer will accept a cookie by configuring your preferences or options in your browser. However, if you choose to reject cookies, you may not be able to use certain of our Services or website features. For example, if you choose to not have your browser accept cookies from Blackbaud’s website, you will need to re-enter your personal information each time that you attempt to access premium information.
+
+Certain pages on our websites contain “web beacons” (also known as Internet tags, pixel tags and clear GIFs). These web beacons allow third parties to obtain information such as the IP address of the computer that downloaded the page on which the beacon appears, the URL of the page on which the beacon appears, the time the page containing the beacon was viewed, the type of browser used to view the page, and the information in cookies set by the third party.
+
+An IP address is a unique identifier that certain electronic devices use to identify and communicate with each other on the Internet. When you visit our website, we may view the IP address of the device you use to connect to the Internet. We use this information to determine the general physical location of the device and understand from what regions of the world our website visitors come. We also may use this information to enhance our website.
+
+Our website detects and honors the Global Privacy Control signal in accordance with applicable privacy laws. The Global Privacy Control is a signal that can be enabled in certain browsers or browser extensions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The additional privacy protections provided by those laws include: ... the right to know what information we collect, disclose, and sell;</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Blackbaud does not sell your personal information collected in connection with BBID or share your personal information with any third parties for targeted behavioral advertising.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.29):</b> and the right to opt out of the sale of your data or the sharing of your data for purposes of targeted behavioral advertising</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Businesses can’t discriminate against you for exercising any of these rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Businesses can’t discriminate against you for exercising any of these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise any of your rights, please see our Data Subject Rights Request page at https://www.blackbaud.com/company/Data-Subject-Rights-Request or call our toll-free number at +1 844-532-0022.</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise any of your rights, please see our Data Subject Rights Request page at https://www.blackbaud.com/company/Data-Subject-Rights-Request or call our toll-free number at +1 844-532-0022 . We will verify your identity where required prior to fulfilling your request, which may require government identification. Authorized agents may be used to submit rights requests, in which cases we will take steps to verify the consumer’s identity and that the agent has authority to act on the consumer’s behalf.</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">At Blackbaud, we are committed to protecting your privacy. This Policy applies to Blackbaud’s collection and use of personal data in connection with your use of Blackbaud Identity (“BBID”). For information about our marketing practices and provision of the Blackbaud Solutions, customer support and other services (collectively, the “Services”), for example if you visit the website, interact with us at industry conferences, or work for a current or prospective customer of the Services), please see our general privacy policy at https://www.blackbaud.com/company/privacy-policy/north-america . If you only interact with Blackbaud by using BBID, only this policy will apply to you. The terms “personal data” or “personal information” refer to information that can reasonably identify an individual.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We collect personal data that you provide to us when you are asked to register for a Blackbaud ID and when you use the Services you access through BBID, including your name, email address, phone number, IP address, and organization you’re affiliated with that has contracted for the Services you are using BBID to access.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Blackbaud collects data in the following categories:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">In addition to the purposes described when we collect data from you, we may use your personal information in the following ways: Log In: Using your Blackbaud ID, we allow you to sign into the secure portion of our website or a Blackbaud Solution. We also use your data to give you access to the Blackbaud Community, where we may notify you of important news and alerts about our Services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">In addition to the purposes described when we collect data from you, we may use your personal information in the following ways: Improving Blackbaud: We use aggregated and personal data about you and your use of our websites and the Blackbaud Services to develop, improve, and test those services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">In addition to the purposes described when we collect data from you, we may use your personal information in the following ways: Compliance and Safety: We may use your personal data to comply with our legal obligations and to identify and remediate suspected or actual fraudulent activity or security incidents.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Blackbaud does not sell your personal information collected in connection with BBID or share your personal information with any third parties for targeted behavioral advertising. We also don’t collect, use, or disclose any sensitive personal information, as defined under applicable state or federal law, except as described below (see “Children’s Privacy”).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">If you are a registered user of our website, you may review and update this information at any time on www.blackbaud.com. Registered users can view and edit personal information they have already given us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">Children’s Privacy
+Blackbaud does not knowingly collect any information from children under the age of 13 in the United States unless and until a student’s school has obtained appropriate parental consent for a student under the age of 13 to use BBID. Because Blackbaud collects and uses personal information of students at the direction of and under the control of a school, Blackbaud relies on each school to provide appropriate notice to parents of the school&#x27;s use of third party service providers such as Blackbaud, and for the schools to provide consent, if necessary, and authorization for Blackbaud to collect personal information of students, as permitted by the Children&#x27;s Online Privacy Protection Act (COPPA) and other applicable data protection laws. We collect, use, process and retain personal information of students solely to provide the educational services on behalf of the school and for the purposes set forth in our agreement with the school. Please contact us at privacy@blackbaud.com if you believe we have inadvertently collected personal information of a child without proper consent so that we may delete such data as soon as possible.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">Security of your Personal Information
+We restrict access to personal information collected about you a t our website to our employees, our affiliates’ employees, those who are otherwise specified in this Policy or others who need to know that information to provide the Services to you or in the course of conducting our business operations or activities. While no website can guarantee exhaustive security, we maintain appropriate physical, electronic and procedural safeguards to protect your personal information collected via the website. We protect our databases with various physical, technical and procedural measures and we restrict access to your information by unauthorized persons. We also advise all Blackbaud employees about their responsibility to protect customer data and we provide them with appropriate guidelines for adhering to our company’s business ethics standards and confidentiality policies. Inside Blackbaud, data is stored in password-controlled servers with limited access.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Use of Cookies
+A cookie is a piece of information that a web server may place on your computer when you visit a website. Cookies are commonly used by websites to improve the user experience and have not been known to transmit computer viruses or otherwise harm your computer. Many cookies last only through a single website session, or visit. Others may have an expiration date, or may remain on your computer until you delete them.
+
+We may use cookies for a number of purposes—for example, to maintain continuity during a user session, to gather data about the usage of our website for research and other purposes, to store your preferences for certain kinds of information or to store a user name or encrypted identification number so that you do not have to provide this information every time you return to our website. To ensure we are publishing content customers need and want, Blackbaud collects aggregated site-visitation statistics using cookies. When someone visits the site, a cookie is placed on the customer’s machine (if the customer accepts cookies) or is read if the customer has visited the website previously.
+
+Our cookies will track only your activity relating to your online activity on this website, and will not track your other Internet activity.
+
+You can decide if and how your computer will accept a cookie by configuring your preferences or options in your browser. However, if you choose to reject cookies, you may not be able to use certain of our Services or website features. For example, if you choose to not have your browser accept cookies from Blackbaud’s website, you will need to re-enter your personal information each time that you attempt to access premium information.
+
+Certain pages on our websites contain “web beacons” (also known as Internet tags, pixel tags and clear GIFs). These web beacons allow third parties to obtain information such as the IP address of the computer that downloaded the page on which the beacon appears, the URL of the page on which the beacon appears, the time the page containing the beacon was viewed, the type of browser used to view the page, and the information in cookies set by the third party.
+
+An IP address is a unique identifier that certain electronic devices use to identify and communicate with each other on the Internet. When you visit our website, we may view the IP address of the device you use to connect to the Internet. We use this information to determine the general physical location of the device and understand from what regions of the world our website visitors come. We also may use this information to enhance our website.
+
+Our website detects and honors the Global Privacy Control signal in accordance with applicable privacy laws. The Global Privacy Control is a signal that can be enabled in certain browsers or browser extensions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">including the right to know what information we collect, disclose, and sell</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">the right to access a copy of your data</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">the right to request deletion</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">or correction of your data</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">and the right to opt out of the sale of your data or the sharing of your data for purposes of targeted behavioral advertising</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">Individuals in the UK, EEA, and Switzerland
+Legal Bases for Using Your Data
+
+We process your personal data on a variety of legal bases depending on the use. Blackbaud has a legitimate commercial interest in using your data to improve Blackbaud. When you request that we perform certain functions for you, these activities require that we process your personal details, or else we can’t perform the function you’re requesting. The functions you can request are to provide you with a Blackbaud ID and provide you with the Services you use. These uses of your data are necessary for us to perform a contract or a request you’ve made.
+
+Our Legitimate Interests
+
+We may process your personal data for the purposes of our legitimate interests, provided that these uses aren’t outweighed by your rights or interests. For any uses we justify on the basis of legitimate interest, you have the right to opt out of such processing by contacting us . For each of the following purposes, we have conducted a legitimate interest assessment to ensure that such processing isn’t overridden by your rights or interests.
+
+Making Blackbaud Better: As stated above, we use aggregated and personal data about you and your use of our website and Services to develop and test such Services. These activities are necessary to fulfill our interest in creating better tools for enhancing the ecosystem of good by helping us create better technology, better communications and a better website.
+
+Consequences of Not Providing Data
+
+You are not required to provide personal data to us. Note, however, that your failure to do so may affect our ability to provide the Services and fulfil your requests. For example, we cannot provide you access to the Services without authorising you as a user for your organisation.
+
+Automated Decision-Making
+
+Blackbaud does not conduct automated decision-making on BBID users.
+
+Your Rights
+
+Blackbaud recognises that your personal data belongs to you and we don’t wish to use it in ways that you don’t want us to. You can exercise a variety of rights regarding our use of your data:. You can ask us for a copy of the information we have about you.. You can ask us to delete your data.. You can ask for your data in a common, machine-readable format.. You can object to any processing we do on the basis of legitimate interests.
+
+Blackbaud recognises that your personal data belongs to you and we don’t wish to use it in ways that you don’t want us to. You can ask us to correct any incorrect data we have about you. If you are a registered user of our website, you may review and update this information at any time on www.blackbaud.co.uk. Registered users can view and edit personal information they have already given us.
+
+Blackbaud recognises that your personal data belongs to you and we don’t wish to use it in ways that you don’t want us to. You can ask us to restrict the processing of your data. We may send you e-mails with promotional offers, special event information, sales notifications or other messages. If you would no longer like to receive such e-mails from us, please follow the “Unsubscribe” instructions at the end of each email or contact us. Your e-mail address will be removed from our marketing list.
+
+To exercise your access, correction, or deletion rights, please see our Consumer Privacy Rights Request page [add link].  For all other requests, please contact us at privacy@blackbaud.com . Note that some of these rights aren’t absolute—for example, we may not be able to forget you if we have to keep some of your data to comply with the law—but we’ll evaluate your request in accordance with applicable data protection laws. Blackbaud will respond to your request within one month of receiving it. Also, note that you have the right to lodge a complaint with the UK Information Commissioner’s Office or the supervisory authority in your country of residence or place of work.
+
+Individuals in Australia
+
+You can notify us of any complaint you may have about our handling of your personal information by emailing privacy@blackbaud.com. We will endeavor to reply to you within 30 days of receipt of the complaint and, where appropriate, will advise you of the general reasons for the outcome of the complaint. While we hope that we will be able to resolve any complaints you may have without needing to involve third parties, if you are not satisfied with the outcome of your complaint, you can refer your complaint to the Office of the Australian Information Commissioner.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">For questions about this Policy or our privacy practices or to appeal a decision we’ve made regarding your privacy rights, please email privacy@blackbaud.com.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Blackbaud may update this Policy at any time and from time to time and we will post any changes to this page. The most recent version of the Policy is reflected by the version date located at the bottom of this Policy.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">In the section above titled “Collection and Use of Personal Information,” we have included descriptions of: the data we collect; the categories of sources of such information; and the purposes for which we use and disclose the data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Blackbaud does not sell your personal information collected in connection with BBID or share your personal information with any third parties for targeted behavioral advertising. We also don’t collect, use, or disclose any sensitive personal information, as defined under applicable state or federal law.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

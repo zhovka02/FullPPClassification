@@ -1,0 +1,544 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_209</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.61</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.59</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.60</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">17</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">11</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">14</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Lucid Holdings, LLC Privacy Policy Effective Date: May 28, 2019</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective Date: May 28, 2019</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">general technical user data, such as your device’s Internet Protocol (IP) address, operating system and browser type, and the date and time of your visit</div>
+                    <div class='match-info'><b>Matched GT:</b> Usage and Browsing Information Your Devices Transmits\nYou can visit most of our Sites without registering or actively submitting Personal Data to us. If you do not register, general technical user data, such as your device’s Internet Protocol (IP) address, operating system and browser type, and the date and time of your visit, may be automatically collected through the use of “cookies” (small files that are stored on your computer by a website to give you a unique identification) or other technologies. For Users, cookies also keep track of services you have used, record registration information regarding your login name and password, ensure you do not repeatedly see survey questions, record your preferences and keep you logged into the Lucid Sites.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">contact information such as your name, email address, mailing address and company affiliation</div>
+                    <div class='match-info'><b>Matched GT:</b> Information You Actively Submit\nAs a User of the Marketplace or Visitor to our Sites\n\nIf you register on our Sites as a user or sign up for our newsletter on behalf of a corporate customer (e.g., a client or supplier of market research sample), you will provide contact information such as your name, email address, mailing address and company affiliation.\n\nAs a Respondent\n\nIf you use our Sites as a Respondent, you will be prompted to provide certain demographic information about yourself and answer survey questions. In each such case, you know what information you provide and we collect, because you will actively submit the information.\n\nd. Business Information\nWe do collect employee contact names, addresses, phone numbers and email addresses of our business partners, including buyers, suppliers and vendors, for the administration of our business relationships.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">certain demographic information about yourself and answer survey questions</div>
+                    <div class='match-info'><b>Matched GT:</b> Information You Actively Submit\nAs a User of the Marketplace or Visitor to our Sites\n\nIf you register on our Sites as a user or sign up for our newsletter on behalf of a corporate customer (e.g., a client or supplier of market research sample), you will provide contact information such as your name, email address, mailing address and company affiliation.\n\nAs a Respondent\n\nIf you use our Sites as a Respondent, you will be prompted to provide certain demographic information about yourself and answer survey questions. In each such case, you know what information you provide and we collect, because you will actively submit the information.\n\nd. Business Information\nWe do collect employee contact names, addresses, phone numbers and email addresses of our business partners, including buyers, suppliers and vendors, for the administration of our business relationships.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">employee contact names, addresses, phone numbers and email addresses of our business partners</div>
+                    <div class='match-info'><b>Matched GT:</b> Information You Actively Submit\nAs a User of the Marketplace or Visitor to our Sites\n\nIf you register on our Sites as a user or sign up for our newsletter on behalf of a corporate customer (e.g., a client or supplier of market research sample), you will provide contact information such as your name, email address, mailing address and company affiliation.\n\nAs a Respondent\n\nIf you use our Sites as a Respondent, you will be prompted to provide certain demographic information about yourself and answer survey questions. In each such case, you know what information you provide and we collect, because you will actively submit the information.\n\nd. Business Information\nWe do collect employee contact names, addresses, phone numbers and email addresses of our business partners, including buyers, suppliers and vendors, for the administration of our business relationships.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">IP Addresses, Cookie Identifiers, Device Identifiers transmitted by a Respondent’s device and qualifying demographic data</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output nor does it refer to the same subject matter. The Actual Output lists types of personal information collected, while the Expected Output describes the use of tracking technologies such as Pixels and cookies. This indicates a complete lack of alignment with the evaluation steps.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.27):</b> Information Tracking Technologies\nWe may use, and allow third parties to use, Pixels (sometimes called web beacons) on our Sites (or other third-party sites) to monitor the effectiveness of survey qualifications. Pixels may be linked to your Personal Information, and they collect the IP address of the device to which the web beacon is sent (for geolocation lookup), the URL of the page the web beacon comes from, the user agent string (for device lookup), and the time it was viewed. We may also use third-party devices, links or electronic mail, to deliver surveys to you during which additional Personal Information may be collected. These third-party surveys or devices may use cookies, web beacons or other technology to collect information about your visits to our Sites (or other third-party sites) in order to present surveys that may be applicable to you. We may collect traffic information and data on and from the use of third-party sites on behalf of our customers. Lucid may use a Pixel or cookie to examine what is happening on third-party websites, including programs and sites with marketing and advertising partners, to improve the understanding of site traffic at a granular level, market research effectiveness and brand lift reporting.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">the IP address of the device to which the web beacon is sent (for geolocation lookup), the URL of the page the web beacon comes from, the user agent string (for device lookup), and the time it was viewed</div>
+                    <div class='match-info'><b>Matched GT:</b> Information Tracking Technologies\nWe may use, and allow third parties to use, Pixels (sometimes called web beacons) on our Sites (or other third-party sites) to monitor the effectiveness of survey qualifications. Pixels may be linked to your Personal Information, and they collect the IP address of the device to which the web beacon is sent (for geolocation lookup), the URL of the page the web beacon comes from, the user agent string (for device lookup), and the time it was viewed. We may also use third-party devices, links or electronic mail, to deliver surveys to you during which additional Personal Information may be collected. These third-party surveys or devices may use cookies, web beacons or other technology to collect information about your visits to our Sites (or other third-party sites) in order to present surveys that may be applicable to you. We may collect traffic information and data on and from the use of third-party sites on behalf of our customers. Lucid may use a Pixel or cookie to examine what is happening on third-party websites, including programs and sites with marketing and advertising partners, to improve the understanding of site traffic at a granular level, market research effectiveness and brand lift reporting.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">your first and last name in combination with other identifying Personal Data</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing of Personal Information and Accountability for Onward Transfer\na. User Data from Our Sites (other than from the Lucid Marketplace).\nWhen we have collected your first and last name in combination with other identifying Personal Data while using our Sites, we will only externally share that data as follows:\n\nWith your consent;\nWith affiliated and unaffiliated service providers all over the world that help us deliver our Services and run our business and Sites;\nWhen and as required by law including to meet national security requirements or to protect you, other users, us or third parties from harm, including fraud, data security breaches or where someone’s physical safety seem at risk; or\nIn connection with a reorganization or sale of our company or assets, subject to the acquirer accepting the commitments made in this Policy and ensuring that the transfer is in compliance with applicable law.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Respondent Screening Data, information collected via the Lucid tracking pixel, as well as data identified from third party databases (data management platforms)</div>
+                    <div class='match-info'><b>Matched GT:</b> Respondent Screening Data from the Lucid Marketplace\nWe share your Respondent Screening Data, information collected via the Lucid tracking pixel, as well as data identified from third party databases (data management platforms) with third party partners and Clients. They may use this data to help them understand consumer trends, measure effectiveness of advertising campaigns and make better media decisions. While some of this information may be used by our third party partners and Clients to inform targeting models, we contractually prohibit them from using any information we provide for the purpose of directly retargeting you via their advertising.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">your Personal Data we collect directly on our Sites and via other external third-party survey hosting platforms</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output. There is no overlap or similarity in meaning; the Actual Output discusses data collection practices without addressing the specific information listed in the Expected Output regarding cookies and user registration data.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.48):</b> Information Tracking Technologies\nWe may use, and allow third parties to use, Pixels (sometimes called web beacons) on our Sites (or other third-party sites) to monitor the effectiveness of survey qualifications. Pixels may be linked to your Personal Information, and they collect the IP address of the device to which the web beacon is sent (for geolocation lookup), the URL of the page the web beacon comes from, the user agent string (for device lookup), and the time it was viewed. We may also use third-party devices, links or electronic mail, to deliver surveys to you during which additional Personal Information may be collected. These third-party surveys or devices may use cookies, web beacons or other technology to collect information about your visits to our Sites (or other third-party sites) in order to present surveys that may be applicable to you. We may collect traffic information and data on and from the use of third-party sites on behalf of our customers. Lucid may use a Pixel or cookie to examine what is happening on third-party websites, including programs and sites with marketing and advertising partners, to improve the understanding of site traffic at a granular level, market research effectiveness and brand lift reporting.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Certain Personal Data may be exchanged between Suppliers and Lucid</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output and lacks relevant details about the categories of personal information shared or disclosed. It fails to relate to the broader context of user data, which is crucial for satisfying the test case parameters.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.36):</b> Information Tracking Technologies\nWe may use, and allow third parties to use, Pixels (sometimes called web beacons) on our Sites (or other third-party sites) to monitor the effectiveness of survey qualifications. Pixels may be linked to your Personal Information, and they collect the IP address of the device to which the web beacon is sent (for geolocation lookup), the URL of the page the web beacon comes from, the user agent string (for device lookup), and the time it was viewed. We may also use third-party devices, links or electronic mail, to deliver surveys to you during which additional Personal Information may be collected. These third-party surveys or devices may use cookies, web beacons or other technology to collect information about your visits to our Sites (or other third-party sites) in order to present surveys that may be applicable to you. We may collect traffic information and data on and from the use of third-party sites on behalf of our customers. Lucid may use a Pixel or cookie to examine what is happening on third-party websites, including programs and sites with marketing and advertising partners, to improve the understanding of site traffic at a granular level, market research effectiveness and brand lift reporting.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Information you share about your demographics, lifestyles, interests and opinions</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output as a substring. It focuses on general demographics and personal interests, which is only marginally related and does not retain the core meaning of the detailed technical information provided in the Expected Output. Thus, it fails to align with any of the evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> If you do not register, general technical user data, such as your device’s Internet Protocol (IP) address, operating system and browser type, and the date and time of your visit, may be automatically collected through the use of “cookies” (small files that are stored on your computer by a website to give you a unique identification) or other technologies. For Users, cookies also keep track of services you have used, record registration information regarding your login name and password, ensure you do not repeatedly see survey questions, record your preferences and keep you logged into the Lucid Sites.\n\nc. Information You Actively Submit\nAs a User of the Marketplace or Visitor to our Sites\n\nIf you register on our Sites as a user or sign up for our newsletter on behalf of a corporate customer (e.g., a client or supplier of market research sample), you will provide contact information such as your name, email address, mailing address and company affiliation.\n\nAs a Respondent\n\nIf you use our Sites as a Respondent, you will be prompted to provide certain demographic information about yourself and answer survey questions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">your Personal Data via data synchronizations with DMPs</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not include any part of the Expected Output text and does not show alignment with the expected information provided. It is neither a list nor a substring of the Expected Output, failing to meet all evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.36):</b> Respondent Screening Data from the Lucid Marketplace\nWe share your Respondent Screening Data, information collected via the Lucid tracking pixel, as well as data identified from third party databases (data management platforms) with third party partners and Clients. They may use this data to help them understand consumer trends, measure effectiveness of advertising campaigns and make better media decisions. While some of this information may be used by our third party partners and Clients to inform targeting models, we contractually prohibit them from using any information we provide for the purpose of directly retargeting you via their advertising.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">delete your user information</div>
+                    <div class='match-info'><b>Matched GT:</b> Access &amp; Correction\nIf you register as a Buyer or Supplier, you can update, correct, or delete your user information and email subscription preferences by going to the log-in section of our Sites.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">You have the right to correct, amend, or delete that information where it is inaccurate, or has been processed in violation of the Privacy Shield Principles</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to correct, amend, or delete that information where it is inaccurate, or has been processed in violation of the Privacy Shield Principles, except where the burden or expense of providing access would be disproportionate to the risks to the individual’s privacy in the case in question, or where the rights of persons other than the individual would be violated.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">delete Personal Information held by Lucid</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor is it presented in a way that could be identified within a list or table. Additionally, the Actual Output does not align in meaning with the Expected Output, which discusses user information management whereas the Actual Output solely references deleting personal information without context.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.30):</b> Access &amp; Correction\nIf you register as a Buyer or Supplier, you can update, correct, or delete your user information and email subscription preferences by going to the log-in section of our Sites.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">update, correct, or delete your user information</div>
+                    <div class='match-info'><b>Matched GT:</b> Access &amp; Correction\nIf you register as a Buyer or Supplier, you can update, correct, or delete your user information and email subscription preferences by going to the log-in section of our Sites.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You have the right to correct, amend, or delete that information where it is inaccurate</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to correct, amend, or delete that information where it is inaccurate, or has been processed in violation of the Privacy Shield Principles, except where the burden or expense of providing access would be disproportionate to the risks to the individual’s privacy in the case in question, or where the rights of persons other than the individual would be violated.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You have the right to access the Personal Information we hold about you.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the right to access the Personal Information we hold about you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You may also access your information that Lucid holds by contacting us</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.28):</b> You have the right to access the Personal Information we hold about you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">opt-out whether your Personal Information is (i) to be disclosed to a third party or (ii) to be used for a purpose that is materially different from the purpose(s) for which it was originally collected or subsequently authorized by the individuals.</div>
+                    <div class='match-info'><b>Matched GT:</b> Choice Regarding Collection, Use &amp; Distribution of Personal Information\nYou can choose to opt-out whether your Personal Information is (i) to be disclosed to a third party or (ii) to be used for a purpose that is materially different from the purpose(s) for which it was originally collected or subsequently authorized by the individuals.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you do not wish to participate in any of Lucid’s online measurement and research services, please click here to receive an opt-out cookie.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you do not wish to participate in any of Lucid’s online measurement and research services, please click here to receive an opt-out cookie</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">by going to the log-in section of our Sites.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.23):</b> If you do not wish to participate in any of Lucid’s online measurement and research services, please click here to receive an opt-out cookie</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">by contacting us at the address below.</div>
+                    <div class='match-info'><b>Matched GT:</b> ou may also access your information that Lucid holds by contacting us at the address below.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">by contacting us at: Lucid Holdings, LLC Attn: Pauline Wen, General Counsel &amp; Chief Privacy Officer 365 Canal Street Suite 3100 New Orleans, LA 70130 United States of America Email: privacy@luc.id</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains part of the information needed to contact Lucid Holdings, but it does not include the complete context of exercising rights regarding personal information as stated in the Expected Output. Key elements, such as the ability to make changes to account information or delete personal information, are missing, resulting in a significant loss of meaning.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.68):</b> You may make changes to your account information, access, correct, or delete Personal Information held by Lucid by contacting us at:\n\nLucid Holdings, LLC\nAttn: Pauline Wen, General Counsel &amp; Chief Privacy Officer\n365 Canal Street\nSuite 3100\nNew Orleans, LA 70130\nUnited States of America\nEmail: privacy@luc.id</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">please contact us via email at privacy@luc.id</div>
+                    <div class='match-info'><b>Matched GT:</b> If you choose to opt-out, please contact us via email at privacy@luc.id</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">For EU Respondents, please use our Respondent Data Rights Portal to inquire about your rights For EU Business Partners, Employees &amp; Contractors please use our Business Partner, Employee &amp; Contractor Data Rights Portal to inquire about your rights.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.12):</b> If you choose to opt-out, please contact us via email at privacy@luc.id</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">contact Lucid at: Lucid Holdings, LLC Attn: Pauline Wen, General Counsel &amp; Chief Privacy Officer 365 Canal Street Suite 3100 New Orleans, LA 70130 United States of America Email: privacy@luc.id</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output provides contact information for contacting Lucid, which is relevant to exercising rights. However, it does not include the full context of making changes to account information as mentioned in the Expected Output, leading to a partial alignment with the required information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.62):</b> You may make changes to your account information, access, correct, or delete Personal Information held by Lucid by contacting us at:\n\nLucid Holdings, LLC\nAttn: Pauline Wen, General Counsel &amp; Chief Privacy Officer\n365 Canal Street\nSuite 3100\nNew Orleans, LA 70130\nUnited States of America\nEmail: privacy@luc.id</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you do not wish to participate in any of Lucid’s online measurement and research services, please click here to receive an opt-out cookie</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">If you do not register, general technical user data, such as your device’s Internet Protocol (IP) address, operating system and browser type, and the date and time of your visit, may be automatically collected through the use of “cookies” (small files that are stored on your computer by a website to give you a unique identification) or other technologies. For Users, cookies also keep track of services you have used, record registration information regarding your login name and password, ensure you do not repeatedly see survey questions, record your preferences and keep you logged into the Lucid Sites.\n\nc. Information You Actively Submit\nAs a User of the Marketplace or Visitor to our Sites\n\nIf you register on our Sites as a user or sign up for our newsletter on behalf of a corporate customer (e.g., a client or supplier of market research sample), you will provide contact information such as your name, email address, mailing address and company affiliation.\n\nAs a Respondent\n\nIf you use our Sites as a Respondent, you will be prompted to provide certain demographic information about yourself and answer survey questions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">If you do not register, general technical user data, such as your device’s Internet Protocol (IP) address, operating system and browser type, and the date and time of your visit, may be automatically collected through the use of “cookies” (small files that are stored on your computer by a website to give you a unique identification) or other technologies. For Users, cookies also keep track of services you have used, record registration information regarding your login name and password, ensure you do not repeatedly see survey questions, record your preferences and keep you logged into the Lucid Sites.\n\nc. Information You Actively Submit\nAs a User of the Marketplace or Visitor to our Sites\n\nIf you register on our Sites as a user or sign up for our newsletter on behalf of a corporate customer (e.g., a client or supplier of market research sample), you will provide contact information such as your name, email address, mailing address and company affiliation.\n\nAs a Respondent\n\nIf you use our Sites as a Respondent, you will be prompted to provide certain demographic information about yourself and answer survey questions.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Business Information\nWe do collect employee contact names, addresses, phone numbers and email addresses of our business partners, including buyers, suppliers and vendors, for the administration of our business relationships</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Business Information\nWe do collect employee contact names, addresses, phone numbers and email addresses of our business partners, including buyers, suppliers and vendors, for the administration of our business relationships</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Information Tracking Technologies\nWe may use, and allow third parties to use, Pixels (sometimes called web beacons) on our Sites (or other third-party sites) to monitor the effectiveness of survey qualifications. Pixels may be linked to your Personal Information, and they collect the IP address of the device to which the web beacon is sent (for geolocation lookup), the URL of the page the web beacon comes from, the user agent string (for device lookup), and the time it was viewed. We may also use third-party devices, links or electronic mail, to deliver surveys to you during which additional Personal Information may be collected. These third-party surveys or devices may use cookies, web beacons or other technology to collect information about your visits to our Sites (or other third-party sites) in order to present surveys that may be applicable to you. We may collect traffic information and data on and from the use of third-party sites on behalf of our customers. Lucid may use a Pixel or cookie to examine what is happening on third-party websites, including programs and sites with marketing and advertising partners, to improve the understanding of site traffic at a granular level, market research effectiveness and brand lift reporting.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You can opt-out of receiving interest-based ads and tracking from third parties who are members of the Network Advertising Initiative (NAI) or who follow the Digital Advertising Alliance’s Self- Regulatory Principles for Online Behavioral Advertising by visiting the opt-out pages on the NAI website and DAA website. (http://www.networkadvertising.org/choices/) and (http://www.aboutads.info/choices/).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can opt-out of receiving interest-based ads and tracking from third parties who are members of the Network Advertising Initiative (NAI) or who follow the Digital Advertising Alliance’s Self- Regulatory Principles for Online Behavioral Advertising by visiting the opt-out pages on the NAI website and DAA website. (http://www.networkadvertising.org/choices/) and (http://www.aboutads.info/choices/).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Users\n\nWe use your Personal Information to operate, evaluate and improve our business (including developing new products and services; enhancing and improving our Services; managing our communications; and analyzing our products).\n\nIf you provide us with your name and contact information, we will use this data to answer requests from you, communicate with you regarding any Services we are providing to you as well as inform you about new products and services (unless and until you opt-out of marketing information).\n\nRespondents\n\nIf you come to our Sites as a Respondent to qualify for or take surveys, we use the demographic information you provide to make your survey answers more meaningful to us and our clients. We may also use information derived from cookies, pixels and other technologies to determine your interest in particular surveys, advertisements and other communications.\n\nb. Combination &amp; Synchronization\nWe may combine and synchronize information that your device transmits, information that you actively submit and information that we obtain from third party sources (including suppliers of market research sample and data marketing platforms that may direct you to our Sites to answer demographic questions about yourself in preparation for your completion of surveys, and web publishers, advertisers, data brokers and online service providers that may have obtained information from you or your devices via cookies, pixels,  and other tracking technologies).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sharing of Personal Information and Accountability for Onward Transfer\na. User Data from Our Sites (other than from the Lucid Marketplace).\nWhen we have collected your first and last name in combination with other identifying Personal Data while using our Sites, we will only externally share that data as follows:\n\nWith your consent;\nWith affiliated and unaffiliated service providers all over the world that help us deliver our Services and run our business and Sites;\nWhen and as required by law including to meet national security requirements or to protect you, other users, us or third parties from harm, including fraud, data security breaches or where someone’s physical safety seem at risk; or\nIn connection with a reorganization or sale of our company or assets, subject to the acquirer accepting the commitments made in this Policy and ensuring that the transfer is in compliance with applicable law.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Respondent Screening Data from the Lucid Marketplace\nWe share your Respondent Screening Data, information collected via the Lucid tracking pixel, as well as data identified from third party databases (data management platforms) with third party partners and Clients. They may use this data to help them understand consumer trends, measure effectiveness of advertising campaigns and make better media decisions. While some of this information may be used by our third party partners and Clients to inform targeting models, we contractually prohibit them from using any information we provide for the purpose of directly retargeting you via their advertising.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">You have the right to access the Personal Information we hold about you.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may make changes to your account information, access, correct, or delete Personal Information held by Lucid by contacting us at:\n\nLucid Holdings, LLC\nAttn: Pauline Wen, General Counsel &amp; Chief Privacy Officer\n365 Canal Street\nSuite 3100\nNew Orleans, LA 70130\nUnited States of America\nEmail: privacy@luc.id</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes to Privacy Policy\nWe reserve the right to modify this Privacy Policy at any time. If we decide to change our Privacy Policy, we will prominently post those changes here and any other place we deem appropriate, so you are always aware of what information we collect, how we use it, and under what circumstances, if any, we disclose it. If we make any material changes, we will notify you by way of an email (sent to the email address associated with your account) or by means of a notice on this site prior to the change becoming effective. We will use information in accordance with the privacy policy under which the information was collected.\n\nWe use a self-assessment approach to address compliance with this Privacy Policy, verifying periodically that the policy is accurate, comprehensive, and addresses the privacy requirements applicable to the markets we serve. Periodically, our operations and business practices are reviewed for compliance with corporate policies and procedures governing the confidentiality of information.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

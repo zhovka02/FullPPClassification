@@ -1,0 +1,855 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_122</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.93</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.69</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.79</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">42</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">24</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Privacy Policy Effective date: 1/1/20, Revised date : 6/12/22</div>
+                    <div class='match-info'><b>Matched GT:</b> Effective date: 1/1/20, Revised date : 6/12/22</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Changes and Updates to the Privacy Policy This Privacy Policy may be updated and revised from time to time, and we will post the current version of this Privacy Policy on our webpage. When we revise it, we will also update the “Effective” date.</div>
+                    <div class='match-info'><b>Matched GT:</b> Changes and Updates to the Privacy Policy\nThis Privacy Policy may be updated and revised from time to time, and we will post the current version of this Privacy Policy on our webpage. When we revise it, we will also update the “Effective” date.\n\nYou agree that the Personal Data we gather now, will be subject to the Privacy Policy in effect at the time of use. We may contact you through email regarding material, retroactive changes to our Privacy Policy or practices, but you should check the Site periodically to review any changes. In order to receive communications from Billtrust regarding, among other things, our privacy practices, it is important that the email address you have on record with Billtrust is kept up to date.\n\nWe suggest that you review this Privacy Policy periodically, since it may be updated from time to time. In all cases, your continued use of our products or services after the posting of any modified Privacy Policy indicates your acceptance of the terms of the modified Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The table below describes the categories of Personal Data that we have collected when we act as a data controller. Personal Data We Collect, Process, or Store How We Obtain It Data Category: Identifiers General (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): first and last name, email address, phone number, shipping address.</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal Data We Collect, Process, or Store	How We Obtain It\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Credit: first and last name, business address, email address, Federal Tax ID (which can be a Social Security Number), shipping address, username (and password).</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Obtain It\n\nData Category: Identifiers\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): first and last name, email address, phone number, shipping address.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: first and last name, business address, email address, Federal Tax ID (which can be a Social Security Number), shipping address, username (and password).	Credit: publicly available websites and other Customers.\nBusiness Payment Network (BPN): first and last name, email address, company address, Tax ID (which can be a Social Security Number), account name and name of account owner(s), and Merchant ID.	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\n\n\nBilltrust Business Directory (BBD): company name (such as sole proprietor’s name), email address.	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: first and last name, IP address, email address, mailing address.	Marketing: cookies placed in our Sites as described in our Cookie Policy; communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Business Payment Network (BPN): first and last name, email address, company address, Tax ID (which can be a Social Security Number), account name and name of account owner(s), and Merchant ID.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Obtain It\n\nData Category: Identifiers\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): first and last name, email address, phone number, shipping address.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: first and last name, business address, email address, Federal Tax ID (which can be a Social Security Number), shipping address, username (and password).	Credit: publicly available websites and other Customers.\nBusiness Payment Network (BPN): first and last name, email address, company address, Tax ID (which can be a Social Security Number), account name and name of account owner(s), and Merchant ID.	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\n\n\nBilltrust Business Directory (BBD): company name (such as sole proprietor’s name), email address.	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: first and last name, IP address, email address, mailing address.	Marketing: cookies placed in our Sites as described in our Cookie Policy; communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Billtrust Business Directory (BBD): company name (such as sole proprietor’s name), email address.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Obtain It\n\nData Category: Identifiers\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): first and last name, email address, phone number, shipping address.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: first and last name, business address, email address, Federal Tax ID (which can be a Social Security Number), shipping address, username (and password).	Credit: publicly available websites and other Customers.\nBusiness Payment Network (BPN): first and last name, email address, company address, Tax ID (which can be a Social Security Number), account name and name of account owner(s), and Merchant ID.	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\n\n\nBilltrust Business Directory (BBD): company name (such as sole proprietor’s name), email address.	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: first and last name, IP address, email address, mailing address.	Marketing: cookies placed in our Sites as described in our Cookie Policy; communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Marketing: first and last name, IP address, email address, mailing address.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Obtain It\n\nData Category: Identifiers\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): first and last name, email address, phone number, shipping address.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: first and last name, business address, email address, Federal Tax ID (which can be a Social Security Number), shipping address, username (and password).	Credit: publicly available websites and other Customers.\nBusiness Payment Network (BPN): first and last name, email address, company address, Tax ID (which can be a Social Security Number), account name and name of account owner(s), and Merchant ID.	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\n\n\nBilltrust Business Directory (BBD): company name (such as sole proprietor’s name), email address.	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: first and last name, IP address, email address, mailing address.	Marketing: cookies placed in our Sites as described in our Cookie Policy; communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Special categories of Personal Data General (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): credit card company, credit card number and expiration date, credit card billing address, bank account information, invoicing information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Special categories of Personal Data\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): credit card company, credit card number and expiration date, credit card billing address, bank account information, invoicing information.	\nGeneral: You provide us with this Personal Data during the order process, registration for, and use of our Products\nCredit: financial statements.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other Customers.\nBusiness Payment Network: telephone number; bank account information (to facilitate ACH and wire transactions).	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\nMarketing: phone number.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Credit: financial statements.</div>
+                    <div class='match-info'><b>Matched GT:</b> Special categories of Personal Data\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): credit card company, credit card number and expiration date, credit card billing address, bank account information, invoicing information.	\nGeneral: You provide us with this Personal Data during the order process, registration for, and use of our Products\nCredit: financial statements.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other Customers.\nBusiness Payment Network: telephone number; bank account information (to facilitate ACH and wire transactions).	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\nMarketing: phone number.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Business Payment Network: telephone number; bank account information (to facilitate ACH and wire transactions).</div>
+                    <div class='match-info'><b>Matched GT:</b> Special categories of Personal Data\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): credit card company, credit card number and expiration date, credit card billing address, bank account information, invoicing information.	\nGeneral: You provide us with this Personal Data during the order process, registration for, and use of our Products\nCredit: financial statements.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other Customers.\nBusiness Payment Network: telephone number; bank account information (to facilitate ACH and wire transactions).	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\nMarketing: phone number.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Marketing: phone number.</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Obtain It\n\nData Category: Identifiers\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): first and last name, email address, phone number, shipping address.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: first and last name, business address, email address, Federal Tax ID (which can be a Social Security Number), shipping address, username (and password).	Credit: publicly available websites and other Customers.\nBusiness Payment Network (BPN): first and last name, email address, company address, Tax ID (which can be a Social Security Number), account name and name of account owner(s), and Merchant ID.	Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\n\n\nBilltrust Business Directory (BBD): company name (such as sole proprietor’s name), email address.	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: first and last name, IP address, email address, mailing address.	Marketing: cookies placed in our Sites as described in our Cookie Policy; communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Protected characteristics Marketing: gender.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Protected characteristics\n\nMarketing: gender.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Commercial information General (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): : invoicing information.</div>
+                    <div class='match-info'><b>Matched GT:</b> 0: General (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): credit card company, credit card number and expiration date, credit card billing address, bank account information, invoicing information. ||| 1: General: You provide us with this Personal Data during the order process, registration for, and use of our Products\n\n0: Credit: financial statements. ||| 1: Credit: Credit bureaus, publicly available websites (i.e. news websites) and other Customers.\n\n0: Business Payment Network: telephone number; bank account information (to facilitate ACH and wire transactions). ||| 1: Business Payment Network: our Customers (Payables providers and suppliers) and our Sponsors.\n\n0: Marketing: phone number. ||| 1: Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Credit: Trade data, business operational, employment and financial characteristics; government compliance data; creditor exposure and payment experiences; industry opinions.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Commercial information\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): : invoicing information.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: Trade data, business operational, employment and financial characteristics; government compliance data; creditor exposure and payment experiences; industry opinions.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other customers.\nBusiness Payment Network: monthly check data/volume, transaction value of payments flowing through the BPN (ultimately, this data is aggregated).	Business Payment Network: our Customers (Payables providers and suppliers), our ACH transaction facilitator, and our Sponsors.\nBilltrust Business Directory: number of electronic payments, number of payments with paper checks, payment preferences (paper checks/electronic payment) (this is further aggregated).	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: service and product purchase history.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Business Payment Network: monthly check data/volume, transaction value of payments flowing through the BPN (ultimately, this data is aggregated).</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Commercial information\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): : invoicing information.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: Trade data, business operational, employment and financial characteristics; government compliance data; creditor exposure and payment experiences; industry opinions.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other customers.\nBusiness Payment Network: monthly check data/volume, transaction value of payments flowing through the BPN (ultimately, this data is aggregated).	Business Payment Network: our Customers (Payables providers and suppliers), our ACH transaction facilitator, and our Sponsors.\nBilltrust Business Directory: number of electronic payments, number of payments with paper checks, payment preferences (paper checks/electronic payment) (this is further aggregated).	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: service and product purchase history.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Billtrust Business Directory: number of electronic payments, number of payments with paper checks, payment preferences (paper checks/electronic payment) (this is further aggregated).</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Commercial information\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): : invoicing information.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: Trade data, business operational, employment and financial characteristics; government compliance data; creditor exposure and payment experiences; industry opinions.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other customers.\nBusiness Payment Network: monthly check data/volume, transaction value of payments flowing through the BPN (ultimately, this data is aggregated).	Business Payment Network: our Customers (Payables providers and suppliers), our ACH transaction facilitator, and our Sponsors.\nBilltrust Business Directory: number of electronic payments, number of payments with paper checks, payment preferences (paper checks/electronic payment) (this is further aggregated).	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: service and product purchase history.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Marketing: service and product purchase history.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Commercial information\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes): : invoicing information.	General: You provide us with this Personal Data during the order process, registration for, and use of our Products.\nCredit: Trade data, business operational, employment and financial characteristics; government compliance data; creditor exposure and payment experiences; industry opinions.	Credit: Credit bureaus, publicly available websites (i.e. news websites) and other customers.\nBusiness Payment Network: monthly check data/volume, transaction value of payments flowing through the BPN (ultimately, this data is aggregated).	Business Payment Network: our Customers (Payables providers and suppliers), our ACH transaction facilitator, and our Sponsors.\nBilltrust Business Directory: number of electronic payments, number of payments with paper checks, payment preferences (paper checks/electronic payment) (this is further aggregated).	Billtrust Business Directory: our database for billing and payments, which contains data of our Customers and the customers of our Customers.\nMarketing: service and product purchase history.	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example, LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Internet or other similar network activity General (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes Marketing): : your interaction with our website, applications and advertisements. Marketing: your interaction with our website, applications and advertisements, such as URLs visited.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Internet or other similar network activity\n\nGeneral (This row applies to all Billtrust Products except data processed in Credit, BPN, BBD, and for marketing purposes Marketing): : your interaction with our website, applications and advertisements.\n\nMarketing: your interaction with our website, applications and advertisements, such as URLs visited.	General and marketing: General: you provide us with this Personal Data when you visit our websites or interact with our Apps (with cookies).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Geolocation data Marketing: country information.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Geolocation data\n\nMarketing: country information.	Marketing: you provide us with this Personal Data, when you visit our websites or interact with our Apps (for example, Google Analytics places a cookie in your device).</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Sensory data Marketing: call recordings.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Sensory data\n\nMarketing: call recordings.	Marketing: you accept that we record the call when you phone us.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Professional or employment-related information Credit2B: job title.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Professional or employment-related information\n\nCredit2B: job title.	\nCredit2B: Credit bureaus, publicly available websites (i.e. news websites) and other Customers.\nMarketing: job level, job title, company name	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Marketing: job level, job title, company name</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Professional or employment-related information\n\nCredit2B: job title.	\nCredit2B: Credit bureaus, publicly available websites (i.e. news websites) and other Customers.\nMarketing: job level, job title, company name	Marketing: communications sent by you or other customers/prospects via our websites or by email; tradeshows/conferences/events; publicly available websites (for example LinkedIn, Zoominfo, industry websites); and vendors that provide website analytics and account-based marketing platform services.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Inferences drawn from other Personal Data Business Payment Network: supplier’s payment preferences.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Inferences drawn from other Personal Data\n\nBusiness Payment Network: supplier’s payment preferences.	Business Payment Network: database for billing and payments, which contains data of our Customers and the customers of our Customers, suppliers and sponsors.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Biometric Data General:  fingerprint data</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Biometric Data\n\nGeneral:  fingerprint data	General: some mobile applications allow users to optionally provide a fingerprint instead of a password.\n</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Data Category: Other Credit: any content that you create or share, including any communications with Credit or other users, and other information related to your work or organization.</div>
+                    <div class='match-info'><b>Matched GT:</b> Data Category: Other\n\nCredit: any content that you create or share, including any communications with Credit or other users, and other information related to your work or organization.	Credit: you create or share it in your communications with Credit or other users.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data May We Sell to Third Parties? We don’t sell any Personal Data processed in the context of the use of any of the Billtrust Products, except as described in the data sharing sections related to other products, below.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data May We Sell to Third Parties?\nWe don’t sell any Personal Data processed in the context of the use of any of the Billtrust Products, except as described in the data sharing sections related to other products, below.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data May We Sell to Third Parties? In order to facilitate intelligent decision making by the customers of our Credit product, we may share information entered by our customers with credit agencies and other third parties, and receive information from them in turn. When that exchange of information involves the Personal Data of an individual or household, as in the case of a sole proprietorship, these types of data flows may be considered a “sale” under the CCPA. Identifiers, special categories of Personal Data, commercial information, and inferences drawn from other Personal Data.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data May We Sell to Third Parties?\nIn order to facilitate intelligent decision making by the customers of our Credit product, we may share information entered by our customers with credit agencies and other third parties, and receive information from them in turn. When that exchange of information involves the Personal Data of an individual or household, as in the case of a sole proprietorship, these types of data flows may be considered a “sale” under the CCPA.\n\nIdentifiers, special categories of Personal Data, commercial information, and inferences drawn from other Personal Data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data May We Sell to Third Parties? We don’t sell any Personal Data processed in the context of the use of the BPN.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data May We Sell to Third Parties?\nWe don’t sell any Personal Data processed in the context of the use of any of the Billtrust Products, except as described in the data sharing sections related to other products, below.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data May We Sell to Third Parties? We don’t sell any Personal Data processed in the context of the use of the BBD to third parties as defined in the CCPA. We share commercial information in aggregated form with our customers.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data May We Sell to Third Parties?\nWe don’t sell any Personal Data processed in the context of the use of the BPN.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data May We Sell to Third Parties? We don’t sell any Personal Data processed for our marketing purposes to third parties as defined in the CCPA.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data May We Sell to Third Parties?\nWe don’t sell any Personal Data processed in the context of the use of the BBD to third parties as defined in the CCPA. We share commercial information in aggregated form with our customers.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data Does Billtrust Share with Service Providers? Identifiers, special categories of Personal Data, commercial Information, inferences drawn from other Personal Data, and biometric data What Types of Service Providers May Receive These Categories of Personal Data? Payment gateways; service providers who provide fax and printing services; hosting services; cloud data storage services and SaaS-based integration platforms; cloud-computing software; co-location and infrastructure services; electronic signature software; anti-money laundering screening solutions; payment infrastructure platforms; ACH wire transaction facilitators; business intelligence software; big data analytics platform; event logging platforms; security solutions; and interactive voice response systems.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data Does Billtrust Share with Service Providers?\nIdentifiers, special categories of Personal Data, commercial Information, inferences drawn from other Personal Data, and biometric data\n\nWhat Types of Service Providers May Receive These Categories of Personal Data?\nPayment gateways; service providers who provide fax and printing services; hosting services; cloud data storage services and SaaS-based integration platforms; cloud-computing software; co-location and infrastructure services; electronic signature software; anti-money laundering screening solutions; payment infrastructure platforms; ACH wire transaction facilitators; business intelligence software; big data analytics platform; event logging platforms; security solutions; and interactive voice response systems.\n\nWhat Categories of Personal Data May We Sell to Third Parties?\nWe don’t sell any Personal Data processed in the context of the use of any of the Billtrust Products, except as described in the data sharing sections related to other products, below.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data from Credit Does Billtrust Share with Service Providers? Identifiers, special categories of Personal Data, commercial information, inferences drawn from other Personal Data; and other Personal Data included in the content that you create or share, including any communications with Credit or other users, and other information related to your work or organization. What Types of Service Providers May Receive These Categories of Personal Data? Credit-reporting companies, payment gateways, and who provide fax and printing services; hosting services; cloud data storage services and SaaS-based integration platforms; cloud-computing software; co-location and infrastructure services; electronic signature software; anti-money laundering solutions; payment infrastructure platforms; ACH wire transaction facilitators; business intelligence software; big data analytics platform; event logging platforms; security solutions; and interactive voice response systems.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data from Credit Does Billtrust Share with Service Providers?\nIdentifiers, special categories of Personal Data, commercial information, inferences drawn from other Personal Data; and other Personal Data included in the content that you create or share, including any communications with Credit or other users, and other information related to your work or organization.\n\nWhat Types of Service Providers May Receive These Categories of Personal Data?\nCredit-reporting companies, payment gateways, and who provide fax and printing services; hosting services; cloud data storage services and SaaS-based integration platforms; cloud-computing software; co-location and infrastructure services; electronic signature software; anti-money laundering solutions; payment infrastructure platforms; ACH wire transaction facilitators; business intelligence software; big data analytics platform; event logging platforms; security solutions; and interactive voice response systems.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data Does Billtrust Share with Service Providers? Identifiers, special categories of Personal Data, commercial information, inferences drawn from other Personal Data. What Types of Service Providers May Receive These Categories of Personal Data? Payment gateways, and service providers who provide fax and printing services; hosting services; cloud data storage services and SaaS-based integration platforms; co-location and infrastructure services; payment infrastructure platforms; ACH wire transaction facilitators; business intelligence software; big data analytics platform; and event logging platforms.</div>
+                    <div class='match-info'><b>Matched GT:</b> What Categories of Personal Data Does Billtrust Share with Service Providers?\nIdentifiers, special categories of Personal Data, commercial Information, inferences drawn from other Personal Data, and biometric data\n\nWhat Types of Service Providers May Receive These Categories of Personal Data?\nPayment gateways; service providers who provide fax and printing services; hosting services; cloud data storage services and SaaS-based integration platforms; cloud-computing software; co-location and infrastructure services; electronic signature software; anti-money laundering screening solutions; payment infrastructure platforms; ACH wire transaction facilitators; business intelligence software; big data analytics platform; event logging platforms; security solutions; and interactive voice response systems.\n\nWhat Categories of Personal Data May We Sell to Third Parties?\nWe don’t sell any Personal Data processed in the context of the use of any of the Billtrust Products, except as described in the data sharing sections related to other products, below.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data Does Billtrust Share with Service Providers? We don’t share any Personal Data processed in the context of the use of the BBD with our service providers.</div>
+                    <div class='match-info'><b>Matched GT:</b> Sharing Data with Third Parties\nWe may disclose Personal Data to third party service providers who process information on our behalf, act as professional advisors, or who are involved in a corporate transaction. We may also disclose Personal Data to law enforcement agencies, government bodies or private parties as required by law. Disclosures of Personal Data may be necessary for the performance of our contract, our legitimate interests, or when we are required to do so by law. For any recipient categories not mentioned in this section, we may share your Personal Data where you have given us permission to do so.\n\nWe describe below the categories of Personal Data that we have disclosed for our own operational business purposes, what categories of Personal Data we have sold, and the types of recipients of your Personal Data. The information about our data sharing practices is structured as follows:\n\nOur disclosures of Personal Data processed in the context of most Billtrust Products (excluding Credit, BPN and BBD).\nOur disclosures of Personal Data processed in the context of Credit.\nOur disclosures of Personal Data processed in the context of the BPN.\nOur disclosures of Personal Data processed in the context of the BBD.\nOur disclosures of Personal Data processed for our marketing purposes.\nInternational data transfers.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What Categories of Personal Data Does Billtrust Share with Service Providers? Identifiers, special categories of Personal Data, protected characteristics, commercial information, internet or other similar network activity information, geolocation information, sensory data, professional or employment-related information. What Types of Service Providers May Receive These Categories of Personal Data? Service providers that provide account-based marketing automation software, customer relationship management services, sales engagement platforms, enterprise electronic invoice presentment and payment solutions, analytics, and B2B intelligence tools.</div>
+                    <div class='match-info'><b>Matched GT:</b> Personal Data Shared for our Marketing Purposes\nWhat Categories of Personal Data Does Billtrust Share with Service Providers?\nIdentifiers, special categories of Personal Data, protected characteristics, commercial information, internet or other similar network activity information, geolocation information, sensory data, professional or employment-related information.\n\nWhat Types of Service Providers May Receive These Categories of Personal Data?\nService providers that provide account-based marketing automation software, customer relationship management services, sales engagement platforms, enterprise electronic invoice presentment and payment solutions, analytics, and B2B intelligence tools.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to Delete Your Personal Data This is called the right to erasure, right to deletion or the “right to be forgotten”. This means that you can ask us to delete your Personal Data. Sometimes, we can delete your Personal Data. However, at other times, it is just not possible, such as when the law tells us we are not allowed to. If that is the case, we will consider if we can limit how we use your Personal Data, instead of deleting it.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Delete Your Personal Data\nThis is called the right to erasure, right to deletion or the “right to be forgotten”. This means that you can ask us to delete your Personal Data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Where required by law, we will also delete your Personal Data upon a verifiable request to delete the personal data.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor is it a list where the Expected Output is an item. Additionally, the Actual Output does not maintain the core meaning of the Expected Output, which provides specific terminology and context about the &#x27;Right to Delete&#x27; that is absent in the Actual Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.45):</b> Right to Delete Your Personal Data\nThis is called the right to erasure, right to deletion or the “right to be forgotten”. This means that you can ask us to delete your Personal Data.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Right to Change Your Personal Data This is called the right to rectification. It gives you the right to ask us to correct, without undue delay, anything that you think is wrong with the Personal Data we have on file about you and to complete any incomplete personal data. If your account settings do not allow you to change it, please contact us and we will do our best to change the Personal Data for you.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to Change Your Personal Data \nThis is called the right to rectification. It gives you the right to ask us to correct, without undue delay, anything that you think is wrong with the Personal Data we have on file about you and to complete any incomplete personal data.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Know What Personal Data We Have About You This is called the right of access. You may ask us for a copy of the personal data we hold about you, as well as know more about how we process your personal data.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor does it retain the core meaning of the Expected Output. While both outputs discuss the right to access personal data, the specifics in the Expected Output about the right to be informed and the details concerning data processing activities are absent in the Actual Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.49):</b> This is called the “right to be informed”. It means that you have the right to obtain from us all information regarding our data processing activities that concern you, such as how we collect and use your Personal Data, how long we will keep it and who it will be shared with, among other things.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to Know What Happens to Your Personal Data This is called the “right to be informed”. It means that you have the right to obtain from us all information regarding our data processing activities that concern you, such as how we collect and use your Personal Data, how long we will keep it and who it will be shared with, among other things.</div>
+                    <div class='match-info'><b>Matched GT:</b> This is called the “right to be informed”. It means that you have the right to obtain from us all information regarding our data processing activities that concern you, such as how we collect and use your Personal Data, how long we will keep it and who it will be shared with, among other things.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Right to Know What Happens to Your Personal Data This is called the “right to be informed”. It means that you have the right to obtain from us all information regarding our data processing activities that concern you, such as how we collect and use your Personal Data, how long we will keep it and who it will be shared with, among other things.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Your Right to Opt Out of the Sale of Personal Data You have the right to ask us to not sell your Personal Data at any time. This is called the “right to opt out”. To exercise the right to opt-out, you (or your authorized agent) may submit a request to us by completing this form . Once you make an opt-out request, we will wait at least twelve months before asking you to reauthorize the sale of your Personal Data. However, if you change your mind, you may opt back into Personal Data sales at any time, by using the contact details below .</div>
+                    <div class='match-info'><b>Matched GT:</b> Your Right to Opt Out of the Sale of Personal Data\nYou have the right to ask us to not sell your Personal Data at any time. This is called the “right to opt out”. To exercise the right to opt-out, you (or your authorized agent) may submit a request to us by completing this form.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Right Not to be Discriminated Against for Exercising your Privacy Rights We will not discriminate against you for exercising any of your privacy rights. Unless the applicable data protection laws permit it, we will not: Deny you goods or services. Charge you different prices or rates for goods or services, including through granting discounts or other benefits, or imposing penalties. Provide you with a different level or quality of goods or services. Suggest that you may receive a different price or rate for goods or services or a different level or quality of goods or services.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right Not to be Discriminated Against for Exercising your Privacy Rights \nWe will not discriminate against you for exercising any of your privacy rights. Unless the applicable data protection laws permit it, we will not:\n\nDeny you goods or services.\nCharge you different prices or rates for goods or services, including through granting discounts or other benefits, or imposing penalties.\nProvide you with a different level or quality of goods or services.\nSuggest that you may receive a different price or rate for goods or services or a different level or quality of goods or services.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">How Can You Exercise Your Privacy Rights? To exercise any of the rights described above, please submit a request by either: Calling us at 1-888-580-2455 Contacting us by email at privacy@billtrust.com ; or Filling out this online form .</div>
+                    <div class='match-info'><b>Matched GT:</b> How Can You Exercise Your Privacy Rights?\nTo exercise any of the rights described above, please submit a request by either:\n\nCalling us at 1-888-580-2455\nContacting us by email at privacy@billtrust.com; or\nFilling out this online form.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise the right to opt-out, you (or your authorized agent) may submit a request to us by completing this form .</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise the right to opt-out, you (or your authorized agent) may submit a request to us by completing this form.</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">0: Marketing: country information. ||| 1: Marketing: you provide us with this Personal Data, when you visit our websites or interact with our Apps (for example, Google Analytics places a cookie in your device).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Marketing: call recordings. ||| 1: Marketing: you accept that we record the call when you phone us.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Business Payment Network: supplier’s payment preferences. ||| 1: Business Payment Network: database for billing and payments, which contains data of our Customers and the customers of our Customers, suppliers and sponsors.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">General: fingerprint data ||| 1: General: some mobile applications allow users to optionally provide a fingerprint instead of a password.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Processing Purpose Details regarding each processing purpose listed below are provided in the section below titled “How do we use your personal data?”.	Legal Basis\nProviding our products and services	To perform a contract with you or to take steps that you request when signing up for the services.\nCommunicating with you regarding our products and services and general inquiries.	If you contact us by email, social media or other method, we process information about you to interact with you and to respond to your requests. It is in our legitimate interests to communicate with you and fulfill your requests. \nOperating our websites.	We are obligated to perform our contract with you for the use of our websites and services and to fulfill our obligations under the applicable terms of use and service; to the extent we do not have a contract in place, we process your personal data based on our legitimate interest to operate and administer our websites and to provide you with information, offer an improved website user experience, and/or protect and maintain our websites.\nMarketing our products, services, or events. 	Our direct marketing is based on our legitimate interest or, if provided, your prior consent. \nFor research and development	Our legitimate interests, such as our interest in marketing our services; and the interests of third parties, for example the interest of Account Receivable providers in having a network connecting buyers with suppliers that improves the processing of payments. You have the right to ask us more about how we decided to choose this legal basis. To do so, please use the contact details provided in this Privacy Notice.\nFor compliance, security, and safety	Protecting our business and managing the security of our environments is based on our legitimate interest to protect our systems and rights, and the rights of others.\nTo comply with our legal obligations	Our compliance with the law.\nWith your consent	Your consent, which may be withdrawn at any time. However, this will not affect the lawfulness of our processing, before you withdraw your consent. It will also not affect the validity of our processing of personal data performed on other lawful grounds.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Processing Purpose Details regarding each processing purpose listed below are provided in the section below titled “How do we use your personal data?”.	Legal Basis\nProviding our products and services	To perform a contract with you or to take steps that you request when signing up for the services.\nCommunicating with you regarding our products and services and general inquiries.	If you contact us by email, social media or other method, we process information about you to interact with you and to respond to your requests. It is in our legitimate interests to communicate with you and fulfill your requests. \nOperating our websites.	We are obligated to perform our contract with you for the use of our websites and services and to fulfill our obligations under the applicable terms of use and service; to the extent we do not have a contract in place, we process your personal data based on our legitimate interest to operate and administer our websites and to provide you with information, offer an improved website user experience, and/or protect and maintain our websites.\nMarketing our products, services, or events. 	Our direct marketing is based on our legitimate interest or, if provided, your prior consent. \nFor research and development	Our legitimate interests, such as our interest in marketing our services; and the interests of third parties, for example the interest of Account Receivable providers in having a network connecting buyers with suppliers that improves the processing of payments. You have the right to ask us more about how we decided to choose this legal basis. To do so, please use the contact details provided in this Privacy Notice.\nFor compliance, security, and safety	Protecting our business and managing the security of our environments is based on our legitimate interest to protect our systems and rights, and the rights of others.\nTo comply with our legal obligations	Our compliance with the law.\nWith your consent	Your consent, which may be withdrawn at any time. However, this will not affect the lawfulness of our processing, before you withdraw your consent. It will also not affect the validity of our processing of personal data performed on other lawful grounds.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Processing Purpose Details regarding each processing purpose listed below are provided in the section below titled “How do we use your personal data?”.	Legal Basis\nProviding our products and services	To perform a contract with you or to take steps that you request when signing up for the services.\nCommunicating with you regarding our products and services and general inquiries.	If you contact us by email, social media or other method, we process information about you to interact with you and to respond to your requests. It is in our legitimate interests to communicate with you and fulfill your requests. \nOperating our websites.	We are obligated to perform our contract with you for the use of our websites and services and to fulfill our obligations under the applicable terms of use and service; to the extent we do not have a contract in place, we process your personal data based on our legitimate interest to operate and administer our websites and to provide you with information, offer an improved website user experience, and/or protect and maintain our websites.\nMarketing our products, services, or events. 	Our direct marketing is based on our legitimate interest or, if provided, your prior consent. \nFor research and development	Our legitimate interests, such as our interest in marketing our services; and the interests of third parties, for example the interest of Account Receivable providers in having a network connecting buyers with suppliers that improves the processing of payments. You have the right to ask us more about how we decided to choose this legal basis. To do so, please use the contact details provided in this Privacy Notice.\nFor compliance, security, and safety	Protecting our business and managing the security of our environments is based on our legitimate interest to protect our systems and rights, and the rights of others.\nTo comply with our legal obligations	Our compliance with the law.\nWith your consent	Your consent, which may be withdrawn at any time. However, this will not affect the lawfulness of our processing, before you withdraw your consent. It will also not affect the validity of our processing of personal data performed on other lawful grounds.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Processing Purpose Details regarding each processing purpose listed below are provided in the section below titled “How do we use your personal data?”. ||| 1: Legal Basis\n\n0: Providing our products and services ||| 1: To perform a contract with you or to take steps that you request when signing up for the services.\n\n0: Communicating with you regarding our products and services and general inquiries. ||| 1: If you contact us by email, social media or other method, we process information about you to interact with you and to respond to your requests. It is in our legitimate interests to communicate with you and fulfill your requests.\n\n0: Operating our websites. ||| 1: We are obligated to perform our contract with you for the use of our websites and services and to fulfill our obligations under the applicable terms of use and service; to the extent we do not have a contract in place, we process your personal data based on our legitimate interest to operate and administer our websites and to provide you with information, offer an improved website user experience, and/or protect and maintain our websites.\n\n0: Marketing our products, services, or events. ||| 1: Our direct marketing is based on our legitimate interest or, if provided, your prior consent.\n\n0: For research and development ||| 1: Our legitimate interests, such as our interest in marketing our services; and the interests of third parties, for example the interest of Account Receivable providers in having a network connecting buyers with suppliers that improves the processing of payments. You have the right to ask us more about how we decided to choose this legal basis. To do so, please use the contact details provided in this Privacy Notice.\n\n0: For compliance, security, and safety ||| 1: Protecting our business and managing the security of our environments is based on our legitimate interest to protect our systems and rights, and the rights of others.\n\n0: To comply with our legal obligations ||| 1: Our compliance with the law.\n\n0: With your consent ||| 1: Your consent, which may be withdrawn at any time. However, this will not affect the lawfulness of our processing, before you withdraw your consent. It will also not affect the validity of our processing of personal data performed on other lawful grounds.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Processing Purpose Details regarding each processing purpose listed below are provided in the section below titled “How do we use your personal data?”. ||| 1: Legal Basis\n\n0: Providing our products and services ||| 1: To perform a contract with you or to take steps that you request when signing up for the services.\n\n0: Communicating with you regarding our products and services and general inquiries. ||| 1: If you contact us by email, social media or other method, we process information about you to interact with you and to respond to your requests. It is in our legitimate interests to communicate with you and fulfill your requests.\n\n0: Operating our websites. ||| 1: We are obligated to perform our contract with you for the use of our websites and services and to fulfill our obligations under the applicable terms of use and service; to the extent we do not have a contract in place, we process your personal data based on our legitimate interest to operate and administer our websites and to provide you with information, offer an improved website user experience, and/or protect and maintain our websites.\n\n0: Marketing our products, services, or events. ||| 1: Our direct marketing is based on our legitimate interest or, if provided, your prior consent.\n\n0: For research and development ||| 1: Our legitimate interests, such as our interest in marketing our services; and the interests of third parties, for example the interest of Account Receivable providers in having a network connecting buyers with suppliers that improves the processing of payments. You have the right to ask us more about how we decided to choose this legal basis. To do so, please use the contact details provided in this Privacy Notice.\n\n0: For compliance, security, and safety ||| 1: Protecting our business and managing the security of our environments is based on our legitimate interest to protect our systems and rights, and the rights of others.\n\n0: To comply with our legal obligations ||| 1: Our compliance with the law.\n\n0: With your consent ||| 1: Your consent, which may be withdrawn at any time. However, this will not affect the lawfulness of our processing, before you withdraw your consent. It will also not affect the validity of our processing of personal data performed on other lawful grounds.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Processing Purpose Details regarding each processing purpose listed below are provided in the section below titled “How do we use your personal data?”. ||| 1: Legal Basis\n\n0: Providing our products and services ||| 1: To perform a contract with you or to take steps that you request when signing up for the services.\n\n0: Communicating with you regarding our products and services and general inquiries. ||| 1: If you contact us by email, social media or other method, we process information about you to interact with you and to respond to your requests. It is in our legitimate interests to communicate with you and fulfill your requests.\n\n0: Operating our websites. ||| 1: We are obligated to perform our contract with you for the use of our websites and services and to fulfill our obligations under the applicable terms of use and service; to the extent we do not have a contract in place, we process your personal data based on our legitimate interest to operate and administer our websites and to provide you with information, offer an improved website user experience, and/or protect and maintain our websites.\n\n0: Marketing our products, services, or events. ||| 1: Our direct marketing is based on our legitimate interest or, if provided, your prior consent.\n\n0: For research and development ||| 1: Our legitimate interests, such as our interest in marketing our services; and the interests of third parties, for example the interest of Account Receivable providers in having a network connecting buyers with suppliers that improves the processing of payments. You have the right to ask us more about how we decided to choose this legal basis. To do so, please use the contact details provided in this Privacy Notice.\n\n0: For compliance, security, and safety ||| 1: Protecting our business and managing the security of our environments is based on our legitimate interest to protect our systems and rights, and the rights of others.\n\n0: To comply with our legal obligations ||| 1: Our compliance with the law.\n\n0: With your consent ||| 1: Your consent, which may be withdrawn at any time. However, this will not affect the lawfulness of our processing, before you withdraw your consent. It will also not affect the validity of our processing of personal data performed on other lawful grounds.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The table below explains why we process your Personal Data, when we act as a data controller:\n\nCategory of Personal Data	Businesses and Commercial Purposes for Processing Personal Data\n            Identifiers	General (All Products except Credit, BPN, BBD, and marketing activity):\n– To maintain or service accounts for our Customers, providing customer service to our Customers, to process or fulfill orders and transactions including ACH or wire transfers, to verify customer information, to process payments, and to provide our Products to our Customers;\n– To detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities;\n– To identify errors in our systems, Sites, Products .\n– To perform internal purposes such as auditing, creating an internal directory, data analysis, and research to improve Billtrust’s products, services, and customer communications.\n\nCredit:  To create global business profiles, to enable portfolio monitoring and to send alerts on portfolio accounts of our Customers, and to create a portal that gathers credit application information, as part of the credit onboarding decisioning process of our Customers.\n\nBusiness Payment Network: to maintain or service accounts for our Customers, to provide customer service to our Customers, to process or fulfill order processing and transactions including ACH and wire transfers, to verify customer information, to process payments, and providing the Business Payment Network product to our Customers.\n\nBilltrust Business Directory: to identify opportunities within our customers’ customer bases to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\nMarketing: to keep you informed about upgrades, products and services of Billtrust, its affiliates and other third parties that may be of interest to you.\nSpecial categories of Personal Data	General:  to process or fulfill orders and transactions, verify customer information, and provide our Products to our Customers.\n\nBusiness Payment Network: to contact our customers, when required; to process or full order processing and transactions including ACH and wire transfers.\n\nMarketing: to contact customers or prospects in order to market our Products.\nProtected characteristics	Marketing: to address you in our marketing communications.\nCommercial information	General: to process or fulfill orders and transactions, to verify customer information, payments, and to provide our Products to our Customers.\n\nCredit: to gather and analyze credit application information for our Customers.\n\nBusiness Payment Network: to create a two-sided platform in which payable providers can deliver digital payments directly to the suppliers’ acceptance platforms.\n\nBilltrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\nMarketing: to send Customers relevant marketing communications in light of Products that they have already purchased.\nInternet or other similar network activity	General: to detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities.\n\nMarketing: to target the marketing of our products and services, to count ad impressions to unique visitors, and to verify positioning and quality of ad impressions.\nGeolocation data	Marketing: to obtain aggregate demographic information about the entire Billtrust audience, to help us create, develop, operate, deliver, and improve our products, services, content and advertising.\nSensory data	General: to provide and improve the quality of our customer service.\nMarketing: to contact you about our Products.\nProfessional or employment-related information	General and marketing: to provide customer service; to verify customer information, to process payments; and to provide our Products to our Customers; to contact you about our Products.\nBiometric Data	General: to enable login to some mobile applications.\nInferences drawn from other Personal Data	Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The table below explains why we process your Personal Data, when we act as a data controller:\n\nCategory of Personal Data	Businesses and Commercial Purposes for Processing Personal Data\n            Identifiers	General (All Products except Credit, BPN, BBD, and marketing activity):\n– To maintain or service accounts for our Customers, providing customer service to our Customers, to process or fulfill orders and transactions including ACH or wire transfers, to verify customer information, to process payments, and to provide our Products to our Customers;\n– To detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities;\n– To identify errors in our systems, Sites, Products .\n– To perform internal purposes such as auditing, creating an internal directory, data analysis, and research to improve Billtrust’s products, services, and customer communications.\n\nCredit:  To create global business profiles, to enable portfolio monitoring and to send alerts on portfolio accounts of our Customers, and to create a portal that gathers credit application information, as part of the credit onboarding decisioning process of our Customers.\n\nBusiness Payment Network: to maintain or service accounts for our Customers, to provide customer service to our Customers, to process or fulfill order processing and transactions including ACH and wire transfers, to verify customer information, to process payments, and providing the Business Payment Network product to our Customers.\n\nBilltrust Business Directory: to identify opportunities within our customers’ customer bases to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\nMarketing: to keep you informed about upgrades, products and services of Billtrust, its affiliates and other third parties that may be of interest to you.\nSpecial categories of Personal Data	General:  to process or fulfill orders and transactions, verify customer information, and provide our Products to our Customers.\n\nBusiness Payment Network: to contact our customers, when required; to process or full order processing and transactions including ACH and wire transfers.\n\nMarketing: to contact customers or prospects in order to market our Products.\nProtected characteristics	Marketing: to address you in our marketing communications.\nCommercial information	General: to process or fulfill orders and transactions, to verify customer information, payments, and to provide our Products to our Customers.\n\nCredit: to gather and analyze credit application information for our Customers.\n\nBusiness Payment Network: to create a two-sided platform in which payable providers can deliver digital payments directly to the suppliers’ acceptance platforms.\n\nBilltrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\nMarketing: to send Customers relevant marketing communications in light of Products that they have already purchased.\nInternet or other similar network activity	General: to detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities.\n\nMarketing: to target the marketing of our products and services, to count ad impressions to unique visitors, and to verify positioning and quality of ad impressions.\nGeolocation data	Marketing: to obtain aggregate demographic information about the entire Billtrust audience, to help us create, develop, operate, deliver, and improve our products, services, content and advertising.\nSensory data	General: to provide and improve the quality of our customer service.\nMarketing: to contact you about our Products.\nProfessional or employment-related information	General and marketing: to provide customer service; to verify customer information, to process payments; and to provide our Products to our Customers; to contact you about our Products.\nBiometric Data	General: to enable login to some mobile applications.\nInferences drawn from other Personal Data	Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">The table below explains why we process your Personal Data, when we act as a data controller:\n\nCategory of Personal Data	Businesses and Commercial Purposes for Processing Personal Data\n            Identifiers	General (All Products except Credit, BPN, BBD, and marketing activity):\n– To maintain or service accounts for our Customers, providing customer service to our Customers, to process or fulfill orders and transactions including ACH or wire transfers, to verify customer information, to process payments, and to provide our Products to our Customers;\n– To detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities;\n– To identify errors in our systems, Sites, Products .\n– To perform internal purposes such as auditing, creating an internal directory, data analysis, and research to improve Billtrust’s products, services, and customer communications.\n\nCredit:  To create global business profiles, to enable portfolio monitoring and to send alerts on portfolio accounts of our Customers, and to create a portal that gathers credit application information, as part of the credit onboarding decisioning process of our Customers.\n\nBusiness Payment Network: to maintain or service accounts for our Customers, to provide customer service to our Customers, to process or fulfill order processing and transactions including ACH and wire transfers, to verify customer information, to process payments, and providing the Business Payment Network product to our Customers.\n\nBilltrust Business Directory: to identify opportunities within our customers’ customer bases to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\nMarketing: to keep you informed about upgrades, products and services of Billtrust, its affiliates and other third parties that may be of interest to you.\nSpecial categories of Personal Data	General:  to process or fulfill orders and transactions, verify customer information, and provide our Products to our Customers.\n\nBusiness Payment Network: to contact our customers, when required; to process or full order processing and transactions including ACH and wire transfers.\n\nMarketing: to contact customers or prospects in order to market our Products.\nProtected characteristics	Marketing: to address you in our marketing communications.\nCommercial information	General: to process or fulfill orders and transactions, to verify customer information, payments, and to provide our Products to our Customers.\n\nCredit: to gather and analyze credit application information for our Customers.\n\nBusiness Payment Network: to create a two-sided platform in which payable providers can deliver digital payments directly to the suppliers’ acceptance platforms.\n\nBilltrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\nMarketing: to send Customers relevant marketing communications in light of Products that they have already purchased.\nInternet or other similar network activity	General: to detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities.\n\nMarketing: to target the marketing of our products and services, to count ad impressions to unique visitors, and to verify positioning and quality of ad impressions.\nGeolocation data	Marketing: to obtain aggregate demographic information about the entire Billtrust audience, to help us create, develop, operate, deliver, and improve our products, services, content and advertising.\nSensory data	General: to provide and improve the quality of our customer service.\nMarketing: to contact you about our Products.\nProfessional or employment-related information	General and marketing: to provide customer service; to verify customer information, to process payments; and to provide our Products to our Customers; to contact you about our Products.\nBiometric Data	General: to enable login to some mobile applications.\nInferences drawn from other Personal Data	Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Category of Personal Data ||| 1: Businesses and Commercial Purposes for Processing Personal Data\n\n0: Identifiers ||| 1: General (All Products except Credit, BPN, BBD, and marketing activity): – To maintain or service accounts for our Customers, providing customer service to our Customers, to process or fulfill orders and transactions including ACH or wire transfers, to verify customer information, to process payments, and to provide our Products to our Customers; – To detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities; – To identify errors in our systems, Sites, Products . – To perform internal purposes such as auditing, creating an internal directory, data analysis, and research to improve Billtrust’s products, services, and customer communications. Credit: To create global business profiles, to enable portfolio monitoring and to send alerts on portfolio accounts of our Customers, and to create a portal that gathers credit application information, as part of the credit onboarding decisioning process of our Customers. Business Payment Network: to maintain or service accounts for our Customers, to provide customer service to our Customers, to process or fulfill order processing and transactions including ACH and wire transfers, to verify customer information, to process payments, and providing the Business Payment Network product to our Customers. Billtrust Business Directory: to identify opportunities within our customers’ customer bases to convert print invoices to electronic invoices and payments from paper checks to online payments. Marketing: to keep you informed about upgrades, products and services of Billtrust, its affiliates and other third parties that may be of interest to you.\n\n0: Special categories of Personal Data ||| 1: General: to process or fulfill orders and transactions, verify customer information, and provide our Products to our Customers. Business Payment Network: to contact our customers, when required; to process or full order processing and transactions including ACH and wire transfers. Marketing: to contact customers or prospects in order to market our Products.\n\n0: Protected characteristics ||| 1: Marketing: to address you in our marketing communications.\n\n0: Commercial information ||| 1: General: to process or fulfill orders and transactions, to verify customer information, payments, and to provide our Products to our Customers. Credit: to gather and analyze credit application information for our Customers. Business Payment Network: to create a two-sided platform in which payable providers can deliver digital payments directly to the suppliers’ acceptance platforms. Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments. Marketing: to send Customers relevant marketing communications in light of Products that they have already purchased.\n\n0: Internet or other similar network activity ||| 1: General: to detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities. Marketing: to target the marketing of our products and services, to count ad impressions to unique visitors, and to verify positioning and quality of ad impressions.\n\n0: Geolocation data ||| 1: Marketing: to obtain aggregate demographic information about the entire Billtrust audience, to help us create, develop, operate, deliver, and improve our products, services, content and advertising.\n\n0: Sensory data ||| 1: General: to provide and improve the quality of our customer service. Marketing: to contact you about our Products.\n\n0: Professional or employment-related information ||| 1: General and marketing: to provide customer service; to verify customer information, to process payments; and to provide our Products to our Customers; to contact you about our Products.\n\n0: Biometric Data ||| 1: General: to enable login to some mobile applications.\n\n0: Inferences drawn from other Personal Data ||| 1: Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Category of Personal Data ||| 1: Businesses and Commercial Purposes for Processing Personal Data\n\n0: Identifiers ||| 1: General (All Products except Credit, BPN, BBD, and marketing activity): – To maintain or service accounts for our Customers, providing customer service to our Customers, to process or fulfill orders and transactions including ACH or wire transfers, to verify customer information, to process payments, and to provide our Products to our Customers; – To detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities; – To identify errors in our systems, Sites, Products . – To perform internal purposes such as auditing, creating an internal directory, data analysis, and research to improve Billtrust’s products, services, and customer communications. Credit: To create global business profiles, to enable portfolio monitoring and to send alerts on portfolio accounts of our Customers, and to create a portal that gathers credit application information, as part of the credit onboarding decisioning process of our Customers. Business Payment Network: to maintain or service accounts for our Customers, to provide customer service to our Customers, to process or fulfill order processing and transactions including ACH and wire transfers, to verify customer information, to process payments, and providing the Business Payment Network product to our Customers. Billtrust Business Directory: to identify opportunities within our customers’ customer bases to convert print invoices to electronic invoices and payments from paper checks to online payments. Marketing: to keep you informed about upgrades, products and services of Billtrust, its affiliates and other third parties that may be of interest to you.\n\n0: Special categories of Personal Data ||| 1: General: to process or fulfill orders and transactions, verify customer information, and provide our Products to our Customers. Business Payment Network: to contact our customers, when required; to process or full order processing and transactions including ACH and wire transfers. Marketing: to contact customers or prospects in order to market our Products.\n\n0: Protected characteristics ||| 1: Marketing: to address you in our marketing communications.\n\n0: Commercial information ||| 1: General: to process or fulfill orders and transactions, to verify customer information, payments, and to provide our Products to our Customers. Credit: to gather and analyze credit application information for our Customers. Business Payment Network: to create a two-sided platform in which payable providers can deliver digital payments directly to the suppliers’ acceptance platforms. Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments. Marketing: to send Customers relevant marketing communications in light of Products that they have already purchased.\n\n0: Internet or other similar network activity ||| 1: General: to detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities. Marketing: to target the marketing of our products and services, to count ad impressions to unique visitors, and to verify positioning and quality of ad impressions.\n\n0: Geolocation data ||| 1: Marketing: to obtain aggregate demographic information about the entire Billtrust audience, to help us create, develop, operate, deliver, and improve our products, services, content and advertising.\n\n0: Sensory data ||| 1: General: to provide and improve the quality of our customer service. Marketing: to contact you about our Products.\n\n0: Professional or employment-related information ||| 1: General and marketing: to provide customer service; to verify customer information, to process payments; and to provide our Products to our Customers; to contact you about our Products.\n\n0: Biometric Data ||| 1: General: to enable login to some mobile applications.\n\n0: Inferences drawn from other Personal Data ||| 1: Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Category of Personal Data ||| 1: Businesses and Commercial Purposes for Processing Personal Data\n\n0: Identifiers ||| 1: General (All Products except Credit, BPN, BBD, and marketing activity): – To maintain or service accounts for our Customers, providing customer service to our Customers, to process or fulfill orders and transactions including ACH or wire transfers, to verify customer information, to process payments, and to provide our Products to our Customers; – To detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities; – To identify errors in our systems, Sites, Products . – To perform internal purposes such as auditing, creating an internal directory, data analysis, and research to improve Billtrust’s products, services, and customer communications. Credit: To create global business profiles, to enable portfolio monitoring and to send alerts on portfolio accounts of our Customers, and to create a portal that gathers credit application information, as part of the credit onboarding decisioning process of our Customers. Business Payment Network: to maintain or service accounts for our Customers, to provide customer service to our Customers, to process or fulfill order processing and transactions including ACH and wire transfers, to verify customer information, to process payments, and providing the Business Payment Network product to our Customers. Billtrust Business Directory: to identify opportunities within our customers’ customer bases to convert print invoices to electronic invoices and payments from paper checks to online payments. Marketing: to keep you informed about upgrades, products and services of Billtrust, its affiliates and other third parties that may be of interest to you.\n\n0: Special categories of Personal Data ||| 1: General: to process or fulfill orders and transactions, verify customer information, and provide our Products to our Customers. Business Payment Network: to contact our customers, when required; to process or full order processing and transactions including ACH and wire transfers. Marketing: to contact customers or prospects in order to market our Products.\n\n0: Protected characteristics ||| 1: Marketing: to address you in our marketing communications.\n\n0: Commercial information ||| 1: General: to process or fulfill orders and transactions, to verify customer information, payments, and to provide our Products to our Customers. Credit: to gather and analyze credit application information for our Customers. Business Payment Network: to create a two-sided platform in which payable providers can deliver digital payments directly to the suppliers’ acceptance platforms. Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments. Marketing: to send Customers relevant marketing communications in light of Products that they have already purchased.\n\n0: Internet or other similar network activity ||| 1: General: to detect security incidents, to protect our systems against malicious, deceptive, fraudulent, or illegal activities, and to prosecute those responsible for those activities. Marketing: to target the marketing of our products and services, to count ad impressions to unique visitors, and to verify positioning and quality of ad impressions.\n\n0: Geolocation data ||| 1: Marketing: to obtain aggregate demographic information about the entire Billtrust audience, to help us create, develop, operate, deliver, and improve our products, services, content and advertising.\n\n0: Sensory data ||| 1: General: to provide and improve the quality of our customer service. Marketing: to contact you about our Products.\n\n0: Professional or employment-related information ||| 1: General and marketing: to provide customer service; to verify customer information, to process payments; and to provide our Products to our Customers; to contact you about our Products.\n\n0: Biometric Data ||| 1: General: to enable login to some mobile applications.\n\n0: Inferences drawn from other Personal Data ||| 1: Billtrust Business Directory: to allow our customers to identify opportunities within their customer base to convert print invoices to electronic invoices and payments from paper checks to online payments.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sharing Data with Third Parties\nWe may disclose Personal Data to third party service providers who process information on our behalf, act as professional advisors, or who are involved in a corporate transaction. We may also disclose Personal Data to law enforcement agencies, government bodies or private parties as required by law. Disclosures of Personal Data may be necessary for the performance of our contract, our legitimate interests, or when we are required to do so by law. For any recipient categories not mentioned in this section, we may share your Personal Data where you have given us permission to do so.\n\nWe describe below the categories of Personal Data that we have disclosed for our own operational business purposes, what categories of Personal Data we have sold, and the types of recipients of your Personal Data. The information about our data sharing practices is structured as follows:\n\nOur disclosures of Personal Data processed in the context of most Billtrust Products (excluding Credit, BPN and BBD).\nOur disclosures of Personal Data processed in the context of Credit.\nOur disclosures of Personal Data processed in the context of the BPN.\nOur disclosures of Personal Data processed in the context of the BBD.\nOur disclosures of Personal Data processed for our marketing purposes.\nInternational data transfers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">What Types of Third Parties May Receive These Categories of Sold Personal Data?\nCredit bureaus, credit analysts, factoring organizations, and our Customers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Occasions Where We Cannot fulfill a Deletion Request Under the GDPR or the CCPA\nThe GDPR and the CCPA allow us to deny a request to erase your Personal Data, if we or our service providers need to retain the Personal Data to:\n\nComplete the transaction for which we collected the Personal Data;\nfulfill the terms of a written warranty or product recall conducted in accordance with federal law;\nProvide a good or service that you requested, take actions reasonably anticipated within the context of our ongoing business relationship with you, or otherwise perform our contract with you;\nDetect security incidents, protect against malicious, deceptive, fraudulent, or illegal activity, or prosecute those responsible for such activities;\nDebug products to identify and repair errors that impair existing intended functionality;\nExercise free speech, ensure the right of another consumer to exercise their free speech rights or exercise another right provided for by law;\nEngage in public or peer-reviewed scientific, historical, or statistical research in the public interest that adheres to all other applicable ethics and privacy laws, when the information’s deletion may likely render impossible or seriously impair the research’s achievement, if you previously provided informed consent;\nEnable solely internal uses that are reasonably aligned with your expectations, based on your relationship with us;\nComply with a legal obligation, including (but not limited to) obligations from the California Electronic Communications Privacy Act; or\nMake other internal and lawful uses of that information that are compatible with the context in which you provided it.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Right to Ask Us to Stop Using Your Personal Data\nThis is called the right to object. This is your right to tell us to stop using your Personal Data. You have this right, where we rely on a legitimate interest of ours (or of a third party). You also have the right to object at any time to the processing of your Personal Data for direct marketing purposes.\n\nWe will stop processing the relevant Personal Data unless: (i) we have compelling legitimate grounds for the processing that override your interests, rights, or freedoms; or (ii) we need to continue processing your Personal Data to establish, exercise, or defend a legal claim.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Marketing and Targeted Advertising Cookies\nMarketing and Targeted Advertising Cookies\nMarketing cookies collect information such as which pages you visit on our Website(s), and how you arrived at our Website(s). Collected information is used to evaluate the effectiveness of our marketing campaigns or to provide better targeting for marketing. They perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed for advertisers, and in some cases selecting advertisements that are based on your interests.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Performance and Functionality Cookies\nPerformance and Functionality Cookies\nThese cookies allow us to enhance the performance and functionality of our Website(s), but are not essential to its (their) use. However, without these cookies, some functionalities (such as videos) may become unavailable.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Analytics Cookies\nAnalytics Cookies\nThese cookies may count visits and traffic sources to measure and improve the performance of our Website(s). They help us to know which pages are the most and least popular and see how visitors move around the site. We will only place these cookies if you expressly accept them when you first visit our Website(s) via our Cookie Settings banner. Analytics cookies collect information that is used either in aggregate form to help us understand how our Website(s) are being used or how effective marketing campaigns are, or to help us customize our Website(s)for you. Regarding Google Analytics: For an overview of the privacy of your Google Analytics cookies, please visit: https://support.google.com/analytics/answer/6004245.⏎You may install a Google Analytics opt-out browser add-on by going here: https://tools.google.com/dlpage/gaoptout?hl=en-GB.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Strictly Necessary Cookies\nAlways Active\nThese cookies are necessary for the Website(s) to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but that may cause some parts of the Website(s) to not work.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

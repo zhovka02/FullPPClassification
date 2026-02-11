@@ -1,0 +1,887 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_25</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.34</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.72</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.46</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">18</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">When you use or visit our Site, we collect the following types of information: Personal information you choose to provide to us, for example, when you make requests for information and assistance, such as: Your name; Mailing address; E-mail address; and Telephone number. Information about the company for which you work. Sensitive information, to register for certain products and services. Technical information, through our use of cookies, sensors, log files, and other technical mechanisms, such as: Browser type; IP address; Mobile device type and identifier; Screen resolution; Operating system; The date and time of a visit or use; The pages visited on the Site; and The time spent viewing particular pages of the Site.</div>
+                    <div class='match-info'><b>Matched GT:</b> INFORMATION COLLECTION
+When you use or visit our Site, we collect the following types of information:
+
+Personal information you choose to provide to us, for example, when you make requests for information and assistance, such as:
+
+Your name;
+Mailing address;
+E-mail address; and
+Telephone number.
+Information about the company for which you work.
+Sensitive information, to register for certain products and services.
+Technical information, through our use of cookies, sensors, log files, and other technical mechanisms, such as:
+
+Browser type;
+IP address;
+Mobile device type and identifier;
+Screen resolution;
+Operating system;
+The date and time of a visit or use;
+The pages visited on the Site; and
+The time spent viewing particular pages of the Site.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">As described in this Policy, we may make personal information available to third parties for their marketing purposes.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.24):</b> If BW goes through a business transition such as a merger, acquisition, sale, assignment, divestiture, or transfer of all or part of our assets or products, including as part of a bankruptcy proceeding, your personal information will likely be among the assets transferred, and we may share your information in the event of such transfer.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">However, the information provided to us through the Site may be provided to our partners and third parties who may offer products or services of interest to you. BW screens all third parties that would receive such information and reviews the intended use of the data before providing any information to them. These parties include such companies as software and hardware vendors and other information providers. BW may also provide aggregated information, such as the number of visitors to the Site or the results of a survey, with our partners and third parties to develop suggestions to improve our Site accessibility and the services provided on the Site. BW may use contractors and other service providers to help us deliver services accessed through this Site and to deliver content and fulfill requests made on this Site. In these instances, the information you provide remains the property of BW. In addition, we reserve the right to disclose the information you provided as required by law; as otherwise requested by law, regulation, or government authority; or when we believe disclosure is necessary to protect our rights or the rights or safety of third parties, including to comply with a subpoena, judicial proceeding, court order or legal process served on our Site. If BW goes through a business transition such as a merger, acquisition, sale, assignment, divestiture, or transfer of all or part of our assets or products, including as part of a bankruptcy proceeding, your personal information will likely be among the assets transferred, and we may share your information in the event of such transfer.</div>
+                    <div class='match-info'><b>Matched GT:</b> INFORMATION SHARING\nThe Site does not allow third parties to collect personal information about you related to your online activities when you use this Site.  However, the information provided to us through the Site may be provided to our partners and third parties who may offer products or services of interest to you.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and want us to delete personal information that we may have about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output at all, nor does it maintain the central meaning. The Actual Output focuses on a request for deletion without mentioning the specifics of the right to request deletion or the validation process described in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.50):</b> The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you want us to delete personal information that we may have about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output nor is it a substring conveying the main meaning. It is unrelated to the expected description of the right to delete personal information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.53):</b> The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you are a U.S. resident and would like to make a verifiable consumer request to delete any personal information that we may have about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output, nor is it a list that includes the Expected Output as an item. Additionally, the Actual Output does not preserve the main meaning of the Expected Output, as it focuses on consumer requests without mentioning the right to request deletion or the validation process.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.50):</b> The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of the European Union or the United Kingdom, you have the right to be informed, withdraw consent, or request the deletion/erasure of personal data as defined under the General Data Protection Regulation (EU) 2016/679.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as part of a larger text, nor is it a list where the Expected Output matches an item. Additionally, the Actual Output is not a substring of the Expected Output that retains the main meaning. The two texts focus on different aspects of data deletion rights, indicating no alignment.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.50):</b> The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Australia, you have the right to withdraw consent/opt out, the right to access personal data, the right of rectification, or the right to request the deletion/de-identification of personal data as defined under the privacy policies of your country.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in its entirety, nor does it match any single item within a list or act as a substring of the Expected Output while retaining primary meaning. The response discusses rights related to personal information but does not mention the specific right to request deletion or the two-step identity validation process, which are key elements of the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.54):</b> The right to request that we delete the personal information we may have collected directly from you. We use a two-step process to validate identity prior to deleting information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">If you would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process we will provide information we may have about you and you may communicate the information you may wish to rectify.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Canada, you have the right to withdraw consent/opt out, the right to access personal data, or the right of rectification under the privacy policies of your country.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Australia, you have the right to withdraw consent/opt out, the right to access personal data, the right of rectification, or the right to request the deletion/de-identification of personal data as defined under the privacy policies of your country.</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output mentions the right to know personal information for California residents, which aligns with the Expected Output&#x27;s topic but lacks depth. It does not provide essential details such as the categories of sources, purposes for collecting information, or the identity validation process described in the Expected Output. The response fails to fully capture the breadth of the original content.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.49):</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">If you want to know what categories or specific personal information is collected, used, shared or sold about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in its entirety. While it addresses the intent of the right to know, it lacks significant content and specificity present in the Expected Output regarding the categories, purposes, and sources related to personal information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.48):</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Canada, you have the right to withdraw consent/opt out, the right to access personal data, or the right of rectification under the privacy policies of your country.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not include the Expected Output as part of a larger text, nor is it present in a list or table. Additionally, it is not a substring of the Expected Output that maintains the core meaning. There is no relevant connection between the two outputs, resulting in a complete lack of alignment.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.58):</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Australia, you have the right to withdraw consent/opt out, the right to access personal data, the right of rectification, or the right to request the deletion/de-identification of personal data as defined under the privacy policies of your country.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor does it match any item within a list or table format. Additionally, there is no meaningful alignment between the Actual Output and the Expected Output, as they refer to different geographical jurisdictions and related rights.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.56):</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output in its entirety nor does it adequately convey the same main meaning. The response focuses on the right to know under California law but lacks the specific details and comprehensive content present in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.49):</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">If you want to know what categories or specific personal information is collected, used, shared or sold about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output provides some relevant information about personal information but does not contain the Expected Output text entirely. While it mentions categories of personal information, it lacks details about disclosure sources and the validation process, resulting in limited alignment with the expected content.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.48):</b> The right to know the categories and specific pieces of personal information we may collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information. We use a two-step process to validate identity before providing personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You may visit the DAA Webchoices tool at http://optout.aboutads.info/?c=2&amp;lang=EN to learn more about this type of advertising and how to opt out of it on websites by companies participating in the DAA self-regulatory program.</div>
+                    <div class='match-info'><b>Matched GT:</b> We adhere to the Digital Advertising Alliance (“DAA”) Self-Regulatory Principles in connection with this interest-based advertising activity.  You may visit the DAA Webchoices tool at http://optout.aboutads.info/?c=2&amp;lang=EN to learn more about this type of advertising and how to opt out of it on websites by companies participating in the DAA self-regulatory program</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Belardi Wong offers you the opportunity to opt out of receiving promotional e-mail, calls or mail from BW about our products and services. To do so, please click here . For e-mail, individuals may opt out at any time by using the unsubscribe mechanism within the e-mail, which allows individuals to manage their subscription preferences regarding BW newsletters, e-mail alerts and special offers.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor does it represent a substring that retains the main meaning. The Actual Output discusses opting out of promotional communications but does not mention the right to opt out of the sale of personal information, which is the core of the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.38):</b> The right to opt out of our sale of your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">The right to opt out of our sale of your personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of our sale of your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output includes information relevant to the opt-out right but does not contain the Expected Output as a substring. The core message of the Expected Output is about the right to opt out, which is not clearly reflected in the Actual Output&#x27;s focus on disclosure practices.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.46):</b> The right to opt out of our sale of your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Residents from these states may opt-out of Belardi Wong’s disclosure of personal information to third parties for their direct marketing purposes pursuant to their state laws by clicking here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output completely, nor is it a list containing the Expected Output as an item. Additionally, it does not serve as a substring retaining the main meaning of the Expected Output, which specifically refers to the right to opt-out, while the Actual Output discusses the process in a broader context.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.43):</b> The right to opt out of our sale of your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you are a Nevada resident and would like to opt-out of the sale of your personal information, please click here , email our Privacy Officer at: privacy.officer@belardiwong.com , or, send your request to: 39 Broadway 32nd Floor, New York, NY 10006.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of our sale of your personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">U.S. residents may opt-out of Belardi Wong’s disclosure of personal information to third parties for their direct marketing purposes by clicking here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output, nor is it a substring that preserves the main meaning. The Expected Output specifically discusses the right to opt out of the sale of personal information, while the Actual Output refers to opting out of disclosure for marketing purposes, which lacks alignment with the expected context.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.44):</b> The right to opt out of our sale of your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Canada, you have the right to withdraw consent/opt out, the right to access personal data, or the right of rectification under the privacy policies of your country.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor does it form a list or table that includes the Expected Output. Additionally, the core meaning is not retained, as the Actual Output expands on rights related to personal information but does not specifically mention opting out of the sale of personal information as indicated in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.64):</b> The right to opt out of our sale of your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If we collected personal information from you and you are a resident of Australia, you have the right to withdraw consent/opt out, the right to access personal data, the right of rectification, or the right to request the deletion/de-identification of personal data as defined under the privacy policies of your country.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not include the Expected Output in its entirety, nor does it closely align with it. While the Actual Output discusses the right to opt-out, it presents a broader context and lacks the specific phrase from the Expected Output, which is distinct and does not appear as a substring of the Actual Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.64):</b> The right to opt out of our sale of your personal information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">The right not to receive discriminatory treatment for the exercise of the privacy rights conferred by the CCPA. We will not deny, charge different prices for, or provide a different level of services if you choose to exercise these rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right not to receive discriminatory treatment for the exercise of the privacy rights conferred by the CCPA. We will not deny, charge different prices for, or provide a different level of services if you choose to exercise these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may visit the DAA Webchoices tool at http://optout.aboutads.info/?c=2&amp;lang=EN to learn more about this type of advertising and how to opt out of it on websites by companies participating in the DAA self-regulatory program.</div>
+                    <div class='match-info'><b>Matched GT:</b> We adhere to the Digital Advertising Alliance (“DAA”) Self-Regulatory Principles in connection with this interest-based advertising activity.  You may visit the DAA Webchoices tool at http://optout.aboutads.info/?c=2&amp;lang=EN to learn more about this type of advertising and how to opt out of it on websites by companies participating in the DAA self-regulatory program.  If you delete your cookies or use a different browser or mobile device, you may need to renew your opt-out choices exercised through the DAA Webchoices tool.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">to opt out of Google Analytics, visit https://tools.google.com/dlpage/gaoptout/ .</div>
+                    <div class='match-info'><b>Matched GT:</b> For more information about how Google Analytics collects and uses data when you use our Site, visit https://www.google.com/policies/privacy/partners/, and to opt out of Google Analytics, visit https://tools.google.com/dlpage/gaoptout/.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To do so, please click here . For e-mail, individuals may opt out at any time by using the unsubscribe mechanism within the e-mail, which allows individuals to manage their subscription preferences regarding BW newsletters, e-mail alerts and special offers.</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.28):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Privacy Officer Belardi Wong 39 Broadway 32nd Floor, New York, NY 10006 Email: privacy.officer@belardiwong.com Call: Belardi Wong ALC, LLC Privacy Office at 800-252-5478</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.11):</b> For more information about how Google Analytics collects and uses data when you use our Site, visit https://www.google.com/policies/privacy/partners/, and to opt out of Google Analytics, visit https://tools.google.com/dlpage/gaoptout/.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">We use a two-step process to validate identity before providing personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output, nor is it a substring of it that maintains the core meaning. The response regarding the two-step verification process does not address the rights of California residents concerning the disclosure of personal information, which is the focus of the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.45):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">We use a two-step process to validate identity prior to deleting information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output as a substring, nor does it match any of the items in a list or table. The response fails to address the specific request regarding methods to exercise rights in relation to personal information, leading to a complete misalignment with the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.44):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here .</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here .</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and want us to delete personal information that we may have about you please click here .</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Residents from these states may opt-out of Belardi Wong’s disclosure of personal information to third parties for their direct marketing purposes pursuant to their state laws by clicking here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains some relevant information about residents opting-out but fails to mention California specifically, and does not include key details such as the California Civil Code or the two-step verification process present in the Expected Output. Thus, it does not fulfill the criteria for any of the evaluation steps fully.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.51):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you want to know what categories or specific personal information is collected, used, shared or sold about you please click here .</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you want us to delete personal information that we may have about you please click here .</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process we will provide information we may have about you and you may communicate the information you may wish to rectify.</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a Nevada resident and would like to opt-out of the sale of your personal information, please click here , email our Privacy Officer at: privacy.officer@belardiwong.com , or, send your request to: 39 Broadway 32nd Floor, New York, NY 10006.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output, nor does it align with the topic of California residents opting out of information sales. It discusses Nevada residents instead, making it completely irrelevant to the evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.55):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">U.S. residents may opt-out of Belardi Wong’s disclosure of personal information to third parties for their direct marketing purposes by clicking here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output, nor does it reference the same rights or legal context, thus failing to match any evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.54):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you are a U.S. resident and would like to make a verifiable consumer request to delete any personal information that we may have about you please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output and provides a different context related to U.S. residents rather than California residents, failing to address the core meaning and specific rights outlined in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.70):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To make a verifiable consumer request please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain or directly relate to the content of the Expected Output, which discusses consumer rights under California law, while the Actual Output only mentions a generic request action without specific context or detail.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.48):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To make a verifiable consumer request please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain or directly relate to the content of the Expected Output, which discusses consumer rights under California law, while the Actual Output only mentions a generic request action without specific context or detail.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.48):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To make a verifiable consumer request please click here .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain or directly relate to the content of the Expected Output, which discusses consumer rights under California law, while the Actual Output only mentions a generic request action without specific context or detail.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.48):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Please note that in order to exercise your rights for information and/or deletion, we may take reasonable steps to verify the identity of a consumer making the request. To prevent the unauthorized access or deletion of personal information, we may request a notarized affidavit verifying a consumer’s identity. We request that our affidavit be notarized and returned to us (as described in instructions that will be provided upon submission request). Belardi Wong will compensate for the reasonable cost of this notarization. In certain circumstances, we may decline a request to exercise the right to know and/or right to deletion, particularly where we are unable to verify your identity or if an exception applies. Authorized Agent. You may designate an authorized agent to make a CCPA request on your behalf. In order for an authorized agent to be verified, you must provide the authorized agent with signed, written permission to make such requests, or a power of attorney. We may also follow up to verify your identity by requesting a notarized affidavit before processing the authorized agent’s request.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring nor does it retain the primary meaning. It discusses identity verification and rights related to personal information but fails to address the specific rights for California residents mentioned in the Expected Output, such as opting out, requesting deletion, or rectification of information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.51):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you have questions about this Policy, please contact us at privacy.officer@belardiwong.com .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not include any part of the Expected Output, nor does it correspond to any items or substrings that retain the primary meaning of the Expected Output. The response does not address the label regarding &#x27;Methods to exercise rights&#x27; at all.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.32):</b> California residents may opt-out of BW’s disclosure of personal information to third parties for their direct marketing purposes pursuant to California Civil Code section 1798.83 and the California Consumer Privacy Act clicking here. If you are a California resident and want to know what categories or specific personal information is collected, used, shared or sold about you please click here. If you are a California resident and want us to delete personal information that we may have about you please click here.  If you are a California resident and would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process, we will provide information we may have about you and you may communicate the information you may wish to rectified.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">YOUR CHOICES
+Digital Advertising &amp; Analytics
+
+We may partner with ad networks and other ad serving providers (“Advertising Providers”) that serve ads on behalf of us and others on non-affiliated platforms.  Some of those ads may be personalized, meaning that they are intended to be relevant to you based on information Advertising Providers collect about your use of the Site and other websites or apps over time, including information about relationships among different browsers and devices.  This type of advertising is known as interest-based advertising.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may also work with third parties that collect data about your use of the Site and other websites or apps over time for non-advertising purposes.  Among these third parties, we may use Google to improve the performance of the Site and for analytics and marketing purposes.  For more information about how Google Analytics collects and uses data when you use our Site, visit https://www.google.com/policies/privacy/partners/, and to opt out of Google Analytics, visit https://tools.google.com/dlpage/gaoptout/.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">California Privacy Rights
+
+If you are a California resident, the California Consumer Privacy Act (“the CCPA”) provides you with certain rights relating to the data that Belardi Wong may have collected about you. Those rights include:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">For Colorado, Connecticut, Nevada, Utah and Virginia Residents
+
+We may make personal information available to third parties for their marketing purposes.  Residents from these states may opt-out of Belardi Wong’s disclosure of personal information to third parties for their direct marketing purposes pursuant to their state laws by clicking here. If you want to know what categories or specific personal information is collected, used, shared or sold about you please click here.   If you want us to delete personal information that we may have about you please click here. If you would like to request information we may have about you to be rectified, please click here to submit a request. Once we have verified your identity through our two-step process we will provide information we may have about you and you may communicate the information you may wish to rectify.
+
+For Nevada Residents 
+
+If you are a Nevada resident and would like to opt-out of the sale of your personal information, please click here, email our Privacy Officer at: privacy.officer@belardiwong.com, or, send your request to: 39 Broadway 32nd Floor, New York, NY 10006.
+
+For U.S. Residents
+
+As described in this Policy, we may make personal information available to third parties for their marketing purposes.  U.S. residents may opt-out of Belardi Wong’s disclosure of personal information to third parties for their direct marketing purposes by clicking here. If you are a U.S. resident and would like to make a verifiable consumer request to delete any personal information that we may have about you please click here.
+
+Visitors from the United Kingdom and Europe
+
+If we collected personal information from you and you are a resident of the European Union or the United Kingdom, you have the right to be informed, withdraw consent, or request the deletion/erasure of personal data as defined under the General Data Protection Regulation (EU) 2016/679.  To make a verifiable consumer request please click here.
+
+Visitors from Canada
+
+If we collected personal information from you and you are a resident of Canada, you have the right to withdraw consent/opt out, the right to access personal data, or the right of rectification under the privacy policies of your country. To make a verifiable consumer request please click here.
+
+Visitors from Australia
+
+If we collected personal information from you and you are a resident of Australia, you have the right to withdraw consent/opt out, the right to access personal data, the right of rectification, or the right to request the deletion/de-identification of personal data as defined under the privacy policies of your country. To make a verifiable consumer request please click here.
+
+Verification Process and Required Information. Please note that in order to exercise your rights for information and/or deletion, we may take reasonable steps to verify the identity of a consumer making the request. To prevent the unauthorized access or deletion of personal information, we may request a notarized affidavit verifying a consumer’s identity. We request that our affidavit be notarized and returned to us (as described in instructions that will be provided upon submission request). Belardi Wong will compensate for the reasonable cost of this notarization.
+
+In certain circumstances, we may decline a request to exercise the right to know and/or right to deletion, particularly where we are unable to verify your identity or if an exception applies.
+
+Authorized Agent. You may designate an authorized agent to make a CCPA request on your behalf. In order for an authorized agent to be verified, you must provide the authorized agent with signed, written permission to make such requests, or a power of attorney. We may also follow up to verify your identity by requesting a notarized affidavit before processing the authorized agent’s request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">CHANGES TO OUR POLICY
+Belardi Wong may modify or revise this Policy at any time.  We encourage you to revisit this Policy regularly to stay informed about how we collect, use, and share your information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">INFORMATION USE\nWe may use the information we collect about you for purposes such as enabling you to:\n\nreceive responses to your requests for information from BW;\nregister for special offers, seminars or demonstrations;\nparticipate in surveys and contests;\ndownload thought leadership papers, videos, and podcasts;\nsubscribe to some additional BW products and services;\naccess our products; and\nto apply for employment.\nBW may combine the information you provide to us through your use of the Site with information we collect from other sources.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">If BW goes through a business transition such as a merger, acquisition, sale, assignment, divestiture, or transfer of all or part of our assets or products, including as part of a bankruptcy proceeding, your personal information will likely be among the assets transferred, and we may share your information in the event of such transfer.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">INFORMATION COLLECTION\nWhen you use or visit our Site, we collect the following types of information:\n\nPersonal information you choose to provide to us, for example, when you make requests for information and assistance, such as:\n\nYour name;\nMailing address;\nE-mail address; and\nTelephone number.\nInformation about the company for which you work.\nSensitive information, to register for certain products and services.\nTechnical information, through our use of cookies, sensors, log files, and other technical mechanisms, such as:\n\nBrowser type;\nIP address;\nMobile device type and identifier;\nScreen resolution;\nOperating system;\nThe date and time of a visit or use;\nThe pages visited on the Site; and\nThe time spent viewing particular pages of the Site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">INFORMATION COLLECTION\nWhen you use or visit our Site, we collect the following types of information:\n\nPersonal information you choose to provide to us, for example, when you make requests for information and assistance, such as:\n\nYour name;\nMailing address;\nE-mail address; and\nTelephone number.\nInformation about the company for which you work.\nSensitive information, to register for certain products and services.\nTechnical information, through our use of cookies, sensors, log files, and other technical mechanisms, such as:\n\nBrowser type;\nIP address;\nMobile device type and identifier;\nScreen resolution;\nOperating system;\nThe date and time of a visit or use;\nThe pages visited on the Site; and\nThe time spent viewing particular pages of the Site.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">For more information about how Google Analytics collects and uses data when you use our Site, visit https://www.google.com/policies/privacy/partners/, and to opt out of Google Analytics, visit https://tools.google.com/dlpage/gaoptout/.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

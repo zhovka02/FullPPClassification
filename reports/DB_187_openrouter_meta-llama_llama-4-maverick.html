@@ -1,0 +1,991 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_187</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.81</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.68</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.74</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">13</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">11</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Updated: February 9, 2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Recent Updates to Policies
+
+Experian may periodically change its privacy policies as new products and services are offered or as its existing products and services evolve to meet customer needs. Privacy policies are typically dated to reflect the most recent update.
+
+Recent updates to any Experian U.S. privacy policy will be posted to this section.
+
+Updated:February 9, 2023
+
+Removed Data Select Policy due to decomissioning of the product
+
+Updated: February 28, 2023
+
+ConsumerInfo.com, Inc. Policy
+
+Updated: July 7, 2022
+
+CCPA Privacy Policy
+
+Updated: November 18, 2021
+
+CSID Privacy Policy
+
+Updated: March 1, 2019
+
+Updated the U.S.- EU Privacy Shield Privacy Policy to include the application of the policy to the United Kingdom.
+
+Updated: October 15, 2018
+
+Modified URL link for the independent dispute resolution mechanism in the U.S.- EU Privacy Shield Privacy Policy.
+
+Updated: May 15, 2018
+
+Experian U.S.- EU Privacy Shield Privacy Policy added to the Experian.com website.
+
+Updated: June 17, 2015
+
+Updated Hitwise Privacy Policy to now include information about data collected through partnerships.
+
+Updated: May 14, 2015
+
+Updated Opting Out page and subpages Direct Mail and Telemarketing to now include information on online advertising and introduced a new page, Request Experian Marketing Data Report.
+
+Updated: August 26, 2011
+
+Experian ConnectSM
+
+Updated: October 16, 2009
+
+The AutoCount privacy policy.
+
+Updated: January 28, 2009
+
+The Experian Small Business privacy policy was added.
+
+Updated: October 31, 2008
+
+The AutoCount privacy policy.
+
+Updated: July 22, 2007
+
+The Online Personal Credit Reports policy was updated.
+
+Updated: July 18, 2007
+
+Autocheck privacy policy updated integrating commercial and consumer policies and enhancements to non-personal information uses.
+
+Updated: June 8, 2007
+
+The AutoCount consumer privacy policy was added.
+
+Updated: January 20, 2006
+
+The AutoCheck consumer privacy policy has been updated. Changes include revisions to the Information Collection and Uses section, and the addition of information on how Experian uses Web site &#x27;cookies&#x27;. Web Log Information has also been replaced with the Web site Analysis section which further defines our Web site measurement practices.
+
+Updated: July 1, 2004
+
+In the &quot;Permission email&quot; section, language was updated to outline how email addresses are shared and used.
+
+The AutoCheck® Vehicle History Report privacy policy has been updated.
+
+Contact information for questions regarding the privacy policy was updated.
+
+Updated: August 28, 2003
+
+The Auto Prospect Online privacy policy was added.
+
+Updated: June 12, 2003
+
+The AutoCheck privacy policy was updated for consumers, and a privacy policy for commercial users has been created. In each, Experian identifies the use of a credit card processing company. In the commercial, Experian retains the commercial users&#x27; credit card information for billing purposes only.
+
+Updated: March 11, 2003
+
+The Online Personal Credit Reports policy was updated to state that information other than credit report information may be used for authentication.
+
+Updated: March 7, 2003
+
+ePIN+ is a Web-based relational database system for reporting relevant delivery status about a piece of mail as it moves through the U.S. Postal Service® delivery network, either on its way to a consumer&#x27;s mailbox, or from an individual delivery point back to a remittance or other service facility.
+
+Updated: February 26, 2003
+
+Within the U.S. section of www.experian.com Web logs and cookies are used to collect aggregated statistics about Web site visitors so that we can better understand what areas of our Web site are of interest to you. This technology does not track any individually identifiable information, but rather records your Web site visit anonymously.
+
+Updated: February 10, 2003
+
+The Opting out of Direct Mail and Opting out of Telemarketing sections of Experian&#x27;s privacy policy were updated to reflect a new telephone number to contact Experian.
+
+Updated: October 23, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for business-to-business Internet client registration. This application is for new and current subscribers serviced by Experian Information Solutions, Inc.
+
+Updated: September 26, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for List Link ExpressSM and List Link AdvancedSM business-to-business online prospecting tools of Experian Marketing Solutions, Inc.
+
+Updated: March 8, 2002
+
+Experian&#x27;s Product and service privacy policies section of our U.S. Web site was updated to add a privacy policy description for AutoCheck, Experian&#x27;s comprehensive vehicle history report service. Please visit our AutoCheck privacy policy for more information.
+
+Experian is a non-exclusive Full Service Provider Licensee of the USPS®. The prices established for these products are not established, controlled, or approved by the U.S. Government or the USPS. The following trademarks are owned by the USPS: U.S. Postal Service®</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Updated: February 28, 2023</div>
+                    <div class='match-info'><b>Matched GT:</b> Recent Updates to Policies
+
+Experian may periodically change its privacy policies as new products and services are offered or as its existing products and services evolve to meet customer needs. Privacy policies are typically dated to reflect the most recent update.
+
+Recent updates to any Experian U.S. privacy policy will be posted to this section.
+
+Updated:February 9, 2023
+
+Removed Data Select Policy due to decomissioning of the product
+
+Updated: February 28, 2023
+
+ConsumerInfo.com, Inc. Policy
+
+Updated: July 7, 2022
+
+CCPA Privacy Policy
+
+Updated: November 18, 2021
+
+CSID Privacy Policy
+
+Updated: March 1, 2019
+
+Updated the U.S.- EU Privacy Shield Privacy Policy to include the application of the policy to the United Kingdom.
+
+Updated: October 15, 2018
+
+Modified URL link for the independent dispute resolution mechanism in the U.S.- EU Privacy Shield Privacy Policy.
+
+Updated: May 15, 2018
+
+Experian U.S.- EU Privacy Shield Privacy Policy added to the Experian.com website.
+
+Updated: June 17, 2015
+
+Updated Hitwise Privacy Policy to now include information about data collected through partnerships.
+
+Updated: May 14, 2015
+
+Updated Opting Out page and subpages Direct Mail and Telemarketing to now include information on online advertising and introduced a new page, Request Experian Marketing Data Report.
+
+Updated: August 26, 2011
+
+Experian ConnectSM
+
+Updated: October 16, 2009
+
+The AutoCount privacy policy.
+
+Updated: January 28, 2009
+
+The Experian Small Business privacy policy was added.
+
+Updated: October 31, 2008
+
+The AutoCount privacy policy.
+
+Updated: July 22, 2007
+
+The Online Personal Credit Reports policy was updated.
+
+Updated: July 18, 2007
+
+Autocheck privacy policy updated integrating commercial and consumer policies and enhancements to non-personal information uses.
+
+Updated: June 8, 2007
+
+The AutoCount consumer privacy policy was added.
+
+Updated: January 20, 2006
+
+The AutoCheck consumer privacy policy has been updated. Changes include revisions to the Information Collection and Uses section, and the addition of information on how Experian uses Web site &#x27;cookies&#x27;. Web Log Information has also been replaced with the Web site Analysis section which further defines our Web site measurement practices.
+
+Updated: July 1, 2004
+
+In the &quot;Permission email&quot; section, language was updated to outline how email addresses are shared and used.
+
+The AutoCheck® Vehicle History Report privacy policy has been updated.
+
+Contact information for questions regarding the privacy policy was updated.
+
+Updated: August 28, 2003
+
+The Auto Prospect Online privacy policy was added.
+
+Updated: June 12, 2003
+
+The AutoCheck privacy policy was updated for consumers, and a privacy policy for commercial users has been created. In each, Experian identifies the use of a credit card processing company. In the commercial, Experian retains the commercial users&#x27; credit card information for billing purposes only.
+
+Updated: March 11, 2003
+
+The Online Personal Credit Reports policy was updated to state that information other than credit report information may be used for authentication.
+
+Updated: March 7, 2003
+
+ePIN+ is a Web-based relational database system for reporting relevant delivery status about a piece of mail as it moves through the U.S. Postal Service® delivery network, either on its way to a consumer&#x27;s mailbox, or from an individual delivery point back to a remittance or other service facility.
+
+Updated: February 26, 2003
+
+Within the U.S. section of www.experian.com Web logs and cookies are used to collect aggregated statistics about Web site visitors so that we can better understand what areas of our Web site are of interest to you. This technology does not track any individually identifiable information, but rather records your Web site visit anonymously.
+
+Updated: February 10, 2003
+
+The Opting out of Direct Mail and Opting out of Telemarketing sections of Experian&#x27;s privacy policy were updated to reflect a new telephone number to contact Experian.
+
+Updated: October 23, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for business-to-business Internet client registration. This application is for new and current subscribers serviced by Experian Information Solutions, Inc.
+
+Updated: September 26, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for List Link ExpressSM and List Link AdvancedSM business-to-business online prospecting tools of Experian Marketing Solutions, Inc.
+
+Updated: March 8, 2002
+
+Experian&#x27;s Product and service privacy policies section of our U.S. Web site was updated to add a privacy policy description for AutoCheck, Experian&#x27;s comprehensive vehicle history report service. Please visit our AutoCheck privacy policy for more information.
+
+Experian is a non-exclusive Full Service Provider Licensee of the USPS®. The prices established for these products are not established, controlled, or approved by the U.S. Government or the USPS. The following trademarks are owned by the USPS: U.S. Postal Service®</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Updated: July 7, 2022</div>
+                    <div class='match-info'><b>Matched GT:</b> Recent Updates to Policies
+
+Experian may periodically change its privacy policies as new products and services are offered or as its existing products and services evolve to meet customer needs. Privacy policies are typically dated to reflect the most recent update.
+
+Recent updates to any Experian U.S. privacy policy will be posted to this section.
+
+Updated:February 9, 2023
+
+Removed Data Select Policy due to decomissioning of the product
+
+Updated: February 28, 2023
+
+ConsumerInfo.com, Inc. Policy
+
+Updated: July 7, 2022
+
+CCPA Privacy Policy
+
+Updated: November 18, 2021
+
+CSID Privacy Policy
+
+Updated: March 1, 2019
+
+Updated the U.S.- EU Privacy Shield Privacy Policy to include the application of the policy to the United Kingdom.
+
+Updated: October 15, 2018
+
+Modified URL link for the independent dispute resolution mechanism in the U.S.- EU Privacy Shield Privacy Policy.
+
+Updated: May 15, 2018
+
+Experian U.S.- EU Privacy Shield Privacy Policy added to the Experian.com website.
+
+Updated: June 17, 2015
+
+Updated Hitwise Privacy Policy to now include information about data collected through partnerships.
+
+Updated: May 14, 2015
+
+Updated Opting Out page and subpages Direct Mail and Telemarketing to now include information on online advertising and introduced a new page, Request Experian Marketing Data Report.
+
+Updated: August 26, 2011
+
+Experian ConnectSM
+
+Updated: October 16, 2009
+
+The AutoCount privacy policy.
+
+Updated: January 28, 2009
+
+The Experian Small Business privacy policy was added.
+
+Updated: October 31, 2008
+
+The AutoCount privacy policy.
+
+Updated: July 22, 2007
+
+The Online Personal Credit Reports policy was updated.
+
+Updated: July 18, 2007
+
+Autocheck privacy policy updated integrating commercial and consumer policies and enhancements to non-personal information uses.
+
+Updated: June 8, 2007
+
+The AutoCount consumer privacy policy was added.
+
+Updated: January 20, 2006
+
+The AutoCheck consumer privacy policy has been updated. Changes include revisions to the Information Collection and Uses section, and the addition of information on how Experian uses Web site &#x27;cookies&#x27;. Web Log Information has also been replaced with the Web site Analysis section which further defines our Web site measurement practices.
+
+Updated: July 1, 2004
+
+In the &quot;Permission email&quot; section, language was updated to outline how email addresses are shared and used.
+
+The AutoCheck® Vehicle History Report privacy policy has been updated.
+
+Contact information for questions regarding the privacy policy was updated.
+
+Updated: August 28, 2003
+
+The Auto Prospect Online privacy policy was added.
+
+Updated: June 12, 2003
+
+The AutoCheck privacy policy was updated for consumers, and a privacy policy for commercial users has been created. In each, Experian identifies the use of a credit card processing company. In the commercial, Experian retains the commercial users&#x27; credit card information for billing purposes only.
+
+Updated: March 11, 2003
+
+The Online Personal Credit Reports policy was updated to state that information other than credit report information may be used for authentication.
+
+Updated: March 7, 2003
+
+ePIN+ is a Web-based relational database system for reporting relevant delivery status about a piece of mail as it moves through the U.S. Postal Service® delivery network, either on its way to a consumer&#x27;s mailbox, or from an individual delivery point back to a remittance or other service facility.
+
+Updated: February 26, 2003
+
+Within the U.S. section of www.experian.com Web logs and cookies are used to collect aggregated statistics about Web site visitors so that we can better understand what areas of our Web site are of interest to you. This technology does not track any individually identifiable information, but rather records your Web site visit anonymously.
+
+Updated: February 10, 2003
+
+The Opting out of Direct Mail and Opting out of Telemarketing sections of Experian&#x27;s privacy policy were updated to reflect a new telephone number to contact Experian.
+
+Updated: October 23, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for business-to-business Internet client registration. This application is for new and current subscribers serviced by Experian Information Solutions, Inc.
+
+Updated: September 26, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for List Link ExpressSM and List Link AdvancedSM business-to-business online prospecting tools of Experian Marketing Solutions, Inc.
+
+Updated: March 8, 2002
+
+Experian&#x27;s Product and service privacy policies section of our U.S. Web site was updated to add a privacy policy description for AutoCheck, Experian&#x27;s comprehensive vehicle history report service. Please visit our AutoCheck privacy policy for more information.
+
+Experian is a non-exclusive Full Service Provider Licensee of the USPS®. The prices established for these products are not established, controlled, or approved by the U.S. Government or the USPS. The following trademarks are owned by the USPS: U.S. Postal Service®</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Updated: November 18, 2021</div>
+                    <div class='match-info'><b>Matched GT:</b> Recent Updates to Policies
+
+Experian may periodically change its privacy policies as new products and services are offered or as its existing products and services evolve to meet customer needs. Privacy policies are typically dated to reflect the most recent update.
+
+Recent updates to any Experian U.S. privacy policy will be posted to this section.
+
+Updated:February 9, 2023
+
+Removed Data Select Policy due to decomissioning of the product
+
+Updated: February 28, 2023
+
+ConsumerInfo.com, Inc. Policy
+
+Updated: July 7, 2022
+
+CCPA Privacy Policy
+
+Updated: November 18, 2021
+
+CSID Privacy Policy
+
+Updated: March 1, 2019
+
+Updated the U.S.- EU Privacy Shield Privacy Policy to include the application of the policy to the United Kingdom.
+
+Updated: October 15, 2018
+
+Modified URL link for the independent dispute resolution mechanism in the U.S.- EU Privacy Shield Privacy Policy.
+
+Updated: May 15, 2018
+
+Experian U.S.- EU Privacy Shield Privacy Policy added to the Experian.com website.
+
+Updated: June 17, 2015
+
+Updated Hitwise Privacy Policy to now include information about data collected through partnerships.
+
+Updated: May 14, 2015
+
+Updated Opting Out page and subpages Direct Mail and Telemarketing to now include information on online advertising and introduced a new page, Request Experian Marketing Data Report.
+
+Updated: August 26, 2011
+
+Experian ConnectSM
+
+Updated: October 16, 2009
+
+The AutoCount privacy policy.
+
+Updated: January 28, 2009
+
+The Experian Small Business privacy policy was added.
+
+Updated: October 31, 2008
+
+The AutoCount privacy policy.
+
+Updated: July 22, 2007
+
+The Online Personal Credit Reports policy was updated.
+
+Updated: July 18, 2007
+
+Autocheck privacy policy updated integrating commercial and consumer policies and enhancements to non-personal information uses.
+
+Updated: June 8, 2007
+
+The AutoCount consumer privacy policy was added.
+
+Updated: January 20, 2006
+
+The AutoCheck consumer privacy policy has been updated. Changes include revisions to the Information Collection and Uses section, and the addition of information on how Experian uses Web site &#x27;cookies&#x27;. Web Log Information has also been replaced with the Web site Analysis section which further defines our Web site measurement practices.
+
+Updated: July 1, 2004
+
+In the &quot;Permission email&quot; section, language was updated to outline how email addresses are shared and used.
+
+The AutoCheck® Vehicle History Report privacy policy has been updated.
+
+Contact information for questions regarding the privacy policy was updated.
+
+Updated: August 28, 2003
+
+The Auto Prospect Online privacy policy was added.
+
+Updated: June 12, 2003
+
+The AutoCheck privacy policy was updated for consumers, and a privacy policy for commercial users has been created. In each, Experian identifies the use of a credit card processing company. In the commercial, Experian retains the commercial users&#x27; credit card information for billing purposes only.
+
+Updated: March 11, 2003
+
+The Online Personal Credit Reports policy was updated to state that information other than credit report information may be used for authentication.
+
+Updated: March 7, 2003
+
+ePIN+ is a Web-based relational database system for reporting relevant delivery status about a piece of mail as it moves through the U.S. Postal Service® delivery network, either on its way to a consumer&#x27;s mailbox, or from an individual delivery point back to a remittance or other service facility.
+
+Updated: February 26, 2003
+
+Within the U.S. section of www.experian.com Web logs and cookies are used to collect aggregated statistics about Web site visitors so that we can better understand what areas of our Web site are of interest to you. This technology does not track any individually identifiable information, but rather records your Web site visit anonymously.
+
+Updated: February 10, 2003
+
+The Opting out of Direct Mail and Opting out of Telemarketing sections of Experian&#x27;s privacy policy were updated to reflect a new telephone number to contact Experian.
+
+Updated: October 23, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for business-to-business Internet client registration. This application is for new and current subscribers serviced by Experian Information Solutions, Inc.
+
+Updated: September 26, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for List Link ExpressSM and List Link AdvancedSM business-to-business online prospecting tools of Experian Marketing Solutions, Inc.
+
+Updated: March 8, 2002
+
+Experian&#x27;s Product and service privacy policies section of our U.S. Web site was updated to add a privacy policy description for AutoCheck, Experian&#x27;s comprehensive vehicle history report service. Please visit our AutoCheck privacy policy for more information.
+
+Experian is a non-exclusive Full Service Provider Licensee of the USPS®. The prices established for these products are not established, controlled, or approved by the U.S. Government or the USPS. The following trademarks are owned by the USPS: U.S. Postal Service®</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Updated: March 1, 2019</div>
+                    <div class='match-info'><b>Matched GT:</b> Recent Updates to Policies
+
+Experian may periodically change its privacy policies as new products and services are offered or as its existing products and services evolve to meet customer needs. Privacy policies are typically dated to reflect the most recent update.
+
+Recent updates to any Experian U.S. privacy policy will be posted to this section.
+
+Updated:February 9, 2023
+
+Removed Data Select Policy due to decomissioning of the product
+
+Updated: February 28, 2023
+
+ConsumerInfo.com, Inc. Policy
+
+Updated: July 7, 2022
+
+CCPA Privacy Policy
+
+Updated: November 18, 2021
+
+CSID Privacy Policy
+
+Updated: March 1, 2019
+
+Updated the U.S.- EU Privacy Shield Privacy Policy to include the application of the policy to the United Kingdom.
+
+Updated: October 15, 2018
+
+Modified URL link for the independent dispute resolution mechanism in the U.S.- EU Privacy Shield Privacy Policy.
+
+Updated: May 15, 2018
+
+Experian U.S.- EU Privacy Shield Privacy Policy added to the Experian.com website.
+
+Updated: June 17, 2015
+
+Updated Hitwise Privacy Policy to now include information about data collected through partnerships.
+
+Updated: May 14, 2015
+
+Updated Opting Out page and subpages Direct Mail and Telemarketing to now include information on online advertising and introduced a new page, Request Experian Marketing Data Report.
+
+Updated: August 26, 2011
+
+Experian ConnectSM
+
+Updated: October 16, 2009
+
+The AutoCount privacy policy.
+
+Updated: January 28, 2009
+
+The Experian Small Business privacy policy was added.
+
+Updated: October 31, 2008
+
+The AutoCount privacy policy.
+
+Updated: July 22, 2007
+
+The Online Personal Credit Reports policy was updated.
+
+Updated: July 18, 2007
+
+Autocheck privacy policy updated integrating commercial and consumer policies and enhancements to non-personal information uses.
+
+Updated: June 8, 2007
+
+The AutoCount consumer privacy policy was added.
+
+Updated: January 20, 2006
+
+The AutoCheck consumer privacy policy has been updated. Changes include revisions to the Information Collection and Uses section, and the addition of information on how Experian uses Web site &#x27;cookies&#x27;. Web Log Information has also been replaced with the Web site Analysis section which further defines our Web site measurement practices.
+
+Updated: July 1, 2004
+
+In the &quot;Permission email&quot; section, language was updated to outline how email addresses are shared and used.
+
+The AutoCheck® Vehicle History Report privacy policy has been updated.
+
+Contact information for questions regarding the privacy policy was updated.
+
+Updated: August 28, 2003
+
+The Auto Prospect Online privacy policy was added.
+
+Updated: June 12, 2003
+
+The AutoCheck privacy policy was updated for consumers, and a privacy policy for commercial users has been created. In each, Experian identifies the use of a credit card processing company. In the commercial, Experian retains the commercial users&#x27; credit card information for billing purposes only.
+
+Updated: March 11, 2003
+
+The Online Personal Credit Reports policy was updated to state that information other than credit report information may be used for authentication.
+
+Updated: March 7, 2003
+
+ePIN+ is a Web-based relational database system for reporting relevant delivery status about a piece of mail as it moves through the U.S. Postal Service® delivery network, either on its way to a consumer&#x27;s mailbox, or from an individual delivery point back to a remittance or other service facility.
+
+Updated: February 26, 2003
+
+Within the U.S. section of www.experian.com Web logs and cookies are used to collect aggregated statistics about Web site visitors so that we can better understand what areas of our Web site are of interest to you. This technology does not track any individually identifiable information, but rather records your Web site visit anonymously.
+
+Updated: February 10, 2003
+
+The Opting out of Direct Mail and Opting out of Telemarketing sections of Experian&#x27;s privacy policy were updated to reflect a new telephone number to contact Experian.
+
+Updated: October 23, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for business-to-business Internet client registration. This application is for new and current subscribers serviced by Experian Information Solutions, Inc.
+
+Updated: September 26, 2002
+
+Experian&#x27;s product and service privacy section of our U.S. Web site was updated to add a privacy policy description for List Link ExpressSM and List Link AdvancedSM business-to-business online prospecting tools of Experian Marketing Solutions, Inc.
+
+Updated: March 8, 2002
+
+Experian&#x27;s Product and service privacy policies section of our U.S. Web site was updated to add a privacy policy description for AutoCheck, Experian&#x27;s comprehensive vehicle history report service. Please visit our AutoCheck privacy policy for more information.
+
+Experian is a non-exclusive Full Service Provider Licensee of the USPS®. The prices established for these products are not established, controlled, or approved by the U.S. Government or the USPS. The following trademarks are owned by the USPS: U.S. Postal Service®</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The right to know the categories and specific pieces of personal information we collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as part of its text, nor is it a list or a substring that preserves the main meaning. Instead, it discusses categories of personal information collected, which is unrelated to the expected details about cookies and &#x27;Do Not Track&#x27; signals.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.41):</b> Cookies and &#x27;Do Not Track&#x27; Signals
+If you do not want information collected through the use of cookies, there is a simple procedure in most browsers that allows you to automatically decline cookies, or to be given the choice of declining or accepting the transfer of a particular cookie, or cookies from a particular website, to your computer</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">The right to know ... the categories of your personal information that we have either sold or disclosed for a business purpose...</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The right to know ... the categories of your personal information that we have either sold or disclosed for a business purpose...</div>
+                    
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">The right to request that we delete the personal information we have collected directly from you. We use a two-step process for online requests to delete. You will be asked to clearly submit your request to delete and to separately confirm your choice.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to request that we delete the personal information we have collected directly from you. We use a two-step process for online requests to delete. You will be asked to clearly submit your request to delete and to separately confirm your choice.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to know the categories and specific pieces of personal information we collect, use, disclose, and sell about you...</div>
+                    <div class='match-info'><b>Matched GT:</b> California Consumer Privacy Act
+
+If you are a California resident, the California Consumer Privacy Act (&quot;the CCPA&quot;) provides you with certain rights relating to the data that Experian has collected about you. Those rights include:
+
+The right to know the categories and specific pieces of personal information we collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know ... the categories of your personal information that we have either sold or disclosed for a business purpose...</div>
+                    <div class='match-info'><b>Matched GT:</b> If you are a California resident, the California Consumer Privacy Act (&quot;the CCPA&quot;) provides you with certain rights relating to the data that Experian has collected about you. Those rights include:
+
+The right to know the categories and specific pieces of personal information we collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">The right to opt out of our sale of your personal information. Please note that if you opt out of certain types of sales, we and businesses that rely on that data may be unable to provide you with the services that rely on such sales.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of our sale of your personal information. Please note that if you opt out of certain types of sales, we and businesses that rely on that data may be unable to provide you with the services that rely on such sales.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">The right not to receive discriminatory treatment for the exercise of the privacy rights conferred by the CCPA.</div>
+                    <div class='match-info'><b>Matched GT:</b> The right not to receive discriminatory treatment for the exercise of the privacy rights conferred by the CCPA.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise your rights through our online portal, please click the link below. Online Portal</div>
+                    <div class='match-info'><b>Matched GT:</b> In order to exercise your rights through our online portal, please click the link below.
+
+Online Portal</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you prefer to submit your request via phone you may contact Experian at: 833-210-4615</div>
+                    <div class='match-info'><b>Matched GT:</b> If you prefer to submit your request via phone you may contact Experian at: 833-210-4615
+
+If you prefer to submit a written request, please mail your request to the following address:
+
+Experian Consumer Choice
+PO Box 703
+Allen, TX 75013</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you prefer to submit a written request, please mail your request to the following address: Experian Consumer Choice PO Box 703 Allen, TX 75013</div>
+                    <div class='match-info'><b>Matched GT:</b> If you prefer to submit your request via phone you may contact Experian at: 833-210-4615
+
+If you prefer to submit a written request, please mail your request to the following address:
+
+Experian Consumer Choice
+PO Box 703
+Allen, TX 75013</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Contact Us About Privacy</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Exercise your consumer data rights with Experian (opt-out and others)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To request opt-out, deletion, a copy of, or to correct your data please visit our privacy portal. To ensure your privacy you will be required to authenticate your identity and then will be allowed to submit your request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">To request opt-out, deletion, a copy of, or to correct your data please visit our privacy portal. To ensure your privacy you will be required to authenticate your identity and then will be allowed to submit your request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To request opt-out, deletion, a copy of, or to correct your data please visit our privacy portal. To ensure your privacy you will be required to authenticate your identity and then will be allowed to submit your request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">To request opt-out, deletion, a copy of, or to correct your data please visit our privacy portal. To ensure your privacy you will be required to authenticate your identity and then will be allowed to submit your request.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Learn how to submit more broadly applicable requests with industry groups.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and &#x27;Do Not Track&#x27; Signals
+If you do not want information collected through the use of cookies, there is a simple procedure in most browsers that allows you to automatically decline cookies, or to be given the choice of declining or accepting the transfer of a particular cookie, or cookies from a particular website, to your computer</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you do not want information collected through the use of cookies, there is a simple procedure in most browsers that allows you to automatically decline cookies, or to be given the choice of declining or accepting the transfer of a particular cookie, or cookies from a particular website, to your computer</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Others</span>
+                    </div>
+                    <div class="text-content">Ask Experian
+AutoCheck
+AutoCount
+Business Verification by Phone
+CCPA Privacy Policy
+Client Registration
+ConsumerInfo.com, Inc. Policy
+CSID Privacy Policy
+Experian Background Data, Inc.
+Experian EU-U.S. Privacy Shield Privacy Policy
+Experian Connect
+Experian’s Usage of Marketing Data
+OmniActivation Strategic Services
+Online Business Credit Reports
+Online Credit Reports
+Permission Email
+Scorecard
+Small Business Prospecting Tool
+Tapad’s CCPA Privacy Disclosure</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and &#x27;Do Not Track&#x27; Signals\nIf you do not want information collected through the use of cookies, there is a simple procedure in most browsers that allows you to automatically decline cookies, or to be given the choice of declining or accepting the transfer of a particular cookie, or cookies from a particular website, to your computer</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

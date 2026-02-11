@@ -1,0 +1,1478 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_43</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.90</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.45</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.60</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">43</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">73</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Page last updated on 02/13/2023</div>
+                    
+                    
+                    <div class='closest-match'><b>Closest GT (F1=0.34):</b> Last updated: August 31, 2021</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last updated: August 31, 2021</div>
+                    <div class='match-info'><b>Matched GT:</b> Last updated: August 31, 2021</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Modified: August 31, 2021</div>
+                    <div class='match-info'><b>Matched GT:</b> ADDENDUM FOR CALIFORNIA RESIDENTS
+
+CALIFORNIA PRIVACY RIGHTS
+
+Last Modified: August 31, 2021</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Identifiers, e.g. , name; alias; postal address; mobile ad identifiers; 
+IP address; telephone number; email address; social network handles</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Characteristics of protected classifications under California or US law (inferenced or actual, including self-reported) E.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Commercial or transactions information E.g. , products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Internet or other electronic network activity information E.g. , browsing history; online interests.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Geolocation data</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Professional or employment-related information E.g. , current or past job history or job title.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Inference Data E.g., consumer information or preferences.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains a component from the Expected Output, specifically &#x27;Inference Data E.g., consumer information or preferences.&#x27; This aligns with the criteria that the Actual Output should be a subset of the Expected Output. However, the response does not include the broader context or structure outlined in the Expected Output, which limits its completeness.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Identifiers , e.g. , name; alias; postal address; mobile ad identifiers; 
+IP address; telephone number; email address; social network handles</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Characteristics of protected classifications under California or US law (inferenced or actual) E.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status, national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Commercial or transactions information E.g. , products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Internet or other electronic network activity information E.g. , browsing history; online interests.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Professional or employment-related information E.g. , current or past job history or job title.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Inference Data E.g., consumer information or preferences.</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output, &#x27;Inference Data E.g., consumer information or preferences.&#x27;, is a direct substring found in the Expected Output which maintains the primary meaning. This satisfies the evaluation criterion of checking for substrings that convey the same core idea, thus marking it as CORRECT.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Identifiers , e.g. , name; alias; postal address; mobile ad identifiers; 
+IP address; telephone number; email address; social network handles
+shared with
+Data compilers and consumer data resellers, consumer goods retailers, informational and retail websites, content publishers, non-profit organizations, business-to-business services and organizations, consumer surveys and survey companies, affiliate networks (“Commercial Recipient Categories”) ·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers ·         Social networks</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR DISCLOSURE AND SALE OF PERSONAL INFORMATION\nWe will share the information collected from and about you as discussed above for various business purposes, with service providers and with third parties including our customers. The chart below how and with whom we share or disclose personal information, and whether (based on the CCPA’s definition of “sell”) we believe we have “sold” a particular category of information in the prior 12 months.\n\nCategory	Categories of Third Parties We Share With	 \nWhether We “Sold” This Category of Personal Information in the Last 12 Months\n\n \n\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, consumer goods retailers, informational and retail websites, content publishers, non-profit organizations, business-to-business services and organizations, consumer surveys and survey companies, affiliate networks (“Commercial Recipient Categories”)\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCharacteristics of protected classifications under California or US law (inferenced or actual)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers, and social networks\n\n Yes\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Characteristics of protected classifications under California or US law (inferenced or actual) E.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status, national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)
+shared with
+Commercial Recipient Categories ·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers ·         Social networks</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Commercial or transactions information E.g. , products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.
+shared with
+Commercial Recipient Categories ·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers ·         Social networks</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR DISCLOSURE AND SALE OF PERSONAL INFORMATION\nWe will share the information collected from and about you as discussed above for various business purposes, with service providers and with third parties including our customers. The chart below how and with whom we share or disclose personal information, and whether (based on the CCPA’s definition of “sell”) we believe we have “sold” a particular category of information in the prior 12 months.\n\nCategory	Categories of Third Parties We Share With	 \nWhether We “Sold” This Category of Personal Information in the Last 12 Months\n\n \n\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, consumer goods retailers, informational and retail websites, content publishers, non-profit organizations, business-to-business services and organizations, consumer surveys and survey companies, affiliate networks (“Commercial Recipient Categories”)\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCharacteristics of protected classifications under California or US law (inferenced or actual)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers, and social networks\n\n Yes\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Internet or other electronic network activity information E.g. , browsing history; online interests.
+shared with
+Commercial Recipient Categories ·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers, and social networks</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR DISCLOSURE AND SALE OF PERSONAL INFORMATION\nWe will share the information collected from and about you as discussed above for various business purposes, with service providers and with third parties including our customers. The chart below how and with whom we share or disclose personal information, and whether (based on the CCPA’s definition of “sell”) we believe we have “sold” a particular category of information in the prior 12 months.\n\nCategory	Categories of Third Parties We Share With	 \nWhether We “Sold” This Category of Personal Information in the Last 12 Months\n\n \n\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, consumer goods retailers, informational and retail websites, content publishers, non-profit organizations, business-to-business services and organizations, consumer surveys and survey companies, affiliate networks (“Commercial Recipient Categories”)\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCharacteristics of protected classifications under California or US law (inferenced or actual)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers, and social networks\n\n Yes\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Professional or employment-related information E.g. , current or past job history or job title.
+shared with
+Commercial Recipient Categories ·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers ·         Social networks</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR DISCLOSURE AND SALE OF PERSONAL INFORMATION\nWe will share the information collected from and about you as discussed above for various business purposes, with service providers and with third parties including our customers. The chart below how and with whom we share or disclose personal information, and whether (based on the CCPA’s definition of “sell”) we believe we have “sold” a particular category of information in the prior 12 months.\n\nCategory	Categories of Third Parties We Share With	 \nWhether We “Sold” This Category of Personal Information in the Last 12 Months\n\n \n\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, consumer goods retailers, informational and retail websites, content publishers, non-profit organizations, business-to-business services and organizations, consumer surveys and survey companies, affiliate networks (“Commercial Recipient Categories”)\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCharacteristics of protected classifications under California or US law (inferenced or actual)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers, and social networks\n\n Yes\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Recipient Categories\n·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers\n\n·         Social networks\n\nYes</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Inference Data E.g., consumer information or preferences.
+shared with
+Commercial Recipient Categories ·         Advertising networks and media platforms, political campaigns, internet service providers, data analytics providers ·         Social networks</div>
+                    <div class='match-info'><b>Matched GT:</b> OUR COLLECTION OF PERSONAL INFORMATION\nDepending on how you interact with us, we may collect about you the categories of information summarized in the table below. The following table also describes how we collect and use such categories of information.\n\nCategory	Categories of Sources\nIdentifiers, e.g., name; alias; postal address; mobile ad identifiers;  IP address; telephone number; email address; social network handles	·         Data compilers and consumer data resellers, informational and retail websites (“Commercial Source Categories”)\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCharacteristics of protected classifications under California or US law (inferenced or actual, including self-reported)\nE.g., race; color; religion; sex/gender; pregnancy, marital status; military or veteran status; national origin; ancestry; age (over 40) (may be inferenced, actual or self-reported)\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\n·         Government entities\n\n·         Social networks\n\nCommercial or transactions information\nE.g., products or services purchased, obtained, or considered, or other purchasing or consuming histories or tendencies.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInternet or other electronic network activity information\nE.g., browsing history; online interests.\n\n·         Commercial Source Categories\nGeolocation data	·         Commercial Source Categories\nProfessional or employment-related information\nE.g., current or past job history or job title.\n\n·         Commercial Source Categories\n·         Public records and other publicly available sources\n\nInference Data\nE.g., consumer information or preferences.\n\n·         Commercial Source Categories</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sharing for Legal Purposes: In addition, we may share personal information with third parties in order to: (a) comply with legal process or a regulatory investigation (e.g. a subpoena or court order); (b) enforce our Terms of Service, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; and/or (d) protect the rights, property or personal safety of us, our platform, our customers, our agents and affiliates, its users and/or the public. We likewise may provide information to other companies and organizations (including law enforcement) for fraud protection, and spam/malware prevention, and similar purposes.</div>
+                    <div class='match-info'><b>Matched GT:</b> We also may share any of the personal information we collect as follows:
+
+Sharing for Legal Purposes: In addition, we may share personal information with third parties in order to: (a) comply with legal process or a regulatory investigation (e.g. a subpoena or court order); (b) enforce our Terms of Service, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; and/or (d) protect the rights, property or personal safety of us, our platform, our customers, our agents and affiliates, its users and/or the public. We likewise may provide information to other companies and organizations (including law enforcement) for fraud protection, and spam/malware prevention, and similar purposes.
+
+Sharing In Event of a Corporate Transaction: We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction.
+
+Sharing With Service Providers: We share any personal information we collect with our service providers, which may include (for instance) providers involved in tech or customer support, operations, web or data hosting, billing, accounting, security, marketing, data management, validation, enhancement or hygiene, or otherwise assisting us to provide, develop, maintain and improve our services.
+
+Sharing of Aggregate Information: We may aggregate and/or de-identify any information collected so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”). We may use Aggregate/De-Identified Information for any purpose, including without limitation for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors, in our discretion.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sharing In Event of a Corporate Transaction: We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction.</div>
+                    <div class='match-info'><b>Matched GT:</b> We also may share any of the personal information we collect as follows:
+
+Sharing for Legal Purposes: In addition, we may share personal information with third parties in order to: (a) comply with legal process or a regulatory investigation (e.g. a subpoena or court order); (b) enforce our Terms of Service, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; and/or (d) protect the rights, property or personal safety of us, our platform, our customers, our agents and affiliates, its users and/or the public. We likewise may provide information to other companies and organizations (including law enforcement) for fraud protection, and spam/malware prevention, and similar purposes.
+
+Sharing In Event of a Corporate Transaction: We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction.
+
+Sharing With Service Providers: We share any personal information we collect with our service providers, which may include (for instance) providers involved in tech or customer support, operations, web or data hosting, billing, accounting, security, marketing, data management, validation, enhancement or hygiene, or otherwise assisting us to provide, develop, maintain and improve our services.
+
+Sharing of Aggregate Information: We may aggregate and/or de-identify any information collected so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”). We may use Aggregate/De-Identified Information for any purpose, including without limitation for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors, in our discretion.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sharing With Service Providers: We share any personal information we collect with our service providers, which may include (for instance) providers involved in tech or customer support, operations, web or data hosting, billing, accounting, security, marketing, data management, validation, enhancement or hygiene, or otherwise assisting us to provide, develop, maintain and improve our services.</div>
+                    <div class='match-info'><b>Matched GT:</b> We also may share any of the personal information we collect as follows:
+
+Sharing for Legal Purposes: In addition, we may share personal information with third parties in order to: (a) comply with legal process or a regulatory investigation (e.g. a subpoena or court order); (b) enforce our Terms of Service, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; and/or (d) protect the rights, property or personal safety of us, our platform, our customers, our agents and affiliates, its users and/or the public. We likewise may provide information to other companies and organizations (including law enforcement) for fraud protection, and spam/malware prevention, and similar purposes.
+
+Sharing In Event of a Corporate Transaction: We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction.
+
+Sharing With Service Providers: We share any personal information we collect with our service providers, which may include (for instance) providers involved in tech or customer support, operations, web or data hosting, billing, accounting, security, marketing, data management, validation, enhancement or hygiene, or otherwise assisting us to provide, develop, maintain and improve our services.
+
+Sharing of Aggregate Information: We may aggregate and/or de-identify any information collected so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”). We may use Aggregate/De-Identified Information for any purpose, including without limitation for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors, in our discretion.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Sharing of Aggregate Information: We may aggregate and/or de-identify any information collected so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”). We may use Aggregate/De-Identified Information for any purpose, including without limitation for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors, in our discretion.</div>
+                    <div class='match-info'><b>Matched GT:</b> We also may share any of the personal information we collect as follows:
+
+Sharing for Legal Purposes: In addition, we may share personal information with third parties in order to: (a) comply with legal process or a regulatory investigation (e.g. a subpoena or court order); (b) enforce our Terms of Service, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; and/or (d) protect the rights, property or personal safety of us, our platform, our customers, our agents and affiliates, its users and/or the public. We likewise may provide information to other companies and organizations (including law enforcement) for fraud protection, and spam/malware prevention, and similar purposes.
+
+Sharing In Event of a Corporate Transaction: We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction.
+
+Sharing With Service Providers: We share any personal information we collect with our service providers, which may include (for instance) providers involved in tech or customer support, operations, web or data hosting, billing, accounting, security, marketing, data management, validation, enhancement or hygiene, or otherwise assisting us to provide, develop, maintain and improve our services.
+
+Sharing of Aggregate Information: We may aggregate and/or de-identify any information collected so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”). We may use Aggregate/De-Identified Information for any purpose, including without limitation for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors, in our discretion.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">First, you may contact us directly at privacy@stirista.com to have your personal information removed from our database.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output string nor is it a substring conveying the main meaning. Instead, it focuses on contacting for information removal, which diverges significantly from the specified right to request deletion of personal information as outlined in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.41):</b> Right to request deletion of your personal information
+You may also request that we delete any personal information that we collected from , such as if you have been a customer of ours. (Note that this is different from your right to “opt out” of us selling your personal information, which is described below; also note that we do not generally collect personal information directly from consumers.) However, we may retain personal information for certain important purposes, such as (a) to protect our business, systems, and users from fraudulent activity, (b) to address technical issues that impair existing functionality (such as de-bugging purposes), (c) as necessary for us, or others, to exercise their free speech or other rights, (d) to comply with law enforcement requests pursuant to lawful process, (e) for scientific or historical research, (f) for our own internal purposes reasonably related to your relationship with us, or to comply with legal obligations. Additionally, we need certain types of information so that we can provide our Services to you</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Right to request deletion of your personal information You may also request that we delete any personal information that we collected from , such as if you have been a customer of ours.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to request deletion of your personal information
+You may also request that we delete any personal information that we collected from , such as if you have been a customer of ours. (Note that this is different from your right to “opt out” of us selling your personal information, which is described below; also note that we do not generally collect personal information directly from consumers.) However, we may retain personal information for certain important purposes, such as (a) to protect our business, systems, and users from fraudulent activity, (b) to address technical issues that impair existing functionality (such as de-bugging purposes), (c) as necessary for us, or others, to exercise their free speech or other rights, (d) to comply with law enforcement requests pursuant to lawful process, (e) for scientific or historical research, (f) for our own internal purposes reasonably related to your relationship with us, or to comply with legal obligations. Additionally, we need certain types of information so that we can provide our Services to you</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Right to request access to your personal information California residents have the right to request that we disclose what categories of your personal information that we collect, use, or sell. You may also request the specific pieces of personal information that we have collected from you.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to request access to your personal information
+California residents have the right to request that we disclose what categories of your personal information that we collect, use, or sell. You may also request the specific pieces of personal information that we have collected from you. However, we may withhold some personal information where the risk to you or our business is too great to disclose the information. Sometimes, we act only as a “service provider” to our clients (for instance, if they provide information to us for analytics, processing or other data management services), in which case any consumer requests for opt-out, deletion or access to data must be made through that client: we therefore will forward any such requests to a named client, as feasible.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Right to request access to your personal information California residents have the right to request that we disclose what categories of your personal information that we collect, use, or sell.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to request access to your personal information\nCalifornia residents have the right to request that we disclose what categories of your personal information that we collect, use, or sell. You may also request the specific pieces of personal information that we have collected from you. However, we may withhold some personal information where the risk to you or our business is too great to disclose the information. Sometimes, we act only as a “service provider” to our clients (for instance, if they provide information to us for analytics, processing or other data management services), in which case any consumer requests for opt-out, deletion or access to data must be made through that client: we therefore will forward any such requests to a named client, as feasible.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">You have the option to opt-out of third-party sharing or selling of your personal information. To exercise this right, simply contact us at privacy@stirista.com or use the unsubscribe link on our corporate website.</div>
+                    <div class='match-info'><b>Matched GT:</b> You have the option to opt-out of third-party sharing or selling of your personal information</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Right to “opt-out” of the sale of your personal information California residents may opt out of the “sale” of their personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> California residents may opt out of the “sale” of their personal information</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you would like to opt out, you may do so as outlined on the following page: Do Not Sell My Personal Information .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output, nor is it a substring that maintains the core meaning. The Actual Output discusses opting out of the sale of personal information but does not address marketing choices or multiple methods as stated in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.38):</b> California residents may opt out of the “sale” of their personal information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">Without being discriminated against for exercising these rights, California residents have the right to request that we disclose what personal information we collect from you, to delete that information, and to opt-out of the sale of your personal information, subject to certain restrictions.</div>
+                    <div class='match-info'><b>Matched GT:</b> YOUR CALIFORNIA RIGHTS AND CHOICES
+Without being discriminated against for exercising these rights, California residents have the right to request that we disclose what personal information we collect from you, to delete that information, and to opt-out of the sale of your personal information, subject to certain restrictions</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">We will not deny, charge different prices for, or provide a different level of quality of goods or services if you choose to exercise these rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to nondiscrimination
+We will not deny, charge different prices for, or provide a different level of quality of goods or services if you choose to exercise these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">We will not deny, charge different prices for, or provide a different level of quality of goods or services if you choose to exercise these rights.</div>
+                    <div class='match-info'><b>Matched GT:</b> Right to nondiscrimination
+We will not deny, charge different prices for, or provide a different level of quality of goods or services if you choose to exercise these rights.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">contact us directly at privacy@stirista.com</div>
+                    <div class='match-info'><b>Matched GT:</b> First, you may contact us directly at privacy@stirista.com to have your personal information removed from our database. When you do this, please provide your current address, your email address, and any prior home or email addresses you would like “opted out” of our marketing databases. Or if you prefer, you can contact us directly by mail, at:
+Stirista, Inc.
+Attn: Privacy
+16414 San Pedro Ave.
+Suite 150
+San Antonio, Texas 78232
+
+Email: privacy@stirista.com
+
+We will then in most cases remove your personal information from our active marketing databases within ten (10) business days, from the time we received the opt-out request</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">contact us directly by mail, at: Stirista, Inc. Attn: Privacy 16414 San Pedro Ave. Suite 150 San Antonio, Texas 78232 Email: privacy@stirista.com</div>
+                    <div class='match-info'><b>Matched GT:</b> First, you may contact us directly at privacy@stirista.com to have your personal information removed from our database. When you do this, please provide your current address, your email address, and any prior home or email addresses you would like “opted out” of our marketing databases. Or if you prefer, you can contact us directly by mail, at:
+Stirista, Inc.
+Attn: Privacy
+16414 San Pedro Ave.
+Suite 150
+San Antonio, Texas 78232
+
+Email: privacy@stirista.com
+
+We will then in most cases remove your personal information from our active marketing databases within ten (10) business days, from the time we received the opt-out request</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">use the unsubscribe link on our corporate website.</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise this right, simply contact us at privacy@stirista.com or use the unsubscribe link on our corporate website.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">visit the DMA Choice website, at thedma.org</div>
+                    <div class='match-info'><b>Matched GT:</b> If you would like to opt-out of direct mail advertising in general, we recommend that you visit the DMA Choice website, at thedma.org.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">visit the opt-out portals operated the industry groups the National Advertising Initiative (NAI) or the Digital Advertising Alliance (DAA)</div>
+                    <div class='match-info'><b>Matched GT:</b> If you wish to opt out of online targeted ads (sometimes referred to as “interest-based” or “personalized” advertising), you can also visit the opt-out portals operated the industry groups the National Advertising Initiative (NAI) or the Digital Advertising Alliance (DAA), and you can learn more about how those opt-outs work on those linked web pages</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">“unsubscribe” from our marketing emails through a link placed in your emails.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output, nor does it maintain the core meaning. It solely mentions &#x27;unsubscribe&#x27; which is not relevant to the detailed process outlined in the Expected Output, and does not match the context of exercising rights over personal information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.27):</b> First, you may contact us directly at privacy@stirista.com to have your personal information removed from our database. When you do this, please provide your current address, your email address, and any prior home or email addresses you would like “opted out” of our marketing databases. Or if you prefer, you can contact us directly by mail, at:
+Stirista, Inc.
+Attn: Privacy
+16414 San Pedro Ave.
+Suite 150
+San Antonio, Texas 78232
+
+Email: privacy@stirista.com
+
+We will then in most cases remove your personal information from our active marketing databases within ten (10) business days, from the time we received the opt-out request</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">sending an email to privacyinfo@stirista.com</div>
+                    <div class='match-info'><b>Matched GT:</b> How to exercise your access, opt-out and (if applicable) deletion rights
+
+California residents may exercise their California privacy rights by sending an email to privacyinfo@stirista.com, submitting their removal request through our form, or by contacting us at (888) 320 6083.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">submitting their removal request through our form</div>
+                    <div class='match-info'><b>Matched GT:</b> How to exercise your access, opt-out and (if applicable) deletion rights
+
+California residents may exercise their California privacy rights by sending an email to privacyinfo@stirista.com, submitting their removal request through our form, or by contacting us at (888) 320 6083.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">contacting us at (888) 320 6083.</div>
+                    <div class='match-info'><b>Matched GT:</b> How to exercise your access, opt-out and (if applicable) deletion rights
+
+California residents may exercise their California privacy rights by sending an email to privacyinfo@stirista.com, submitting their removal request through our form, or by contacting us at (888) 320 6083.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Do Not Sell My Personal Information</div>
+                    <div class='match-info'><b>Matched GT:</b> If you would like to opt out, you may do so as outlined on the following page: Do Not Sell My Personal Information.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Unsubscribe/Do Not Sell My Information</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as part of its text, nor is it a list or table that includes the Expected Output. Additionally, the Actual Output does not maintain the core meaning of the Expected Output, which discusses opting out and personal information, whereas the Actual Output refers generically to &#x27;Unsubscribe/Do Not Sell My Information&#x27;.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.55):</b> If you would like to opt out, you may do so as outlined on the following page: Do Not Sell My Personal Information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">Do not sell my personal information</div>
+                    <div class='match-info'><b>Matched GT:</b> If you would like to opt out, you may do so as outlined on the following page: Do Not Sell My Personal Information.</div>
+                    
+                    
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">1. Information That We Collect and Use in Our Services
+In order to provide our Services, we receive data, including personal information, from a variety of sources, including from websites and apps that collect the information, public sources, and other data compilers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">It often includes personal attributes such as name, address and other contact information. It may also include information (on the individual, household, or wider (e.g., zip code) level), such as:
+
+Professional information, including occupation and job title,
+Particular interests, such as (for instance) home improvement, music, online shopping, health and beauty sport, or travel, or political leanings
+Demographic information, such as age, gender, level of education or likely income range.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">This type of information may be inferred – for instance, if a household is in a particularly wealthy area, we might infer a particular income range.
+
+Stirista also receives information through this website (and any other website we operate). We describe this information in Section 6.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Additional Marketing Services. Other Services we may sometimes provide to our customers (or that they may provide to their own customers), which may overlap with or supplement the above, may involve (a) help with targeting and optimizing direct mail, email campaigns, display, social and mobile marketing; (b) measuring how effective marketing campaigns have been, by determining which messages are most likely to be seen or opened by which types of consumers, or which types of ads are most likely to lead to purchases; (c) analyzing and optimizing our customers’ (or their service providers’) proprietary databases, or helping customers to detect and prevent fraud; or (d) providing “validation” or data hygiene services, which is how companies update and/or correct their databases by verifying or removing or correcting old, incorrect or outdated information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">To Operate Our Services
+We also use the Information for our own internal purposes – such as to improve, test, update and verify our own database; develop new products; operate, analyze, improve and secure our Services and our databases and servers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">3. How We Share Information with Third Parties, including Service Providers
+Stirista may share the Information with customers, marketing services and platforms, as well as service providers that help us to provide the Services we’ve described above (or other services we may add in the future). This includes sharing in the following ways:
+
+With Our Customers: As described above, we license the Information in various ways to our customers (and something to partners and resellers, who license the Information to their customer), when we provide our Services. We may sometimes share the Information with those Customers’ service providers (for instance, a provider that prints or sends mailings for a Customer).
+With Our Partners: We also may share the Information, including personally identifiable information and Audience Segments, with business and data partners to help provide more tailored targeted marketing, advertising and communications. Likewise, we may do so for analytical purposes, including to help these other parties measure campaign performance, inform future campaigns, or to handle, analyze, or segregate this Information on our or our customers’ behalf.
+With Our Service Providers: We share the Information with a variety of service providers in order to operate, protect and advertise our Services and maintain our website(s). For instance, we may share the Information with tech and customer support providers, marketing and advertising providers, other data providers (such as to enhance or verify our Information), security vendors, payment vendors (as to our business to business information), and other companies help us deliver or develop Services.
+Corporate transfers: If Stirista, its stock or its significant assets are acquired by or merged into another entity, our information will be transferred to that entity, and may be shared during due diligence in anticipation of any such transaction.
+Affiliates, parent companies and subsidiaries: Stirista may share some or all of the Information in our possession with any affiliated or subsidiary companies (if we ever have any).
+As required by law or to protect any person or entity: Stirista may disclose Information if we believe that such disclosure is necessary to (a) comply in good faith with relevant laws or to respond to subpoenas or warrants served on us; or (b) to protect or otherwise defend the rights, property or safety of Stirista, our customers, or any other person or entity.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Your Marketing and Opt-Out Choices
+There are multiple ways that you can opt-out of having the Information used to market to you:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you wish to opt out of online targeted ads (sometimes referred to as “interest-based” or “personalized” advertising), you can also visit the opt-out portals operated the industry groups the National Advertising Initiative (NAI) or the Digital Advertising Alliance (DAA), and you can learn more about how those opt-outs work on those linked web pages</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you would like to opt-out of direct mail advertising in general, we recommend that you visit the DMA Choice website, at thedma.org.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">These partners may set and access their own cookies, pixel tags and similar technologies on your device, which may have cookies with varying expiration periods</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We may work with third parties or service providers to provide or enhance our services (e.g. for purposes of tailoring ads, or placing browser cookies), or to offer marketers ways to access or use our Information, often in de-identified form</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Those partners may, likewise, collect various types of information about your browser, device, or browsing activities through use of these cookies.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Our (or other companies’) servers send your device a cookie when you visit a website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">When you access web pages (such as the website of a marketer), pixel tags may generate a generic notice of the visit and permit our partners (or sometimes, us) to read the cookies that a respective company or server has deployed. Pixel tags are used in combination with cookies to track the activity on a site by a particular device</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">When you access web pages (such as the website of a marketer), pixel tags may generate a generic notice of the visit and permit our partners (or sometimes, us) to read the cookies that a respective company or server has deployed. Pixel tags are used in combination with cookies to track the activity on a site by a particular device</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Our (or other companies’) servers send your device a cookie when you visit a website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies are stored on your computer or other device and act as tags that identify your device</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We or our service providers, and other online marketing platforms that we or they work with, may use cookies to, among other things, “remember” you, determine visitor patterns and trends, collect information about your activities on our clients’ sites, or interact with the advertising you see. Cookies are used in this way to provide relevant content to you and replace non-relevant communications with ads that better match your interests.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">6. Data Collected Through Our Corporate Website
+Information Collected
+
+Stirista collects information from users of our website(s) (including any page on which this Privacy Policy is posted), including:</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">The domain name and IP address of a user’s web browser, along with a time stamp and other information about a user’s browser or device.
+Information about what content and pages users access, utilize or visit on our website, or how they interact with our content – for instance, if they spent a certain amount of time reviewing a particular blog post or description of particular services.
+Information, including personally identifiable and contact information that you provide, which could include (for instance) survey information, sign-up information (e.g., if you sign up for events or newsletters), requests for information, mailing addresses and email addresses.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">The domain name and IP address of a user’s web browser, along with a time stamp and other information about a user’s browser or device.
+Information about what content and pages users access, utilize or visit on our website, or how they interact with our content – for instance, if they spent a certain amount of time reviewing a particular blog post or description of particular services.
+Information, including personally identifiable and contact information that you provide, which could include (for instance) survey information, sign-up information (e.g., if you sign up for events or newsletters), requests for information, mailing addresses and email addresses.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How Stirista Uses the Information We Collect Through Our Website
+
+We use the Information we collect through our website(s) to do the following:
+
+Create and manage your unique user account.
+Provide Services to you.
+Respond to and communicate with you (including regarding news and updates about our services).
+Send you offers and ads for our products and services, when you browse the website(s) or other companies’ websites on the Internet (such as to “retarget” you with information about our services).
+Send you offers and ads for products and services of partner brands, or other offers we believe may be of interest to you, such as invitations to events and webinars.
+Perform data analysis (including market research).
+We may combine the Information with other information we obtain from third parties, publicly available sources, and any other product or service we provide to further improve the relevance and effectiveness of products, and advertisements offered, including (but not limited to), those provided on or through our services.
+We may use IP addresses to help diagnose problems with our servers and to administer our website(s). We also may use IP addresses to help identify visitors to our website(s) for the duration of a session and to gather demographic information about our visitors. We may use clickstream data to determine how much time visitors spend on each web page of our website(s), how visitors navigate through the website(s), and how we may tailor our website(s) to better meet the needs of our visitors. We also use this Information for compliance with our legal obligations, policies and procedures, including the enforcement of our Terms and Conditions.
+If we collect Information from “offline” sources – such as if you provide us your business card at a trade show – we will maintain that information and use it for marketing and business purposes, as well.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">9. Changes to this Privacy Policy
+From time to time, we may update this Privacy Policy. Any changes to it will become effective when it is posted to our website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">The domain name and IP address of a user’s web browser, along with a time stamp and other information about a user’s browser or device.
+Information about what content and pages users access, utilize or visit on our website, or how they interact with our content – for instance, if they spent a certain amount of time reviewing a particular blog post or description of particular services.
+Information, including personally identifiable and contact information that you provide, which could include (for instance) survey information, sign-up information (e.g., if you sign up for events or newsletters), requests for information, mailing addresses and email addresses.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">When you access web pages (such as the website of a marketer), pixel tags may generate a generic notice of the visit and permit our partners (or sometimes, us) to read the cookies that a respective company or server has deployed. Pixel tags are used in combination with cookies to track the activity on a site by a particular device</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Our (or other companies’) servers send your device a cookie when you visit a website.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">It often includes personal attributes such as name, address and other contact information. It may also include information (on the individual, household, or wider (e.g., zip code) level), such as:
+
+Professional information, including occupation and job title,
+Particular interests, such as (for instance) home improvement, music, online shopping, health and beauty sport, or travel, or political leanings
+Demographic information, such as age, gender, level of education or likely income range.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">. YOUR CALIFORNIA RIGHTS AND CHOICES
+Without being discriminated against for exercising these rights, California residents have the right to request that we disclose what personal information we collect from you, to delete that information, and to opt-out of the sale of your personal information, subject to certain restrictions</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">YOUR CALIFORNIA RIGHTS AND CHOICES
+Without being discriminated against for exercising these rights, California residents have the right to request that we disclose what personal information we collect from you, to delete that information, and to opt-out of the sale of your personal information, subject to certain restrictions</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">YOUR CALIFORNIA RIGHTS AND CHOICES
+Without being discriminated against for exercising these rights, California residents have the right to request that we disclose what personal information we collect from you, to delete that information, and to opt-out of the sale of your personal information, subject to certain restrictions</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">YOUR CALIFORNIA RIGHTS AND CHOICES
+Without being discriminated against for exercising these rights, California residents have the right to request that we disclose what personal information we collect from you, to delete that information, and to opt-out of the sale of your personal information, subject to certain restrictions</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Once we have verified your identity, we will respond to your request as appropriate:
+
+Where you have requested the categories of personal information that we have collected about you, we will provide a list of those categories.
+Where you have requested specific pieces of personal information, we will provide the information you have requested, to the extent required under the CCPA and provided we do not believe there is an overriding privacy or security concern to doing so.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Once we have verified your identity, we will respond to your request as appropriate:
+
+Where you have requested the categories of personal information that we have collected about you, we will provide a list of those categories.
+Where you have requested specific pieces of personal information, we will provide the information you have requested, to the extent required under the CCPA and provided we do not believe there is an overriding privacy or security concern to doing so.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Where you have requested that we delete personal information that we have collected from you, we will seek to confirm whether your request is for an “opt out” or a “deletion”: because “opt out” or “do not sell” rights enable us to maintain your information for “suppression” purposes – i.e., to prevent us from selling information about you in the future (which is what many consumers requesting “deletion” actually desire to occur), we try to explain this in order to ensure we are meeting consumers’ preferences</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Where you have requested that we delete personal information that we have collected from you, we will seek to confirm whether your request is for an “opt out” or a “deletion”: because “opt out” or “do not sell” rights enable us to maintain your information for “suppression” purposes – i.e., to prevent us from selling information about you in the future (which is what many consumers requesting “deletion” actually desire to occur), we try to explain this in order to ensure we are meeting consumers’ preferences.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">Upon completion of the above process, we will send you a notice that explains the categories of personal information we were able to locate about you, whether we (1) deleted, (2) deidentified, or (3) retained the information we collected from you. Certain information may be exempt from such requests under applicable law.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Upon completion of the above process, we will send you a notice that explains the categories of personal information we were able to locate about you, whether we (1) deleted, (2) deidentified, or (3) retained the information we collected from you. Certain information may be exempt from such requests under applicable law.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Upon completion of the above process, we will send you a notice that explains the categories of personal information we were able to locate about you, whether we (1) deleted, (2) deidentified, or (3) retained the information we collected from you. Certain information may be exempt from such requests under applicable law.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">It often includes personal attributes such as name, address and other contact information. It may also include information (on the individual, household, or wider (e.g., zip code) level), such as:\n\nProfessional information, including occupation and job title,\nParticular interests, such as (for instance) home improvement, music, online shopping, health and beauty sport, or travel, or political leanings\nDemographic information, such as age, gender, level of education or likely income range.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Use the Information\nStirista uses the Information for various purposes, including the following.\n\nAs Part of Our Services:\n\nData Marketing Services. Our Services include providing marketing information to our customers, generally regarding which customers or prospective customers are most likely to be interested (or disinterested) in certain offers. Similarly, we help our customers identify and understand their customers better, by providing insights about them. Our customers include (but are not limited to) brands and agencies and various marketing data platforms that help them to market and advertise to their own customers (and prospective customers); our customers also include other data compilers, who work with their own customers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Use the Information\nStirista uses the Information for various purposes, including the following.\n\nAs Part of Our Services:\n\nData Marketing Services. Our Services include providing marketing information to our customers, generally regarding which customers or prospective customers are most likely to be interested (or disinterested) in certain offers. Similarly, we help our customers identify and understand their customers better, by providing insights about them. Our customers include (but are not limited to) brands and agencies and various marketing data platforms that help them to market and advertise to their own customers (and prospective customers); our customers also include other data compilers, who work with their own customers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Online Targeting. We sometimes create defined audience segments (“Audience Segments”) based on common demographics and/or shared (actual or inferred) interests or preferences (e.g., households with tech professionals, or with an interest in winter travel). When we do this, we may work with a data partner that “matches” our Information through de-identification techniques (such as through coded data “hashing”) with online cookies and other identifiers, in order to target and measure ad campaigns online across various display, mobile and other media channels. You may learn more about how to opt out of this and other online ad targeting in Section 4.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Online Targeting. We sometimes create defined audience segments (“Audience Segments”) based on common demographics and/or shared (actual or inferred) interests or preferences (e.g., households with tech professionals, or with an interest in winter travel). When we do this, we may work with a data partner that “matches” our Information through de-identification techniques (such as through coded data “hashing”) with online cookies and other identifiers, in order to target and measure ad campaigns online across various display, mobile and other media channels. You may learn more about how to opt out of this and other online ad targeting in Section 4.\nAdditional Marketing Services. Other Services we may sometimes provide to our customers (or that they may provide to their own customers), which may overlap with or supplement the above, may involve (a) help with targeting and optimizing direct mail, email campaigns, display, social and mobile marketing; (b) measuring how effective marketing campaigns have been, by determining which messages are most likely to be seen or opened by which types of consumers, or which types of ads are most likely to lead to purchases; (c) analyzing and optimizing our customers’ (or their service providers’) proprietary databases, or helping customers to detect and prevent fraud; or (d) providing “validation” or data hygiene services, which is how companies update and/or correct their databases by verifying or removing or correcting old, incorrect or outdated information.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">With Our Customers: As described above, we license the Information in various ways to our customers (and something to partners and resellers, who license the Information to their customer), when we provide our Services. We may sometimes share the Information with those Customers’ service providers (for instance, a provider that prints or sends mailings for a Customer).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">With Our Service Providers: We share the Information with a variety of service providers in order to operate, protect and advertise our Services and maintain our website(s). For instance, we may share the Information with tech and customer support providers, marketing and advertising providers, other data providers (such as to enhance or verify our Information), security vendors, payment vendors (as to our business to business information), and other companies help us deliver or develop Services.\nCorporate transfers: If Stirista, its stock or its significant assets are acquired by or merged into another entity, our information will be transferred to that entity, and may be shared during due diligence in anticipation of any such transaction.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content"></div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Cookies and Similar Technologies\nCookies and How We Use Them\n\nStirista its business partners use certain industry-standard technologies, including cookies and similarly functioning technologies, which we describe below.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">(We and/or our service providers use these technologies on our website, for instance, and our partners may use these technologies in their own marketing services.)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Cookies and Similar Technologies\nCookies and How We Use Them\n\nStirista its business partners use certain industry-standard technologies, including cookies and similarly functioning technologies, which we describe below. (We and/or our service providers use these technologies on our website, for instance, and our partners may use these technologies in their own marketing services.)</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">We may work with third parties or service providers to provide or enhance our services (e.g. for purposes of tailoring ads, or placing browser cookies), or to offer marketers ways to access or use our Information, often in de-identified form.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Cookies are stored on your computer or other device and act as tags that identify your device.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">We or our service providers, and other online marketing platforms that we or they work with, may use cookies to, among other things, “remember” you, determine visitor patterns and trends, collect information about your activities on our clients’ sites, or interact with the advertising you see. Cookies are used in this way to provide relevant content to you and replace non-relevant communications with ads that better match your interests.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Disabling Cookies\n\nMost web browsers are set up to accept cookies. You may be able to set your browser to warn you before accepting certain cookies or to refuse certain cookies</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may be able to set your browser to warn you before accepting certain cookies or to refuse certain cookies</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">If we or all or substantially all of our assets, are purchased by another company (such as in a merger, consolidation, restructuring, the sale of stock and/or assets, or other corporate change or financing transaction), the Information in our possession will likely be transferred to the successor entity. We also may share the Information during the course of any due diligence process leading up to any such transaction.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We may share the Information with service providers who help us deliver the services you request or we provide. For instance, we share the Information with tech and customer support providers, marketing and advertising providers, other data providers (such as to enhance or verify our Information), security and data hygiene vendors, payment vendors (as to our business to business information), and other companies that may help us deliver or develop Services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How Stirista Shares the Information We Collect Through Our Websites\nWe may sometimes share or otherwise disclose the Information we collect about you, as described in this Privacy Policy or otherwise disclosed to you when you provide us with the information, including as follows:\n\nWe may share the Information with service providers who help us deliver the services you request or we provide. For instance, we share the Information with tech and customer support providers, marketing and advertising providers, other data providers (such as to enhance or verify our Information), security and data hygiene vendors, payment vendors (as to our business to business information), and other companies that may help us deliver or develop Services.\nWe may share the Information to communicate with you and market to you, including through email, direct mail or display media.\nWe will disclose your PII (or other Information) if we believe in good faith that we are required to do so by law, regulation or other government authority or to protect the rights, safety or property of ourselves or any person or entity. We may also cooperate with law enforcement agencies in any official investigation and we may disclose any Information to the requesting agency in doing so.\nIf we or all or substantially all of our assets, are purchased by another company (such as in a merger, consolidation, restructuring, the sale of stock and/or assets, or other corporate change or financing transaction), the Information in our possession will likely be transferred to the successor entity. We also may share the Information during the course of any due diligence process leading up to any such transaction.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Our website(s) use cookies and similar technologies, both for its internal and operational purposes and to market to you (such as to retarget ads to you when you visit other sites across the Internet).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Please check back to learn of any changes to this Privacy Policy</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Sharing In Event of a Corporate Transaction: We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction.\n\nSharing With Service Providers: We share any personal information we collect with our service providers, which may include (for instance) providers involved in tech or customer support, operations, web or data hosting, billing, accounting, security, marketing, data management, validation, enhancement or hygiene, or otherwise assisting us to provide, develop, maintain and improve our services.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Data marketing services, for example:\n·      Generally, creating data marketing tools and products for our marketer clients, as more fully described in our Privacy Policy (and on our websites).   This includes our provision of datasets, data “appends” (connecting data across datasets), data “scoring” (providing inferences about potential consumer behavior), data hygiene services (helping customers to evaluate, validate and correct personal information they hold), and security and anti-fraud services (helping customers to identify potentially fraudulent activity).\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Data marketing services, for example:\n·      Generally, creating data marketing tools and products for our marketer clients, as more fully described in our Privacy Policy (and on our websites).   This includes our provision of datasets, data “appends” (connecting data across datasets), data “scoring” (providing inferences about potential consumer behavior), data hygiene services (helping customers to evaluate, validate and correct personal information they hold), and security and anti-fraud services (helping customers to identify potentially fraudulent activity).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Helping our Clients identify and understand their consumers better, by providing insights about them and managing loyalty programs, as well as providing financial and other scoring products.\n\n·         Assisting our Clients through our Services to provide their current and prospective customers with better service, improved offerings, and special promotions, for instance, advising on which current or prospective customers are most likely to be interested (or disinterested) in certain offers.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Helping our Clients identify and understand their consumers better, by providing insights about them and managing loyalty programs, as well as providing financial and other scoring products.\n\n·         Assisting our Clients through our Services to provide their current and prospective customers with better service, improved offerings, and special promotions, for instance, advising on which current or prospective customers are most likely to be interested (or disinterested) in certain offers.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Online targeting, for example:\n\n·         Creating or helping to create defined audience segments based on common demographics and/or shared (actual or inferred) interests or preferences (e.g., households with prospective students). When we do this, we work with a data partner that “matches” our or other Information through de-identification techniques (such as through coded data “hashing”) with online cookies and other identifiers, in order to target and measure ad campaigns online across various display, mobile and other media channels.\n\n·         Assisting Clients in creating “identity” graphs, to help locate users across various channels, such as based on common personal, device-based, or network-based identifiers (e.g., IP address, email address).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Analyzing and optimizing our Clients’ (or their service providers’) proprietary databases, or helping Clients to identify and mitigate potential fraud.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Creating or helping to create defined audience segments based on common demographics and/or shared (actual or inferred) interests or preferences (e.g., households with prospective students). When we do this, we work with a data partner that “matches” our or other Information through de-identification techniques (such as through coded data “hashing”) with online cookies and other identifiers, in order to target and measure ad campaigns online across various display, mobile and other media channels.\n\n·         Assisting Clients in creating “identity” graphs, to help locate users across various channels, such as based on common personal, device-based, or network-based identifiers (e.g., IP address, email address).</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Analyzing and optimizing our Clients’ (or their service providers’) proprietary databases, or helping Clients to identify and mitigate potential fraud.\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">OUR BUSINESS PURPOSES FOR COLLECTING AND SHARING PERSONAL INFORMATION\nGenerally speaking, we collect and share the Personal Information that we collect for the following purposes, as we also have described in our Privacy Policy and/or our website.\n\nOur Purposes for collecting, using and sharing Personal Information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">OUR BUSINESS PURPOSES FOR COLLECTING AND SHARING PERSONAL INFORMATION\nGenerally speaking, we collect and share the Personal Information that we collect for the following purposes, as we also have described in our Privacy Policy and/or our website.\n\nOur Purposes for collecting, using and sharing Personal Information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">. OUR BUSINESS PURPOSES FOR COLLECTING AND SHARING PERSONAL INFORMATION\nGenerally speaking, we collect and share the Personal Information that we collect for the following purposes, as we also have described in our Privacy Policy and/or our website.\n\nOur Purposes for collecting, using and sharing Personal Information</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Additional marketing services, for example (which may overlap with “data marketing services” above):\n·         Assisting in targeting and optimizing of direct mail and email campaigns, display, mobile and social media marketing.\n\n·         Measuring the effectiveness of online or offline ad campaigns by determining which messages are most likely to be seen or opened by which types of consumers, or which types of ads are most likely to lead to purchases.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">Providing “verification” or data “hygiene” services, which is how companies update and/or “clean” their databases by either verifying or removing or correcting old, incorrect or outdated information.\n\nOperating our Services, for example: \n·         Improving, testing, updating and verifying our own database.\n\n·         Developing new products.\n\n·         Operating, analyzing, improving, and securing our Services.\n\nOther internal purposes, for example:\nFor internal research, internal operations, auditing, detecting security incidents, debugging, short-term and transient use, quality control, and legal compliance.\n\nWe sometimes use the information collected from our own website,  from social networks, from other “business to business” interaction (such as at trade shows) or from data compilers for the above, as well as for our own marketing purposes.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>

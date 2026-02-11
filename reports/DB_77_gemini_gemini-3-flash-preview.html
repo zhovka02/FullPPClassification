@@ -1,0 +1,712 @@
+<!DOCTYPE html><html><head>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
+            h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
+
+            /* Status Colors */
+            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+
+            .container { display: flex; gap: 20px; }
+            .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+            .card { margin-bottom: 15px; padding: 12px; border: 1px solid #eee; border-radius: 6px; background-color: #fff; }
+            .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+            .label-tag { font-weight: bold; color: #444; display: block; margin-bottom: 6px; }
+            .text-content { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; color: #333; white-space: pre-wrap; }
+
+            .match-info { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #eee; font-size: 0.85em; color: #666; }
+            .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
+            .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
+
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stat-item { text-align: center; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-label { font-size: 0.9em; color: #666; }
+        </style>
+        </head><body>
+<h1>Policy Report: DB_77</h1>
+
+        <div class="stats-box">
+            <div class="stat-item"><div class="stat-value">0.58</div><div class="stat-label">Precision</div></div>
+            <div class="stat-item"><div class="stat-value">0.83</div><div class="stat-label">Recall</div></div>
+            <div class="stat-item"><div class="stat-value">0.68</div><div class="stat-label">F1 Score</div></div>
+            <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
+                <div class="stat-value">25</div><div class="stat-label">Correct Preds</div>
+            </div>
+            <div class="stat-item"><div class="stat-value">18</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value">11</div><div class="stat-label">Missed GT</div></div>
+        </div>
+        
+<div class="container">
+<div class="column"><h2>LLM Predictions (What AI Found)</h2>
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Updated Privacy Policy</span>
+                    </div>
+                    <div class="text-content">Last Updated: December 19, 2022</div>
+                    <div class='match-info'><b>Matched GT:</b> Last Updated: December 19, 2022</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">In the last 12 months, Porch Group Media has collected the following categories of personal information from the categories of sources described above. ... Category Examples Identifiers Real name, unique personal identifier, email address, or other similar identifiers Postal address (in states that designate a postal address as personal information, such as California) Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) Name, telephone number, credit card number, debit card number, bank account number, or other financial information, education, employment, employment history Address (in states that designate a postal address as personal information, such as California) Types of personal information included in the CA customer records statute that are included in other categories have not been repeated here Protected classification characteristics under California or federal law Age (40 years or older), marital status, sex (including gender), religion/creed, or veteran or military status Commercial Information Records of personal or real property, products or services purchased, obtained, or considered, type of credit card used, or other purchasing or consuming histories or tendencies. Internet or other similar network activity Browsing history, search history or information on a consumer’s interaction with a website, application, or advertisement Geolocation data Physical location or physical movements Audio, electronic, visual, thermal, olfactory, or similar information None Professional or employment-related information Current job title Education Information None (except as included in other categories) Biometric Information None Inferences drawn from other personal information Profile reflecting a person’s preferences, characteristics, predispositions, or behavior</div>
+                    <div class='match-info'><b>Matched GT:</b> Information We Collect\n\nInformation You Give to Us\n\nWe collect information you provide directly to us. For example, we collect your name, email address, address, contact phone number, and other information when you fill out a registration form, contact our sales teams about our products and services, or otherwise transact business with us; make content submissions or community postings (e.g., chats and comments to our blogs); subscribe to our promotional marketing programs; request customer support; or otherwise provide us with content that includes personal information. If you elect to purchase products or services from us, you will be required to provide payment information, such as a credit card number.\n\nInformation We Collect Automatically\n\nWhen you access or use the Properties or when we send you emails, we and our advertisers may use tracking technologies to automatically collect information about you.  Please see our Cookie Policy to learn more about these technologies, how we use them, and how to manage or disable them. Automatically collected information may be associated with a unique browser, device identifier, or Internet protocol (IP) address, but we do not consider it to be personal information unless it is linked to your unique identifier(s). \n\nWhen you receive emails from us, we collect information about whether and when you opened the email, whether you clicked on the images and links in the email, and whether your computer or mobile device is capable of receiving HTML-based email.\n\nInformation Collected from Calls\n\nWhen you call us or when we call you, we may monitor, record and transcribe those calls for quality assurance, customer satisfaction and analysis purposes. In those jurisdictions where consent is required for a party to record a telephone call, you consent to us recording such calls. We treat the records of these calls, when linked to your unique identifier(s), as personal information.\n\nInformation We Collect from Third Parties\n\nPorch Group Media obtains personal information from third-party marketing data providers, surveys, and sources of publicly available information. \n\nThe Porch Group Companies provide us with information they collect from their customers and business partners. For example, if you utilize the services of another Porch Group Company, that company may provide your information to us to help keep our databases updated and, to the extent that they are permitted to share information with us for this purpose, to provide our clients with better products and services.   \n\nWe may combine personal information we have about a consumer (for example, an email address) with information obtained from other sources (such as name, telephone number, and mailing address), in accordance with applicable law.\n\nAggregate and Anonymized Information\n\nWe may also aggregate (group) or de-link/de-identify (anonymize) information. Aggregated, anonymized data is not personal information subject to this Privacy Policy, and we may use it for any purpose. We may also share aggregated and/or anonymized information with third parties.\n\nCategories of Personal Information Collected\n\nIn the last 12 months, Porch Group Media has collected the following categories of personal information from the categories of sources described above. We consider this information to be personal information to the extent that it is information that uniquely identifies a person, is unique financial information, or is linked to a person’s unique identifier(s), or if it is defined as personal information by applicable state law.\n\nCategory	Examples\nIdentifiers	\nReal name, unique personal identifier, email address, or other similar identifiers\nPostal address (in states that designate a postal address as personal information, such as California)\nPersonal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))	\nName, telephone number, credit card number, debit card number, bank account number, or other financial information, education, employment, employment history\nAddress (in states that designate a postal address as personal information, such as California)\nTypes of personal information included in the CA customer records statute that are included in other categories have not been repeated here\nProtected classification characteristics under California or federal law	\nAge (40 years or older), marital status, sex (including gender), religion/creed, or veteran or military status\nCommercial Information	\nRecords of personal or real property, products or services purchased, obtained, or considered, type of credit card used, or other purchasing or consuming histories or tendencies.\nInternet or other similar network activity	\nBrowsing history, search history or information on a consumer’s interaction with a website, application, or advertisement\nGeolocation data	\nPhysical location or physical movements\nAudio, electronic, visual, thermal, olfactory, or similar information	\nNone\nProfessional or employment-related information	\nCurrent job title\nEducation Information	\nNone (except as included in other categories)\nBiometric Information	\nNone\nInferences drawn from other personal information	\nProfile reflecting a person’s preferences, characteristics, predispositions, or behavior</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">We sell, rent and otherwise share personal information to our clients (which may include Porch Group Companies and companies operating in the ad tech sector) to be used for their own commercial purposes as part of our marketing data products and services, when we are legally and contractually permitted to do so</div>
+                    <div class='match-info'><b>Matched GT:</b> How We Share Information\n\nWe share personal information as follows:\n\nClients\n\nWe sell, rent and otherwise share personal information to our clients (which may include Porch Group Companies and companies operating in the ad tech sector) to be used for their own commercial purposes as part of our marketing data products and services, when we are legally and contractually permitted to do so (for example, if the collected information is publicly available or we are permitted to sell or share it under the applicable agreements with the data sources).\n\nPorch Group Companies\n\nWe share personal information with Porch Group Companies for marketing purposes and for the purpose of improving their products and services (such as confirming or supplementing information they have about a person or to classify a person as a mover), when we are legally and contractually permitted to do so. We also share personal information with the Porch Group Companies in connection with the data, technical, legal, accounting, and other services shared between the Porch Group Companies and for other internal business purposes. The Porch Group Companies who receive personal information from Porch Group Media will be bound by the legal terms applicable to the shared information (e.g., the contract with our data source) and, unless they are purchasing the data as a Porch Group Media client, will use that personal information only as described in this Privacy Policy.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">In the last 12 months, Porch Group Media has disclosed the following categories of personal information for a business purpose to the following categories of third parties: Category of Information Category of Third Parties Identifiers Clients Companies providing business services to us Porch Group Companies Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) Clients Companies providing business services to us Porch Group Companies Protected classification characteristics under California or federal law Clients Companies providing business services to us Porch Group Companies Commercial Information Clients Companies providing business services to us Porch Group Companies Internet or other similar network activity Advertising networks Companies providing business services to us Geolocation data Clients Audio, electronic, visual, thermal, olfactory, or similar information None Professional or employment-related information Clients Education Information None (except as included in other categories) Biometric Information None Inferences drawn from other personal information Clients Porch Group Companies</div>
+                    <div class='match-info'><b>Matched GT:</b> Categories of Personal Information Disclosed\n\nIn the last 12 months, Porch Group Media has disclosed the following categories of personal information for a business purpose to the following categories of third parties:\n\nCategory of Information	Category of Third Parties\nIdentifiers	\nClients\nCompanies providing business services to us\nPorch Group Companies\nPersonal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))	\nClients\nCompanies providing business services to us\nPorch Group Companies\nProtected classification characteristics under California or federal law	\nClients\nCompanies providing business services to us\nPorch Group Companies\nCommercial Information	\nClients\nCompanies providing business services to us\nPorch Group Companies\nInternet or other similar network activity	\nAdvertising networks\nCompanies providing business services to us\nGeolocation data	\nClients\nAudio, electronic, visual, thermal, olfactory, or similar information	\nNone\nProfessional or employment-related information	\nClients\nEducation Information	\nNone (except as included in other categories)\nBiometric Information	\nNone\nInferences drawn from other personal information	\nClients\nPorch Group Companies</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">If you wish to delete an online account, please email us at privacy@porchgroupmedia.com . Please note that, even if an account is deleted, we may retain the information as required by law or for legitimate business purposes.</div>
+                    <div class='match-info'><b>Matched GT:</b> If you wish to delete an online account, please email us at privacy@porchgroupmedia.com.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Virginia residents have certain rights regarding their personal information, including: ... to request that we delete personal information, subject to certain exceptions</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output mentions the right to delete personal information, which aligns with part of the Expected Output. However, it does not contain the full context or main meaning of the Expected Output regarding the right to access specific information. Therefore, it partially fulfills the criteria but lacks completeness.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Colorado residents have certain rights regarding their personal information, including: ... to request that we delete personal information, subject to certain exceptions</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains part of the Expected Output, specifically mentioning the right to delete personal information, but it lacks the complete context and does not show a direct match. Therefore, it partially aligns with the evaluation steps but fails to meet the full expectations.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.63):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Connecticut residents have certain rights regarding their personal information, including: ... to request that we delete personal information, subject to certain exceptions</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output includes some relevant information about the right to delete personal information but does not contain the Expected Output in its entirety. The Actual Output lacks the detail about the right to access specific pieces of information and only partially addresses deleting information, which limits its completeness.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.63):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Delete</span>
+                    </div>
+                    <div class="text-content">Utah residents have certain rights regarding their personal information, including: ... to request that we delete personal information, subject to certain exceptions</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains information related to the Expected Output but does not include the entire expected text. It partially addresses the description rights but misses the specifics of accessing collected personal information, thereby partially fulfilling the evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.63):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">The right to correct inaccurate personal information ;</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to correct inaccurate personal information;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">As of January 1, 2023, the right to request correction of inaccurate personal information and to request to limit disclosure or use of your sensitive personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not include the Expected Output as part of it, nor is it a list containing the Expected Output, and it also does not maintain the main meaning as a substring. Therefore, it does not meet any of the correction criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.61):</b> The right to correct inaccurate personal information;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You may request to update or correct inaccurate information in our databases by emailing us at privacy@porchgroupmedia.com or writing us at Porch Group Media Attention: Privacy Advocate, 2319 Oak Myrtle Lane, Suite 104, Wesley Chapel, FL 33544.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output, nor is it a list from which the Expected Output can be derived. Additionally, there is no overlap or substring relationship that preserves the main meaning between the two outputs. Thus, it is marked as incorrect.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.35):</b> You may access, update and correct information in an online account, or update communications preferences, at any time by logging into the online account.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Virginia residents have certain rights regarding their personal information, including: ... The right to request correction of inaccurate personal information</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains the critical information about the right to request correction of inaccurate personal information, which aligns with the essence of the Expected Output. However, it includes additional text that diverges from the precise phrasing of the Expected Output, preventing it from being an exact match.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.64):</b> The right to correct inaccurate personal information;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Colorado residents have certain rights regarding their personal information, including: ... The right to request correction of inaccurate personal information</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output mentions the right to request correction of inaccurate personal information, which aligns with the general meaning of the Expected Output. However, it does not contain the Expected Output in full and lacks a direct match to the specific phrase &#x27;the right to correct inaccurate personal information&#x27;, leading to a lower score.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.64):</b> The right to correct inaccurate personal information;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">Connecticut residents have certain rights regarding their personal information, including: ... The right to request correction of inaccurate personal information</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output mentions the right to request correction of inaccurate personal information, which relates closely to the Expected Output. However, it does not include the exact phrasing of the Expected Output and is not a complete match, leading to a partial alignment with the evaluation criteria.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.64):</b> The right to correct inaccurate personal information;</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to know the categories of personal information we’ve collected about them and the categories of sources from which we got the information (see Information We Collect );</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the categories of personal information we’ve collected about them and the categories of sources from which we got the information (see Information We Collect);\nThe right to know the business purposes for which we’ve shared their personal information (see How We Use Information We Collect);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">The right to access the specific pieces of their personal information we’ve collected</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You may request access to learn what information about you and your household is in the Porch Group Media marketing databases by completing and sending us this form: Porch Group Media Individual Request Form .</div>
+                    <div class='match-info'><b>Matched GT:</b> You may request access to learn what information about you and your household is in the Porch Group Media marketing databases by completing and sending us this form: Porch Group Media Individual Request Form.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Virginia residents have certain rights regarding their personal information, including: The right to access the specific pieces of their personal information we’ve collected</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output as a substring, nor is it a list that includes the Expected Output as an item. Additionally, it does not retain the main meaning of the Expected Output, which discusses the categories and sources of personal information, while the Actual Output only focuses on the right to access personal information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.70):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Colorado residents have certain rights regarding their personal information, including: The right to access the specific pieces of their personal information we’ve collected</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output partially addresses the topic of personal information rights but does not include the Expected Output. It fails to provide the full context or the multiple rights mentioned in the Expected Output, resulting in a significant mismatch in content.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.70):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Connecticut residents have certain rights regarding their personal information, including: The right to access the specific pieces of their personal information we’ve collected</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain any part of the Expected Output text, nor is it a substring that retains the main meaning. The content focuses on a specific right, while the Expected Output discusses multiple rights related to personal information, indicating no alignment with the evaluation steps.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.70):</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">Utah residents have certain rights regarding their personal information, including: The right to access the specific pieces of their personal information we’ve collected</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to access the specific pieces of their personal information we’ve collected and to request that we delete personal information, subject to certain exceptions (see below);</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains a part of the Expected Output, specifically the phrase &#x27;the right to access the specific pieces of their personal information we’ve collected&#x27;, which demonstrates that there is a strong overlap in meaning. However, it does not include the complete request for deletion or mention of exceptions, limiting its alignment with the Expected Output.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know the business purposes for which we’ve shared their personal information (see How We Use Information We Collect );</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains relevant information regarding the right to know aspect but fails to include specific details about the categories of third parties, which is a key element in the Expected Output. There is also a slight difference in the phrasing related to how the information is shared, leading to a misalignment with the expected content.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.73):</b> The right to know the categories of third parties with whom we’ve shared their personal information (see How We Share Information We Collect);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Know PI sold / shared</span>
+                    </div>
+                    <div class="text-content">The right to know the categories of third parties with whom we’ve shared their personal information (see How Share Information We Collect );</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to know the categories of third parties with whom we’ve shared their personal information (see How We Share Information We Collect);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">The right to opt out of the sale of their personal information (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of the sale of their personal information (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">As of January 1, 2023, the right to opt-out of sharing your personal information with third parties for the purposes of targeted behavioral advertising;</div>
+                    <div class='match-info'><b>Matched GT:</b> As of January 1, 2023, the right to opt-out of sharing your personal information with third parties for the purposes of targeted behavioral advertising;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">To opt out of the sale of your personal information (as defined in the CCPA), click the following link: https://datarightsrequest.porchgroupmedia.com/ .</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring, nor does it match any single item from a list or table format. It is also not a substring that accurately preserves the main meaning of the Expected Output. However, it does mention the right to opt-out of the sale of personal information, which is a relevant aspect, but lacks the necessary specificity as indicated in the Expected Output.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.60):</b> The right to opt out of the sale of their personal information (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">If you are a resident of Nevada, you have the right to opt out of the sale of certain kinds of personal information (such as name, physical address, email address, telephone number and other personal information collected through a website) to purchasers that will then license or sell the covered information to additional persons.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does contain relevant information about the right to opt out of the sale of personal information, but it does not include the exact substring of the Expected Output. It provides a broader and more detailed explanation than the Expected Output, which affects alignment.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.57):</b> The right to opt out of the sale of their personal information (see below);</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Virginia residents have certain rights regarding their personal information, including: ... The right to opt out of the sale of their personal information (see below); The right to opt-out of targeted advertising (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of the sale of their personal information (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Colorado residents have certain rights regarding their personal information, including: ... The right to opt out of the sale of their personal information (see below); The right to opt-out of targeted advertising (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of the sale of their personal information (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Connecticut residents have certain rights regarding their personal information, including: ... The right to opt out of the sale of their personal information (see below); The right to opt-out of targeted advertising (see below);</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of the sale of their personal information (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Opt-out of sale of PI</span>
+                    </div>
+                    <div class="text-content">Utah residents have certain rights regarding their personal information, including: ... The right to opt out of the sale of their personal information (see below); and The right to opt-out of targeted advertising (see below).</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to opt out of the sale of their personal information (see below);</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">As of January 1, 2023, the right to request correction of inaccurate personal information and to request to limit disclosure or use of your sensitive personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> As of January 1, 2023, the right to request correction of inaccurate personal information and to request to limit disclosure or use of your sensitive personal information. Please note, however, that any right to request correction is limited by the legal rights of Porch and its users relating to content on the Properties, including without limitation legally protected rights related to freedom of speech.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">Virginia residents have certain rights regarding their personal information, including: ... request to limit disclosure or use of your sensitive personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output contains part of the Expected Output regarding the right to limit disclosure or use of sensitive personal information. However, it fails to include the complete context and important legal caveats present in the Expected Output, such as the reference to correction rights and the limitations imposed by Porch. This partial alignment results in a moderate score.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.57):</b> As of January 1, 2023, the right to request correction of inaccurate personal information and to request to limit disclosure or use of your sensitive personal information. Please note, however, that any right to request correction is limited by the legal rights of Porch and its users relating to content on the Properties, including without limitation legally protected rights related to freedom of speech.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">Colorado residents have certain rights regarding their personal information, including: ... request to limit disclosure or use of your sensitive personal information.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output mentions the right to limit the disclosure or use of sensitive personal information, which aligns with part of the Expected Output. However, it does not include the specific context of the January 1, 2023 date or the right to request correction of inaccurate personal information. This results in a partial match but lacks the completeness required by the evaluation steps.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.57):</b> As of January 1, 2023, the right to request correction of inaccurate personal information and to request to limit disclosure or use of your sensitive personal information. Please note, however, that any right to request correction is limited by the legal rights of Porch and its users relating to content on the Properties, including without limitation legally protected rights related to freedom of speech.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #007bff">
+                    <div>
+                        <span class="badge ai-match">AI JUDGE</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Description of Right to Limit use of PI</span>
+                    </div>
+                    <div class="text-content">Connecticut residents have certain rights regarding their personal information, including: ... request to limit disclosure or use of your sensitive personal information.</div>
+                    <div class='match-info'><b>Matched GT:</b> As of January 1, 2023, the right to request correction of inaccurate personal information and to request to limit disclosure or use of your sensitive personal information. Please note, however, that any right to request correction is limited by the legal rights of Porch and its users relating to content on the Properties, including without limitation legally protected rights related to freedom of speech.</div>
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output retains the main idea of the Expected Output by mentioning the right to limit disclosure or use of sensitive personal information. However, it lacks the specific context of the date and the additional details about correction rights and legal limitations, resulting in only partial alignment with the Expected Output.</div>
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Description of Right to Non-discrimination on exercising rights</span>
+                    </div>
+                    <div class="text-content">The right to not be discriminated against for exercising their CCPA privacy rights;</div>
+                    <div class='match-info'><b>Matched GT:</b> The right to not be discriminated against for exercising their CCPA privacy rights;</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #28a745">
+                    <div>
+                        <span class="badge strict">INCLUDES</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may request access to learn what information about you and your household is in the Porch Group Media marketing databases by completing and sending us this form: Porch Group Media Individual Request Form .</div>
+                    <div class='match-info'><b>Matched GT:</b> You may request access to learn what information about you and your household is in the Porch Group Media marketing databases by completing and sending us this form: Porch Group Media Individual Request Form.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You may request to update or correct inaccurate information in our databases by emailing us at privacy@porchgroupmedia.com or writing us at Porch Group Media Attention: Privacy Advocate, 2319 Oak Myrtle Lane, Suite 104, Wesley Chapel, FL 33544.</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not include the Expected Output as a substring, and it does not match any item in a list or table since it is not presented in that format. Additionally, it lacks primary meaning alignment with the Expected Output, which focuses on requesting access to information, while the Actual Output addresses correcting inaccurate information.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.42):</b> You may request access to learn what information about you and your household is in the Porch Group Media marketing databases by completing and sending us this form: Porch Group Media Individual Request Form.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To exercise the access and deletion rights described above, you may submit a verifiable consumer request to us by either: Calling us toll free at 1-866-I-OPT-OUT (866-467-8688) and entering service code 225#; or Visiting our webpage here .</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise the access and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us toll free at 1-866-I-OPT-OUT (866-467-8688) and entering service code 225#; or\nVisiting our webpage here.\nTo opt out of the sale of your personal information (as defined in the CCPA), click the following link: https://datarightsrequest.porchgroupmedia.com/.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #6c757d">
+                    <div>
+                        <span class="badge substring">SUBSTR</span>
+                        
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">To opt out of the sale of your personal information (as defined in the CCPA), click the following link: https://datarightsrequest.porchgroupmedia.com/ .</div>
+                    <div class='match-info'><b>Matched GT:</b> To exercise the access and deletion rights described above, you may submit a verifiable consumer request to us by either:\n\nCalling us toll free at 1-866-I-OPT-OUT (866-467-8688) and entering service code 225#; or\nVisiting our webpage here.\nTo opt out of the sale of your personal information (as defined in the CCPA), click the following link: https://datarightsrequest.porchgroupmedia.com/.</div>
+                    
+                    
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #dc3545">
+                    <div>
+                        <span class="badge wrong">WRONG</span>
+                        <span class="badge judge-badge">LLM-Judge</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">You can exercise this right by emailing us at privacy@porchgroupmedia.com with the subject line “Nevada Do Not Sell Request.”</div>
+                    
+                    <div class='reasoning'><b>DeepEval:</b> The Actual Output does not contain the Expected Output as a substring nor is it a list or table that includes the Expected Output. Furthermore, the core meaning of the Actual Output does not align with the comprehensive details and multiple methods outlined in the Expected Output for exercising rights.</div>
+                    <div class='closest-match'><b>Closest GT (F1=0.34):</b> If you wish to delete an online account, please email us at privacy@porchgroupmedia.com.</div>
+                </div>
+                
+</div>
+<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">How We Use Information We Collect\n\nIn general, we use the information we collect to operate our business, including:\n\nTo provide, maintain and improve the marketing data products and services that we sell to our clients. We use collected personal information for this purpose only to the extent we are legally and contractually permitted to do so. For information how to opt out of inclusion in the database for the products and services we sell, please see the section below entitled Managing Your Personal Information/Opting Out of Porch Group Media’s Marketing Data Database.\nTo market Porch Group Media’s products and services.\nTo optimize marketing campaigns and to analyze their effectiveness, distribution and reach.\nTo provide, maintain, improve and personalize the Properties.\nTo process transactions, to provide customer service and improve performance, to communicate with you about an account, changes in our policies or other service matters, and to otherwise manage our client relationships.\nTo develop new products and services.\nTo detect, investigate and address technical issues, security incidents, fraudulent transactions, abuse, violations of our agreements and policies, and illegal activities.\nTo comply with our legal obligations and legal process.\nTo create aggregated or de-identified data sets.\nTo analyze trends, administer our websites, and track visitor navigations on our websites.\nTo update, expand and analyze our records.\nTo carry out certain short-term activities and other reasonable internal purposes related to the Services, the products or services you purchase through us or your ongoing relationship with us.\nTo perform other business purposes described at the time the information is collected or as otherwise set forth in applicable data privacy laws.\nWe will not collect additional categories of personal information or use the personal information we collect for materially different, unrelated, or incompatible purposes without providing you notice.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">How We Use Information We Collect\n\nIn general, we use the information we collect to operate our business, including:\n\nTo provide, maintain and improve the marketing data products and services that we sell to our clients. We use collected personal information for this purpose only to the extent we are legally and contractually permitted to do so. For information how to opt out of inclusion in the database for the products and services we sell, please see the section below entitled Managing Your Personal Information/Opting Out of Porch Group Media’s Marketing Data Database.\nTo market Porch Group Media’s products and services.\nTo optimize marketing campaigns and to analyze their effectiveness, distribution and reach.\nTo provide, maintain, improve and personalize the Properties.\nTo process transactions, to provide customer service and improve performance, to communicate with you about an account, changes in our policies or other service matters, and to otherwise manage our client relationships.\nTo develop new products and services.\nTo detect, investigate and address technical issues, security incidents, fraudulent transactions, abuse, violations of our agreements and policies, and illegal activities.\nTo comply with our legal obligations and legal process.\nTo create aggregated or de-identified data sets.\nTo analyze trends, administer our websites, and track visitor navigations on our websites.\nTo update, expand and analyze our records.\nTo carry out certain short-term activities and other reasonable internal purposes related to the Services, the products or services you purchase through us or your ongoing relationship with us.\nTo perform other business purposes described at the time the information is collected or as otherwise set forth in applicable data privacy laws.\nWe will not collect additional categories of personal information or use the personal information we collect for materially different, unrelated, or incompatible purposes without providing you notice.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Collected</span>
+                    </div>
+                    <div class="text-content">How We Use Information We Collect\n\nIn general, we use the information we collect to operate our business, including:\n\nTo provide, maintain and improve the marketing data products and services that we sell to our clients. We use collected personal information for this purpose only to the extent we are legally and contractually permitted to do so. For information how to opt out of inclusion in the database for the products and services we sell, please see the section below entitled Managing Your Personal Information/Opting Out of Porch Group Media’s Marketing Data Database.\nTo market Porch Group Media’s products and services.\nTo optimize marketing campaigns and to analyze their effectiveness, distribution and reach.\nTo provide, maintain, improve and personalize the Properties.\nTo process transactions, to provide customer service and improve performance, to communicate with you about an account, changes in our policies or other service matters, and to otherwise manage our client relationships.\nTo develop new products and services.\nTo detect, investigate and address technical issues, security incidents, fraudulent transactions, abuse, violations of our agreements and policies, and illegal activities.\nTo comply with our legal obligations and legal process.\nTo create aggregated or de-identified data sets.\nTo analyze trends, administer our websites, and track visitor navigations on our websites.\nTo update, expand and analyze our records.\nTo carry out certain short-term activities and other reasonable internal purposes related to the Services, the products or services you purchase through us or your ongoing relationship with us.\nTo perform other business purposes described at the time the information is collected or as otherwise set forth in applicable data privacy laws.\nWe will not collect additional categories of personal information or use the personal information we collect for materially different, unrelated, or incompatible purposes without providing you notice.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Companies Providing Services to Porch Group Media\n\nWe share information with third-party vendors, consultants, and other service providers that are providing business services to Porch Group Media. For instance, we may share information with a third-party service provider that hosts the Properties, processes payments, provides customer service, sends out emails, serves ads on the Properties or on a third-party platform, or monitors or analyzes data. Such companies will have access to personal information only as necessary to carry out their work and are prohibited from using it for any other purpose.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Companies with Whom a Person Has an Existing Relationship\n\nIf a person is already a customer of or otherwise has a direct relationship with a business partner of Porch Group Media or a Porch Group Company (an “Existing Relationship Company”), we or the Porch Group Company may disclose certain information about that person to that Existing Relationship Company. If that person is a match to a customer on the Existing Relationship Company customer list, we may provide the Existing Relationship Company with information such as the groups or segments he or she belongs to (such as mover or homeowner) and demographic information about the person and his or her home (such as estimated household income and square footage), so that the Existing Relationship Company can provide him or her with more relevant advertising, products and services. We will not give the Existing Relationship Company any contact information, unique personal identifiers, or unique financial information unless for another purpose permitted in this Privacy Policy. However, the Existing Relationship Company may already have some or all of that information (because of its existing relationship with the person) and they will be able to link the person with the other information about him or her that we provide to them.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Shared / Disclosed</span>
+                    </div>
+                    <div class="text-content">Compliance with Laws and Policies; Protection of Rights\n\nWe may disclose personal information if we believe disclosure is necessary to comply with any applicable law, regulation, or legal process, to cooperate with government or law enforcement, or to avoid legal liability; to resolve complaints or disputes; to investigate and resolve technical issues, security incidents, fraud, abuse, and illegal activities; if we believe a user’s actions are inconsistent with the spirit or language of our user agreements or policies; or to protect the rights, reputation, safety and property of Porch Group Media or others.\n\nStrategic Transactions\n\nWe may disclose personal information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business or in a bankruptcy, liquidation, dissolution or similar transaction. In the event that we or all of our assets are acquired in such a transaction, our collected information would be one of the transferred assets.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Categories of Personal Information Disclosed\n\nIn the last 12 months, Porch Group Media has disclosed the following categories of personal information for a business purpose to the following categories of third parties:\n\nCategory of Information	Category of Third Parties\nIdentifiers	\nClients\nCompanies providing business services to us\nPorch Group Companies\nPersonal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))	\nClients\nCompanies providing business services to us\nPorch Group Companies\nProtected classification characteristics under California or federal law	\nClients\nCompanies providing business services to us\nPorch Group Companies\nCommercial Information	\nClients\nCompanies providing business services to us\nPorch Group Companies\nInternet or other similar network activity	\nAdvertising networks\nCompanies providing business services to us\nGeolocation data	\nClients\nAudio, electronic, visual, thermal, olfactory, or similar information	\nNone\nProfessional or employment-related information	\nClients\nEducation Information	\nNone (except as included in other categories)\nBiometric Information	\nNone\nInferences drawn from other personal information	\nClients\nPorch Group Companies\n\n</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Categories of Personal Information Sold</span>
+                    </div>
+                    <div class="text-content">Category of Information: Identifiers ||| Category of Third Parties: Clients Companies providing business services to us Porch Group Companies\n\nCategory of Information: Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)) ||| Category of Third Parties: Clients Companies providing business services to us Porch Group Companies\n\nCategory of Information: Protected classification characteristics under California or federal law ||| Category of Third Parties: Clients Companies providing business services to us Porch Group Companies\n\nCategory of Information: Commercial Information ||| Category of Third Parties: Clients Companies providing business services to us Porch Group Companies\n\nCategory of Information: Internet or other similar network activity ||| Category of Third Parties: Advertising networks Companies providing business services to us\n\nCategory of Information: Geolocation data ||| Category of Third Parties: Clients\n\nCategory of Information: Audio, electronic, visual, thermal, olfactory, or similar information ||| Category of Third Parties: None\n\nCategory of Information: Professional or employment-related information ||| Category of Third Parties: Clients\n\nCategory of Information: Education Information ||| Category of Third Parties: None (except as included in other categories)\n\nCategory of Information: Biometric Information ||| Category of Third Parties: None\n\nCategory of Information: Inferences drawn from other personal information ||| Category of Third Parties: Clients Porch Group Companies</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Correct Information</span>
+                    </div>
+                    <div class="text-content">You may access, update and correct information in an online account, or update communications preferences, at any time by logging into the online account.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Description of Right to Know PI Collected</span>
+                    </div>
+                    <div class="text-content">You may access, update and correct information in an online account, or update communications preferences, at any time by logging into the online account.</div>
+                </div>
+                
+
+                <div class="card" style="border-left: 5px solid #ffeeba">
+                    <div>
+                        <span class="badge missed">MISSED</span>
+                        <span class="label-tag">Methods to exercise rights</span>
+                    </div>
+                    <div class="text-content">If you wish to delete an online account, please email us at privacy@porchgroupmedia.com.</div>
+                </div>
+                
+</div>
+</div>
+</body></html>
