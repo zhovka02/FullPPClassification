@@ -12,12 +12,12 @@ class HTMLVisualizer:
             .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
 
             /* Status Colors */
-            .strict { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+            .strict { background-color: #e2efd9; color: #548235; border: 1px solid #c5e0b3; } /* Updated to match #70ad47 */
             .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
-            .ai-match { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
-            .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-            .missed { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-            .judge-badge { background-color: #6f42c1; color: white; border: 1px solid #59359a; }
+            .ai-match { background-color: #ddebf7; color: #2e5597; border: 1px solid #bdd7ee; } /* Matching blue */
+            .wrong { background-color: #fce4d6; color: #c55a11; border: 1px solid #f8cbad; } /* Matching orange */
+            .missed { background-color: #fff2cc; color: #bf8f00; border: 1px solid #ffe599; } /* Matching yellow */
+            .judge-badge { background-color: #70ad47; color: white; border: 1px solid #548235; } /* Updated to main color */
 
             .container { display: flex; gap: 20px; }
             .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
@@ -32,9 +32,9 @@ class HTMLVisualizer:
             .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
             .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
 
-            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; }
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; border-left: 5px solid #70ad47; } /* Accent border */
             .stat-item { text-align: center; }
-            .stat-value { font-size: 1.5em; font-weight: bold; color: #007bff; }
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #70ad47; } /* Updated to main color */
             .stat-label { font-size: 0.9em; color: #666; }
         </style>
         """
@@ -78,8 +78,8 @@ class HTMLVisualizer:
             <div class="stat-item" style="border-left: 1px solid #eee; padding-left: 20px;">
                 <div class="stat-value">{tp_visual_count}</div><div class="stat-label">Correct Preds</div>
             </div>
-            <div class="stat-item"><div class="stat-value">{fp_visual_count}</div><div class="stat-label">Wrong</div></div>
-            <div class="stat-item"><div class="stat-value">{fn_visual_count}</div><div class="stat-label">Missed GT</div></div>
+            <div class="stat-item"><div class="stat-value" style="color: #ed7d31;">{fp_visual_count}</div><div class="stat-label">Wrong</div></div>
+            <div class="stat-item"><div class="stat-value" style="color: #ffc000;">{fn_visual_count}</div><div class="stat-label">Missed GT</div></div>
         </div>
         """)
 
@@ -154,7 +154,7 @@ class HTMLVisualizer:
                 text = gt.get('text') or gt.get('span') or ''
 
                 content.append(f"""
-                <div class="card" style="border-left: 5px solid #ffeeba">
+                <div class="card" style="border-left: 5px solid #ffc000">
                     <div>
                         <span class="badge missed">MISSED</span>
                         <span class="label-tag">{html.escape(label)}</span>
@@ -174,10 +174,10 @@ class HTMLVisualizer:
 
     def _get_color(self, css_class):
         colors = {
-            "strict": "#28a745",
-            "substring": "#6c757d",
-            "ai-match": "#007bff",
-            "wrong": "#dc3545",
-            "missed": "#ffc107"
+            "strict": "#70ad47", # Main green
+            "substring": "#a9d18e", # Lighter green
+            "ai-match": "#4472c4", # Blue
+            "wrong": "#ed7d31", # Orange
+            "missed": "#ffc000" # Yellow
         }
         return colors.get(css_class, "#ccc")
