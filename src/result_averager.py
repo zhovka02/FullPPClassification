@@ -14,8 +14,13 @@ except ImportError:
 def generate_average_report(input_csv="benchmark_full_results.csv", output_html="benchmark_average_report.html",
                             output_img_dir="../plots"):
     """
-    Reads benchmark results, filters out invalid rows (all stats 0.0),
-    averages metrics per model, generates an HTML report, and outputs PNGs for LaTeX.
+    Reads benchmark results, filters out invalid rows, averages metrics per model,
+    generates an HTML report, and outputs PNGs for LaTeX.
+
+    Args:
+        input_csv (str): Path to the input CSV file containing benchmark results.
+        output_html (str): Path to save the generated HTML report.
+        output_img_dir (str): Directory to save the generated PNG plots.
     """
     if not os.path.exists(input_csv):
         print(f"Error: {input_csv} not found.")
@@ -23,7 +28,6 @@ def generate_average_report(input_csv="benchmark_full_results.csv", output_html=
 
     df = pd.read_csv(input_csv)
 
-    # --- Data Cleaning ---
     df['is_failed'] = (
             (df['f1'] == 0.0) &
             (df['precision'] == 0.0) &
@@ -50,28 +54,21 @@ def generate_average_report(input_csv="benchmark_full_results.csv", output_html=
         print("Error: No data left after filtering.")
         return
 
-    # --- Aggregation ---
     metrics = ['precision', 'recall', 'f1', 'ai_precision', 'ai_recall', 'ai_f1', 'duration_sec']
     leaderboard = clean_df.groupby('model')[metrics].mean().reset_index()
 
-    # Sort by AI F1
     leaderboard = leaderboard.sort_values('ai_f1', ascending=False)
 
-    # OUTPUT WHOLE METRICS TO CONSOLE
     print("\n--- Leaderboard (Averaged - Full Metrics) ---")
     print(leaderboard.to_string(index=False))
     print("-" * 50)
 
-    # --- Colors Definition ---
-    # Main color: #70ad47 (Green)
     main_color = '#70ad47'
-    # Complementary/matching colors
-    main_color_light = '#a9d18e' # Lighter green
-    secondary_color = '#70ad47' # Blue
-    tertiary_color = '#ed7d31'  # Yellow
-    quaternary_color = '#ed7d31' # Orange
+    main_color_light = '#a9d18e'
+    secondary_color = '#70ad47'
+    tertiary_color = '#ed7d31'
+    quaternary_color = '#ed7d31'
 
-    # --- 1. Combined HTML Visualization (Original) ---
     fig = make_subplots(
         rows=2, cols=2,
         subplot_titles=("AI F1 vs Strict F1", "AI Precision vs Recall", "Duration (sec)", "Detailed Metrics Table"),
@@ -79,25 +76,21 @@ def generate_average_report(input_csv="benchmark_full_results.csv", output_html=
                [{"type": "xy"}, {"type": "table"}]]
     )
 
-    # AI F1 vs Strict F1
     fig.add_trace(go.Bar(x=leaderboard['model'], y=leaderboard['ai_f1'], name='AI F1', marker_color=main_color,
                          text=leaderboard['ai_f1'].round(3), textposition='auto'), row=1, col=1)
     fig.add_trace(go.Bar(x=leaderboard['model'], y=leaderboard['f1'], name='Strict F1', marker_color=main_color_light,
                          text=leaderboard['f1'].round(3), textposition='auto'), row=1, col=1)
 
-    # AI Precision vs Recall
     fig.add_trace(
         go.Bar(x=leaderboard['model'], y=leaderboard['ai_precision'], name='AI Precision', marker_color=secondary_color),
         row=1, col=2)
     fig.add_trace(go.Bar(x=leaderboard['model'], y=leaderboard['ai_recall'], name='AI Recall', marker_color=tertiary_color),
                   row=1, col=2)
 
-    # Duration
     fig.add_trace(
         go.Bar(x=leaderboard['model'], y=leaderboard['duration_sec'], name='Avg Duration (s)', marker_color=quaternary_color,
                text=leaderboard['duration_sec'].round(1), textposition='auto'), row=2, col=1)
 
-    # Table
     display_df = leaderboard.round(3)
     fig.add_trace(go.Table(
         header=dict(values=list(display_df.columns), fill_color=main_color, font=dict(color='white'), align='left'),
@@ -109,11 +102,9 @@ def generate_average_report(input_csv="benchmark_full_results.csv", output_html=
     fig.write_html(output_html)
     print(f"\nHTML Report generated: {os.path.abspath(output_html)}")
 
-    # --- 2. Individual PNG Visualization for LaTeX ---
     os.makedirs(output_img_dir, exist_ok=True)
 
     try:
-        # Plot A: F1 Comparison
         fig_f1 = go.Figure(data=[
             go.Bar(name='AI F1', x=leaderboard['model'], y=leaderboard['ai_f1'], marker_color=main_color),
             go.Bar(name='Strict F1', x=leaderboard['model'], y=leaderboard['f1'], marker_color=main_color_light)
@@ -123,7 +114,6 @@ def generate_average_report(input_csv="benchmark_full_results.csv", output_html=
         fig_f1.write_image(f1_path, width=800, height=500, scale=2)
         print(f"Exported PNG: {f1_path}")
 
-        # Plot B: Precision vs Recall
         fig_pr = go.Figure(data=[
             go.Bar(name='AI Precision', x=leaderboard['model'], y=leaderboard['ai_precision'],
                    marker_color=secondary_color),
@@ -134,7 +124,6 @@ def generate_average_report(input_csv="benchmark_full_results.csv", output_html=
         fig_pr.write_image(pr_path, width=800, height=500, scale=2)
         print(f"Exported PNG: {pr_path}")
 
-        # Plot C: Duration
         fig_dur = go.Figure(data=[
             go.Bar(name='Avg Duration (s)', x=leaderboard['model'], y=leaderboard['duration_sec'],
                    marker_color=quaternary_color)

@@ -5,10 +5,26 @@ from .utils import parse_llm_json
 
 
 class PrivacyPolicyAnnotator:
+    """
+    Class responsible for extracting privacy policy provisions from text.
+    Uses an LLMClient to classify and extract information based on predefined legal categories.
+    """
     def __init__(self, model_name: str = "openai:gpt-4o"):
+        """
+        Initializes the PrivacyPolicyAnnotator with a specific model.
+
+        Args:
+            model_name (str): The name of the LLM model to use for annotation.
+        """
         self.client = LLMClient(model=model_name)
 
     def build_system_prompt(self) -> str:
+        """
+        Constructs the system prompt containing legal taxonomy, instructions, and expected output format.
+
+        Returns:
+            str: The fully constructed system prompt.
+        """
         prompt = (
             "You are a Forensic Legal Auditor. Your goal is to extract privacy policy provisions "
             "that match specific legal categories exactly.\n\n"
@@ -41,6 +57,16 @@ class PrivacyPolicyAnnotator:
         return prompt
 
     def annotate(self, full_policy_text: str) -> List[Dict[str, str]]:
+        """
+        Annotates the given privacy policy text by extracting relevant sections.
+
+        Args:
+            full_policy_text (str): The full text of the privacy policy to analyze.
+
+        Returns:
+            List[Dict[str, str]]: A list of dictionaries, where each dictionary represents an extracted provision
+                                  with keys like 'label', 'text', and 'reasoning'.
+        """
         system_message = self.build_system_prompt()
 
         user_message = (

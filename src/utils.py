@@ -6,8 +6,16 @@ from typing import List, Dict, Any
 
 
 def parse_llm_json(response_text: str) -> List[Dict[str, Any]]:
+    """
+    Parses a JSON string from an LLM response, handling markdown formatting if present.
+
+    Args:
+        response_text (str): The raw text response from the LLM.
+
+    Returns:
+        List[Dict[str, Any]]: A list of parsed JSON objects. Returns an empty list if parsing fails.
+    """
     try:
-        # Improved regex to catch JSON between markdown blocks or raw
         match = re.search(r"```json\s*(.*?)```", response_text, re.DOTALL)
         if match:
             cleaned_text = match.group(1).strip()
@@ -27,6 +35,17 @@ def parse_llm_json(response_text: str) -> List[Dict[str, Any]]:
 
 
 def load_c3pa_dataset(root_path: str) -> List[Dict[str, Any]]:
+    """
+    Loads the C3PA dataset from the specified root directory.
+    Filters annotations to keep only the most complete annotator per document.
+
+    Args:
+        root_path (str): The path to the root directory containing the C3PA dataset.
+
+    Returns:
+        List[Dict[str, Any]]: A list of dictionaries representing the dataset. Each dictionary
+                              contains 'id', 'text', and 'ground_truth' for a document.
+    """
     dataset = []
     subsets = ['DB', 'WS']
 
@@ -59,10 +78,8 @@ def load_c3pa_dataset(root_path: str) -> List[Dict[str, Any]]:
                 label_col = next((c for c in df.columns if 'category' in c or 'label' in c), None)
 
                 if annotator_col and text_col:
-
                     df['text_len'] = df[text_col].astype(str).str.len()
                     completeness = df.groupby(annotator_col)['text_len'].sum()
-
                     best_annotator = completeness.idxmax()
                     df = df[df[annotator_col] == best_annotator]
 

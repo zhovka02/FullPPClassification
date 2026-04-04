@@ -14,21 +14,52 @@ class CustomDeepEvalLLM(DeepEvalBaseLLM):
     """
 
     def __init__(self, client: LLMClient):
+        """
+        Initializes the custom DeepEval LLM wrapper with a given LLMClient.
+
+        Args:
+            client (LLMClient): The LLM client to use for generating completions.
+        """
         self.client = client
 
     def load_model(self):
+        """
+        Returns the underlying LLMClient instance.
+        """
         return self.client
 
     def generate(self, prompt: str) -> str:
-        # DeepEval passes a raw string prompt
+        """
+        Generates a completion from the underlying model using the given prompt.
+
+        Args:
+            prompt (str): The prompt to send to the model.
+
+        Returns:
+            str: The generated response.
+        """
         messages = [{"role": "user", "content": prompt}]
         return self.client.get_completion(messages)
 
     async def a_generate(self, prompt: str) -> str:
-        # For async calls, we just use the sync version for now
+        """
+        Asynchronously generates a completion from the underlying model.
+
+        Args:
+            prompt (str): The prompt to send to the model.
+
+        Returns:
+            str: The generated response.
+        """
         return self.generate(prompt)
 
     def get_model_name(self):
+        """
+        Retrieves the name of the underlying model.
+
+        Returns:
+            str: The model name.
+        """
         return self.client.model
 
 
@@ -36,26 +67,36 @@ def normalize_text(text: str) -> str:
     """
     Normalizes text for comparison: lowercases, removes punctuation, reduces whitespace.
     Returns a clean string.
+
+    Args:
+        text (str): The input text to normalize.
+
+    Returns:
+        str: The normalized text.
     """
     if not text: return ""
-    # Remove punctuation
     translator = str.maketrans(string.punctuation, ' ' * len(string.punctuation))
     text = text.translate(translator).lower()
-    # Remove extra whitespace
     return " ".join(text.split())
 
 
 def check_containment(pred_text: str, gt_text: str) -> float:
     """
     Returns the percentage of GT tokens found in Pred text (Recall).
+
+    Args:
+        pred_text (str): The predicted text.
+        gt_text (str): The ground truth text.
+
+    Returns:
+        float: The containment score between 0.0 and 1.0.
     """
     p_norm = normalize_text(pred_text)
     g_norm = normalize_text(gt_text)
 
     if not g_norm: return 0.0
-    if g_norm in p_norm: return 1.0  # Exact substring match
+    if g_norm in p_norm: return 1.0
 
-    # Token-based check for fuzzy containment
     p_tokens = set(p_norm.split())
     g_tokens = g_norm.split()
 
@@ -66,32 +107,67 @@ def check_containment(pred_text: str, gt_text: str) -> float:
 
 
 class AIEvaluator:
+    """
+    Evaluator class for assessing AI model predictions against ground truth labels.
+    """
     def __init__(self, client: LLMClient):
+        """
+        Initializes the AIEvaluator.
+
+        Args:
+            client (LLMClient): The client used for AI-based evaluation.
+        """
         self.client = client
         self._cache = {}
         self.deepeval_model = CustomDeepEvalLLM(client)
 
     def _get_val(self, item, keys):
+        """
+        Safely retrieves a value from a dictionary using a list of possible keys.
+
+        Args:
+            item (dict or any): The item from which to retrieve the value.
+            keys (list): The list of keys to try.
+
+        Returns:
+            str: The found value, or a string representation of the item if not a dict.
+        """
         if not isinstance(item, dict): return str(item)
         for k in keys:
             if k in item: return item[k]
         return ""
 
     def _are_labels_compatible(self, label1: str, label2: str) -> bool:
+        """
+        Checks if two labels are compatible based on string matching.
+
+        Args:
+            label1 (str): The first label.
+            label2 (str): The second label.
+
+        Returns:
+            bool: True if the labels are compatible, False otherwise.
+        """
         l1 = label1.lower().strip()
         l2 = label2.lower().strip()
         if l1 == l2: return True
-        # Loose matching for labels like "Data Collected" vs "Personal Information Collected"
         if len(l1) > 5 and len(l2) > 5:
             if l1 in l2 or l2 in l1: return True
         return False
 
     def evaluate_batch(self, true_labels: list, pred_labels: list) -> tuple:
         """
+        Evaluates a batch of predictions against ground truth labels.
+
+        Args:
+            true_labels (list): The ground truth labels.
+            pred_labels (list): The predicted labels.
+
         Returns:
-            metrics (dict): {'precision': 0.8, ...}
-            decision_map (list): List of dicts with detailed status for every prediction.
-            missed_gts (list): List of GT items that were not matched.
+            tuple: A tuple containing:
+                - metrics (dict): Precision, recall, and f1 scores.
+                - decision_map (list): Detailed status for every prediction.
+                - missed_gts (list): Ground truth items that were not matched.
         """
         if not pred_labels and not true_labels:
             return {"precision": 1.0, "recall": 1.0, "f1": 1.0}, [], []
@@ -102,12 +178,10 @@ class AIEvaluator:
         found_gt_indices = set()
         tp_preds = 0
 
-        # --- EVALUATION LOOP ---
         for pred in tqdm(pred_labels, desc="Evaluating", unit="pred", leave=False):
             p_text = self._get_val(pred, ['text', 'span', 'segment'])
             p_label = self._get_val(pred, ['category', 'label', 'type'])
 
-            # Find all compatible GTs (Label Match)
             potential_gts = []
             for i, gt in enumerate(true_labels):
                 gt_label = self._get_val(gt, ['category', 'label', 'type'])
@@ -118,23 +192,15 @@ class AIEvaluator:
             best_match_score = 0.0
             closest_gt_text = None
 
-            # Temp storage to capture reasoning if needed
             ai_reasoning_map = {}
-            ai_rejection_reasons = []  # Store reasons why AI rejected matches
+            ai_rejection_reasons = []
 
-            # CHECK AGAINST ALL CANDIDATES
             for i, gt in potential_gts:
                 gt_text = self._get_val(gt, ['text', 'span', 'segment'])
 
-                # Check 1: Strict Containment (Recall focus)
-                # Does the Prediction contain the GT? (Fixes "Big Block" issue)
                 recall_score = check_containment(p_text, gt_text)
-
-                # Check 2: Reverse Containment (Precision focus)
-                # Is the Prediction a substring of the GT?
                 precision_score = check_containment(gt_text, p_text)
 
-                # Track closest match for reporting (debugging)
                 avg_score = (recall_score + precision_score) / 2
                 if avg_score > best_match_score:
                     best_match_score = avg_score
@@ -142,20 +208,16 @@ class AIEvaluator:
 
                 match_type = None
 
-                # A. Direct Matches (Deterministic)
-                if recall_score >= 0.9:  # GT is fully inside Prediction
+                if recall_score >= 0.9:
                     match_type = "CORRECT_CONTAINMENT"
-                elif precision_score >= 0.9:  # Prediction is fully inside GT
+                elif precision_score >= 0.9:
                     match_type = "CORRECT_SUBSTRING"
-
-                # B. AI Judge (Only if not a direct match, but close)
                 elif recall_score > 0.4 or precision_score > 0.4:
                     is_ai_match, _, reasoning = self._geval_judge(p_text, gt_text, p_label)
                     if is_ai_match:
                         match_type = "CORRECT_AI"
                         ai_reasoning_map[i] = reasoning
                     else:
-                        # Store rejection reasoning for wrong predictions
                         ai_rejection_reasons.append({
                             "gt_text": gt_text,
                             "reasoning": reasoning
@@ -164,19 +226,16 @@ class AIEvaluator:
                 if match_type:
                     matched_gts_for_this_pred.append((i, gt, match_type))
 
-            # --- DECISION LOGIC ---
             if matched_gts_for_this_pred:
                 tp_preds += 1
 
                 primary_match_text = ""
-                primary_status = "CORRECT_AI"  # Default weak status
+                primary_status = "CORRECT_AI"
                 is_deterministic = False
 
-                # Register ALL matched GTs as found (One-to-Many support)
                 for idx, gt, m_type in matched_gts_for_this_pred:
                     found_gt_indices.add(idx)
 
-                    # Upgrade status if we find a better one
                     if "CONTAINMENT" in m_type:
                         primary_status = m_type
                         is_deterministic = True
@@ -190,11 +249,8 @@ class AIEvaluator:
                     if not primary_match_text:
                         primary_match_text = self._get_val(gt, ['text', 'span', 'segment'])
 
-                # FIX: Only include reasoning if the match relies SOLELY on AI
-                # This ensures the badge is suppressed for deterministic matches
                 final_reasoning = None
                 if not is_deterministic:
-                    # Just grab the reasoning from the first matched GT for display
                     first_idx = matched_gts_for_this_pred[0][0]
                     final_reasoning = ai_reasoning_map.get(first_idx, "")
 
@@ -203,14 +259,12 @@ class AIEvaluator:
                     "label": p_label,
                     "status": primary_status,
                     "match_with": primary_match_text,
-                    "reasoning": final_reasoning,  # Will be None if deterministic match found
+                    "reasoning": final_reasoning,
                     "matched_count": len(matched_gts_for_this_pred)
                 })
             else:
-                # Build reasoning from AI rejections if any
                 rejection_reasoning = None
                 if ai_rejection_reasons:
-                    # Use the first rejection reason (or combine if multiple)
                     rejection_reasoning = ai_rejection_reasons[0]["reasoning"]
 
                 decision_map.append({
@@ -219,10 +273,9 @@ class AIEvaluator:
                     "status": "WRONG",
                     "closest_match": closest_gt_text if best_match_score > 0.1 else None,
                     "closest_score": round(best_match_score, 2),
-                    "reasoning": rejection_reasoning  # AI reasoning for why it was rejected
+                    "reasoning": rejection_reasoning
                 })
 
-        # --- METRICS ---
         precision = tp_preds / len(pred_labels) if pred_labels else 0.0
         recall = len(found_gt_indices) / len(true_labels) if true_labels else 0.0
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
@@ -240,7 +293,14 @@ class AIEvaluator:
     def _geval_judge(self, pred_text: str, gt_text: str, label: str) -> tuple:
         """
         Uses DeepEval's GEval to determine if pred_text is equivalent to gt_text.
-        Returns: (is_match: bool, score: float, reasoning: str)
+
+        Args:
+            pred_text (str): The predicted text.
+            gt_text (str): The ground truth text.
+            label (str): The label associated with the text.
+
+        Returns:
+            tuple: (is_match: bool, score: float, reasoning: str)
         """
         key = (pred_text, gt_text, label)
         if key in self._cache: return self._cache[key]
@@ -251,7 +311,6 @@ class AIEvaluator:
         )
 
         try:
-            # Revised criteria to support one-to-many and containment
             metric = GEval(
                 name="Legal Extraction Equivalence",
                 criteria=(

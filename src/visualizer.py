@@ -3,7 +3,14 @@ import html
 
 
 class HTMLVisualizer:
+    """
+    Class responsible for generating HTML reports visualizing the evaluation results
+    of privacy policy annotations.
+    """
     def __init__(self):
+        """
+        Initializes the HTMLVisualizer with default CSS styling.
+        """
         self.css = """
         <style>
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f9f9f9; }
@@ -11,13 +18,12 @@ class HTMLVisualizer:
             h2 { color: #555; margin-top: 30px; }
             .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px; font-size: 0.85em; display: inline-block; min-width: 80px; text-align: center; }
 
-            /* Status Colors */
-            .strict { background-color: #e2efd9; color: #548235; border: 1px solid #c5e0b3; } /* Updated to match #70ad47 */
+            .strict { background-color: #e2efd9; color: #548235; border: 1px solid #c5e0b3; }
             .substring { background-color: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
-            .ai-match { background-color: #ddebf7; color: #2e5597; border: 1px solid #bdd7ee; } /* Matching blue */
-            .wrong { background-color: #fce4d6; color: #c55a11; border: 1px solid #f8cbad; } /* Matching orange */
-            .missed { background-color: #fff2cc; color: #bf8f00; border: 1px solid #ffe599; } /* Matching yellow */
-            .judge-badge { background-color: #70ad47; color: white; border: 1px solid #548235; } /* Updated to main color */
+            .ai-match { background-color: #ddebf7; color: #2e5597; border: 1px solid #bdd7ee; }
+            .wrong { background-color: #fce4d6; color: #c55a11; border: 1px solid #f8cbad; }
+            .missed { background-color: #fff2cc; color: #bf8f00; border: 1px solid #ffe599; }
+            .judge-badge { background-color: #70ad47; color: white; border: 1px solid #548235; }
 
             .container { display: flex; gap: 20px; }
             .column { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
@@ -32,9 +38,9 @@ class HTMLVisualizer:
             .reasoning { margin-top: 5px; font-style: italic; color: #555; background: #f8f9fa; padding: 5px; border-radius: 4px; }
             .closest-match { margin-top: 5px; font-size: 0.85em; color: #999; border-top: 1px dotted #eee; padding-top: 5px; }
 
-            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; border-left: 5px solid #70ad47; } /* Accent border */
+            .stats-box { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; gap: 20px; border-left: 5px solid #70ad47; }
             .stat-item { text-align: center; }
-            .stat-value { font-size: 1.5em; font-weight: bold; color: #70ad47; } /* Updated to main color */
+            .stat-value { font-size: 1.5em; font-weight: bold; color: #70ad47; }
             .stat-label { font-size: 0.9em; color: #666; }
         </style>
         """
@@ -42,25 +48,29 @@ class HTMLVisualizer:
     def generate_report(self, policy_id, full_text, human_anns, llm_anns, filename, ai_decisions=None, missed_gts=None,
                         metrics=None):
         """
-        metrics: Optional dict containing pre-calculated {'precision', 'recall', 'f1'} from AIEvaluator.
-        """
+        Generates an HTML report visualizing the evaluation results.
 
-        # 1. Calculate visual counts (Cards displayed)
+        Args:
+            policy_id (str): The identifier of the privacy policy.
+            full_text (str): The full text of the privacy policy.
+            human_anns (list): The list of human annotations.
+            llm_anns (list): The list of LLM annotations.
+            filename (str): The path to save the generated HTML report.
+            ai_decisions (list, optional): Detailed AI decisions for predictions.
+            missed_gts (list, optional): Ground truth items that were not matched.
+            metrics (dict, optional): Dictionary containing pre-calculated metrics (precision, recall, f1).
+        """
         total_preds = len(ai_decisions) if ai_decisions else len(llm_anns)
 
-        # Count Correct Predictions (for visual validation)
         tp_visual_count = sum(1 for d in (ai_decisions or []) if "CORRECT" in d['status'])
         fp_visual_count = total_preds - tp_visual_count
         fn_visual_count = len(missed_gts) if missed_gts is not None else 0
 
-        # 2. Determine Stats to Display
         if metrics:
-            # Use the correct, de-duplicated stats from AIEvaluator
             precision = metrics.get('precision', 0.0)
             recall = metrics.get('recall', 0.0)
             f1 = metrics.get('f1', 0.0)
         else:
-            # Fallback (Legacy logic - prone to Recall > 1 error)
             total_gt = len(human_anns)
             precision = tp_visual_count / total_preds if total_preds > 0 else 0
             recall = tp_visual_count / total_gt if total_gt > 0 else 0
@@ -69,7 +79,6 @@ class HTMLVisualizer:
         content = [f"<!DOCTYPE html><html><head>{self.css}</head><body>"]
         content.append(f"<h1>Policy Report: {policy_id}</h1>")
 
-        # Stats Header
         content.append(f"""
         <div class="stats-box">
             <div class="stat-item"><div class="stat-value">{precision:.2f}</div><div class="stat-label">Precision</div></div>
@@ -85,14 +94,12 @@ class HTMLVisualizer:
 
         content.append('<div class="container">')
 
-        # --- COLUMN 1: LLM PREDICTIONS ---
         content.append('<div class="column"><h2>LLM Predictions (What AI Found)</h2>')
 
         if ai_decisions:
             for item in ai_decisions:
                 status = item.get('status', 'WRONG')
 
-                # Logic to determine badge color/text
                 if "CORRECT_STRICT" in status:
                     badge_class = "strict"
                     badge_text = "EXACT"
@@ -109,7 +116,6 @@ class HTMLVisualizer:
                     badge_class = "wrong"
                     badge_text = "WRONG"
 
-                # Check specifically if reasoning exists to show the badge
                 judge_badge = ""
                 if item.get('reasoning'):
                     judge_badge = '<span class="badge judge-badge">LLM-Judge</span>'
@@ -120,7 +126,6 @@ class HTMLVisualizer:
 
                 geval_html = ""
                 if item.get("reasoning"):
-                    # Only show reasoning if it's an AI match
                     geval_html = f"<div class='reasoning'><b>DeepEval:</b> {html.escape(item['reasoning'])}</div>"
 
                 closest_html = ""
@@ -143,9 +148,8 @@ class HTMLVisualizer:
         else:
             content.append("<p>No prediction data available.</p>")
 
-        content.append('</div>')  # End Column 1
+        content.append('</div>')
 
-        # --- COLUMN 2: MISSED GROUND TRUTH ---
         content.append('<div class="column"><h2>Missed Ground Truth (What AI Missed)</h2>')
 
         if missed_gts:
@@ -165,19 +169,28 @@ class HTMLVisualizer:
         elif not missed_gts:
             content.append("<p>All ground truth items were successfully found!</p>")
 
-        content.append('</div>')  # End Column 2
-        content.append('</div>')  # End Container
+        content.append('</div>')
+        content.append('</div>')
         content.append("</body></html>")
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write("\n".join(content))
 
     def _get_color(self, css_class):
+        """
+        Returns the hex color code corresponding to a given CSS class.
+
+        Args:
+            css_class (str): The CSS class name.
+
+        Returns:
+            str: The corresponding hex color code.
+        """
         colors = {
-            "strict": "#70ad47", # Main green
-            "substring": "#a9d18e", # Lighter green
-            "ai-match": "#4472c4", # Blue
-            "wrong": "#ed7d31", # Orange
-            "missed": "#ffc000" # Yellow
+            "strict": "#70ad47",
+            "substring": "#a9d18e",
+            "ai-match": "#4472c4",
+            "wrong": "#ed7d31",
+            "missed": "#ffc000"
         }
         return colors.get(css_class, "#ccc")

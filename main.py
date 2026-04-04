@@ -6,7 +6,6 @@ import time
 import os
 from dotenv import load_dotenv
 
-# Local imports
 from src.annotator import PrivacyPolicyAnnotator
 from src.evaluator import Evaluator
 from src.ai_evaluator import AIEvaluator
@@ -14,11 +13,9 @@ from src.llm_client import LLMClient
 from src.visualizer import HTMLVisualizer
 from src.utils import load_c3pa_dataset
 
-# --- CONFIGURATION ---
 DATASET_PATH = "./data"
 REPORTS_DIR = "./reports"
 
-# 1. Models to Benchmark
 MODELS_TO_TEST = [
     "openrouter:x-ai/grok-4.1-fast",
     "gemini:gemini-2.5-flash",
@@ -26,51 +23,27 @@ MODELS_TO_TEST = [
     "openrouter:meta-llama/llama-4-maverick",
     "gemini:gemini-3-flash-preview"]
 
-# 2. Judge Configuration
 JUDGE_MODEL = "openai:gpt-4o-mini"
 
-# 3. Policies to ignore (by ID)
 IGNORED_POLICIES = [
-    "DB_201",
-    "DB_191",
-    "DB_190",
-    "DB_154",
-    "DB_70",
-    "DB_17",
-    "DB_73",
-    "DB_60",
-    "DB_102",
-    "DB_177",
-    "DB_125",
-    "DB_150",
-    "DB_187",
-    "DB_199",
-    "DB_25",
-    "DB_224",
-    "DB_74",
-    "DB_122",
-    "DB_197",
-    "DB_77",
-    "DB_155",
-    "DB_123",
-    "DB_209",
-    "DB_36",
-    "DB_32",
-    "DB_43",
-    "DB_160",
-    "DB_62",
-    "DB_2",
-    "DB_1"
+    "DB_201", "DB_191", "DB_190", "DB_154", "DB_70", "DB_17", "DB_73",
+    "DB_60", "DB_102", "DB_177", "DB_125", "DB_150", "DB_187", "DB_199",
+    "DB_25", "DB_224", "DB_74", "DB_122", "DB_197", "DB_77", "DB_155",
+    "DB_123", "DB_209", "DB_36", "DB_32", "DB_43", "DB_160", "DB_62",
+    "DB_2", "DB_1"
 ]
-
 
 TEST_LIMIT = 55
 GENERATE_REPORTS = True
 
 def main():
+    """
+    Main execution function for the benchmarking pipeline.
+    Loads dataset, initializes evaluators, processes policies across selected models,
+    generates HTML reports, and outputs benchmarking results.
+    """
     load_dotenv()
 
-    # Ensure reports directory exists
     if GENERATE_REPORTS:
         os.makedirs(REPORTS_DIR, exist_ok=True)
 
@@ -78,14 +51,12 @@ def main():
     print(f"Models: {MODELS_TO_TEST}")
     print(f"Judge: {JUDGE_MODEL}")
 
-    # 1. Load Data
     policies = load_c3pa_dataset(DATASET_PATH)
     if not policies:
         print("ERROR: No data found.")
         return
 
-    # 2. Initialize Evaluators
-    strict_evaluator = Evaluator() # Standard F1/Exact Match
+    strict_evaluator = Evaluator()
     visualizer = HTMLVisualizer()
 
     ai_evaluator = None
@@ -99,12 +70,10 @@ def main():
 
     results = []
 
-    # 3. Processing Loop
     for i, pol in enumerate(policies):
         if TEST_LIMIT and i >= TEST_LIMIT:
             break
 
-        # Skip ignored policies
         if pol['id'] in IGNORED_POLICIES:
             print(f"\n[{i + 1}/{len(policies)}] Policy ID: {pol['id']} - IGNORED")
             continue
@@ -120,21 +89,16 @@ def main():
             print(f"   > Testing {model_name}...", end=" ", flush=True)
 
             try:
-                # A. Inference
                 annotator = PrivacyPolicyAnnotator(model_name=model_name)
                 t0 = time.time()
                 llm_preds = annotator.annotate(pol['text'])
                 duration = time.time() - t0
                 print(f"Done ({len(llm_preds)} preds in {duration:.1f}s)")
 
-                # B. Standard Metrics (Reference)
                 strict_metrics = strict_evaluator.compare_annotations(ground_truth, llm_preds)
 
-                # C. AI Judging (Returns Metrics AND Decision Map)
-                # This uses the logic: Filter by Label -> Filter by Overlap -> Ask LLM
                 ai_metrics, ai_decisions, missed_gts = ai_evaluator.evaluate_batch(ground_truth, llm_preds)
 
-                # D. Combine & Save
                 row_data = strict_metrics.copy()
                 row_data.update({
                     "policy_id": pol['id'],
@@ -149,9 +113,7 @@ def main():
                 print(f"     > Strict F1: {strict_metrics['f1']:.2f}")
                 print(f"     > AI Stats : P={ai_metrics['precision']} | R={ai_metrics['recall']} | F1={ai_metrics['f1']}")
 
-                # E. Visualization
                 if GENERATE_REPORTS:
-                    # Sanitize filename
                     safe_name = model_name.replace(":", "_").replace("/", "_")
                     fname = os.path.join(REPORTS_DIR, f"{pol['id']}_{safe_name}.html")
 
@@ -161,7 +123,7 @@ def main():
                         human_anns=ground_truth,
                         llm_anns=llm_preds,
                         filename=fname,
-                        ai_decisions=ai_decisions, # Pass the detailed judge results for coloring
+                        ai_decisions=ai_decisions,
                         missed_gts=missed_gts
                     )
 
@@ -169,11 +131,9 @@ def main():
                 print(f"\n     > FAILED: {e}")
                 results.append({"model": model_name, "error": str(e)})
 
-    # 4. Final Leaderboard
     if results:
         df = pd.DataFrame(results)
 
-        # Save Raw Data
         df.to_csv("benchmark_full_results.csv", index=False)
 
         if "ai_f1" in df.columns:
@@ -181,7 +141,6 @@ def main():
             print("FINAL LEADERBOARD (Sorted by AI F1)")
             print("="*60)
 
-            # Filter out rows with errors (where ai_f1 might be NaN)
             valid_df = df[df["ai_f1"].notna()]
 
             if not valid_df.empty:

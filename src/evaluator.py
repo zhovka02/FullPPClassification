@@ -7,6 +7,12 @@ def clean_tokens(text: str) -> List[str]:
     """
     Splits text into tokens, removes punctuation and stop words.
     Returns a LIST (not set) to preserve frequency for F1 counting.
+
+    Args:
+        text (str): The input text to clean and tokenize.
+
+    Returns:
+        List[str]: A list of cleaned tokens.
     """
     stopwords = {
         "the", "and", "or", "of", "to", "a", "in", "is", "that", "for",
@@ -23,6 +29,13 @@ def clean_tokens(text: str) -> List[str]:
 def compute_token_f1(text_pred: str, text_ref: str) -> float:
     """
     Calculates SQuAD-style Token F1 Score.
+
+    Args:
+        text_pred (str): The predicted text.
+        text_ref (str): The reference (ground truth) text.
+
+    Returns:
+        float: The calculated F1 score.
     """
     pred_toks = clean_tokens(text_pred)
     ref_toks = clean_tokens(text_ref)
@@ -44,14 +57,32 @@ def compute_token_f1(text_pred: str, text_ref: str) -> float:
 
 
 class Evaluator:
+    """
+    Class responsible for evaluating predicted annotations against human annotations.
+    """
     def __init__(self, match_threshold: float = 0.3):
+        """
+        Initializes the Evaluator.
+
+        Args:
+            match_threshold (float): The minimum F1 score required to consider a match a true positive.
+        """
         self.match_threshold = match_threshold
 
     def compare_annotations(self, human_anns: List[Dict], llm_anns: List[Dict]) -> Dict[str, float]:
+        """
+        Compares LLM annotations against human annotations and calculates precision, recall, and F1 score.
+
+        Args:
+            human_anns (List[Dict]): The list of ground truth human annotations.
+            llm_anns (List[Dict]): The list of predicted LLM annotations.
+
+        Returns:
+            Dict[str, float]: A dictionary containing evaluation metrics including precision, recall, and f1.
+        """
         tp = 0
         fp = 0
 
-        # Track which human annotations were matched
         matched_human_indices = set()
 
         for pred in llm_anns:
@@ -68,14 +99,12 @@ class Evaluator:
             best_idx = -1
 
             for idx, hum in candidates:
-                # Use Token F1
                 score = compute_token_f1(text_pred, hum['text'])
                 if score > best_score:
                     best_score = score
                     best_human_text = hum['text']
                     best_idx = idx
 
-            # Store metadata
             pred['_match_score'] = best_score
             pred['_matched_human_text'] = best_human_text
 
@@ -101,5 +130,3 @@ class Evaluator:
             "false_positives": fp,
             "false_negatives": fn
         }
-
-
